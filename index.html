@@ -38,6 +38,17 @@
 
     <!-- Link to the CSS stylesheet -->
     <link rel="stylesheet" href="assets/css/main.css">
+
+    <script>
+      function protectPage() {
+        var password = prompt("Please enter the password:");
+        if (password !== "aulasputnik2025") {
+          alert("Incorrect password!");
+          window.location.href = "about:blank"; // Or redirect to another page
+        }
+      }
+      protectPage();
+    </script>
 </head>
 <body>
     <!-- We'll build this out properly later, but it helps to have some content to style. -->
