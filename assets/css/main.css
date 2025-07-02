@@ -1,0 +1,1549 @@
+/*
+ * Main stylesheet for AulaSputnik
+ */
+
+
+/* --- 1. CSS VARIABLES --- */
+/* We define all our core colors and fonts here in the :root selector.
+ * This makes them globally available and easy to update later.
+ * The palette is inspired by aulasputnik.com.
+*/
+:root {
+    /* Color Palette */
+    --color-primary: #a15df6;      /* The main brand blue for buttons, links, etc. */
+    --color-background: #e2e8ee;  /* A very light gray for the page background. */
+    --color-text: #19325a;        /* A dark, soft black for body text for better readability. */
+    --color-text-alt: #e2e8ee;        /* A dark, soft black for body text for better readability. */
+    --color-text-accent: #e3fe53; /* A dark, soft black for body text for better readability. */
+    --color-heading: #19325a;     /* A slightly darker black for headings to give them emphasis. */
+    --color-heading-alt: #e2e8ee;        /* A dark, soft black for body text for better readability. */
+    --color-heading-accent: #e3fe53; /* A dark, soft black for body text for better readability. */
+    --color-secondary-text: #19325a; /* A muted gray for less important text. */
+    --color-border: #9fb3c8;      /* A light gray for borders and dividers. */
+    --color-white: #FFFFFF;       /* Pure white, for card backgrounds, etc. */
+    --color-btn: #a15df6; /* A very light gray for button backgrounds, providing a subtle contrast. */
+    --color-btn-hover: #9053dd; /* A slightly darker gray for button hover states, enhancing interactivity. */
+    --color-btn-hover-clear: #bd8df8; /* A slightly darker gray for button hover states, enhancing interactivity. */
+    --color-btn-sec: #e3fe53; /* A very light gray for button backgrounds, providing a subtle contrast. */
+    --color-btn-hover-sec: #cce44a; /* A slightly darker gray for button hover states, enhancing interactivity. */
+
+    /* Typography */
+    --font-body: 'Inter', sans-serif;         /* The font for all paragraphs and general text. */
+    --font-heading: 'Urbanist', sans-serif;   /* A distinct, bold font for all headings (h1, h2, etc). */
+}
+
+
+/* --- 2. CSS RESET AND GLOBAL STYLES --- */
+/* These rules create a consistent starting point across all browsers. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* This makes layout math more intuitive. */
+}
+
+html {
+    /* Enables smooth scrolling when a user clicks an anchor link. */
+    scroll-behavior: smooth;
+}
+
+body {
+    /* APLIQUEM LA IMATGE DE FONS A TOTA LA PÀGINA */
+    background-image: url('../images/background.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+
+    /* El color de fons original ara actua com a 'fallback' si la imatge no es carrega. */
+    background-color: var(--color-background);
+
+    /* La resta d'estils es mantenen igual. */
+    font-family: var(--font-body);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+}
+
+/* Apply the heading font to all heading levels. */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-heading);
+}
+
+
+/* --- 3. LANGUAGE SWITCHER --- */
+/* The minimal style needed for the language switcher functionality. */
+.lang-switcher-btn.active {
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary); /* Use our brand color for the underline. */
+    text-underline-offset: 4px; /* Give the underline a bit of space. */
+}
+.lang-switcher-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--color-secondary-text);
+}
+
+
+/* --- HEADER & NAVIGATION STYLES --- */
+
+/* The main header container. It's positioned at the top of the page. */
+.site-header {
+    /* Positioned absolutely so that content below it can appear underneath (for the transparent effect). */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* A high z-index ensures it stays on top of other content. */
+    z-index: 1000;
+}
+
+/* The navigation bar itself. */
+.site-nav {
+    /* We will use padding to control the height of the nav bar. */
+    padding: 30px 0;
+    /* This transition makes the padding and background-color changes smooth when we scroll. */
+    transition: padding 0.3s ease, background-color 0.3s ease;
+}
+
+/* This class will be ADDED BY JAVASCRIPT when the user scrolls down. */
+.site-nav.scrolled {
+    /* Changes the position to fixed, so it sticks to the top of the viewport. */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Sets the background color using one of your variables. */
+    background-color: var(--color-background);
+    /* Reduces the padding to make the nav bar smaller. */
+    padding: 15px 0;
+    /* Adds a subtle shadow to lift it off the page content. */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* The container that centers the nav content. */
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    /* Use flexbox to lay out the logo and menu. */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* The logo container */
+.nav-logo img {
+    /* Sets the height of the logo. The width will adjust automatically. */
+    height: 50px;
+    /* A transition for a smooth size change if we ever need it. */
+    transition: height 0.3s ease;
+}
+/* When the nav is scrolled, we can also make the logo slightly smaller. */
+.site-nav.scrolled .nav-logo img {
+    height: 35px;
+}
+
+/* --- Navigation Menu & Links --- */
+/*.nav-menu {
+    /* By default, the menu items are aligned to the right. 
+}*/
+.nav-list {
+    /* Remove default list bullets. */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* Use flexbox to align all list items horizontally. */
+    display: flex;
+    align-items: center;
+    /* Sets the space between menu items. */
+    gap: 30px;
+}
+.nav-list a {
+    /* Set the text color to white. */
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 400;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.2s ease;
+}
+/* A simple underline effect for standard nav links on hover */
+.nav-list a:not(.nav-button)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+}
+.nav-list a:not(.nav-button):hover::after {
+    width: 100%;
+}
+
+/* --- Navigation Buttons & Language Switcher --- */
+.nav-button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+.nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+/* This removes the underline hover effect from the buttons. */
+.nav-button::after {
+    display: none !important;
+}
+
+/* Primary button style (e.g., "Tallers") */
+a.nav-button {
+    background-color: var(--color-btn);
+    color: var(--color-white) !important;
+    padding: 8px 12px;
+}
+a.nav-button:hover {
+    background-color: var(--color-btn-hover);
+}
+
+/* Secondary button style (e.g., "Contacte") */
+a.nav-button-secondary {
+    background-color: var(--color-btn-sec);
+    color: var(--color-text) !important; /* Dark text on light button */
+    padding: 8px 12px;
+}
+a.nav-button-secondary:hover {
+    background-color: var(--color-btn-hover-sec);
+}
+
+/* --- Subtle Color Pulse Animation for "Tallers" Button --- */
+
+/* We apply the animation directly to the primary navigation button. */
+a.nav-button:not(.nav-button-secondary) {
+    /* The 'animation' property calls our keyframes (defined below).
+       - 'pulse-color' is the animation name.
+       - '4s' is the duration (a slow, 4-second loop).
+       - 'ease-in-out' makes the transition smooth.
+       - 'infinite' makes it repeat forever.
+    */
+    animation: pulse-color 4s ease-in-out infinite;
+}
+
+/* Estil per a l'enllaç de la pàgina activa al menú de navegació. */
+.nav-list a.active-page {
+    color: var(--color-primary); /* El ressaltem amb el color principal. */
+}
+
+/* We define the animation steps for the background color change. */
+@keyframes pulse-color {
+    /* The animation starts and ends at the button's default background color. */
+    0%, 100% {
+        background-color: var(--color-btn);
+    }
+    /* At the middle of the animation (50%), we change to the button's hover color. 
+       This creates the subtle "brighter" effect. */
+    50% {
+        background-color: var(--color-btn-hover-clear);
+    }
+}
+
+/* Language switcher styling */
+.lang-switcher-btn {
+    border: 0.4px solid var(--color-white);
+    background: transparent;
+    color: var(--color-text);
+    padding: 2px 4px;
+    border-radius: 8px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 12px;
+}
+.lang-switcher-btn:hover {
+    background-color: var(--color-white);
+    border-color: var(--color-white);
+}
+/* This is the key to only showing one language option at a time. */
+.lang-switcher-btn.active {
+    display: none;
+}
+
+/* --- Hamburger Menu & Responsive Styles --- */
+.hamburger-menu {
+    /* Hide the hamburger on desktop screens. */
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* Ensure it's on top of other nav content */
+}
+.hamburger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-white);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* This media query applies to screens 900px wide or smaller. */
+@media (max-width: 900px) {
+    .nav-menu {
+        /* Hide the regular menu on mobile. */
+        display: none;
+        /* Position it absolutely for the slide-down effect. */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-top: 100px; /* Space for the header */
+        padding-bottom: 30px;
+        background-color: var(--color-text);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .nav-menu.is-active {
+        /* Show the menu when it has the 'is-active' class (from JS). */
+        display: block;
+    }
+    .nav-list {
+        /* Change the layout to a vertical column. */
+        flex-direction: column;
+        /* Increase the gap for better spacing. */
+        gap: 25px;
+    }
+    .hamburger-menu {
+        /* Show the hamburger menu on mobile. */
+        display: block;
+    }
+
+    /* Animate the hamburger icon into an "X" when the menu is open. */
+    .hamburger-menu.is-active .hamburger-line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger-menu.is-active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.is-active .hamburger-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* --- 8. HERO SECTION STYLES --- */
+
+/* The main container for the hero section. */
+/* El contenidor principal de la secció hero, ara transparent. */
+.hero-section {
+    height: 100vh;
+    color: var(--color-white);
+    position: relative;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    align-items: start; 
+    padding: 180px 80px 0 80px;
+    gap: 40px;
+}
+
+/* The container for the text and button. */
+.hero-content {
+    z-index: 2;
+    
+    /* Aligns the text to the left within this container. */
+    text-align: left;
+}
+
+/* The main title (H1). */
+.hero-title {
+    font-size: 50px; /* A large, impactful font size. */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 40px;
+    max-width: 800px; /* Prevents the line from getting too long on wide screens. */
+}
+
+/* This styles the "AulaSPUTNIK" text inside the title. */
+.hero-title .highlight {
+    /* It uses your primary brand color to stand out. */
+    color: var(--color-primary);
+    font-weight: 900; /* Make it even bolder. */
+}
+
+/* The main "Veure Tallers" button. */
+.hero-button {
+    /* Reusing your button styles for consistency. */
+    background-color: var(--color-btn);
+    color: var(--color-white);
+    padding: 10px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+.hero-button:hover {
+    background-color: var(--color-btn-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* The "Saber Més" link at the bottom. */
+.scroll-down-link {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* Space between the text and the arrow. */
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0.8;
+    
+    /* This is where we apply our limited animation! */
+    /* 'bounce' is the animation name.
+       '2.5s' is the duration.
+       '2' means it will only run twice.
+       '1s' is a delay before it starts.
+    */
+    animation: bounce 2.5s 2 1s;
+}
+.scroll-down-link:hover {
+    opacity: 1;
+}
+
+/* We define the keyframes for our limited bounce animation. */
+@keyframes bounce {
+    /* At each step, we must include the original translateX(-50%) to keep it centered. */
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(5px);
+    }
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .hero-content {
+        /* Reduce padding on mobile to keep content from being pushed too far down/in. */
+        padding: 150px 40px;
+    }
+    .hero-title {
+        /* Reduce font size on smaller screens to prevent it from looking too big. */
+        font-size: 40px;
+    }
+    .hero-button {
+        /* Reduce padding and font size for the button on mobile. */
+        padding: 12px 28px;
+        font-size: 16px;
+    }
+}
+
+.hero-floating-image {
+    /* Ja no necessita ser absolut. Simplement li diem que s'alineï a la dreta de la seva columna. */
+    justify-self: end;
+    width: 100%;
+    /* Definim una amplada màxima per controlar-ne la mida. */
+    max-width: 350px;
+}
+.hero-floating-image img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 5px #e2e8ee);
+}
+
+/* --- Ajustos responsius per al Hero Grid --- */
+
+/* Quan la pantalla és més estreta de 900px, passem a una sola columna. */
+@media (max-width: 900px) {
+    .hero-section {
+        /* Canviem a una sola columna. */
+        grid-template-columns: 1fr;
+        /* Reduïm l'espaiat lateral. */
+        padding: 0 40px;
+        /* Centrem el text quan només hi ha una columna. */
+        justify-items: center;
+        text-align: center;
+    }
+
+    .hero-content {
+        /* Ens assegurem que el text estigui centrat. */
+        text-align: center;
+    }
+
+    /* Amaguem la imatge en dispositius mòbils per deixar espai al text. */
+    .hero-floating-image {
+        display: none;
+    }
+}
+
+/* Per a tauletes */
+@media (max-width: 900px) {
+    .hero-floating-image {
+        /* La fem una mica transparent perquè no competeixi tant amb el text. */
+        opacity: 0.6;
+        max-width: 300px;
+        bottom: 2%;
+    }
+}
+
+/* Per a pantalles de mòbil, el millor és amagar-la per no sobrecarregar la pantalla. */
+@media (max-width: 768px) {
+    .hero-floating-image {
+        display: none;
+    }
+}
+
+/* --- 11. SECCIÓ DE CONTEXT I ACORDIÓ --- */
+
+.context-section {
+    padding: 60px 40px;
+    background-color: var(--color-white); /* Un fons blanc per a aquesta secció. */
+    scroll-margin-top: 70px;
+}
+
+/* Estil per al text ressaltat NOMÉS dins de la secció de context. */
+.context-section strong {
+    /* El text tindrà el teu color principal per destacar. */
+    color: var(--color-primary);
+    /* Ens assegurem que el pes de la lletra sigui marcadament negreta. */
+    font-weight: 800;
+}
+
+/* La graella per a les dues columnes. */
+.context-grid {
+    display: grid;
+    /* Dues columnes d'igual amplada. */
+    grid-template-columns: 1fr 1fr;
+    /* Un espai generós entre les columnes. */
+    gap: 80px;
+    /* Alineem els elements a la part superior. */
+    align-items: start;
+}
+
+/* El contenidor del text de l'esquerra. */
+.context-text-content .section-title {
+    /* El títol de la secció l'alineem a l'esquerra. */
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.context-text-content p {
+    /* Espaiat entre paràgrafs. */
+    margin-bottom: 10px;
+    line-height: 1.5; /* Una mica més d'interlineat per a millor llegibilitat. */
+    text-align: justify;
+}
+
+/* --- Estils per a l'acordió --- */
+.accordion-item {
+    /* Una vora inferior per separar cada ítem de l'acordió. */
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* L'estil del botó que fa de capçalera de cada ítem. */
+.accordion-header {
+    /* Eliminem tots els estils per defecte dels botons. */
+    background: none;
+    border: none;
+    width: 100%;
+    /* Utilitzem flexbox per alinear el títol i la icona. */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    cursor: pointer;
+    text-align: left;
+    /* Estils de la font. */
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--color-heading);
+}
+.accordion-header i {
+    /* La icona de més/creu. */
+    font-size: 18px;
+    color: var(--color-primary);
+    transition: transform 0.3s ease; /* Transició per a la rotació. */
+}
+
+/* El contingut de l'acordió, que estarà amagat per defecte. */
+.accordion-content {
+    /* L'amaguem posant una alçada màxima de 0. */
+    max-height: 0;
+    overflow: hidden; /* El contingut que sobrepassi queda ocult. */
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Transició suau per a l'efecte de desplegament. */
+    text-align: justify;
+}
+.accordion-content p {
+    padding-bottom: 25px; /* Espaiat intern del text. */
+}
+
+/* --- Estats actius de l'acordió (quan es clica) --- */
+
+/* Quan un ítem està actiu, canviem la icona de "+" a "x". */
+.accordion-item.is-active .accordion-header i {
+    transform: rotate(45deg);
+}
+
+/* Quan un ítem està actiu, mostrem el seu contingut. */
+.accordion-item.is-active .accordion-content {
+    /* L'alçada màxima es calcula amb JavaScript per mostrar tot el contingut. */
+    /* Aquest valor és només un fallback gran. */
+    max-height: 500px; 
+}
+
+
+/* --- Ajustos responsius per a la secció --- */
+
+@media (max-width: 900px) {
+    /* En pantalles més petites, passem a una sola columna. */
+    .context-grid {
+        grid-template-columns: 1fr;
+        gap: 50px; /* Reduïm l'espai. */
+    }
+
+    .context-text-content .section-title {
+        /* Tornem a centrar el títol en format mòbil. */
+        text-align: center;
+    }
+}
+
+/* --- 9. SECCIÓ DE VALORS --- */
+
+/* Contenidor principal de la secció. */
+.valors-section {
+    /* Un espaiat generós per sobre i per sota. */
+    padding: 60px 40px;
+    /* Utilitzem el color de fons principal de la pàgina. */
+    background-color: var(--color-background);
+}
+
+/* Un contenidor genèric per centrar el contingut de les seccions. */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estil per al títol principal de la secció. */
+.section-title {
+    font-size: 42px;
+    font-weight: 900;
+    text-align: center;
+    /* Un marge inferior per separar-lo del contingut. */
+    margin-bottom: 40px;
+    color: var(--color-heading);
+}
+
+/* La graella que contindrà les targetes. */
+.valors-grid {
+    /* Utilitzem CSS Grid per a la disposició. */
+    display: grid;
+    /* Aquesta és la línia clau per a la responsivitat:
+       - Crea tantes columnes com pugui.
+       - Cada columna tindrà una mida mínima de 300px i una màxima d'1 fracció d'espai (1fr).
+       - Això fa que passi de 3 a 2 i a 1 columna automàticament. */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* L'espai entre les targetes. */
+    gap: 30px;
+}
+
+/* L'estil per a cada targeta individual. */
+.valor-card {
+    /* Fons blanc per a cada targeta. */
+    background-color: var(--color-white);
+    /* Cantonades arrodonides. */
+    border-radius: 8px;
+    /* Espaiat interior. */
+    padding: 30px 20px;
+    /* Tot el contingut estarà centrat. */
+    text-align: center;
+    /* Una ombra suau per donar-li profunditat. */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.005);
+    /* Una transició suau per a l'efecte de sobreposició (hover). */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecte en passar el ratolí per sobre d'una targeta. */
+.valor-card:hover {
+    /* La targeta s'aixeca una mica. */
+    transform: translateY(-0px);
+    /* L'ombra es fa una mica més pronunciada. */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.01);
+}
+
+/* L'estil per a la icona. */
+.valor-icon {
+    /* Color de la icona (el teu color primari). */
+    color: var(--color-primary);
+    /* Mida de la icona. */
+    font-size: 40px;
+    /* Marge inferior per separar-la del títol. */
+    margin-bottom: 2px;
+}
+
+/* L'estil per al títol de la targeta. */
+.valor-title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: var(--color-heading);
+}
+
+/* L'estil per al subtítol (la frase). */
+.valor-subtitle {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-text);
+}
+
+/* --- FOOTER STYLES --- */
+/* These rules style the footer section of the site. */
+
+/* Main footer container styling */
+.site-footer {
+    /* Sets the background color to the dark blue from your variables. */
+    background-color: rgba(26, 50, 90, 0.9);
+    /* Sets the text color to white for high contrast on the dark background. */
+    color: var(--color-text-alt);
+    /* Sets padding for: 50px top, 0 right, 20px bottom, 0 left */
+    padding: 50px 0 20px 0;
+}
+
+/* This container constrains the footer content's width and centers it. */
+.footer-container {
+    /* Sets a maximum width to prevent the content from becoming too wide on large screens. */
+    max-width: 1200px;
+    /* Centers the container horizontally. */
+    margin: 0 auto;
+    /* Adds side padding that shrinks on smaller screens. */
+    padding: 0 40px;
+}
+
+/* The main grid for the two columns. */
+.footer-main-grid {
+    /* Use CSS Grid for the layout. */
+    display: grid;
+    /* Defines two columns. The right column (form) is 1.5 times wider than the left. */
+    grid-template-columns: 2fr 3fr;
+    /* Sets a gap between the two columns. */
+    gap: 50px;
+    /* Adds space below the grid, before the bottom bar. */
+    margin-bottom: 40px;
+}
+
+/* Left column (text content) styling */
+.footer-column-left p {
+    /* Adds space below the paragraphs. */
+    margin-bottom: 20px;
+    /* Sets the opacity to make the text slightly less bright and easier to read. */
+    opacity: 0.9;
+}
+
+/* Footer main title styling ("PARLEM?") */
+.footer-title {
+    /* Use the heading font family. */
+    font-family: var(--font-heading);
+    /* Sets a large font size. */
+    font-size: 36px;
+    /* Adds space below the title. */
+    margin-bottom: 20px;
+    /* Sets the color to white for contrast against the dark footer background. */
+    color: var(--color-text-accent);
+}
+
+/* Social media icons container */
+.footer-social-icons {
+    /* Use Flexbox to lay out the icons. */
+    display: flex;
+    /* Sets a gap between the icons. */
+    gap: 22px;
+    /* Adds some space above the icons. */
+    margin-top: 20px;
+    /* This new line centers the icons horizontally within their container. */
+    justify-content: center;
+}
+
+/* Individual social icon link styling */
+.footer-social-icons a {
+    /* Sets the color of the icons to white. */
+    color: var(--color-btn-sec);
+    /* Sets the size of the icons. */
+    font-size: 26px;
+    /* Smooth transition for the hover effect. */
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Hover effect for social icons: slightly lighter color and moves up a bit. */
+.footer-social-icons a:hover {
+    color: var(--color-btn-hover-sec); /* Use your secondary button color on hover. */
+    /* transform: translateY(-3px); */
+}
+
+/* --- Contact Form Styles --- */
+
+/* A container for each label-input pair in the form. */
+.form-group {
+    /* Adds space below each form group. */
+    margin-bottom: 20px;
+}
+
+/* Styling for placeholder text within form fields */
+.contact-form ::placeholder {
+    /* Sets the color of the placeholder text. */
+    color: var(--color-white);
+    /* Makes the placeholder text slightly transparent so it looks like a hint. */
+    opacity: 0.6;
+}
+
+/* Styling for all text inputs, select dropdowns, and textareas */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form select,
+.contact-form textarea {
+    /* Makes the input field take up the full width of its container. */
+    width: 100%;
+    /* Sets padding inside the input field. */
+    padding: 10px;
+    /* Removes the default border. */
+    border: 1px solid rgba(227, 254, 83, 0.2); /* Match multiselect border color */
+    /* Adds rounded corners. */
+    border-radius: 8px;
+    /* Sets the background color to be slightly darker than the footer itself. */
+    background-color: var(--color-text); /* replaced rgba(0,0,0,0.2) with --color-text for dark bg */
+    /* Sets the text color inside the input field to white. */
+    color: var(--color-white);
+    /* Sets the font size for text typed into the field. */
+    font-size: 14px;
+    /* Use the standard body font. */
+    font-family: var(--font-body);
+}
+.contact-form select {
+    /* Allows custom arrow styling if needed later. */
+    -webkit-appearance: none;
+    appearance: none;
+    /* Add a background arrow image to indicate it's a dropdown. */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23e2e8ee' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+}
+
+/* Submit button styling */
+.submit-btn {
+    /* Makes the button take up the full width. */
+    width: 100%;
+    max-width: 100px;
+    /* Sets padding inside the button. */
+    padding: 10px;
+    /* Sets the background color using your button color variable. */
+    background-color: var(--color-btn-sec);
+    /* Sets the text color. */
+    color: var(--color-text);
+    /* Removes the border. */
+    border: none;
+    /* Adds rounded corners. */
+    border-radius: 8px;
+    /* Sets the font size. */
+    font-size: 14px;
+    /* Makes the font bold. */
+    font-weight: 700;
+    /* Changes the cursor to a pointer on hover. */
+    cursor: pointer;
+    /* Smooth transition for the hover effect. */
+    transition: background-color 0.2s ease;
+    display: block;
+    margin: 0 auto; /* Center the button */
+}
+
+/* Hover effect for the submit button */
+.submit-btn:hover {
+    /* Use your button hover color variable. */
+    background-color: var(--color-btn-hover-sec);
+}
+
+/* --- Checkbox Styles --- */
+
+/* A container for the entire privacy section to give it some space. */
+.privacy-section {
+    /* Adds space between the textarea above and the submit button below. */
+    margin: 10px 0 30px 0;
+}
+
+/* Styling for the introductory text ("En relació amb...") */
+.privacy-header {
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: var(--color-text-alt);
+}
+
+/* Styling for the link within the privacy consent header text. */
+.privacy-header a {
+    /* This makes the link's color exactly the same as the surrounding paragraph text. */
+    color: inherit;
+    /* This removes the underline completely. */
+    text-decoration: none;
+    /* This adds a smooth transition for the color change on hover. */
+    transition: color 0.2s ease;
+}
+
+/* This rule applies ONLY when the mouse is hovering over the link. */
+.privacy-header a:hover {
+    /* On hover, the link's color changes to pure white to make it stand out. */
+    color: var(--color-white);
+}
+
+/* This is the container for each individual checkbox and its label. */
+.form-group-checkbox {
+    /* Use Flexbox to align the checkbox and text. */
+    display: flex;
+    /* Vertically aligns items to the center. */
+    align-items: center;
+    /* Make sure it's positioned so we can hide the default checkbox. */
+    position: relative;
+    /* Adds space below the first checkbox. */
+    margin-bottom: 5px;
+}
+
+/* The label is our clickable area. */
+.form-group-checkbox label {
+    /* Use the body font. */
+    font-family: var(--font-body);
+    /* Set a comfortable font size. */
+    font-size: 12px;
+    /* Makes the text slightly dimmer. */
+    color: var(--color-text-alt);
+    /* Adds space to the left, so it doesn't touch our custom checkbox. */
+    padding-left: 25px;
+    /* Makes the whole label clickable. */
+    cursor: pointer;
+}
+
+/* Here we hide the ugly default checkbox. */
+.form-group-checkbox input[type="checkbox"] {
+    /* Makes it invisible. */
+    opacity: 0;
+    /* Takes it out of the document flow. */
+    position: absolute;
+    /* Moves the label on top of it, making the label clickable. */
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* This creates our new, custom checkbox box. */
+.form-group-checkbox label::before {
+    /* This is the empty box. */
+    content: '';
+    /* Positions it on the left side of the label. */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    /* Sets the size of the box. */
+    width: 12px;
+    height: 12px;
+    /* The border of the box. */
+    border: 2px solid var(--color-border); /* replaced rgba(255,255,255,0.7) */
+    /* Adds rounded corners. */
+    border-radius: 2px;
+    /* A smooth transition for when it gets checked. */
+    transition: all 0.2s ease;
+}
+
+/* This rule applies ONLY when the hidden checkbox is checked. */
+.form-group-checkbox input[type="checkbox"]:checked + label::before {
+    /* Fills the box with our primary brand color. */
+    background-color: var(--color-btn);
+    /* Changes the border color to match. */
+    border-color: var(--color-btn);
+    /* Adds our SVG checkmark as a background image. */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath d='M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022z'/%3e%3c/svg%3e");
+    background-size: 14px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* --- Custom Multi-Select Dropdown Styles --- */
+
+/* The main container for the component. */
+.multiselect-container {
+    /* Required for positioning the dropdown options panel inside it. */
+    position: relative;
+}
+
+/* The visible, clickable area that looks like an input field. */
+.multiselect-display {
+    /* Same background as our other inputs. */
+    background-color: var(--color-text); /* replaced rgba(0,0,0,0.2) */
+    /* Same border. */
+    border: 1px solid rgba(227, 254, 83, 0.2); /* replaced rgba(255,255,255,0.2) */
+    /* Same rounded corners. */
+    border-radius: 8px;
+    /* Same padding. */
+    padding: 12px;
+    /* Make the cursor a pointer to show it's clickable. */
+    cursor: pointer;
+    /* Use flexbox to position the text and the arrow icon. */
+    display: flex;
+    /* Puts space between the text and the arrow. */
+    justify-content: space-between;
+    /* Vertically aligns the text and arrow. */
+    align-items: center;
+    font-size: 14px; /* Increased font size for multiselect tool */
+    color: var(--color-white); /* Use the main text color */
+}
+
+/* When the dropdown is open ('active'), we give the display a subtle blue glow. */
+.multiselect-display.active {
+    border-color: var(--color-btn);
+    box-shadow: 0 0 5px rgba(161, 93, 246, 0.5); /* This can stay as it's a brand color shadow */
+}
+
+/* The placeholder text inside the display area. */
+.multiselect-placeholder {
+    /* Prevents long text from wrapping. */
+    white-space: nowrap;
+    /* Hides text that overflows the container. */
+    overflow: hidden;
+    /* Adds '...' to overflowing text. */
+    text-overflow: ellipsis;
+    /* Makes the text slightly dimmer, like a real placeholder. */
+    opacity: 0.7;
+    /* Add a little space to the right, so it doesn't touch the arrow. */
+    padding-right: 10px;
+    font-size: 14px; /* Match font size for multiselect tool */
+}
+
+/* The dropdown panel itself, containing the options. */
+.multiselect-options {
+    /* Hide the panel by default. */
+    display: none;
+    /* Position it absolutely, relative to the main container. */
+    position: absolute;
+    /* Puts it on top of other elements. */
+    z-index: 10;
+    /* Make it span the full width of the container. */
+    width: 100%;
+    /* Set the background to be a solid, slightly darker color. */
+    background-color: var(--color-text); /* replaced #2c3e50 with --color-text */
+    /* Add a border and rounded corners. */
+    border: 1px solid rgba(159, 179, 200, 0.5); /* var(--color-border) with 50% opacity */
+    border-radius: 8px;
+    /* Limits the height and makes it scrollable if there are many options. */
+    max-height: 250px;
+    overflow-y: auto;
+    /* Add a little space from the top. */
+    margin-top: 1px;
+}
+
+/* When the component is active, we show the options panel. */
+.multiselect-container.active .multiselect-options {
+    display: block;
+}
+
+/* Styling for each individual option (the checkbox and its label). */
+.multiselect-option {
+    /* Use flexbox for alignment. */
+    display: flex;
+    align-items: center;
+    /* Add padding inside each option. */
+    padding: 4px 10px;
+    /* Make it clickable. */
+    cursor: pointer;
+    /* A smooth transition for the background color on hover. */
+    transition: background-color 0.2s ease;
+    /* Prevent user from accidentally selecting the text. */
+    user-select: none;
+    font-size: 14px; /* Match font size for multiselect tool */
+}
+.multiselect-option:hover {
+    /* Change the background on hover to give feedback. */
+    background-color: var(--color-btn-hover); /* replaced rgba(255,255,255,0.1) with --color-btn-hover */
+}
+
+/* We style our own checkbox and hide the default one. */
+.multiselect-option input[type="checkbox"] {
+    margin-right: 12px;
+    /* For custom styling, you can use appearance: none; and then style a ::before element, similar to the other checkboxes. For now, we'll use a simplified version. */
+    width: 12px;
+    height: 12px;
+    accent-color: var(--color-btn); /* This quickly colors the default checkbox. */
+}
+
+/* --- Footer Bottom Bar Styles --- */
+
+.footer-bottom-bar {
+    /* Use Flexbox to lay out the copyright and legal links. */
+    display: flex;
+    /* Puts maximum space between the two items, pushing them to opposite ends. */
+    justify-content: space-between;
+    /* Vertically aligns the items in the center. */
+    align-items: center;
+    /* Allows items to wrap onto a new line on small screens. */
+    flex-wrap: wrap;
+    /* Adds space above the bar. */
+    padding-top: 0px;
+    /* Adds a border on top. */
+    border-top: 0px solid var(--color-border); /* replaced rgba(255,255,255,0.1) */
+}
+
+/* Styling for the copyright and legal link text */
+.copyright-text {
+    font-size: 14px;
+    color: var(--color-text-alt);
+}
+.footer-legal-links a {
+    font-size: 14px; /* Increased font size for legal links */
+    text-decoration: none;
+    transition: color 0.2s ease;
+    color: var(--color-text-alt);
+}
+.footer-legal-links a:hover {
+    color: var(--color-white);
+}
+.footer-legal-links a:last-child {
+    margin-left: 20px;
+}
+
+
+/* --- RESPONSIVE STYLES FOR FOOTER --- */
+/* This media query applies only when the screen width is 900px or less. */
+@media (max-width: 900px) {
+    .footer-main-grid {
+        /* Changes the grid to a single column layout. */
+        grid-template-columns: 1fr;
+        /* Reduces the gap for a tighter look on mobile. */
+        gap: 50px;
+    }
+}
+
+/* This media query applies only when the screen width is 600px or less. */
+@media (max-width: 600px) {
+    .footer-bottom-bar {
+        /* Changes the layout to a column, stacking the items vertically. */
+        flex-direction: column;
+        /* Aligns items to the start (left). */
+        align-items: flex-start;
+        /* Adds a gap between the stacked items. */
+        gap: 15px;
+    }
+
+    .footer-container {
+        /* Reduces side padding on very small screens. */
+        padding: 0 20px;
+    }
+}
+
+/* --- CUSTOM SCROLLBAR STYLES --- */
+/* These rules customize the appearance of the browser's scrollbar. */
+
+/* For WebKit-based browsers (Chrome, Edge, Safari) */
+/* First, we define the overall scrollbar element. We can set its width here. */
+body::-webkit-scrollbar {
+    /* Sets the width of the scrollbar. 10px is a good, subtle size. */
+    width: 8px;
+}
+
+/* This is the "track" - the background area the bar slides along. */
+body::-webkit-scrollbar-track {
+    /* As requested, we make the background transparent. */
+    background: transparent;
+}
+
+/* This is the "thumb" - the actual draggable bar itself. */
+body::-webkit-scrollbar-thumb {
+    /* You can change this variable to any color from your palette! */
+    /* Let's use your primary button color for now. */
+    background-color: var(--color-btn);
+    /* This adds fully rounded corners to the bar. */
+    border-radius: 20px;
+    /* This creates a small transparent border around the bar, making it look like it's "floating". */
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+
+/* We can also add a hover effect to the bar. */
+body::-webkit-scrollbar-thumb:hover {
+    /* It will change to your button hover color when you mouse over it. */
+    background-color: var(--color-btn-hover);
+}
+
+/* For Firefox browser */
+/* Firefox uses a more modern, simpler syntax. */
+html {
+    /* 'thin' makes the scrollbar narrow. 'auto' is default. */
+    scrollbar-width: thin;
+    /* Sets the color of the thumb and the track, respectively. */
+    /* So, here we are setting the thumb to your button color and the track to transparent. */
+    scrollbar-color: var(--color-btn) transparent;
+}
+
+/* --- SCROLL TO TOP BUTTON STYLES --- */
+
+#scroll-to-top-btn {
+    /* Position fixed keeps it in the same place on the screen when scrolling. */
+    position: fixed;
+    /* 30px from the bottom of the viewport. */
+    bottom: 30px;
+    /* 30px from the right of the viewport. */
+    right: 30px;
+    
+    /* Set a high z-index to ensure it stays on top of other content. */
+    z-index: 999;
+    
+    /* Hide the button by default. */
+    opacity: 0;
+    visibility: hidden;
+    /* This moves the button down slightly, so it can "slide in" from the bottom. */
+    transform: translateY(20px);
+    
+    /* This makes all the changes (opacity, transform) smooth. */
+    transition: all 0.3s ease-in-out;
+    
+    /* Visual styles */
+    /* Use your primary button color for the background. */
+    background-color: var(--color-btn);
+    /* Set the icon color to white. */
+    color: var(--color-white);
+    /* Remove the default button border. */
+    border: none;
+    /* Make the button a perfect circle. */
+    border-radius: 50%;
+    /* Set the width and height. */
+    width: 30px;
+    height: 30px;
+    /* Set the icon size. */
+    font-size: 14px;
+    /* Add a subtle shadow. */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Make the cursor a pointer to show it's clickable. */
+    cursor: pointer;
+}
+
+/* We will add this class with JavaScript when the button should be visible. */
+#scroll-to-top-btn.is-visible {
+    /* Make the button fully visible. */
+    opacity: 1;
+    visibility: visible;
+    /* Move the button back to its original position, creating the slide-in effect. */
+    transform: translateY(0);
+}
+
+/* A simple hover effect for the button. */
+#scroll-to-top-btn:hover {
+    /* Use your button hover color. */
+    background-color: var(--color-btn-hover);
+    /* Make the button slightly larger on hover. */
+    /* transform: scale(1.1); */
+}
+
+/* --- 12. SECCIÓ D'INTRODUCCIÓ DE PÀGINA --- */
+
+/* Contenidor principal per a les seccions d'introducció de les sub-pàgines. */
+.page-intro-section {
+    /* El color de fons que has demanat. */
+    background-color: var(--color-background);
+    /* Un espaiat generós per sobre i per sota. */
+    /* El padding-top és més gran per deixar espai a la barra de navegació fixa. */
+    padding: 150px 40px 60px 40px;
+}
+
+/* El contenidor del contingut de text. */
+.intro-content {
+    /* Centrem el contingut horitzontalment. */
+    max-width: 1200px;
+    /* Centrem tot el text dins d'aquest contenidor. */
+    text-align: left;
+}
+
+/* El títol principal de la pàgina. */
+.page-title {
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--color-heading);
+    margin-bottom: 10px; /* Espai sota el títol principal. */
+}
+
+/* Els paràgrafs introductoris, amb un estil una mica diferent. */
+.lead-paragraph {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+/* El subtítol (per exemple, "Metodologia"). */
+.section-subtitle {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--color-heading);
+    /* Un espai més gran per sobre per separar-lo visualment. */
+    margin-top: 30px;
+    margin-bottom: 2px;
+}
+
+/* --- 13. SECCIÓ DE LA GALERIA DE TALLERS (VERSIÓ FINAL I ESTABLE) --- */
+
+.tallers-gallery-section {
+    padding: 10px 40px 40px;
+    background-color: var(--color-background);
+}
+
+.tallers-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.taller-card {
+    background-color: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.taller-card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    transform: scale(1.005);
+}
+
+.taller-header {
+    position: relative;
+    padding: 20px 30px;
+    background-color: var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: var(--color-text);
+}
+
+.taller-header-content h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: 12px;
+}
+.taller-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.taller-tags span {
+    background-color: rgba(161, 93, 246, 0.4);
+    color: var(--color-white);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 300;
+}
+.expand-icon {
+    font-size: 20px;
+    transition: transform 0.4s ease;
+    flex-shrink: 0;
+    margin-left: 20px;
+}
+.taller-card.is-open .expand-icon {
+    transform: rotate(180deg);
+}
+
+/* === ESTRUCTURA DEFINITIVA PER A L'ANIMACIÓ I LA GRAELLA (CORREGIT) === */
+
+/* 1. El cos de la targeta (animat). */
+.taller-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+/* 2. El contenidor intern. AQUEST ÉS L'ÚNIC LLOC ON HI HA D'HAVER PADDING. */
+.taller-body-content {
+    padding: 30px;
+    text-align: justify;
+}
+
+/* 3. La graella de dues columnes. NO TÉ PADDING. */
+.taller-details-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Estils per als títols dins de les columnes */
+.taller-body-content h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-top: 25px; /* Espai per sobre */
+    margin-bottom: 15px; /* Espai per sota */
+    color: var(--color-primary);
+}
+/* El primer títol de cada columna no necessita espai per sobre. */
+.taller-details-main h3:first-child,
+.taller-details-sidebar h3:first-child {
+    margin-top: 0;
+}
+
+.taller-details-sidebar h4 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--color-primary);
+}
+
+/* La resta dels teus estils interns es mantenen iguals, però assegura't que són aquests. */
+.taller-details-main ul {
+    list-style: none;
+    padding: 0;
+}
+.taller-details-main li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 4px;
+}
+.taller-details-main li i {
+    color: var(--color-text);
+    margin-right: 4px;
+    margin-top: 6px;
+    margin-left: 10px;
+    font-size: 12px;
+}
+.taller-features .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.taller-features .feature-item i {
+    color: var(--color-text);
+    margin-left: 10px;
+}
+
+.ods-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.ods-images img {
+    width: 48px;
+    height: 48px;
+}
+
+.taller-carousel {
+    margin-top: 30px; /* Espai sobre el carrusel. */
+    /* Aquí pots enganxar els teus estils del carrusel si els has esborrat. */
+}
+
+@media (max-width: 768px) {
+    .taller-details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- 14. CARRUSEL AVANÇAT (CENTER MODE) --- */
+
+/* El contenidor principal del carrusel. */
+.taller-carousel {
+    position: relative;
+    margin-top: 10px;
+    width: 100%;
+    /* La clau: amaguem el que sobrepassa per crear l'efecte de "finestra". */
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+/* El 'track' que conté els slides. */
+.carousel-track {
+    display: flex;
+    align-items: center; /* Centrem els slides verticalment. */
+    /* Afegim un espaiat inicial perquè el primer slide es pugui centrar. */
+    padding: 0 40px; 
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Una transició més suau. */
+}
+
+/* Cada slide individual. */
+.carousel-slide {
+    /* Definim l'amplada principal del slide. Ocuparà el 60% de l'espai. */
+    flex: 0 0 40%; 
+    width: 60%;
+    /* Un espai entre els slides. */
+    margin: 0 0px; 
+    
+    /* Per defecte, tots els slides són més petits i transparents. */
+    transform: scale(0.85);
+    opacity: 0.3;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* AQUEST ÉS L'ESTIL PER AL SLIDE ACTIU (EL DEL CENTRE) */
+.carousel-slide.current-slide {
+    /* L'slide actiu torna a la seva mida i opacitat normals. */
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* L'estil per a les imatges dins dels slides. */
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    /* Afegim una ombra per donar profunditat. */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* L'estil dels botons de navegació (es manté semblant). */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+.carousel-button--left {
+    left: 20px;
+}
+.carousel-button--right {
+    right: 20px;
+}
+.carousel-button.is-hidden {
+    display: none;
+}
+
+
+/* --- Responsivitat del carrusel avançat --- */
+@media (max-width: 768px) {
+    .carousel-slide {
+        /* En pantalles petites, cada slide ocupa més espai. */
+        flex-basis: 80%;
+    }
+}

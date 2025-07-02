@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ca"> 
+<head>
+    <!-- The 'charset' meta tag defines the character set for the document. -->
+    <!-- UTF-8 is a universal standard that includes characters for almost all written languages, which is essential for handling Spanish (ñ) and Catalan (ç, ·) correctly. -->
+    <meta charset="UTF-8">
+
+    <!-- The 'viewport' meta tag is crucial for responsive design. It controls how the page is displayed on mobile devices. -->
+    <!-- 'width=device-width' sets the width of the page to follow the screen-width of the device. -->
+    <!-- 'initial-scale=1.0' sets the initial zoom level when the page is first loaded by the browser. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- The 'title' tag sets the text that appears in the browser tab, in bookmarks, and in search engine results. -->
+    <!-- The 'data-lang-*' attributes hold the text for our language-switching JavaScript. -->
+    <title data-lang-ca="Tallers - AulaSPUTNIK" data-lang-es="Talleres - AulaSPUTNIK">Tallers - AulaSPUTNIK</title>
+
+    <!-- The 'icon' link tag sets the "favicon" -- the small icon that appears in the browser tab next to the title. -->
+    <!-- 'href' points to the location of your image file. -->
+    <!-- 'type' tells the browser the format of the image. -->
+    <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
+
+    <!-- SEO Meta Tags: These help search engines understand your page content -->
+    <!-- The 'description' tag provides a short summary of the page. It's often shown under your page title in search results. -->
+    <meta name="description" content="">
+    <!-- The 'keywords' tag lists relevant terms for your site. While less important for Google today, it can still be useful for other search engines. -->
+    <meta name="keywords" content="">
+
+    <!-- Preconnect to Google Fonts for a minor performance boost -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Import the "Urbanist" and "Inter" fonts from Google Fonts. -->
+    <!-- This version uses a variable font range (wght@300..900), which allows us to use any font-weight from 300 to 900 in our CSS file, giving us full design flexibility. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Urbanist:wght@300..900&display=swap" rel="stylesheet">
+
+    <!--  Import Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Link to the CSS stylesheet -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- We'll build this out properly later, but it helps to have some content to style. -->
+    <header class="site-header">
+        <nav class="site-nav">
+            <div class="nav-container">
+
+                <div class="nav-logo">
+                    <a href="index.html" aria-label="Homepage">
+                        <img src="assets/images/logo.svg" alt="AulaSputnik Logo">
+                    </a>
+                </div>
+
+                <button class="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" data-lang-ca="Inici" data-lang-es="Inicio">Inici</a></li>
+                        <li><a href="projectes.html" data-lang-ca="Projectes" data-lang-es="Proyectos">Projectes</a></li>
+                        <li><a href="equip.html" data-lang-ca="Equip" data-lang-es="Equipo">Equip</a></li>
+                        <li><a href="tallers.html" class="nav-button active-page" data-lang-ca="Tallers" data-lang-es="Talleres">Tallers</a></li>
+                        <li><a href="#footer" class="nav-button nav-button-secondary" data-lang-ca="Contacte" data-lang-es="Contacto">Contacte</a></li>
+                        <li class="lang-switcher">
+                            <button id="lang-ca-btn" class="lang-switcher-btn" data-lang="ca">CA</button>
+                            <button id="lang-es-btn" class="lang-switcher-btn" data-lang="es">ES</button>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-intro-section">
+        <div class="section-container">
+            
+            <!-- Aquest és el contenidor del contingut de text. -->
+            <div class="intro-content">
+                <!-- Títol principal de la pàgina. -->
+                <h1 class="page-title" data-lang-ca="Els Nostres Tallers" data-lang-es="Nuestros Talleres">Els Nostres Tallers</h1>
+                
+                <!-- Paràgrafs introductoris. Els donem una classe per estilitzar-los. -->
+                <p class="lead-paragraph" data-lang-ca="Els recursos educatius desenvolupats per la realització dels tallers són un referent en l’àmbit educatiu i d’alt valor innovador." data-lang-es="Los recursos educativos desarrollados para la realización de los talleres son un referente en el ámbito educativo y de alto valor innovador.">Els recursos educatius desenvolupats per la realització dels tallers són un referent en l’àmbit educatiu i d’alt valor innovador.</p>
+                <p class="lead-paragraph" data-lang-ca="AulaSputnik ofereix l’oportunitat d’endinsar-se en unes temàtiques innovadores i que permeten obrir noves capacitats i punts de vista a totes les persones realitzant diferents activitats i projectes." data-lang-es="AulaSputnik ofrece la oportunidad de adentrarse en unas temáticas innovadoras y que permiten abrir nuevas capacities y puntos de vista a todas les persones realitzant diferents activitats i projectes." data-lang-en="AulaSputnik offers the opportunity to delve into innovative themes that open up new skills and perspectives for all individuals through various activities and projects.">AulaSputnik ofereix l’oportunitat d’endinsar-se en unes temàtiques innovadores i que permeten obrir noves capacitats i punts de vista a totes les persones realitzant diferents activitats i projectes.</p>
+
+                <!-- Subtítol per a la secció de metodologia. -->
+                <h2 class="section-subtitle" data-lang-ca="Metodologia" data-lang-es="Metodología">Metodologia</h2>
+                <p data-lang-ca="Les sessions dels tallers es basen en una estructura on s’<strong>INTRODUEIX</strong> el <strong>REPTE</strong> per arribar a una <strong>CONCLUSIÓ</strong>." data-lang-es="Las sesiones de los talleres se basan en una estructura donde se <strong>INTRODUCE</strong> el <strong>RETO</strong> para llegar a una <strong>CONCLUSIÓN</strong>.">Les sessions dels tallers es basen en una estructura on s’<strong>INTRODUEIX</strong> el <strong>REPTE</strong> per arribar a una <strong>CONCLUSIÓ</strong>.</p>
+                <p data-lang-ca="Les sessions són d’1 HORA I MITJA per a grups de 15/20 persones. Inclou un dossier per als participants i per al professorat." data-lang-es="Las sesiones son de 1 HORA Y MEDIA para grupos de 15/20 personas. Incluye un dosier para los participants i per al professorat.">Les sessions són d’1 HORA I MITJA per a grups de 15/20 persones. Inclou un dossier per als participants i per al professorat.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="tallers-gallery-section">
+        <div class="section-container">
+        
+            <!-- Aquesta és la graella que contindrà les targetes dels tallers. -->
+            <div class="tallers-grid">
+
+                <!-- =================== TALLER 1: NANOSATÈL·LITS =================== -->
+                <div class="taller-card">
+                    <!-- La capçalera és la part visible i clicable. -->
+                    <div class="taller-header">
+                        <div class="taller-header-content">
+                            <h2 data-lang-ca="Ajudem al nostre planeta a través dels nanosatèl·lits." data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites.">Ajudem al nostre planeta a través dels nanosatèl·lits.</h2>
+                            <div class="taller-tags">
+                                <span data-lang-ca="treball en equip" data-lang-es="trabajo en equipo">treball en equip</span>
+                                <span data-lang-ca="comunicació" data-lang-es="comunicación">comunicació</span>
+                                <span data-lang-ca="canvi climatic" data-lang-es="cambio climático">canvi climatic</span>
+                                <span data-lang-ca="sostenibilitat" data-lang-es="sostenibilidad">sostenibilitat</span>
+                                <span data-lang-ca="impacte tecnològic" data-lang-es="impacto tecnológico">impacte tecnològic</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down expand-icon"></i>
+                    </div>
+                    <!-- El cos és la part oculta que es desplega. -->
+                    <div class="taller-body">
+                        <div class="taller-details-grid">
+                            <div class="taller-body-content">
+                                <div class="taller-details-main">
+                                    <h3 data-lang-ca="Resum" data-lang-es="Resumen">Resum</h3>
+                                    <p data-lang-ca="L’objectiu principal d’aquest taller és explicar què són els satèl·lits (i específicament els nanosatèl·lits) i explicar els principis bàsics d’aquesta tecnologia, per entendre com ens poden ajudar a millorar el nostre planeta Terra. Seguidament, a través d’un repte per grups, l’alumnat ha de dissenyar un satèl·lit, construir una maqueta amb un kit bàsic i realitzar una presentació de la seva idea de projecte. El propòsit d’aquest satèl·lit ha de ser oferir un servei que ajudi a la nostra societat a reduir l’impacte del canvi climàtic." data-lang-es="El objetivo principal de este taller es explicar qué son los satélites (y específicamente los nanosatélites) y explicar los principios básicos de esta tecnología, para entender cómo nos pueden ayudar a mejorar nuestro planeta Tierra. Seguidamente, a través de un reto por grupos, el alumnado debe diseñar un satélite, construir una maqueta con un kit básico y realizar una presentación de su idea de proyecto. El propósito de este satélite debe ser ofrecer un servicio que ayude a nuestra sociedad a reducir el impacto del cambio climático.">L’objectiu principal d’aquest taller és explicar què són els satèl·lits (i específicament els nanosatèl·lits) i explicar els principis bàsics d’aquesta tecnologia, per entendre com ens poden ajudar a millorar el nostre planeta Terra. Seguidament, a través d’un repte per grups, l’alumnat ha de dissenyar un satèl·lit, construir una maqueta amb un kit bàsic i realitzar una presentació de la seva idea de projecte. El propòsit d’aquest satèl·lit ha de ser oferir un servei que ajudi a la nostra societat a reduir l’impacte del canvi climàtic.</p>
+                                    <h3 data-lang-ca="L’alumnat aprendrà…" data-lang-es="El alumnado aprenderá…">L’alumnat aprendrà…</h3>
+                                    <!-- Contenidor de la llista. -->
+                                    <ul>
+                                        <!-- Cada punt de la llista és ara un 'li'. -->
+                                        <li>
+                                            <!-- La nostra icona, amb amplada fixa (fa-fw) per a una alineació perfecta. -->
+                                            <i class="fa-solid fa-fw fa-chevron-right"></i>
+                                            <!-- El text està dins d'un 'span' per poder ser traduït. -->
+                                            <span data-lang-ca="Les fases d’una missió espacial: disseny, construcció i llançament dels satèl·lits." data-lang-es="Las fases de una misión espacial: diseño, construcción y lanzamiento de los satélites.">Les fases d’una missió espacial: disseny, construcció i llançament dels satèl·lits.</span>
+                                        </li>
+                                        <li>
+                                            <i class="fa-solid fa-fw fa-chevron-right"></i>
+                                            <span data-lang-ca="La valoració de l’impacte del desenvolupament tecnològic en les condicions de vida i en el treball." data-lang-es="La valoración del impacto del desarrollo tecnológico en las condiciones de vida y en el trabajo.">La valoració de l’impacte del desenvolupament tecnològic en les condicions de vida i en el treball.</span>
+                                        </li>
+                                        <li>
+                                            <i class="fa-solid fa-fw fa-chevron-right"></i>
+                                            <span data-lang-ca="Els avenços, productes i materials que intervenen en el progrés de la societat." data-lang-es="Los avances, productos y materiales que intervienen en el progreso de la societat.">Els avenços, productes i materials que intervenen en el progrés de la societat.</span>
+                                        </li>
+                                        <li>
+                                            <i class="fa-solid fa-fw fa-chevron-right"></i>
+                                            <span data-lang-ca="Consciència sobre els problemes socials rellevants." data-lang-es="Conciencia sobre los problemas sociales relevantes.">Consciència sobre els problemes socials rellevants.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="taller-details-sidebar">
+                                <!-- La secció de característiques, ara amb icones d'amplada fixa (fa-fw). -->
+                                <div class="taller-features">
+                                    <h4 data-lang-ca="Característiques" data-lang-es="Características">Característiques</h4>
+                                    <div class="feature-item">
+                                        <i class="fa-solid fa-fw fa-users"></i>
+                                        <span data-lang-ca="Rang d’edat: +8 anys" data-lang-es="Rango de edad: +8 años">Rang d’edat: +8 anys</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fa-solid fa-fw fa-puzzle-piece"></i>
+                                        <span data-lang-ca="Tipus: activitats en grup" data-lang-es="Tipo: actividades en grupo">Tipus: activitats en grup</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fa-solid fa-fw fa-chart-simple"></i>
+                                        <span data-lang-ca="Complexitat: mitjana" data-lang-es="Complejidad: media">Complexitat: mitjana</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fa-solid fa-fw fa-clock"></i>
+                                        <span data-lang-ca="Durada: 1h 30min" data-lang-es="Duración: 1h 30min">Durada: 1h 30min</span>
+                                    </div>
+                                </div>
+                                <div class="taller-materials">
+                                    <h4>Material Inclòs</h4>
+                                    <p data-lang-ca="Material de construcció, llapis, gomes, dossier d’activitats." data-lang-es="Material de construcción, lápices, gomas, dosier de actividades.">Material de construcció, llapis, gomes, dossier d’activitats.</p>
+                                </div>
+                                <div class="taller-ods-section">
+                                    <h4 data-lang-ca="Quines ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quines ODS treballarem?</h4>
+                                    <div class="ods-images">
+                                        <img src="assets/images/ods1.png" alt="ODS 1" data-lang-ca-img="assets/images/ods1.png" data-lang-es-img="assets/images/ods1_es.png" />
+                                        <img src="assets/images/ods2.png" alt="ODS 2" data-lang-ca-img="assets/images/ods2.png" data-lang-es-img="assets/images/ods2_es.png" />
+                                        <img src="assets/images/ods3.png" alt="ODS 3" data-lang-ca-img="assets/images/ods3.png" data-lang-es-img="assets/images/ods3_es.png" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- =================== CARRUSEL D'IMATGES START =================== -->
+<!-- Aquest és el contenidor principal del nostre carrusel. -->
+<div class="taller-carousel">
+    <!-- El 'track' és el contenidor que es mourà horitzontalment. -->
+    <div class="carousel-track">
+        <!-- Cada 'div' és un 'slide' que conté una imatge. -->
+        <!-- IMPORTANT: Canvia les URLs per les teves imatges reals. -->
+        <div class="carousel-slide">
+            <img src="assets/images/carrousel_taller1/IMG_20230424_092335.jpg" alt="Foto 1 del taller">
+        </div>
+        <div class="carousel-slide">
+            <img src="assets/images/carrousel_taller1/IMG_20230424_102519.jpg" alt="Foto 2 del taller">
+        </div>
+        <div class="carousel-slide">
+            <img src="assets/images/carrousel_taller1/IMG_20230424_103240.jpg" alt="Foto 3 del taller">
+        </div>
+    </div>
+    <!-- Botons de navegació per al carrusel. -->
+    <button class="carousel-button carousel-button--left">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="carousel-button carousel-button--right">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+</div>
+<!-- =================== CARRUSEL D'IMATGES END =================== -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================== FOOTER START =================== -->
+    <!-- The <footer> tag is used for semantics, telling the browser and search engines what this section is. -->
+    <footer id="footer" class="site-footer">
+        <!-- This is a container to keep the content centered and constrained to a max-width. -->
+        <div class="footer-container">
+            <!-- This grid container will hold our two main columns. -->
+            <div class="footer-main-grid">
+
+                <!-- Column 1: Text content and social links. -->
+                <div class="footer-column-left">
+                    <!-- Main heading for the column -->
+                    <h3 class="footer-title" data-lang-ca="PARLEM?" data-lang-es="¿HABLAMOS?">PARLEM?</h3>
+                    <!-- First paragraph of text -->
+                    <p data-lang-ca="Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu." data-lang-es="¿Tienes alguna duda, proposta o idea? ¡Queremos conocerte! Rellena este formulario y nos pondremos en contacto contigo.">Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu.</p>
+                    <!-- Second paragraph of text -->
+                    <p data-lang-ca="També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!" data-lang-es="¡También puedes seguirnos en nuestras redes sociales i sumarte a nuestra comunitat!">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
+                    <!-- Container for social media icon links -->
+                    <div class="footer-social-icons">
+                        <!-- Each 'a' tag is a link to a social profile. The 'aria-label' is for accessibility. -->
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: The contact form. -->
+                <div class="footer-column-right">
+                    <!-- We will connect this to a service like Formspree later. -->
+                    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <!-- Form field for Name. The label is now visually hidden but still exists for screen readers. -->
+                        <div class="form-group">
+                            <!-- The 'aria-label' provides an accessible name for the input now that the label is hidden. -->
+                            <input type="text" id="name" name="name" required placeholder="Nom i Cognoms*" data-lang-ca-placeholder="Nom i Cognoms*" data-lang-es-placeholder="Nombre y Apellidos*" aria-label="Nom i Cognoms">
+                        </div>
+                        <!-- Form field for Email. -->
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder="Correu electrònic*" data-lang-ca-placeholder="Correu electrònic*" data-lang-es-placeholder="Correo electrónico*" aria-label="Correu electrònic">
+                        </div>
+                        <!-- Form field for Institution. -->
+                        <div class="form-group">
+                            <input type="text" id="institution" name="institution" required placeholder="Empresa, escola, institut, etc.*" data-lang-ca-placeholder="Empresa, escola, institut, etc.*" data-lang-es-placeholder="Empresa, colegio, instituto, etc.*" aria-label="Empresa, escola, institut, etc.">
+                        </div>
+                        <!-- Custom Multi-Select Dropdown for Workshops -->
+                        <div class="form-group">
+                            <!-- This is the main container for our custom component. We set its position to relative so we can position the dropdown options inside it. -->
+                            <div class="multiselect-container" id="workshops-multiselect">
+                                <!-- This is the visible, clickable part that looks like a form input. -->
+                                <div class="multiselect-display">
+                                    <!-- This span holds the placeholder text (e.g., "2 seleccionats"). -->
+                                    <span class="multiselect-placeholder" 
+                                        data-lang-ca="T'agradaria rebre informació d'algún taller en concret?" 
+                                        data-lang-es="¿Te gustaría recibir información de algún taller en concreto?">
+                                        T'agradaria rebre informació d'algún taller en concret?
+                                    </span>
+                                    <!-- A Font Awesome icon to indicate that it's a dropdown. -->
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <!-- This is the dropdown panel that contains all the selectable options. It's hidden by default. -->
+                                <div class="multiselect-options">
+                                    <!-- Each workshop is a checkbox/label pair. -->
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Nanosatèl·lits">
+                                        <span data-lang-ca="Ajudem al nostre planeta a través dels nanosatèl·lits." data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites.">Ajudem al nostre planeta a través dels nanosatèl·lits.</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Explorem espai">
+                                        <span data-lang-ca="Explorem l’espai amb AulaSPUTNIK!" data-lang-es="¡Exploramos el espacio con AulaSPUTNIK!">Explorem l’espai amb AulaSPUTNIK!</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Dona aeroespacial">
+                                        <span data-lang-ca="La dona al sector aeroespacial." data-lang-es="La mujer en el sector aeroespacial.">La dona al sector aeroespacial.</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Constel·lacions">
+                                        <span data-lang-ca="Les constel·lacions com a quadern vital." data-lang-es="Las constelaciones como cuaderno vital.">Les constel·lacions com a quadern vital.</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Biologia espai">
+                                        <span data-lang-ca="La biologia a l'espai: com són els aliens?" data-lang-es="La biología en el espacio: ¿cómo son los aliens?">La biologia a l'espai: com són els aliens?</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Sistema estelar">
+                                        <span data-lang-ca="Crea el teu propi sistema estelar!" data-lang-es="¡Crea tu propio sistema estelar!">Crea el teu propi sistema estelar!</span>
+                                    </label>
+                                </div>
+                                <!-- This is a hidden input. Its value will be updated by JavaScript with all the selected workshops. This is what Formspree will receive. -->
+                                <input type="hidden" name="selected_workshops" id="selected-workshops-input">
+                            </div>
+                        </div>
+                        <!-- Form field for the message. 'textarea' allows for multiple lines of text. -->
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" required placeholder="El teu missatge" data-lang-ca-placeholder="El teu missatge" data-lang-es-placeholder="Tu mensaje" aria-label="El teu missatge"></textarea>
+                        </div>
+                        <!-- Privacy Consent Section -->
+                        <div class="privacy-section">
+                            <!-- A header for this section, with a link to your future Privacy Policy page. -->
+                            <!-- Note: The href="#" is a placeholder you should change later to the actual page link. -->
+                            <p class="privacy-header" 
+                                data-lang-ca="En relació amb la nostra <a href='#'>Política de Privacitat</a>*:" 
+                                data-lang-es="En relación con nuestra <a href='#'>Política de Privacidad</a>*:">
+                                En relació amb la nostra <a href="#">Política de Privacitat</a>*:
+                            </p>
+                            <!-- Checkbox 1: Privacy Policy Acceptance. The 'required' attribute makes this mandatory. -->
+                            <div class="form-group-checkbox">
+                                <!-- The actual checkbox input, which we will hide visually with CSS. -->
+                                <input type="checkbox" id="privacy-accept" name="privacy-accept" required>
+                                <!-- The label is what users will see and click. It's linked to the input by the 'for' attribute. -->
+                                <label for="privacy-accept" 
+                                    data-lang-ca="Confirmo haver-la llegit i l'accepto." 
+                                    data-lang-es="Confirmo haberla leído y la acepto.">
+                                    Confirmo haver-la llegit i l'accepto.
+                                </label>
+                            </div>
+                            <!-- Checkbox 2: Commercial Use Consent. This one is optional. -->
+                            <div class="form-group-checkbox">
+                                <input type="checkbox" id="commercial-accept" name="commercial-accept" required>
+                                <label for="commercial-accept" 
+                                    data-lang-ca="Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics." 
+                                    data-lang-es="Acepto que mis datos identificativos sean incluidos para fines comerciales por medios electrónicos.">
+                                    Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics.
+                                </label>
+                            </div>
+                        </div>
+                        <!-- End of Privacy Consent Section -->
+                        <!-- The submit button for the form. -->
+                        <button type="submit" class="submit-btn" data-lang-ca="Enviar" data-lang-es="Enviar">Enviar</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- This is the bottom bar of the footer. -->
+            <div class="footer-bottom-bar">
+                <!-- Copyright notice. -->
+                <p class="copyright-text" data-lang-ca="© 2025 AulaSputnik. Tots els drets reservats." data-lang-es="© 2024 AulaSputnik. Todos los derechos reservados.">© 2024 AulaSputnik. Tots els drets reservats.</p>
+                <!-- Container for the legal links. -->
+                <div class="footer-legal-links">
+                    <a href="#" data-lang-ca="Política de Privacitat" data-lang-es="Política de Privacidad">Política de Privacitat</a>
+                    <a href="#" data-lang-ca="Avís Legal" data-lang-es="Aviso Legal">Avís Legal</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- =================== FOOTER END =================== -->
+
+    <!-- The "Scroll to Top" button. It will be hidden by default with CSS. -->
+    <button id="scroll-to-top-btn" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Link to your JavaScript file -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

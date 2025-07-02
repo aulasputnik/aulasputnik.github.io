@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ca"> 
+<head>
+    <!-- The 'charset' meta tag defines the character set for the document. -->
+    <!-- UTF-8 is a universal standard that includes characters for almost all written languages, which is essential for handling Spanish (ñ) and Catalan (ç, ·) correctly. -->
+    <meta charset="UTF-8">
+
+    <!-- The 'viewport' meta tag is crucial for responsive design. It controls how the page is displayed on mobile devices. -->
+    <!-- 'width=device-width' sets the width of the page to follow the screen-width of the device. -->
+    <!-- 'initial-scale=1.0' sets the initial zoom level when the page is first loaded by the browser. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- The 'title' tag sets the text that appears in the browser tab, in bookmarks, and in search engine results. -->
+    <!-- The 'data-lang-*' attributes hold the text for our language-switching JavaScript. -->
+    <title data-lang-ca="AulaSPUTNIK" data-lang-es="AulaSPUTNIK">AulaSPUTNIK</title>
+
+    <!-- The 'icon' link tag sets the "favicon" -- the small icon that appears in the browser tab next to the title. -->
+    <!-- 'href' points to the location of your image file. -->
+    <!-- 'type' tells the browser the format of the image. -->
+    <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
+
+    <!-- SEO Meta Tags: These help search engines understand your page content -->
+    <!-- The 'description' tag provides a short summary of the page. It's often shown under your page title in search results. -->
+    <meta name="description" content="">
+    <!-- The 'keywords' tag lists relevant terms for your site. While less important for Google today, it can still be useful for other search engines. -->
+    <meta name="keywords" content="">
+
+    <!-- Preconnect to Google Fonts for a minor performance boost -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Import the "Urbanist" and "Inter" fonts from Google Fonts. -->
+    <!-- This version uses a variable font range (wght@300..900), which allows us to use any font-weight from 300 to 900 in our CSS file, giving us full design flexibility. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Urbanist:wght@300..900&display=swap" rel="stylesheet">
+
+    <!--  Import Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Link to the CSS stylesheet -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- We'll build this out properly later, but it helps to have some content to style. -->
+    <header class="site-header">
+        <nav class="site-nav">
+            <div class="nav-container">
+
+                <div class="nav-logo">
+                    <a href="index.html" aria-label="Homepage">
+                        <img src="assets/images/logo.svg" alt="AulaSputnik Logo">
+                    </a>
+                </div>
+
+                <button class="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="#hero" data-lang-ca="Inici" data-lang-es="Inicio">Inici</a></li>
+                        <li><a href="projectes.html" data-lang-ca="Projectes" data-lang-es="Proyectos">Projectes</a></li>
+                        <li><a href="equip.html" data-lang-ca="Equip" data-lang-es="Equipo">Equip</a></li>
+                        <li><a href="tallers.html" class="nav-button" data-lang-ca="Tallers" data-lang-es="Talleres">Tallers</a></li>
+                        <li><a href="#footer" class="nav-button nav-button-secondary" data-lang-ca="Contacte" data-lang-es="Contacto">Contacte</a></li>
+                        <li class="lang-switcher">
+                            <button id="lang-ca-btn" class="lang-switcher-btn" data-lang="ca">CA</button>
+                            <button id="lang-es-btn" class="lang-switcher-btn" data-lang="es">ES</button>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- =================== HERO SECTION START =================== -->
+    <!-- This section is the main "above the fold" content. -->
+    <section id="hero" class="hero-section">
+
+        <!-- This container holds all the content within the hero section. -->
+        <div class="hero-content">
+            <!-- The main title. It has a span for the highlighted text. -->
+            <h1 class="hero-title" 
+                data-lang-ca="A <span class='highlight'>AulaSPUTNIK</span> ens llancem a una nova educació en valors" 
+                data-lang-es="En <span class='highlight'>AulaSPUTNIK</span> nos lanzamos a una nueva educación en valores">
+                A <span class="highlight">AulaSPUTNIK</span> ens llancem a una nova educació en valors
+            </h1>
+        
+            <!-- The main call-to-action button. -->
+            <a href="#" class="hero-button" 
+                data-lang-ca="Els Nostres Tallers &nbsp;<i class='fa-solid fa-arrow-right'></i>" 
+                data-lang-es="Nuestros Talleres &nbsp;<i class='fa-solid fa-arrow-right'></i>">
+                Els Nostres Tallers &nbsp;<i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- The animated "scroll down" link at the bottom. -->
+        <!-- We'll link this to the next section of the page later. -->
+        <a href="#context" class="scroll-down-link">
+            <span data-lang-ca="Saber Més" data-lang-es="Saber Más">Saber Més</span>
+            <!-- The Font Awesome arrow icon. -->
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
+
+        <!-- Floeating image -->
+        <div class="hero-floating-image">
+            <!-- IMPORTANT: Canvia 'your-floating-image.png' pel nom real del teu arxiu d'imatge. -->
+            <img src="assets/images/patch.png" alt="Descripció de la imatge flotant">
+        </div>
+    
+    </section>
+
+    <section id="context" class="context-section">
+    <div class="section-container">
+        
+        <div class="context-grid">
+
+            <div class="context-text-content">
+                <h2 class="section-title" data-lang-ca="CONTEXT" data-lang-es="CONTEXTO">CONTEXT</h2>
+                <p data-lang-ca="En el context de la nova societat que estem construint, una societat incerta i complexa, és molt important <strong>desenvolupar i obrir noves capacitats</strong> a les persones per aprendre a cooperar i participar. Per això, és molt important per un col·lectiu, apoderar-se i construir-se des del mètode científic, el pensament crític i la <strong>inspiració</strong>." data-lang-es="En el contexto de la nueva sociedad que estamos construyendo, una sociedad incierta y compleja, es muy importante <strong>desarrollar y abrir nuevas capacidades</strong> a las personas para aprender a cooperar y participar. Por ello, es muy importante para un colectivo, apoderarse y construirse desde el método científico, el pensamiento crítico y la <strong>inspiración</strong>.">En el context de la nova societat que estem construint, una societat incerta i complexa, és molt important <strong>desenvolupar i obrir noves capacitats</strong> a les persones per aprendre a cooperar i participar. Per això, és molt important per un col·lectiu, apoderar-se i construir-se des del mètode científic, el pensament crítics i la <strong>inspiració</strong>.</p>
+                <p data-lang-ca="El món científic i tecnològic és un àmbit molt llunyà per a moltes persones. Per això, humanitzar la ciència i la tecnologia és un repte fonamental i més si parlem del sector aeroespacial. El sector aeroespacial és un àmbit que <strong>impulsa</strong> la millora de les competències acadèmiques i de ocupabilitat, com també innova per <strong>trobar solucions</strong> als nous reptes socials com el canvi climàtic." data-lang-es="El mundo científico y tecnológico es un ámbito muy lejano для para muchas personas. Por ello, humanizar la ciencia y la tecnología es un reto fundamental y más si hablamos del sector aeroespacial. El sector aeroespacial es un ámbito que <strong>impulsa</strong> la mejora de las competencias académicas y de empleabilidad, así como innova para <strong>encontrar soluciones</strong> a los nuevos retos sociales como el cambio climático.">El món científic i tecnològic és un àmbit molt llunyà per a moltes persones. Per això, humanitzar la ciència i la tecnologia és un repte fonamental i més si parlem del sector aeroespacial. El sector aeroespacial és un àmbit que <strong>impulsa</strong> la millora de les competències acadèmiques i de ocupabilitat, com també innova per <strong>trobar solucions</strong> als nous reptes socials com el canvi climàtic.</p>
+                <p data-lang-ca="Per aquest motiu, l’educació i el sector aeroespacial són dues de les claus per avançar en aquests futurs reptes col·lectius. Les noves generacions són la <strong>clau</strong> per construir una societat més cooperativa, líder i inclusiva, on qualsevol persona <strong>sense diferència de gènere, context, edat o cultura</strong>, pot tenir les mateixes oportunitats." data-lang-es="Por este motivo, la educación y el sector aeroespacial son dos de las claves para avanzar en estos futuros retos colectivos. Las nuevas generaciones son la clave para construir una sociedad más cooperativa, líder e inclusiva, donde cualquier persona <strong>sin diferencia de género, contexto, edad o cultura</strong>, puede tener las mismas oportunidades.">Per aquest motiu, l’educació i el sector aeroespacial són dues de les claus per avançar en aquests futurs reptes col·lectius. Les noves generacions són la <strong>clau</strong> per construir una societat més cooperativa, líder i inclusiva, on qualsevol persona <strong>sense diferència de gènere, context, edat o cultura</strong>, pot tenir les mateixes oportunitats.</p>
+            </div>
+
+            <div class="context-accordion-content">
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span data-lang-ca="OBJECTIU" data-lang-es="OBJETIVO">OBJECTIU</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p data-lang-ca="AulaSPUTNIK és un projecte educatiu amb l’objectiu de realitzar activitats per inspirar i despertar el talent de les noves generacions, amb el sector aeroespacial com a context, de forma inclusiva, accessible i participativa per a tots els contextos. Creiem en el desenvolupament de la competència científic-tecnològica, entesa com a competència bàsica (i, per tant, imprescindible), per a totes les persones i amb valors." data-lang-es="AulaSPUTNIK es un proyecto educativo con el objetivo de realizar actividades para inspirar y despertar el talento de las nuevas generaciones, con el sector aeroespacial como contexto, de forma inclusiva, accesible y participativa para todos los contextos. Creemos en el desarrollo de la competencia científico-tecnológica, entendida como competencia básica (y, por tanto, imprescindible), para todas las personas y con valores.">AulaSPUTNIK és un projecte educatiu amb l’objectiu de realitzar activitats per inspirar i despertar el talent de les noves generacions, amb el sector aeroespacial com a context, de forma inclusiva, accessible i participativa per a tots els contextos. Creiem en el desenvolupament de la competència científic-tecnològica, entesa com a competència bàsica (i, per tant, imprescindible), per a totes les persones i amb valors.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span data-lang-ca="MISSIÓ" data-lang-es="MISIÓN">MISSIÓ</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p data-lang-ca="La missió és desenvolupar actituds, emocions i identitats positives relacionades amb la ciència i la societat, per això el públic objectiu se centra en persones de 8 a 88 anys. Aprendrem la importància de la participació i lideratge social en la ciència i millorarem les competències acadèmiques i de ocupabilitat, amb el sector aeroespacial com a context." data-lang-es="La misión es desarrollar actitudes, emociones e identidades positivas relacionadas con la ciencia y la sociedad, por ello el público objetivo se centra en personas de 8 a 88 años. Aprenderemos la importancia de la participación y liderazgo social en la ciencia y mejoraremos las competencias académicas y de empleabilidad, con el sector aeroespacial como contexto.">La missió és desenvolupar actituds, emocions i identitats positives relacionades amb la ciència i la societat, per això el públic objectiu se centra en persones de 8 a 88 anys. Aprendrem la importància de la participació i lideratge social en la ciència i millorarem les competències acadèmiques i de ocupabilitat, amb el sector aeroespacial com a context.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span data-lang-ca="VISIÓ" data-lang-es="VISIÓN">VISIÓ</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p data-lang-ca="La nostra visió és despertar curiositat i creativitat, com també les capacitats personals i el treball en equip. Volem motivar i educar, i així ampliar les oportunitats de relacionar-se amb la ciència." data-lang-es="Nuestra visión es despertar curiosidad y creatividad, así como las capacidades personales y el trabajo en equipo. Queremos motivar y educar, y así ampliar las oportunidades de relacionarse con la ciencia.">La nostra visió és despertar curiositat i creativitat, com també les capacitats personals i el treball en equip. Volem motivar i educar, i així ampliar les oportunitats de relacionar-se amb la ciència.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- =================== SECCIÓ DE VALORS START =================== -->
+    <!-- Definim una secció amb un ID per si hi volem enllaçar des del menú. -->
+    <section id="valors" class="valors-section">
+        <!-- Un contenidor per mantenir el contingut centrat. -->
+        <div class="section-container">
+            <!-- Títol principal de la secció. -->
+            <h2 class="section-title" data-lang-ca="VALORS" data-lang-es="VALORES">VALORS</h2>
+        
+            <!-- Aquesta és la graella que contindrà totes les targetes de valors. -->
+            <div class="valors-grid">
+                <!-- Targeta 1: Empatia -->
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                    <h3 class="valor-title" data-lang-ca="Empatia" data-lang-es="Empatía">Empatia</h3>
+                    <p class="valor-subtitle" data-lang-ca="Comprendre i comprendre’ns" data-lang-es="Comprender y comprendernos">Comprendre i comprendre’ns</p>
+                </div>
+
+                <!-- Targeta 2: Confiança -->
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fa-solid fa-handshake-simple"></i></div>
+                    <h3 class="valor-title" data-lang-ca="Confiança" data-lang-es="Confianza">Confiança</h3>
+                    <p class="valor-subtitle" data-lang-ca="Confia en mi que jo confio en tu" data-lang-es="Confía en mí que yo confío en ti">Confia en mi que jo confio en tu</p>
+                </div>
+            
+                <!-- Targeta 3: Valentia -->
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fa-solid fa-shield-heart"></i></div>
+                    <h3 class="valor-title" data-lang-ca="Valentia" data-lang-es="Valentía">Valentia</h3>
+                    <p class="valor-subtitle" data-lang-ca="Demanar ajuda quan es necessita" data-lang-es="Pedir ayuda cuando se necesita">Demanar ajuda quan es necessita</p>
+                </div>
+
+                <!-- Targeta 4: Treball en equip -->
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3 class="valor-title" data-lang-ca="Treball en equip" data-lang-es="Trabajo en equipo">Treball en equip</h3>
+                    <p class="valor-subtitle" data-lang-ca="Tots i totes som necessaris" data-lang-es="Todos y todas somos necesarios">Tots i totes som necessaris</p>
+                </div>
+
+                <!-- Targeta 5: Escolta activa -->
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fa-solid fa-ear-listen"></i></div>
+                    <h3 class="valor-title" data-lang-ca="Escolta activa" data-lang-es="Escucha activa">Escolta activa</h3>
+                    <p class="valor-subtitle" data-lang-ca="Totes les veus compten" data-lang-es="Todas las voces cuentan">Totes les veus compten</p>
+                </div>
+
+                <!-- Targeta 6: Il·lusió -->
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3 class="valor-title" data-lang-ca="Il·lusió" data-lang-es="Ilusión">Il·lusió</h3>
+                    <p class="valor-subtitle" data-lang-ca="En el nostre dia a dia" data-lang-es="En nuestro día a día">En el nostre dia a dia</p>
+                </div>
+
+                </div>
+            </div>
+        </section>
+
+    <!-- =================== FOOTER START =================== -->
+    <!-- The <footer> tag is used for semantics, telling the browser and search engines what this section is. -->
+    <footer id="footer" class="site-footer">
+        <!-- This is a container to keep the content centered and constrained to a max-width. -->
+        <div class="footer-container">
+            <!-- This grid container will hold our two main columns. -->
+            <div class="footer-main-grid">
+
+                <!-- Column 1: Text content and social links. -->
+                <div class="footer-column-left">
+                    <!-- Main heading for the column -->
+                    <h3 class="footer-title" data-lang-ca="PARLEM?" data-lang-es="¿HABLAMOS?">PARLEM?</h3>
+                    <!-- First paragraph of text -->
+                    <p data-lang-ca="Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu." data-lang-es="¿Tienes alguna duda, proposta o idea? ¡Queremos conocerte! Rellena este formulario y nos pondremos en contacto contigo.">Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu.</p>
+                    <!-- Second paragraph of text -->
+                    <p data-lang-ca="També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!" data-lang-es="¡También puedes seguirnos en nuestras redes sociales y sumarte a nuestra comunidad!">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
+                    <!-- Container for social media icon links -->
+                    <div class="footer-social-icons">
+                        <!-- Each 'a' tag is a link to a social profile. The 'aria-label' is for accessibility. -->
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: The contact form. -->
+                <div class="footer-column-right">
+                    <!-- We will connect this to a service like Formspree later. -->
+                    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <!-- Form field for Name. The label is now visually hidden but still exists for screen readers. -->
+                        <div class="form-group">
+                            <!-- The 'aria-label' provides an accessible name for the input now that the label is hidden. -->
+                            <input type="text" id="name" name="name" required placeholder="Nom i Cognoms*" data-lang-ca-placeholder="Nom i Cognoms*" data-lang-es-placeholder="Nombre y Apellidos*" aria-label="Nom i Cognoms">
+                        </div>
+                        <!-- Form field for Email. -->
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder="Correu electrònic*" data-lang-ca-placeholder="Correu electrònic*" data-lang-es-placeholder="Correo electrónico*" aria-label="Correu electrònic">
+                        </div>
+                        <!-- Form field for Institution. -->
+                        <div class="form-group">
+                            <input type="text" id="institution" name="institution" required placeholder="Empresa, escola, institut, etc.*" data-lang-ca-placeholder="Empresa, escola, institut, etc.*" data-lang-es-placeholder="Empresa, colegio, instituto, etc.*" aria-label="Empresa, escola, institut, etc.">
+                        </div>
+                        <!-- Custom Multi-Select Dropdown for Workshops -->
+                        <div class="form-group">
+                            <!-- This is the main container for our custom component. We set its position to relative so we can position the dropdown options inside it. -->
+                            <div class="multiselect-container" id="workshops-multiselect">
+                                <!-- This is the visible, clickable part that looks like a form input. -->
+                                <div class="multiselect-display">
+                                    <!-- This span holds the placeholder text (e.g., "2 seleccionats"). -->
+                                    <span class="multiselect-placeholder" 
+                                        data-lang-ca="T'agradaria rebre informació d'algún taller en concret?" 
+                                        data-lang-es="¿Te gustaría recibir información de algún taller en concreto?">
+                                        T'agradaria rebre informació d'algún taller en concret?
+                                    </span>
+                                    <!-- A Font Awesome icon to indicate that it's a dropdown. -->
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <!-- This is the dropdown panel that contains all the selectable options. It's hidden by default. -->
+                                <div class="multiselect-options">
+                                    <!-- Each workshop is a checkbox/label pair. -->
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Nanosatèl·lits">
+                                        <span data-lang-ca="Ajudem al nostre planeta a través dels nanosatèl·lits." data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites.">Ajudem al nostre planeta a través dels nanosatèl·lits.</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Explorem espai">
+                                        <span data-lang-ca="Explorem l’espai amb AulaSPUTNIK!" data-lang-es="¡Exploramos el espacio con AulaSPUTNIK!">Explorem l’espai amb AulaSPUTNIK!</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Dona aeroespacial">
+                                        <span data-lang-ca="La dona al sector aeroespacial." data-lang-es="La mujer en el sector aeroespacial.">La dona al sector aeroespacial.</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Constel·lacions">
+                                        <span data-lang-ca="Les constel·lacions com a quadern vital." data-lang-es="Las constelaciones como cuaderno vital.">Les constel·lacions com a quadern vital.</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Biologia espai">
+                                        <span data-lang-ca="La biologia a l'espai: com són els aliens?" data-lang-es="La biología en el espacio: ¿cómo son los aliens?">La biologia a l'espai: com són els aliens?</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Sistema estelar">
+                                        <span data-lang-ca="Crea el teu propi sistema estelar!" data-lang-es="¡Crea tu propio sistema estelar!">Crea el teu propi sistema estelar!</span>
+                                    </label>
+                                </div>
+                                <!-- This is a hidden input. Its value will be updated by JavaScript with all the selected workshops. This is what Formspree will receive. -->
+                                <input type="hidden" name="selected_workshops" id="selected-workshops-input">
+                            </div>
+                        </div>
+                        <!-- Form field for the message. 'textarea' allows for multiple lines of text. -->
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" required placeholder="El teu missatge" data-lang-ca-placeholder="El teu missatge" data-lang-es-placeholder="Tu mensaje" aria-label="El teu missatge"></textarea>
+                        </div>
+                        <!-- Privacy Consent Section -->
+                        <div class="privacy-section">
+                            <!-- A header for this section, with a link to your future Privacy Policy page. -->
+                            <!-- Note: The href="#" is a placeholder you should change later to the actual page link. -->
+                            <p class="privacy-header" 
+                                data-lang-ca="En relació amb la nostra <a href='#'>Política de Privacitat</a>*:" 
+                                data-lang-es="En relación con nuestra <a href='#'>Política de Privacidad</a>*:">
+                                En relació amb la nostra <a href="#">Política de Privacitat</a>*:
+                            </p>
+                            <!-- Checkbox 1: Privacy Policy Acceptance. The 'required' attribute makes this mandatory. -->
+                            <div class="form-group-checkbox">
+                                <!-- The actual checkbox input, which we will hide visually with CSS. -->
+                                <input type="checkbox" id="privacy-accept" name="privacy-accept" required>
+                                <!-- The label is what users will see and click. It's linked to the input by the 'for' attribute. -->
+                                <label for="privacy-accept" 
+                                    data-lang-ca="Confirmo haver-la llegit i l'accepto." 
+                                    data-lang-es="Confirmo haberla leído y la acepto.">
+                                    Confirmo haver-la llegit i l'accepto.
+                                </label>
+                            </div>
+                            <!-- Checkbox 2: Commercial Use Consent. This one is optional. -->
+                            <div class="form-group-checkbox">
+                                <input type="checkbox" id="commercial-accept" name="commercial-accept" required>
+                                <label for="commercial-accept" 
+                                    data-lang-ca="Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics." 
+                                    data-lang-es="Acepto que mis datos identificativos sean incluidos para fines comerciales por medios electrónicos.">
+                                    Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics.
+                                </label>
+                            </div>
+                        </div>
+                        <!-- End of Privacy Consent Section -->
+                        <!-- The submit button for the form. -->
+                        <button type="submit" class="submit-btn" data-lang-ca="Enviar" data-lang-es="Enviar">Enviar</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- This is the bottom bar of the footer. -->
+            <div class="footer-bottom-bar">
+                <!-- Copyright notice. -->
+                <p class="copyright-text" data-lang-ca="© 2025 AulaSputnik. Tots els drets reservats." data-lang-es="© 2024 AulaSputnik. Todos los derechos reservados.">© 2024 AulaSputnik. Tots els drets reservats.</p>
+                <!-- Container for the legal links. -->
+                <div class="footer-legal-links">
+                    <a href="#" data-lang-ca="Política de Privacitat" data-lang-es="Política de Privacidad">Política de Privacitat</a>
+                    <a href="#" data-lang-ca="Avís Legal" data-lang-es="Aviso Legal">Avís Legal</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- =================== FOOTER END =================== -->
+
+    <!-- The "Scroll to Top" button. It will be hidden by default with CSS. -->
+    <button id="scroll-to-top-btn" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Link to your JavaScript file -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
