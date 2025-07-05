@@ -389,8 +389,27 @@ a.nav-button:not(.nav-button-secondary) {
 }
 .hero-button:hover {
     background-color: var(--color-btn-hover);
-    transform: translateY(-3px);
+    transform: translateY(-1px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenidor per als botons del hero. */
+.hero-buttons-container {
+    display: flex; /* Alinea els botons horitzontalment. */
+    align-items: center; /* Els centra verticalment. */
+    gap: 20px; /* Afegeix un espai de 20px entre els botons. */
+}
+
+/* Estil per al nou botó secundari. */
+.hero-button--secondary {
+    /* Utilitzem el teu color de botó secundari. */
+    background-color: var(--color-btn-sec);
+    /* Utilitzem el teu color de text fosc per a un bon contrast. */
+    color: var(--color-text);
+}
+.hero-button--secondary:hover {
+    /* Utilitzem el teu color de hover per al botó secundari. */
+    background-color: var(--color-btn-hover-sec);
 }
 
 /* The "Saber Més" link at the bottom. */
@@ -463,6 +482,48 @@ a.nav-button:not(.nav-button-secondary) {
     width: 100%;
     height: auto;
     filter: drop-shadow(0 0 5px #e2e8ee);
+}
+
+/* --- BANNER INFERIOR PER A MÒBILS --- */
+
+/* Per defecte, el banner està amagat. */
+.mobile-scroll-banner {
+    display: none; /* Amagat en pantalles grans. */
+    position: fixed; /* El fixem a la finestra del navegador. */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 500; /* Assegura que estigui per sobre d'altres elements. */
+
+    /* Estils visuals del banner. */
+    background-color: var(--color-text); /* Un fons fosc per a bon contrast. */
+    padding: 15px 0;
+    text-align: center;
+}
+
+/* Estil per a l'enllaç dins del banner. */
+.mobile-scroll-banner .scroll-down-link {
+    /* Eliminem l'animació en aquesta versió. */
+    animation: none;
+    /* Assegurem que la posició no sigui absoluta. */
+    position: static;
+    transform: none;
+    color: var(--color-white);
+    opacity: 1;
+}
+
+/* AQUESTA ÉS LA PART CLAU: La Media Query per a mòbils. */
+/* Aquestes regles només s'apliquen a pantalles de 768px d'ample o menys. */
+@media (max-width: 768px) {
+    /* 1. Amaguem l'enllaç "Saber Més" original que surava al mig. */
+    .hero-section .scroll-down-link {
+        display: none;
+    }
+
+    /* 2. Mostrem el nou banner inferior. */
+    .mobile-scroll-banner {
+        display: block; /* O 'flex' si necessites alinear-lo. */
+    }
 }
 
 /* --- Ajustos responsius per al Hero Grid --- */
@@ -1255,11 +1316,10 @@ html {
 
 /* Contenidor principal per a les seccions d'introducció de les sub-pàgines. */
 .page-intro-section {
-    /* El color de fons que has demanat. */
+    /* El color de fons que ja tenies. */
     background-color: var(--color-background);
-    /* Un espaiat generós per sobre i per sota. */
-    /* El padding-top és més gran per deixar espai a la barra de navegació fixa. */
-    padding: 150px 40px 60px 40px;
+    /* Augmentem el padding inferior per donar espai al degradat. */
+    padding: 130px 40px 30px 40px;
 }
 
 /* El contenidor del contingut de text. */
@@ -1282,9 +1342,10 @@ html {
 /* Els paràgrafs introductoris, amb un estil una mica diferent. */
 .lead-paragraph {
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.6;
     color: var(--color-text);
-    margin-bottom: 10px;
+    margin-bottom: 4px;
+    text-align: justify;
 }
 
 /* El subtítol (per exemple, "Metodologia"). */
@@ -1293,257 +1354,530 @@ html {
     font-weight: 800;
     color: var(--color-heading);
     /* Un espai més gran per sobre per separar-lo visualment. */
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 2px;
 }
 
-/* --- 13. SECCIÓ DE LA GALERIA DE TALLERS (VERSIÓ FINAL I ESTABLE) --- */
+/* Els paràgrafs introductoris, amb un estil una mica diferent. */
+.regular-paragraph {
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: justify;
+    color: var(--color-text);
+    margin-bottom: 2px;
+}
 
-.tallers-gallery-section {
-    padding: 10px 40px 40px;
+/* El subtítol (per exemple, "Metodologia"). */
+.section-middle-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--color-heading);
+    /* Un espai més gran per sobre per separar-lo visualment. */
+    margin-top: 8px;
+    margin-bottom: 2px;
+    text-transform: uppercase;    background-color: var(--color-background);
+}
+
+/* --- 13. NOVA SECCIÓ DE TALLERS --- */
+
+.tallers-section {
+    padding: 10px 40px 20px 40px;
     background-color: var(--color-background);
 }
 
-.tallers-grid {
+/* La graella que conté les targetes. */
+.taller-grid {
     display: grid;
+    /* Una sola columna per a les targetes. */
     grid-template-columns: 1fr;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 25px;
+    /* Limitem l'amplada per a una millor llegibilitat en pantalles grans. */
+    max-width: 1200px; 
+    margin: 0 auto; /* Centrem la graella a la pàgina. */
 }
 
+/* L'estil per a cada targeta individual. */
 .taller-card {
     background-color: var(--color-white);
     border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
-    overflow: hidden;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 .taller-card:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    transform: scale(1.005);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
-.taller-header {
-    position: relative;
-    padding: 20px 30px;
-    background-color: var(--color-border);
+/* La capçalera de la targeta, que és l'element clicable. */
+.taller-card-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 25px;
+    padding: 25px 30px;
     cursor: pointer;
-    color: var(--color-text);
 }
 
-.taller-header-content h2 {
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--color-text);
-    margin-bottom: 12px;
+.taller-icon {
+    color: rgba(161, 93, 246, 0.75);
+    font-size: 40px;
+    flex-shrink: 0; /* Evita que la icona s'encongeixi. */
 }
+
+.taller-main-info {
+    flex-grow: 1; /* Fa que aquesta secció ocupi tot l'espai disponible. */
+}
+
+.taller-title {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--color-heading);
+    line-height: 1.2;
+}
+
 .taller-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
 }
 .taller-tags span {
-    background-color: rgba(161, 93, 246, 0.4);
-    color: var(--color-white);
-    padding: 5px 10px;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    padding: 5px 12px;
     border-radius: 20px;
     font-size: 12px;
-    font-weight: 300;
+    font-weight: 400;
 }
-.expand-icon {
+
+/* La fletxa per expandir, ara a la dreta. */
+.taller-expand-icon {
     font-size: 20px;
+    color: var(--color-text);
+    opacity: 0.6;
     transition: transform 0.4s ease;
-    flex-shrink: 0;
-    margin-left: 20px;
+    margin-left: 20px; /* Espai a l'esquerra de la fletxa. */
 }
-.taller-card.is-open .expand-icon {
+.taller-card.is-open .taller-expand-icon {
     transform: rotate(180deg);
 }
 
-/* === ESTRUCTURA DEFINITIVA PER A L'ANIMACIÓ I LA GRAELLA (CORREGIT) === */
-
-/* 1. El cos de la targeta (animat). */
-.taller-body {
+/* La part oculta de la targeta (animada amb el teu JS). */
+.taller-card-hidden {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-in-out;
 }
 
-/* 2. El contenidor intern. AQUEST ÉS L'ÚNIC LLOC ON HI HA D'HAVER PADDING. */
-.taller-body-content {
-    padding: 30px;
-    text-align: justify;
+/* El contenidor del contingut intern que té l'espaiat. */
+.taller-hidden-content {
+    padding: 20px 30px;
+    border-top: 1px solid var(--color-background);
 }
 
-/* 3. La graella de dues columnes. NO TÉ PADDING. */
+/* La disposició de dues columnes per als detalls. */
 .taller-details-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 1fr; /* Columna esquerra 2/3, dreta 1/3. */
     gap: 40px;
-    align-items: flex-start;
+    align-items: start;
 }
 
-/* Estils per als títols dins de les columnes */
-.taller-body-content h3 {
-    font-size: 22px;
-    font-weight: 800;
-    margin-top: 25px; /* Espai per sobre */
-    margin-bottom: 15px; /* Espai per sota */
-    color: var(--color-primary);
+/* Estils per al contingut intern. */
+.taller-details-grid h4 { 
+    font-size: 18px; 
+    font-weight: 700; 
+    color: var(--color-primary); 
+    margin-bottom: 2px; 
+    margin-top: 6px; /* Espaiat superior per separar del text anterior */
 }
-/* El primer títol de cada columna no necessita espai per sobre. */
-.taller-details-main h3:first-child,
-.taller-details-sidebar h3:first-child {
-    margin-top: 0;
+.taller-details-grid ul { 
+    list-style: none; 
+    padding: 0; 
 }
-
-.taller-details-sidebar h4 {
-    font-size: 18px;
-    font-weight: 800;
-    margin-bottom: 15px;
-    color: var(--color-primary);
+.taller-details-grid li, 
+.taller-details-grid .feature-item { 
+    display: flex; 
+    align-items: flex-start; 
+    gap: 2px; 
+    margin-bottom: 4px; 
+    margin-left: 6px; /* Espaiat a l'esquerra per a les llistes */
 }
-
-/* La resta dels teus estils interns es mantenen iguals, però assegura't que són aquests. */
-.taller-details-main ul {
-    list-style: none;
-    padding: 0;
-}
-.taller-details-main li {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 4px;
-}
-.taller-details-main li i {
-    color: var(--color-text);
-    margin-right: 4px;
+.taller-details-grid i { 
+    color: var(--color-primary); 
     margin-top: 6px;
-    margin-left: 10px;
-    font-size: 12px;
+    font-size: 12px; /* Mida de la icona */ 
+
 }
-.taller-features .feature-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
+
+/* Responsivitat per a les columnes internes. */
+@media (max-width: 768px) {
+    .taller-details-grid {
+        /* En pantalles petites, les columnes es posen una sobre l'altra. */
+        grid-template-columns: 1fr;
+        gap: 0px;
+    }
 }
-.taller-features .feature-item i {
-    color: var(--color-text);
-    margin-left: 10px;
+
+/* Estils per a la secció dels ODS. */
+.taller-ods-section {
+    margin-top: 6px; /* Espai per sobre de la secció. */
 }
 
 .ods-images {
     display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permet que les imatges baixin a la següent línia si no hi caben. */
+    gap: 10px; /* Espai entre les imatges. */
 }
+
 .ods-images img {
-    width: 48px;
-    height: 48px;
+    width: 40px; /* Amplada de la imatge. */
+    height: 40px; /* Alçada de la imatge per fer-la quadrada. */
+    object-fit: cover; /* Assegura que la imatge ompli l'espai sense deformar-se. */
+    border-radius: 0px; /* Cantonades lleugerament arrodonides. */
+    transition: transform 0.2s ease;
+    margin-top: 4px; /* Espaiat superior per a les imatges */
+}
+.ods-images img:hover {
+    transform: scale(1); /* Un petit efecte de zoom en passar per sobre. */
 }
 
-.taller-carousel {
-    margin-top: 30px; /* Espai sobre el carrusel. */
-    /* Aquí pots enganxar els teus estils del carrusel si els has esborrat. */
-}
+/* --- 14. CARRUSEL DE FOTOS DELS TALLERS (VERSIÓ AMB CENTRAT D'IMATGE) --- */
 
-@media (max-width: 768px) {
-    .taller-details-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* --- 14. CARRUSEL AVANÇAT (CENTER MODE) --- */
-
-/* El contenidor principal del carrusel. */
 .taller-carousel {
     position: relative;
-    margin-top: 10px;
+    margin-top: 40px;
     width: 100%;
-    /* La clau: amaguem el que sobrepassa per crear l'efecte de "finestra". */
     overflow: hidden;
-    margin-bottom: 20px;
+    border-radius: 12px;
 }
 
-/* El 'track' que conté els slides. */
 .carousel-track {
     display: flex;
-    align-items: center; /* Centrem els slides verticalment. */
-    /* Afegim un espaiat inicial perquè el primer slide es pugui centrar. */
-    padding: 0 40px; 
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Una transició més suau. */
+    transition: transform 0.4s ease-in-out;
 }
 
-/* Cada slide individual. */
+/* El slide ara és un contenidor flexible que centrarà el seu contingut. */
 .carousel-slide {
-    /* Definim l'amplada principal del slide. Ocuparà el 60% de l'espai. */
-    flex: 0 0 40%; 
-    width: 60%;
-    /* Un espai entre els slides. */
-    margin: 0 0px; 
-    
-    /* Per defecte, tots els slides són més petits i transparents. */
-    transform: scale(0.85);
-    opacity: 0.3;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-/* AQUEST ÉS L'ESTIL PER AL SLIDE ACTIU (EL DEL CENTRE) */
-.carousel-slide.current-slide {
-    /* L'slide actiu torna a la seva mida i opacitat normals. */
-    transform: scale(1);
-    opacity: 1;
+    flex: 0 0 100%;
+    width: 100%;
+    /* AQUESTA ÉS LA PART CLAU: */
+    display: flex;
+    justify-content: center; /* Centra la imatge horitzontalment. */
+    align-items: center;     /* Centra la imatge verticalment. */
+    /* Definim una alçada fixa per al contenidor del slide. */
+    height: 350px; 
 }
 
 /* L'estil per a les imatges dins dels slides. */
 .carousel-slide img {
-    width: 100%;
-    height: auto;
+    /* La imatge mai serà més ampla que el seu contenidor. */
+    max-width: 100%;
+    /* AQUESTA ÉS L'ALTRA PART CLAU: Limitem l'alçada màxima de la imatge. */
+    max-height: 100%; /* Mai serà més alta que el seu contenidor (450px). */
+    
+    width: auto;  /* L'amplada s'ajusta per mantenir la proporció. */
+    height: auto; /* L'alçada s'ajusta per mantenir la proporció. */
+    
     display: block;
-    border-radius: 12px;
-    /* Afegim una ombra per donar profunditat. */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
 }
 
-/* L'estil dels botons de navegació (es manté semblant). */
+/* L'estil dels botons de navegació (es manté igual). */
 .carousel-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(161, 93, 246, 0.4);
     color: white;
     border: none;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    font-size: 18px;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
     cursor: pointer;
     z-index: 10;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    transition: background-color 0.2s ease;
 }
 .carousel-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    transform: translateY(-50%) scale(1.1);
+    background-color: rgba(161, 93, 246, 0.6);
 }
 .carousel-button--left {
-    left: 20px;
+    /* L'espai a l'esquerra és del 25% (100% - 50% de la imatge) / 2. El botó es posiciona just fora de la imatge central. */
+    left: calc(25% - 40px);
 }
 .carousel-button--right {
-    right: 20px;
+    /* El mateix càlcul per a la dreta. */
+    right: calc(25% - 40px);
 }
 .carousel-button.is-hidden {
     display: none;
 }
 
-
 /* --- Responsivitat del carrusel avançat --- */
+@media (max-width: 900px) {
+    .carousel-slide {
+        flex-basis: 70%;
+        width: 70%;
+    }
+    .carousel-button--left {
+        /* L'espai a l'esquerra és del 15% (100% - 70%) / 2. */
+        left: calc(15% - 50px);
+    }
+    .carousel-button--right {
+        right: calc(15% - 50px);
+    }
+}
+
 @media (max-width: 768px) {
     .carousel-slide {
-        /* En pantalles petites, cada slide ocupa més espai. */
         flex-basis: 80%;
+        width: 80%;
+    }
+    /* En pantalles petites, tornem a posicionar els botons a les vores per a més espai. */
+    .carousel-button--left {
+        left: 15px;
+    }
+    .carousel-button--right {
+        right: 15px;
+    }
+}
+
+/* --- 15. BANNER REPTE SPUTNIK (VERSIÓ AMB MARC) --- */
+
+/* 1. El contenidor exterior: té el color de fons i l'espaiat. */
+.repte-banner-section {
+    /* AQUEST ÉS EL COLOR DEL "MARC". Pots canviar-lo per qualsevol de la teva paleta. */
+    background-color: var(--color-background);
+    /* El padding crea l'espai entre la vora de la secció i la imatge. */
+    padding: 20px 40px;
+}
+
+/* 2. El contenidor interior: té la imatge de fons. */
+.repte-banner-inner {
+    /* Apliquem la imatge i la capa de color per a la llegibilitat. */
+    background-image: 
+        linear-gradient(rgba(25, 50, 90, 0.75), rgba(25, 50, 90, 0.75)),
+        url('../images/repte-banner.png'); /* <-- Assegura't que el nom és correcte */
+    
+    background-size: cover;
+    background-position: center;
+    
+    /* L'espaiat interior per al text. */
+    padding: 80px 40px;
+    text-align: center;
+    color: var(--color-white);
+    border-radius: 12px; /* Cantonades arrodonides per a la imatge. */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Estils per al contingut (títol, subtítol, botó) - Aquests no canvien. */
+.repte-banner-title {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--color-white);
+    margin-bottom: 15px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.repte-banner-subtitle {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.repte-banner-button {
+    background-color: var(--color-btn-sec);
+    color: var(--color-text);
+    padding: 8px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+.repte-banner-button:hover {
+    background-color: var(--color-btn-hover-sec);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajust responsiu per a mòbils. */
+@media (max-width: 768px) {
+    .repte-banner-section {
+        padding: 40px 20px;
+    }
+    .repte-banner-inner {
+        padding: 60px 20px;
+    }
+    .repte-banner-title {
+        font-size: 32px;
+    }
+    .repte-banner-subtitle {
+        font-size: 16px;
+    }
+}
+
+/* --- 16. SECCIÓ DE L'EQUIP (DISSENY CLÀSSIC) --- */
+
+.team-section-classic {
+    padding: 20px 40px 40px 40px;
+    background-color: var(--color-background);
+}
+
+/* Cada fila d'un membre de l'equip. */
+.team-member-row {
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* Columna de foto 1/3, text 2/3. */
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 40px; /* Espai entre membres. */
+}
+
+/* La classe 'reverse' inverteix l'ordre de les columnes. */
+.team-member-row.reverse {
+    grid-template-columns: 3fr 1fr;
+}
+.team-member-row.reverse .team-member-photo {
+    grid-column: 2;
+    grid-row: 1;
+}
+.team-member-row.reverse .team-member-info {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+/* El contenidor de la foto. */
+.team-member-photo {
+    width: 100%;
+    max-width: 300px; /* Limitem la mida de la foto. */
+    justify-self: center; /* Centrem la foto dins la seva columna. */
+}
+
+.team-member-photo img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* Assegura que la imatge sigui quadrada abans de fer-la rodona. */
+    object-fit: cover; /* Evita que la imatge es deformi. */
+    border-radius: 6px; /* La clau per a la foto circular. */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* El contenidor de la informació. */
+.team-member-info h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--color-heading);
+    margin-bottom: 0px;
+}
+
+.team-member-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+.team-member-bio {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+/* --- Ajustos responsius per a la secció de l'equip --- */
+@media (max-width: 768px) {
+    .team-member-row,
+    .team-member-row.reverse {
+        /* En pantalles petites, passem a una sola columna. */
+        grid-template-columns: 1fr;
+        text-align: center; /* Centrem el text. */
+        gap: 20px;
+    }
+
+    .team-member-row.reverse .team-member-photo,
+    .team-member-row.reverse .team-member-info {
+        /* Resetejem l'ordre de les columnes. */
+        grid-column: 1;
+        grid-row: auto;
+    }
+}
+
+/* --- 16. SECCIÓ DE L'EQUIP (DISSENY CLÀSSIC) --- */
+
+.projectes-section-classic {
+    padding: 20px 40px 40px 40px;
+    background-color: var(--color-background);
+}
+
+/* Cada fila d'un membre de l'equip. */
+.projectes-member-row {
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* Columna de foto 1/3, text 2/3. */
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 40px; /* Espai entre membres. */
+}
+
+/* La classe 'reverse' inverteix l'ordre de les columnes. */
+.projectes-member-row.reverse {
+    grid-template-columns: 3fr 1fr;
+}
+.projectes-member-row.reverse .projectes-member-photo {
+    grid-column: 2;
+    grid-row: 1;
+}
+.projectes-member-row.reverse .projectes-member-info {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+/* El contenidor de la foto. */
+.projectes-member-photo {
+    width: 100%;
+    max-width: 300px; /* Limitem la mida de la foto. */
+    justify-self: center; /* Centrem la foto dins la seva columna. */
+}
+
+.projectes-member-photo img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* Assegura que la imatge sigui quadrada abans de fer-la rodona. */
+    object-fit: cover; /* Evita que la imatge es deformi. */
+    border-radius: 6px; /* La clau per a la foto circular. */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* El contenidor de la informació. */
+.projectes-member-info h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-heading);
+    margin-bottom: 0px;
+}
+
+.projectes-member-bio {
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--color-text);
+}
+
+/* --- Ajustos responsius per a la secció de l'equip --- */
+@media (max-width: 768px) {
+    .projectes-member-row,
+    .projectes-member-row.reverse {
+        /* En pantalles petites, passem a una sola columna. */
+        grid-template-columns: 1fr;
+        text-align: center; /* Centrem el text. */
+        gap: 20px;
+    }
+
+    .projectes-member-row.reverse .projectes-member-photo,
+    .projectes-member-row.reverse .projectes-member-info {
+        /* Resetejem l'ordre de les columnes. */
+        grid-column: 1;
+        grid-row: auto;
     }
 }

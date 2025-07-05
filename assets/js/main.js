@@ -285,137 +285,101 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // --- LÒGICA FINAL I ESTABLE PER A TARGETES I CARRUSELS ---
-
-    // Aquesta funció s'encarrega de recalcular l'alçada d'una targeta oberta.
-    const updateAccordionHeight = (card) => {
-        const body = card.querySelector('.taller-body');
-        if (card.classList.contains('is-open')) {
-            // Primer, resetegem l'alçada per si el contingut s'ha fet més petit.
-            body.style.maxHeight = 'none'; 
-            // Després, apliquem la nova alçada correcta.
-            // L'ús de requestAnimationFrame assegura que el càlcul es faci després que el navegador hagi actualitzat el disseny.
-            requestAnimationFrame(() => {
-                body.style.maxHeight = body.scrollHeight + 'px';
-            });
-        }
-    };
-
-    // Aquesta funció configura un carrusel només un cop.
+    
+    // --- LÒGICA PER A LES TARGETES DESPLEGABLES I CARRUSELS DE TALLERS ---
     const setupCarousel = (carousel) => {
+        // Si ja està inicialitzat, no fem res.
         if (carousel.dataset.initialized === 'true') return;
 
         const track = carousel.querySelector('.carousel-track');
         const slides = Array.from(track.children);
         const nextButton = carousel.querySelector('.carousel-button--right');
         const prevButton = carousel.querySelector('.carousel-button--left');
-        let autoplayInterval = null;
-        const AUTOPLAY_SPEED = 5000;
 
+        // Si només hi ha una imatge, amaguem els botons.
         if (slides.length <= 1) {
             if(nextButton) nextButton.style.display = 'none';
             if(prevButton) prevButton.style.display = 'none';
             return;
         }
 
-        const updateCarouselPosition = () => {
-            const currentSlide = slides[parseInt(carousel.dataset.currentIndex, 10)];
-            if (!currentSlide) return;
+        let currentIndex = 0;
 
-            const carouselWidth = carousel.clientWidth;
-            const targetSlideWidth = currentSlide.clientWidth;
-            const targetSlideLeft = currentSlide.offsetLeft;
-            const newPosition = (carouselWidth / 2) - (targetSlideLeft + (targetSlideWidth / 2));
-            track.style.transform = `translateX(${newPosition}px)`;
+        // Funció per actualitzar la posició del carrusel.
+        const updateCarousel = () => {
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+            prevButton.classList.toggle('is-hidden', currentIndex === 0);
+            nextButton.classList.toggle('is-hidden', currentIndex === slides.length - 1);
         };
-
-        const moveToSlide = (targetIndex) => {
-            slides.forEach(slide => slide.classList.remove('current-slide'));
-            slides[targetIndex].classList.add('current-slide');
-            carousel.dataset.currentIndex = targetIndex;
-            updateCarouselPosition();
-            updateNavButtons(targetIndex);
-        };
-
-        const updateNavButtons = (targetIndex) => {
-            prevButton.classList.toggle('is-hidden', targetIndex === 0);
-            nextButton.classList.toggle('is-hidden', targetIndex === slides.length - 1);
-        };
-
-        const startAutoplay = () => {
-            if (autoplayInterval) clearInterval(autoplayInterval);
-            autoplayInterval = setInterval(() => {
-                let currentIndex = parseInt(carousel.dataset.currentIndex, 10);
-                let nextIndex = (currentIndex + 1) % slides.length;
-                moveToSlide(nextIndex);
-            }, AUTOPLAY_SPEED);
-        };
-
-        const stopAutoplay = () => clearInterval(autoplayInterval);
-
-        carousel.addEventListener('mouseenter', stopAutoplay);
-        carousel.addEventListener('mouseleave', startAutoplay);
         
+        // Esdeveniments dels botons.
         nextButton.addEventListener('click', () => {
-            let currentIndex = parseInt(carousel.dataset.currentIndex, 10);
-            if (currentIndex < slides.length - 1) moveToSlide(currentIndex + 1);
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
         });
 
         prevButton.addEventListener('click', () => {
-            let currentIndex = parseInt(carousel.dataset.currentIndex, 10);
-            if (currentIndex > 0) moveToSlide(currentIndex - 1);
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
         });
 
-        moveToSlide(0);
+        // Guardem la funció d'actualització per poder-la cridar des de fora (en canviar la mida).
+        carousel.updateDimensions = updateCarousel;
         carousel.dataset.initialized = 'true';
-        startAutoplay();
-
-        // Guardem una referència a la funció d'actualització per poder-la cridar des de fora.
-        carousel.updateDimensions = updateCarouselPosition;
+        updateCarousel(); // Crida inicial per posicionar-lo correctament.
     };
 
-    // Lògica principal que obre/tanca les targetes.
-    const tallerHeaders = document.querySelectorAll('.taller-header');
-    tallerHeaders.forEach(header => {
+    // Lògica principal per obrir/tancar les targetes.
+    const tallerCardHeaders = document.querySelectorAll('.taller-card-header');
+    tallerCardHeaders.forEach(header => {
         header.addEventListener('click', () => {
             const card = header.closest('.taller-card');
-            const body = card.querySelector('.taller-body');
-            
+            const hiddenContent = card.querySelector('.taller-card-hidden');
+            if (!card || !hiddenContent) return;
+
             card.classList.toggle('is-open');
 
             if (card.classList.contains('is-open')) {
-                // Calculem l'alçada inicial.
-                body.style.maxHeight = body.scrollHeight + 'px';
-                
+                hiddenContent.style.maxHeight = hiddenContent.scrollHeight + 'px';
                 const carousel = card.querySelector('.taller-carousel');
                 if (carousel) {
-                    // Esperem que acabi l'animació d'obertura abans d'activar el carrusel.
-                    setTimeout(() => {
-                        setupCarousel(carousel);
-                    }, 500); // Temps similar a la transició del CSS.
+                    // Esperem un instant perquè l'animació d'obertura acabi abans d'activar el carrusel.
+                    setTimeout(() => setupCarousel(carousel), 50); 
                 }
             } else {
-                body.style.maxHeight = null;
+                hiddenContent.style.maxHeight = null;
             }
         });
     });
 
-    // --- ESCOLTADOR DEFINITIU PER AL CANVI DE MIDA ---
+    // --- ESCOLTADOR PER AL CANVI DE MIDA (RESIZE) ---
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
             // Recalculem l'alçada de totes les targetes obertes.
-            document.querySelectorAll('.taller-card.is-open').forEach(updateAccordionHeight);
-
-            // Actualitzem les dimensions de tots els carrusels inicialitzats.
-            document.querySelectorAll('.taller-carousel[data-initialized="true"]').forEach(carousel => {
-                if (carousel.updateDimensions) {
-                    carousel.updateDimensions();
+            document.querySelectorAll('.taller-card.is-open').forEach(card => {
+                const hiddenContent = card.querySelector('.taller-card-hidden');
+                if (hiddenContent) {
+                    // Primer resetegem l'alçada per obtenir el nou 'scrollHeight' correcte.
+                    hiddenContent.style.maxHeight = 'none';
+                    // Després, en el següent fotograma, apliquem la nova alçada.
+                    requestAnimationFrame(() => {
+                        hiddenContent.style.maxHeight = hiddenContent.scrollHeight + 'px';
+                        // Actualitzem les dimensions del carrusel si existeix.
+                        const carousel = card.querySelector('.taller-carousel');
+                        if (carousel && carousel.dataset.initialized === 'true') {
+                            carousel.updateDimensions();
+                        }
+                    });
                 }
             });
         }, 250);
     });
-
+    
 });

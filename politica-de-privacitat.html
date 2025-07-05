@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ca"> 
+<head>
+    <!-- The 'charset' meta tag defines the character set for the document. -->
+    <!-- UTF-8 is a universal standard that includes characters for almost all written languages, which is essential for handling Spanish (ñ) and Catalan (ç, ·) correctly. -->
+    <meta charset="UTF-8">
+
+    <!-- The 'viewport' meta tag is crucial for responsive design. It controls how the page is displayed on mobile devices. -->
+    <!-- 'width=device-width' sets the width of the page to follow the screen-width of the device. -->
+    <!-- 'initial-scale=1.0' sets the initial zoom level when the page is first loaded by the browser. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- The 'title' tag sets the text that appears in the browser tab, in bookmarks, and in search engine results. -->
+    <!-- The 'data-lang-*' attributes hold the text for our language-switching JavaScript. -->
+    <title data-lang-ca="AulaSPUTNIK" data-lang-es="AulaSPUTNIK">AulaSPUTNIK</title>
+
+    <!-- The 'icon' link tag sets the "favicon" -- the small icon that appears in the browser tab next to the title. -->
+    <!-- 'href' points to the location of your image file. -->
+    <!-- 'type' tells the browser the format of the image. -->
+    <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
+
+    <!-- SEO Meta Tags: These help search engines understand your page content -->
+    <!-- The 'description' tag provides a short summary of the page. It's often shown under your page title in search results. -->
+    <meta name="description" content="">
+    <!-- The 'keywords' tag lists relevant terms for your site. While less important for Google today, it can still be useful for other search engines. -->
+    <meta name="keywords" content="">
+
+    <!-- Preconnect to Google Fonts for a minor performance boost -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Import the "Urbanist" and "Inter" fonts from Google Fonts. -->
+    <!-- This version uses a variable font range (wght@300..900), which allows us to use any font-weight from 300 to 900 in our CSS file, giving us full design flexibility. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Urbanist:wght@300..900&display=swap" rel="stylesheet">
+
+    <!--  Import Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Link to the CSS stylesheet -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- We'll build this out properly later, but it helps to have some content to style. -->
+    <header class="site-header">
+        <nav class="site-nav">
+            <div class="nav-container">
+
+                <div class="nav-logo">
+                    <a href="index.html" aria-label="Homepage">
+                        <img src="assets/images/logo.svg" alt="AulaSputnik Logo">
+                    </a>
+                </div>
+
+                <button class="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" data-lang-ca="Inici" data-lang-es="Inicio">Inici</a></li>
+                        <li><a href="projectes.html" data-lang-ca="Projectes" data-lang-es="Proyectos">Projectes</a></li>
+                        <li><a href="equip.html" data-lang-ca="Equip" data-lang-es="Equipo">Equip</a></li>
+                        <li><a href="tallers.html" class="nav-button active-page" data-lang-ca="Tallers" data-lang-es="Talleres">Tallers</a></li>
+                        <li><a href="#footer" class="nav-button nav-button-secondary" data-lang-ca="Contacte" data-lang-es="Contacto">Contacte</a></li>
+                        <li class="lang-switcher">
+                            <button id="lang-ca-btn" class="lang-switcher-btn" data-lang="ca">CA</button>
+                            <button id="lang-es-btn" class="lang-switcher-btn" data-lang="es">ES</button>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-intro-section">
+        <div class="section-container">
+            
+            <!-- Aquest és el contenidor del contingut de text. -->
+            <div class="intro-content">
+                <!-- Títol principal de la pàgina. -->
+                <h1 class="page-title" data-lang-ca="Política de Privacitat" data-lang-es="Política de Privacidad">Política de Privacitat</h1>
+
+                <h2 class="section-middle-title" data-lang-ca="POLÍTICA DE PRIVADESA DEL LLOC WEB" data-lang-es="POLÍTICA DE PRIVACIDAD DEL SITIO WEB">POLÍTICA DE PRIVADESA DEL LLOC WEB</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="Som una empresa en la qual la transparència en la informació és fonamental per establir una relació de confiança amb les persones que formen el nostre projecte i amb els nostres proveïdors i clients, sent la protecció de les dades personals de les persones que confien en nosaltres de vital importància, per la qual cosa volem mitjançant la present política de privacitat informar-li sobre com recaptem i com tractem o utilitzem aquestes dades." 
+                data-lang-es="Somos una empresa en la que la transparencia en la información es fundamental para establecer una relación de confianza con las personas que forman nuestro proyecto y con nuestros proveedores y clientes, siendo la protección de los datos personales de las personas que confían en nosotros de vital importancia, por lo que queremos mediante la presente Política de privacidad informarte de cómo recabamos y cómo tratamos o utilizamos dichos datos.">
+                Som una empresa en la qual la transparència en la informació és fonamental per establir una relació de confiança amb les persones que formen el nostre projecte i amb els nostres proveïdors i clients, sent la protecció de les dades personals de les persones que confien en nosaltres de vital importància, per la qual cosa volem mitjançant la present política de privacitat informar-li sobre com recaptem i com tractem o utilitzem aquestes dades.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="En aquesta política de privadesa s’estableixen les bases sobre les quals l’empresa, tracta les dades de caràcter personal que voluntàriament ens faciliten els nostres usuaris a través de la pàgina web." 
+                data-lang-es="En esta política de privacidad se establecen las bases sobre las que la empresa, trata los datos de carácter personal que voluntariamente nos facilitan nuestros usuarios a través de la página web.">
+                En aquesta política de privadesa s’estableixen les bases sobre les quals l’empresa, tracta les dades de caràcter personal que voluntàriament ens faciliten els nostres usuaris a través de la pàgina web.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="Aquesta política sempre serà aplicable quan es facilitin dades a l’empresa, la qual serà responsable de les seves dades (Responsable del Tractament de les Dades), i a través de qualsevol dels formularis de contacte o subscripció on es recullin dades de caràcter personal (nom, email, etc.)." 
+                data-lang-es="Esta Política siempre será aplicable cuando se faciliten datos a la empresa, el cual será responsable de sus datos (Responsable del Tratamiento de los Datos), y a través de cualquiera de los formularios de contacto o suscripción donde se recojan datos de carácter personal (nombre, email, etc.).">
+                Aquesta política sempre serà aplicable quan es facilitin dades a l’empresa, la qual serà responsable de les seves dades (Responsable del Tractament de les Dades), i a través de qualsevol dels formularis de contacte o subscripció on es recullin dades de caràcter personal (nom, email, etc.).</p>
+
+                <h2 class="section-middle-title" data-lang-ca="A QUÈ ENS COMPROMETEM" data-lang-es="A QUÉ NOS COMPROMETEMOS">A QUÈ ENS COMPROMETEM</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="A respectar la privadesa dels nostres usuaris i tractar les dades personals amb el consentiment dels mateixos." 
+                data-lang-es="A respetar la privacidad de nuestros usuarios y tratar los datos personales con el consentimiento de los mismos.">
+                A respectar la privadesa dels nostres usuaris i tractar les dades personals amb el consentiment dels mateixos.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="A tractar les dades personals que estrictament necessitem per donar el servei sol·licitat, i tractar-los de forma segura i confidencial, prenent les mesures necessàries per evitar l’accés no autoritzat i l’ús indegut dels mateixos." 
+                data-lang-es="A tratar los datos personales que estrictamente necesitamos para prestar el servicio solicitado, y tratarlos de forma segura y confidencial, tomando las medidas necesarias para evitar el acceso no autorizado y el uso indebido de los mismos.">
+                A tractar les dades personals que estrictament necessitem per donar el servei sol·licitat, i tractar-los de forma segura i confidencial, prenent les mesures necessàries per evitar l’accés no autoritzat i l’ús indegut dels mateixos.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="A no utilitzar les dades personals per a finalitats per les quals no hem obtingut prèviament el consentiment." 
+                data-lang-es="A no utilizar los datos personales para fines para los cuales no hemos obtenido previamente el consentimiento.">
+                A no utilitzar les dades personals per a finalitats per les quals no hem obtingut prèviament el consentiment.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="A no donar les dades personals a tercers ni compartir-los." 
+                data-lang-es="A no dar los datos personales a terceros ni compartirlos.">
+                A no donar les dades personals a tercers ni compartir-los.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="A conservar les dades personals durant el temps estrictament necessari per a la finalitat concreta per la qual han estat proporcionades." 
+                data-lang-es="A conservar los datos personales durante el tiempo estrictamente necesario para la finalidad concreta para la cual han sido proporcionados.">
+                A conservar les dades personals durant el temps estrictament necessari per a la finalitat concreta per la qual han estat proporcionades.</p>
+
+                <h2 class="section-middle-title" data-lang-ca="QUI ÉS EL RESPONSABLE DE LES DADES PERSONALS" data-lang-es="QUIÉN ES EL RESPONSABLE DE TUS DATOS PERSONALES">QUI ÉS EL RESPONSABLE DE  S US DADES PERSONALS</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Nom de l’empresa:</strong> Ruiz Ayala, Anna" 
+                data-lang-es="<strong>Nombre de la empresa:</strong> Ruiz Ayala, Anna">
+                <strong>Nom de l’empresa:</strong> Ruiz Ayala, Anna
+                </p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>NIF:</strong> 39475229F" 
+                data-lang-es="<strong>NIF:</strong> 39475229F">
+                <strong>NIF:</strong> 39475229F
+                </p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Adreça postal:</strong> Carrer de Bécquer, 25, 08860, Castelldefels, Barcelona" 
+                data-lang-es="<strong>Dirección postal:</strong> Carrer de Bécquer, 25, 08860, Castelldefels, Barcelona">
+                <strong>Adreça postal:</strong> Carrer de Bécquer, 25, 08860, Castelldefels, Barcelona
+                </p>
+
+                <h2 class="section-middle-title" data-lang-ca="QUÈ ÉS UNA DADA PERSONAL I EL TRACTAMENT DE DADES PERSONALS" data-lang-es="QUÉ ES UN DATO PERSONAL Y EL TRATAMIENTO DE DATOS PERSONALES">QUÈ ÉS UNA DADA PERSONAL I EL TRACTAMENT DE DADES PERSONALS</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="Una dada personal és tota informació sobre una persona física identificada o identificable. Es considera persona física identificable tota persona la identitat de la qual pugui determinar-se directa o indirectament, en particular mitjançant un identificador, com per exemple un nom, un nombre d’identificació, dades de localització, un identificador en línia o un o diversos elements propis de la identitat física, fisiològica, genètica, psíquica, econòmica, cultural o social d’aquesta persona." 
+                data-lang-es="Un dato personal es toda información sobre una persona física identificada o identificable. Se considera persona física identificable toda persona cuya identidad pueda determinarse directa o indirectamente, en particular mediante un identificador, como por ejemplo un nombre, un número de identificación, datos de localización, un identificador en línea o uno o varios elementos propios de la identidad física, fisiológica, genética, psíquica, económica, cultural o social de dicha persona. ">
+                Una dada personal és tota informació sobre una persona física identificada o identificable. Es considera persona física identificable tota persona la identitat de la qual pugui determinar-se directa o indirectament, en particular mitjançant un identificador, com per exemple un nom, un nombre d’identificació, dades de localització, un identificador en línia o un o diversos elements propis de la identitat física, fisiològica, genètica, psíquica, econòmica, cultural o social d’aquesta persona. </p>
+                <p class="regular-paragraph" 
+                data-lang-ca="Així mateix, el tractament de dades personals implica qualsevol operació o conjunt d’operacions realitzades sobre dades personals o conjunts de dades personals, ja sigui per procediments automatitzats o no, com la recollida, registre, organització, estructuració, conservació, adaptació o modificació, extracció, consulta, utilització, comunicació per transmissió, difusió o qualsevol altra forma d’habilitació d’accés, acaro o interconnexió, limitació, supressió o destrucció." 
+                data-lang-es="Asimismo, el tratamiento de datos personales implica cualquier operación o conjunto de operaciones realizadas sobre datos personales o conjuntos de datos personales, ya sea por procedimientos automatizados o no, como la recogida, registro, organización, estructuración, conservación, adaptación o modificación, extracción, consulta, utilización, comunicación por transmisión, difusión o cualquier otra forma de habilitación de acceso, cotejo o interconexión, limitación, supresión o destrucción.">
+                Així mateix, el tractament de dades personals implica qualsevol operació o conjunt d’operacions realitzades sobre dades personals o conjunts de dades personals, ja sigui per procediments automatitzats o no, com la recollida, registre, organització, estructuració, conservació, adaptació o modificació, extracció, consulta, utilització, comunicació per transmissió, difusió o qualsevol altra forma d’habilitació d’accés, acaro o interconnexió, limitació, supressió o destrucció.</p>
+                
+                <h2 class="section-middle-title" data-lang-ca="QUINS TRACTAMENTS REALITZEM SOBRE LES SEVES DADES PERSONALS I PER A  QUINES FINALITATS" data-lang-es="QUÉ TRATAMIENTOS REALIZAMOS SOBRE SUS DATOS PERSONALES Y PARA QUÉ FINALIDADES">QUINS TRACTAMENTS REALITZEM SOBRE LES SEVES DADES PERSONALS I PER A  QUINES FINALITATS</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Sol·licitud d’informació per part de l’usuari</strong>" 
+                data-lang-es="<strong>Solicitud de información por parte del usuario</strong>">
+                <strong>Sol·licitud d’informació per part de l’usuari</strong></p>
+                <p class="regular-paragraph" 
+                data-lang-ca="Gestionar la sol·licitud d’informació remesa per part de l’usuari a través del formulari de contacte i/o l’adreça de correu electrònic, correu postal i/o número de telèfon facilitat a través del lloc web." 
+                data-lang-es="Gestionar la solicitud de información remitida por el usuario a través del formulario de contacto y/o la dirección de correo electrónico, correo postal y/o número de teléfono facilitado a través del sitio web.">
+                Gestionar la sol·licitud d’informació remesa per part de l’usuari a través del formulari de contacte i/o l’adreça de correu electrònic, correu postal i/o número de telèfon facilitat a través del lloc web.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Suscripció a newsletter</strong>" 
+                data-lang-es="<strong>Suscripción a newsletter</strong>">
+                <strong>Suscripció a newsletter</strong></p>
+                <p class="regular-paragraph" 
+                data-lang-ca="Gestionar la subscripció a l’enviament de newsletter" 
+                data-lang-es="Gestionar la suscripción al envío de newsletter">
+                Gestionar la subscripció a l’enviament de newsletter</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Treballar amb nosaltres mitjançant l’enviament del currículum</strong>" 
+                data-lang-es="<strong>Trabajar con nosotros mediante el envío del currículum</strong>">
+                <strong>Treballar amb nosaltres mitjançant l’enviament del currículum</strong></p>
+                <p class="regular-paragraph" 
+                data-lang-ca="Gestió dels CV rebuts a través del formulari disponible en el lloc web. Així com dels vídeos de presentació adjuntats a la sol·licitud." 
+                data-lang-es="Gestión de los CV recibidos a través del formulario disponible en el sitio web. Así como de los vídeos de presentación adjuntados a la solicitud.">
+                Gestió dels CV rebuts a través del formulari disponible en el lloc web. Així com dels vídeos de presentació adjuntats a la sol·licitud.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Alta i accés al perfil d’usuari</strong>" 
+                data-lang-es="<strong>Alta y acceso al perfil de usuario</strong>">
+                <strong>Alta i accés al perfil d’usuari</strong></p>
+                <p class="regular-paragraph" 
+                data-lang-ca="Gestió de l’alta i de l’accés al portal d’usuari mitjançant el corresponent compte d’usuari i contrasenya. " 
+                data-lang-es="Gestión del alta y acceso al portal de usuario mediante la correspondiente cuenta de usuario y contraseña.">
+                Gestió de l’alta i de l’accés al portal d’usuari mitjançant el corresponent compte d’usuari i contrasenya. </p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Gestió dels comentaris en el blog</strong>" 
+                data-lang-es="<strong>Gestión de los comentarios en el blog</strong>">
+                <strong>Gestió dels comentaris en el blog</strong></p>
+                <p class="regular-paragraph" 
+                data-lang-ca="Gestionar l’enviament i recepció dels comentaris que l’usuari hagi publicat en el blog." 
+                data-lang-es="Gestionar el envío y recepción de los comentarios que el usuario haya publicado en el blog.">
+                Gestionar l’enviament i recepció dels comentaris que l’usuari hagi publicat en el blog.</p>
+
+                <h2 class="section-middle-title" data-lang-ca="QUINES DADES PERSONALS CAPTEM" data-lang-es="QUÉ DATOS PERSONALES CAPTAMOS">QUINES DADES PERSONALS CAPTEM</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="A través de la nostra pàgina web podem recaptar dades personals per a diferents finalitats:" 
+                data-lang-es="A través de nuestra página web podemos recabar datos personales para diferentes finalidades:">
+                A través de la nostra pàgina web podem recaptar dades personals per a diferents finalitats:</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Sol·licitud d’informació per part de l’usuari</strong>" 
+                data-lang-es="<strong>Solicitud de información por parte del usuario</strong>">
+                <strong>Sol·licitud d’informació per part de l’usuari</strong></p>
+                <p class="regular-paragraph" 
+                data-lang-ca="Captarem el seu nom, adreça de correu electrònic, número de telèfon, així com aquelles dades personals que ens hagi facilitat amb motiu de la consulta plantejada." 
+                data-lang-es="Captaremos su nombre, dirección de correo electrónico, número de teléfono, así como aquellos datos personales que nos haya facilitado con motivo de la consulta planteada.">
+                Captarem el seu nom, adreça de correu electrònic, número de telèfon, així com aquelles dades personals que ens hagi facilitat amb motiu de la consulta plantejada.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Suscripció a newsletter</strong>" 
+                data-lang-es="<strong>Suscripción a newsletter</strong>">
+                <strong>Suscripció a newsletter</strong></p>
+                <p class="regular-paragraph" 
+                data-lang-ca="Captarem la seva adreça de correu electrònic." 
+                data-lang-es="Captaremos su dirección de correo electrónico.">
+                Captarem la seva adreça de correu electrònic.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Treballa amb nosaltres mitjançant l’enviament de currículum </strong>" 
+                data-lang-es="<strong>Trabaja con nosotros mediante el envío de currículum</strong>">
+                <strong>Treballa amb nosaltres mitjançant l’enviament de currículum </strong></p>
+                <p class="regular-paragraph" 
+                data-lang-ca="Captarem el seu nom i cognoms, adreça de correu electrònic, número de telèfon, experiència laboral i acadèmica, així com qualsevol altra informació addicional que hagi inclòs en el seu CV. Igualment, captarem la seva imatge mitjançant el vídeo de presentació que ens hagi facilitat. " 
+                data-lang-es="Captaremos su nombre y apellidos, dirección de correo electrónico, número de teléfono, experiencia laboral y académica, así como cualquier otra información adicional que haya incluido en su CV. Igualmente, captaremos su imagen mediante el vídeo de presentación que nos haya facilitado.">
+                Captarem el seu nom i cognoms, adreça de correu electrònic, número de telèfon, experiència laboral i acadèmica, així com qualsevol altra informació addicional que hagi inclòs en el seu CV. Igualment, captarem la seva imatge mitjançant el vídeo de presentació que ens hagi facilitat. </p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Alta i accés al perfil d’usuari</strong>" 
+                data-lang-es="<strong>Alta y acceso al perfil de usuario</strong>">
+                <strong>Alta i accés al perfil d’usuari</strong></p>
+                <p class="regular-paragraph" 
+                data-lang-ca="Adreça de correu electrònic  i contrasenya, així com qualsevol altra dada que s’hagi facilitat amb la finalitat de crear el compte o perfil." 
+                data-lang-es="Dirección de correo electrónico y contraseña, así como cualquier otro dato que se haya facilitado con la finalidad de crear la cuenta o perfil.">
+                Adreça de correu electrònic  i contrasenya, així com qualsevol altra dada que s’hagi facilitat amb la finalitat de crear el compte o perfil.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Gestió dels comentaris en el blog</strong>" 
+                data-lang-es="<strong>Gestión de los comentarios en el blog</strong>">
+                <strong>Gestió dels comentaris en el blog</strong></p>
+                <p class="regular-paragraph" 
+                data-lang-ca="Qualsevol dada que s’hagi facilitat en publicar el corresponent comentari. " 
+                data-lang-es="Cualquier dato que se haya facilitado al publicar el correspondiente comentario.">
+                Qualsevol dada que s’hagi facilitat en publicar el corresponent comentari. </p>
+                <p class="regular-paragraph" 
+                data-lang-ca="Depenent de la finalitat per la qual s’aporten les dades, seran requerides les dades estrictament necessàries. " 
+                data-lang-es="Dependiendo de la finalidad para la que se aportan los datos, serán requeridos los datos estrictamente necesarios. ">
+                Depenent de la finalitat per la qual s’aporten les dades, seran requerides les dades estrictament necessàries. </p>
+                <p class="regular-paragraph" 
+                data-lang-ca="És important que l’usuari sigui conscient de les dades que aporta i la finalitat per la qual ho fa perquè al moment que les facilita, està acceptant que recopilem, emmagatzemem i utilitzem aquestes dades per a la finalitat requerida, podent a qualsevol moment retirar el consentiment prestat pels llits oportuns sent el consentiment de l’interessat la base legal i legitimació per al tractament de les seves dades personals." 
+                data-lang-es="Es importante que el usuario sea consciente de los datos que aporta y la finalidad para la que lo hace porque en el momento que los facilita, está aceptando que recopilemos, almacenemos y usemos dichos datos para la finalidad requerida, pudiendo en cualquier momento retirar el consentimiento prestado por los cauces oportunos siendo el consentimiento del interesado la base legal y legitimación para el tratamiento de sus datos personales.">
+                És important que l’usuari sigui conscient de les dades que aporta i la finalitat per la qual ho fa perquè al moment que les facilita, està acceptant que recopilem, emmagatzemem i utilitzem aquestes dades per a la finalitat requerida, podent a qualsevol moment retirar el consentiment prestat pels llits oportuns sent el consentiment de l’interessat la base legal i legitimació per al tractament de les seves dades personals.</p>
+
+                <h2 class="section-middle-title" data-lang-ca="QUINA ÉS LA LEGITIMACIÓ PER Al TRACTAMENT DE LES DADES PERSONALS" data-lang-es="CUÁL ES LA LEGITIMACIÓN PARA EL TRATAMIENTO DE LOS DATOS PERSONALES">QUINA ÉS LA LEGITIMACIÓ PER Al TRACTAMENT DE LES DADES PERSONALS</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="D’acord amb la normativa vigent en matèria de protecció de dades, necessitem una base de legitimació per al tractament de les seves dades personals. La base de legitimació és el seu consentiment. " 
+                data-lang-es="De acuerdo con la normativa vigente en materia de protección de datos, necesitamos una base de legitimación para el tratamiento de sus datos personales. La base de legitimación es su consentimiento.">
+                D’acord amb la normativa vigent en matèria de protecció de dades, necessitem una base de legitimació per al tractament de les seves dades personals. La base de legitimació és el seu consentiment. </p>
+
+                <h2 class="section-middle-title" data-lang-ca="QUINS DRETS TÉ SOBRE LES DADES PERSONALS APORTADES" data-lang-es="QUÉ DERECHOS TIENE SOBRE LOS DATOS PERSONALES APORTADOS">QUINS DRETS TÉ SOBRE LES DADES PERSONALS APORTADES</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="Com a usuari, pot exercitar els següents drets: " 
+                data-lang-es="Como usuario, puede ejercitar los siguientes derechos: ">
+                Com a usuari, pot exercitar els següents drets: </p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Dret d’accés:</strong> Té dret a obtenir per part de l’empresa confirmació de si s’estan tractant o no les seves dades personals que, i si escau, quines dades tracta." 
+                data-lang-es="<strong>Derecho de acceso:</strong> Tiene derecho a obtener por parte de la empresa confirmación de si se están tratando o no sus datos personales y, en su caso, qué datos se tratan.">
+                <strong>Dret d’accés:</strong> Té dret a obtenir per part de l’empresa confirmació de si s’estan tractant o no les seves dades personals que, i si escau, quines dades tracta.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Dret de rectificació:</strong> Té dret a obtenir per part de Ruiz Ayala, Anna, la rectificació de les dades personals inexactes que li concerneixin. En la sol·licitud de rectificació haurà d’indicar les dades que desitja que es modifiquin." 
+                data-lang-es="<strong>Derecho de rectificación:</strong> Tiene derecho a obtener por parte de Ruiz Ayala, Anna, la rectificación de los datos personales inexactos que le conciernan. En la solicitud de rectificación deberá indicar los datos que desea que se modifiquen.">
+                <strong>Dret de rectificació:</strong> Té dret a obtenir per part de Ruiz Ayala, Anna, la rectificació de les dades personals inexactes que li concerneixin. En la sol·licitud de rectificació haurà d’indicar les dades que desitja que es modifiquin.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Dret d’oposició:</strong> Té dret a oposar-se a qualsevol moment, per motius relacionats amb la seva situació particular, al fet que dades personals que li concerneixin siguin objecte d’un tractament basat en l’interès legítim de l’empresa. En aquest cas, l’empresa deixarà de tractar les dades personals, tret que acreditem motius legítims imperiosos per al tractament  que prevalguin sobre els seus interessos, drets i llibertats, o per a la formulació, l’exercici o la defensa de reclamacions." 
+                data-lang-es="<strong>Derecho de oposición:</strong> Tiene derecho a oponerse en cualquier momento, por motivos relacionados con su situación particular, a que los datos personales que le conciernan sean objeto de un tratamiento basado en el interés legítimo de la empresa. En este caso, la empresa dejará de tratar los datos personales, salvo que acreditamos motivos legítimos imperiosos para el tratamiento que prevalezcan sobre sus intereses, derechos y libertades, o para la formulación, el ejercicio o la defensa de reclamaciones.">
+                <strong>Dret d’oposició:</strong> Té dret a oposar-se a qualsevol moment, per motius relacionats amb la seva situació particular, al fet que dades personals que li concerneixin siguin objecte d’un tractament basat en l’interès legítim de l’empresa. En aquest cas, l’empresa deixarà de tractar les dades personals, tret que acreditem motius legítims imperiosos per al tractament  que prevalguin sobre els seus interessos, drets i llibertats, o per a la formulació, l’exercici o la defensa de reclamacions.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Dret de supressió:</strong> Té dret a obtenir per part de Ruiz Ayala, Anna la supressió de les dades personals que li concerneixin." 
+                data-lang-es="<strong>Derecho de supresión:</strong> Tiene derecho a obtener por parte de Ruiz Ayala, Anna la supresión de los datos personales que le conciernan.">
+                <strong>Dret de supressió:</strong> Té dret a obtenir per part de Ruiz Ayala, Anna la supressió de les dades personals que li concerneixin.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Dret a la portabilitat de les dades:</strong> Té dret al fet que l’empresa transfereixi les seves dades personals a un altre responsable del tractament. Solament és possible exercir aquest dret quan el tractament estigui basat en l’execució d’un contracte o en el seu consentiment i el tractament es realitzi per mitjans automatitzats." 
+                data-lang-es="<strong>Derecho a la portabilidad de los datos:</strong> Tiene derecho a que la empresa transfiera sus datos personales a otro responsable del tratamiento. Solo es posible ejercer este derecho cuando el tratamiento se base en la ejecución de un contrato o en su consentimiento y el tratamiento se realice por medios automatizados.">
+                <strong>Dret a la portabilitat de les dades:</strong> Té dret al fet que l’empresa transfereixi les seves dades personals a un altre responsable del tractament. Solament és possible exercir aquest dret quan el tractament estigui basat en l’execució d’un contracte o en el seu consentiment i el tractament es realitzi per mitjans automatitzats.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Dret a la limitació del tractament:</strong> Té dret a sol·licitar-nos que suspenguem el tractament de les seves dades quan: impugni l’exactitud de les dades, mentre Ruiz Ayala, Anna verifica aquesta exactitud; hagi exercit el dret d’oposició al tractament de les seves dades, mentre que es verifica si els motius legítims de Ruiz Ayala, Anna prevalen sobre els seus com interessat." 
+                data-lang-es="<strong>Derecho a la limitación del tratamiento:</strong> Tiene derecho a solicitarnos que suspendamos el tratamiento de sus datos cuando: impugne la exactitud de los datos, mientras Ruiz Ayala, Anna verifica esta exactitud; haya ejercido el derecho de oposición al tratamiento de sus datos, mientras se verifica si los motivos legítimos de Ruiz Ayala, Anna prevalecen sobre los suyos como interesado.">
+                <strong>Dret a la limitació del tractament:</strong> Té dret a sol·licitar-nos que suspenguem el tractament de les seves dades quan: impugni l’exactitud de les dades, mentre Ruiz Ayala, Anna verifica aquesta exactitud; hagi exercit el dret d’oposició al tractament de les seves dades, mentre que es verifica si els motius legítims de Ruiz Ayala, Anna prevalen sobre els seus com interessat.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="En qualsevol moment, podrà exercitar aquests Drets, mitjançant un escrit i acreditant la seva personalitat dirigit al responsable del tractament a l’adreça assenyalada anteriorment, o a través de l’adreça de correu electrònic: <em>annaruayala@gmail.com</em>" 
+                data-lang-es="En cualquier momento, podrá ejercer estos Derechos, mediante un escrito y acreditando su personalidad dirigido al responsable del tratamiento a la dirección señalada anteriormente, o a través de la dirección de correo electrónico: <em>annaruayala@gmail.com</em>">
+                En qualsevol moment, podrà exercitar aquests Drets, mitjançant un escrit i acreditant la seva personalitat dirigit al responsable del tractament a l’adreça assenyalada anteriorment, o a través de l’adreça de correu electrònic: <em>annaruayala@gmail.com</em></p>
+                <p class="regular-paragraph" 
+                data-lang-ca="A més, podrà presentar una reclamació davant l’autoritat de control, en aquest cas, l’Agència Espanyola de Protecció de Dades, si considera que el tractament de dades personals infringeix la legislació aplicable." 
+                data-lang-es="Además, podrá presentar una reclamación ante la autoridad de control, en este caso, la Agencia Española de Protección de Datos, si considera que el tratamiento de datos personales infringe la legislación aplicable.">
+                A més, podrà presentar una reclamació davant l’autoritat de control, en aquest cas, l’Agència Espanyola de Protecció de Dades, si considera que el tractament de dades personals infringeix la legislació aplicable.</p>
+
+                <h2 class="section-middle-title" data-lang-ca="SEGURETAT I EMMAGATZEMATGE DE LES DADES" data-lang-es="SEGURIDAD Y ALMACENAMIENTO DE LOS DATOS">SEGURETAT I EMMAGATZEMATGE DE LES DADES</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="Mantindrem les dades durant el temps estrictament necessari per a la prestació del servei sol·licitat i mentre el titular no sol·liciti la seva eliminació, adoptant les mesures adequades de caràcter tècnic i organitzatiu contra el tractament no autoritzat o il·lícit i contra la seva pèrdua, destrucció o dany accidentals, fent tot el possible per protegir-los i mantenir-los de forma segura." 
+                data-lang-es="Mantendremos los datos durante el tiempo estrictamente necesario para la prestación del servicio solicitado y mientras el titular no solicite su eliminación, adoptando las medidas adecuadas de carácter técnico y organizativo contra el tratamiento no autorizado o ilícito y contra su pérdida, destrucción o daño accidentales, haciendo todo lo posible por protegerlos y mantenerlos de forma segura.">
+                Mantindrem les dades durant el temps estrictament necessari per a la prestació del servei sol·licitat i mentre el titular no sol·liciti la seva eliminació, adoptant les mesures adequades de caràcter tècnic i organitzatiu contra el tractament no autoritzat o il·lícit i contra la seva pèrdua, destrucció o dany accidentals, fent tot el possible per protegir-los i mantenir-los de forma segura.</p>
+
+                <h2 class="section-middle-title" data-lang-ca="QUINES DADES PERSONALS COMPARTIM AMB TERCERS" data-lang-es="QUÉ DATOS PERSONALES COMPARTIMOS CON TERCEROS">QUINES DADES PERSONALS COMPARTIM AMB TERCERS</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="No es preveuen cessions de dades excepte en aquells casos en què existeixi una obligació legal o comunicació necessària per poder prestar-li el servei sol·licitat adequadament. No hi ha previsió de transferències de dades internacionals." 
+                data-lang-es="No se prevén cesiones de datos salvo en aquellos casos en que exista una obligación legal o comunicación necesaria para poder prestarle el servicio solicitado adecuadamente. No hay previsión de transferencias de datos internacionales.">
+                No es preveuen cessions de dades excepte en aquells casos en què existeixi una obligació legal o comunicació necessària per poder prestar-li el servei sol·licitat adequadament. No hi ha previsió de transferències de dades internacionals.</p>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =================== FOOTER START =================== -->
+    <!-- The <footer> tag is used for semantics, telling the browser and search engines what this section is. -->
+    <footer id="footer" class="site-footer">
+        <!-- This is a container to keep the content centered and constrained to a max-width. -->
+        <div class="footer-container">
+            <!-- This grid container will hold our two main columns. -->
+            <div class="footer-main-grid">
+
+                <!-- Column 1: Text content and social links. -->
+                <div class="footer-column-left">
+                    <!-- Main heading for the column -->
+                    <h3 class="footer-title" data-lang-ca="PARLEM?" data-lang-es="¿HABLAMOS?">PARLEM?</h3>
+                    <!-- First paragraph of text -->
+                    <p data-lang-ca="Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu." data-lang-es="¿Tienes alguna duda, proposta o idea? ¡Queremos conocerte! Rellena este formulario y nos pondremos en contacto contigo.">Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu.</p>
+                    <!-- Second paragraph of text -->
+                    <p data-lang-ca="També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!" data-lang-es="¡También puedes seguirnos en nuestras redes sociales i sumarte a nuestra comunitat!">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
+                    <!-- Container for social media icon links -->
+                    <div class="footer-social-icons">
+                        <!-- Each 'a' tag is a link to a social profile. The 'aria-label' is for accessibility. -->
+                        <a href="https://www.instagram.com/aulasputnik/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: The contact form. -->
+                <div class="footer-column-right">
+                    <!-- We will connect this to a service like Formspree later. -->
+                    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <!-- Form field for Name. The label is now visually hidden but still exists for screen readers. -->
+                        <div class="form-group">
+                            <!-- The 'aria-label' provides an accessible name for the input now that the label is hidden. -->
+                            <input type="text" id="name" name="name" required placeholder="Nom i Cognoms*" data-lang-ca-placeholder="Nom i Cognoms*" data-lang-es-placeholder="Nombre y Apellidos*" aria-label="Nom i Cognoms">
+                        </div>
+                        <!-- Form field for Email. -->
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder="Correu electrònic*" data-lang-ca-placeholder="Correu electrònic*" data-lang-es-placeholder="Correo electrónico*" aria-label="Correu electrònic">
+                        </div>
+                        <!-- Form field for Institution. -->
+                        <div class="form-group">
+                            <input type="text" id="institution" name="institution" required placeholder="Empresa, escola, institut, etc.*" data-lang-ca-placeholder="Empresa, escola, institut, etc.*" data-lang-es-placeholder="Empresa, colegio, instituto, etc.*" aria-label="Empresa, escola, institut, etc.">
+                        </div>
+                        <!-- Custom Multi-Select Dropdown for Workshops -->
+                        <div class="form-group">
+                            <!-- This is the main container for our custom component. We set its position to relative so we can position the dropdown options inside it. -->
+                            <div class="multiselect-container" id="workshops-multiselect">
+                                <!-- This is the visible, clickable part that looks like a form input. -->
+                                <div class="multiselect-display">
+                                    <!-- This span holds the placeholder text (e.g., "2 seleccionats"). -->
+                                    <span class="multiselect-placeholder" 
+                                        data-lang-ca="T'agradaria rebre informació d'algún taller en concret?" 
+                                        data-lang-es="¿Te gustaría recibir información de algún taller en concreto?">
+                                        T'agradaria rebre informació d'algún taller en concret?
+                                    </span>
+                                    <!-- A Font Awesome icon to indicate that it's a dropdown. -->
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <!-- This is the dropdown panel that contains all the selectable options. It's hidden by default. -->
+                                <div class="multiselect-options">
+                                    <!-- Each workshop is a checkbox/label pair. -->
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Nanosatèl·lits">
+                                        <span data-lang-ca="Ajudem al nostre planeta a través dels nanosatèl·lits." data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites.">Ajudem al nostre planeta a través dels nanosatèl·lits.</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Explorem espai">
+                                        <span data-lang-ca="Explorem l’espai amb AulaSPUTNIK!" data-lang-es="¡Exploramos el espacio con AulaSPUTNIK!">Explorem l’espai amb AulaSPUTNIK!</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Dona aeroespacial">
+                                        <span data-lang-ca="La dona al sector aeroespacial." data-lang-es="La mujer en el sector aeroespacial.">La dona al sector aeroespacial.</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Constel·lacions">
+                                        <span data-lang-ca="Les constel·lacions com a quadern vital." data-lang-es="Las constelaciones como cuaderno vital.">Les constel·lacions com a quadern vital.</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Biologia espai">
+                                        <span data-lang-ca="La biologia a l'espai: com són els aliens?" data-lang-es="La biología en el espacio: ¿cómo son los aliens?">La biologia a l'espai: com són els aliens?</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Sistema estelar">
+                                        <span data-lang-ca="Crea el teu propi sistema estelar!" data-lang-es="¡Crea tu propio sistema estelar!">Crea el teu propi sistema estelar!</span>
+                                    </label>
+                                </div>
+                                <!-- This is a hidden input. Its value will be updated by JavaScript with all the selected workshops. This is what Formspree will receive. -->
+                                <input type="hidden" name="selected_workshops" id="selected-workshops-input">
+                            </div>
+                        </div>
+                        <!-- Form field for the message. 'textarea' allows for multiple lines of text. -->
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" required placeholder="El teu missatge" data-lang-ca-placeholder="El teu missatge" data-lang-es-placeholder="Tu mensaje" aria-label="El teu missatge"></textarea>
+                        </div>
+                        <!-- Privacy Consent Section -->
+                        <div class="privacy-section">
+                            <!-- A header for this section, with a link to your future Privacy Policy page. -->
+                            <!-- Note: The href="#" is a placeholder you should change later to the actual page link. -->
+                            <p class="privacy-header" 
+                                data-lang-ca="En relació amb la nostra <a href='#'>Política de Privacitat</a>*:" 
+                                data-lang-es="En relación con nuestra <a href='#'>Política de Privacidad</a>*:">
+                                En relació amb la nostra <a href="#">Política de Privacitat</a>*:
+                            </p>
+                            <!-- Checkbox 1: Privacy Policy Acceptance. The 'required' attribute makes this mandatory. -->
+                            <div class="form-group-checkbox">
+                                <!-- The actual checkbox input, which we will hide visually with CSS. -->
+                                <input type="checkbox" id="privacy-accept" name="privacy-accept" required>
+                                <!-- The label is what users will see and click. It's linked to the input by the 'for' attribute. -->
+                                <label for="privacy-accept" 
+                                    data-lang-ca="Confirmo haver-la llegit i l'accepto." 
+                                    data-lang-es="Confirmo haberla leído y la acepto.">
+                                    Confirmo haver-la llegit i l'accepto.
+                                </label>
+                            </div>
+                            <!-- Checkbox 2: Commercial Use Consent. This one is optional. -->
+                            <div class="form-group-checkbox">
+                                <input type="checkbox" id="commercial-accept" name="commercial-accept" required>
+                                <label for="commercial-accept" 
+                                    data-lang-ca="Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics." 
+                                    data-lang-es="Acepto que mis datos identificativos sean incluidos para fines comerciales por medios electrónicos.">
+                                    Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics.
+                                </label>
+                            </div>
+                        </div>
+                        <!-- End of Privacy Consent Section -->
+                        <!-- The submit button for the form. -->
+                        <button type="submit" class="submit-btn" data-lang-ca="Enviar" data-lang-es="Enviar">Enviar</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- This is the bottom bar of the footer. -->
+            <div class="footer-bottom-bar">
+                <!-- Copyright notice. -->
+                <p class="copyright-text" data-lang-ca="© 2025 AulaSputnik. Tots els drets reservats." data-lang-es="© 2024 AulaSputnik. Todos los derechos reservados.">© 2024 AulaSputnik. Tots els drets reservats.</p>
+                <!-- Container for the legal links. -->
+                <div class="footer-legal-links">
+                    <a href="#" data-lang-ca="Política de Privacitat" data-lang-es="Política de Privacidad">Política de Privacitat</a>
+                    <a href="#" data-lang-ca="Avís Legal" data-lang-es="Aviso Legal">Avís Legal</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- =================== FOOTER END =================== -->
+
+    <!-- The "Scroll to Top" button. It will be hidden by default with CSS. -->
+    <button id="scroll-to-top-btn" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Link to your JavaScript file -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

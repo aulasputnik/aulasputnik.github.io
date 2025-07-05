@@ -39,6 +39,7 @@
     <!-- Link to the CSS stylesheet -->
     <link rel="stylesheet" href="assets/css/main.css">
 
+    <!--
     <script>
       function protectPage() {
         var password = prompt("Please enter the password:");
@@ -48,7 +49,7 @@
         }
       }
       protectPage();
-    </script>
+    </script> -->
 </head>
 <body>
     <!-- We'll build this out properly later, but it helps to have some content to style. -->
@@ -99,12 +100,23 @@
                 A <span class="highlight">AulaSPUTNIK</span> ens llancem a una nova educació en valors
             </h1>
         
-            <!-- The main call-to-action button. -->
-            <a href="#" class="hero-button" 
-                data-lang-ca="Els Nostres Tallers &nbsp;<i class='fa-solid fa-arrow-right'></i>" 
-                data-lang-es="Nuestros Talleres &nbsp;<i class='fa-solid fa-arrow-right'></i>">
-                Els Nostres Tallers &nbsp;<i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <!-- Contenidor per als botons del hero, per gestionar l'espaiat. -->
+            <div class="hero-buttons-container">
+                <!-- Aquest és el teu botó original. -->
+                <a href="tallers.html" class="hero-button" 
+                    data-lang-ca="Els Nostres Tallers &nbsp;<i class='fa-solid fa-arrow-right'></i>" 
+                    data-lang-es="Nuestros Talleres &nbsp;<i class='fa-solid fa-arrow-right'></i>">
+                    Els Nostres Tallers &nbsp;<i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <!-- Aquí afegim un nou botó amb una classe addicional per estilitzar-lo diferent. -->
+                <!-- Aquest botó té un estil diferent per destacar-lo. -->          
+                <!-- AQUEST ÉS EL NOU BOTÓ. Li donem una classe addicional 'hero-button--secondary'. -->
+                <a href="#valors" class="hero-button hero-button--secondary" 
+                    data-lang-ca="El Repte AulaSPUTNIK &nbsp;<i class='fa-solid fa-arrow-right'></i>" 
+                    data-lang-es="El Reto AulaSPUTNIK &nbsp;<i class='fa-solid fa-arrow-right'></i>">
+                    El Repte AulaSPUTNIK &nbsp;<i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
         </div>
 
         <!-- The animated "scroll down" link at the bottom. -->
@@ -114,6 +126,15 @@
             <!-- The Font Awesome arrow icon. -->
             <i class="fa-solid fa-chevron-down"></i>
         </a>
+
+        <!-- Aquest banner només serà visible en pantalles de mòbil gràcies al CSS. -->
+<div class="mobile-scroll-banner">
+    <!-- És una còpia de l'enllaç original "Saber Més". -->
+    <a href="#context" class="scroll-down-link">
+        <span data-lang-ca="Saber Més" data-lang-es="Saber Más">Saber Més</span>
+        <i class="fa-solid fa-chevron-down"></i>
+    </a>
+</div>
 
         <!-- Floeating image -->
         <div class="hero-floating-image">
@@ -246,9 +267,9 @@
                     <!-- Container for social media icon links -->
                     <div class="footer-social-icons">
                         <!-- Each 'a' tag is a link to a social profile. The 'aria-label' is for accessibility. -->
-                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/aulasputnik/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/aulasputnik/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.tiktok.com/@aula_sputnik" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
                     </div>
                 </div>
 
@@ -363,8 +384,8 @@
                 <p class="copyright-text" data-lang-ca="© 2025 AulaSputnik. Tots els drets reservats." data-lang-es="© 2024 AulaSputnik. Todos los derechos reservados.">© 2024 AulaSputnik. Tots els drets reservats.</p>
                 <!-- Container for the legal links. -->
                 <div class="footer-legal-links">
-                    <a href="#" data-lang-ca="Política de Privacitat" data-lang-es="Política de Privacidad">Política de Privacitat</a>
-                    <a href="#" data-lang-ca="Avís Legal" data-lang-es="Aviso Legal">Avís Legal</a>
+                    <a href="politica-de-privacitat.html" data-lang-ca="Política de Privacitat" data-lang-es="Política de Privacidad">Política de Privacitat</a>
+                    <a href="avis-legal.html" data-lang-ca="Avís Legal" data-lang-es="Aviso Legal">Avís Legal</a>
                 </div>
             </div>
         </div>

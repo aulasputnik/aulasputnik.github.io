@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ca"> 
+<head>
+    <!-- The 'charset' meta tag defines the character set for the document. -->
+    <!-- UTF-8 is a universal standard that includes characters for almost all written languages, which is essential for handling Spanish (ñ) and Catalan (ç, ·) correctly. -->
+    <meta charset="UTF-8">
+
+    <!-- The 'viewport' meta tag is crucial for responsive design. It controls how the page is displayed on mobile devices. -->
+    <!-- 'width=device-width' sets the width of the page to follow the screen-width of the device. -->
+    <!-- 'initial-scale=1.0' sets the initial zoom level when the page is first loaded by the browser. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- The 'title' tag sets the text that appears in the browser tab, in bookmarks, and in search engine results. -->
+    <!-- The 'data-lang-*' attributes hold the text for our language-switching JavaScript. -->
+    <title data-lang-ca="AulaSPUTNIK" data-lang-es="AulaSPUTNIK">AulaSPUTNIK</title>
+
+    <!-- The 'icon' link tag sets the "favicon" -- the small icon that appears in the browser tab next to the title. -->
+    <!-- 'href' points to the location of your image file. -->
+    <!-- 'type' tells the browser the format of the image. -->
+    <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
+
+    <!-- SEO Meta Tags: These help search engines understand your page content -->
+    <!-- The 'description' tag provides a short summary of the page. It's often shown under your page title in search results. -->
+    <meta name="description" content="">
+    <!-- The 'keywords' tag lists relevant terms for your site. While less important for Google today, it can still be useful for other search engines. -->
+    <meta name="keywords" content="">
+
+    <!-- Preconnect to Google Fonts for a minor performance boost -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Import the "Urbanist" and "Inter" fonts from Google Fonts. -->
+    <!-- This version uses a variable font range (wght@300..900), which allows us to use any font-weight from 300 to 900 in our CSS file, giving us full design flexibility. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Urbanist:wght@300..900&display=swap" rel="stylesheet">
+
+    <!--  Import Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Link to the CSS stylesheet -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- We'll build this out properly later, but it helps to have some content to style. -->
+    <header class="site-header">
+        <nav class="site-nav">
+            <div class="nav-container">
+
+                <div class="nav-logo">
+                    <a href="index.html" aria-label="Homepage">
+                        <img src="assets/images/logo.svg" alt="AulaSputnik Logo">
+                    </a>
+                </div>
+
+                <button class="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" data-lang-ca="Inici" data-lang-es="Inicio">Inici</a></li>
+                        <li><a href="projectes.html" data-lang-ca="Projectes" data-lang-es="Proyectos">Projectes</a></li>
+                        <li><a href="equip.html" data-lang-ca="Equip" data-lang-es="Equipo">Equip</a></li>
+                        <li><a href="tallers.html" class="nav-button active-page" data-lang-ca="Tallers" data-lang-es="Talleres">Tallers</a></li>
+                        <li><a href="#footer" class="nav-button nav-button-secondary" data-lang-ca="Contacte" data-lang-es="Contacto">Contacte</a></li>
+                        <li class="lang-switcher">
+                            <button id="lang-ca-btn" class="lang-switcher-btn" data-lang="ca">CA</button>
+                            <button id="lang-es-btn" class="lang-switcher-btn" data-lang="es">ES</button>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-intro-section">
+        <div class="section-container">
+            
+            <!-- Aquest és el contenidor del contingut de text. -->
+            <div class="intro-content">
+                <!-- Títol principal de la pàgina. -->
+                <h1 class="page-title" data-lang-ca="Avís Legal" data-lang-es="Aviso Legal">Avís Legal</h1>
+                
+                <p class="regular-paragraph" 
+                data-lang-ca="En compliment de la Llei 34/2002, d’11 de juliol, de Serveis de la Societat de la Informació i de Comerç Electrònic (LSSI-CE), l’empresa li informa que és titular del lloc web." 
+                data-lang-es="En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), la empresa le informa que es titular del sitio web.">
+                En compliment de la Llei 34/2002, d’11 de juliol, de Serveis de la Societat de la Informació i de Comerç Electrònic (LSSI-CE), l’empresa  li informa que és titular del lloc web.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="D’acord amb l’exigència de l’article 10 de la citada Llei, informa de les següents dades:" 
+                data-lang-es="De acuerdo con la exigencia del artículo 10 de la citada Ley, informa de los siguientes datos:">
+                D’acord amb l’exigència de l’article 10 de la citada Llei, informa de les següents dades:</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Nom de l’empresa:</strong> Ruiz Ayala, Anna" 
+                data-lang-es="<strong>Nombre de la empresa:</strong> Ruiz Ayala, Anna">
+                <strong>Nom de l’empresa:</strong> Ruiz Ayala, Anna
+                </p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>NIF:</strong> 39475229F" 
+                data-lang-es="<strong>NIF:</strong> 39475229F">
+                <strong>NIF:</strong> 39475229F
+                </p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>Adreça postal:</strong> Carrer de Bécquer, 25, 08860, Castelldefels, Barcelona" 
+                data-lang-es="<strong>Dirección postal:</strong> Carrer de Bécquer, 25, 08860, Castelldefels, Barcelona">
+                <strong>Adreça postal:</strong> Carrer de Bécquer, 25, 08860, Castelldefels, Barcelona
+                </p>
+
+                <h2 class="section-middle-title" data-lang-ca="USUARIS" data-lang-es="USUARIOS">USUARIS</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="L’accés i/o ús d’aquest portal li atribueix la condició d’USUARI, que accepta, des d’aquest accés i/o ús, les Condicions Generals d’Ús aquí reflectides. Les citades Condicions seran aplicable independentment de les Condicions Generals de Contractació que si escau resultin d’obligat compliment." 
+                data-lang-es="El acceso y/o uso de este portal le atribuye la condición de USUARIO, que acepta, desde este acceso y/o uso, las Condiciones Generales de Uso aquí reflejadas. Las citadas Condiciones serán aplicables independientemente de las Condiciones Generales de Contratación que en su caso resulten de obligado cumplimiento.">
+                L’accés i/o ús d’aquest portal li atribueix la condició d’USUARI, que accepta, des d’aquest accés i/o ús, les Condicions Generals d’Ús aquí reflectides. Les citades Condicions seran aplicable independentment de les Condicions Generals de Contractació que si escau resultin d’obligat compliment.</p>
+
+                <h2 class="section-middle-title" data-lang-ca="ÚS DEL PORTAL" data-lang-es="USO DEL PORTAL">ÚS DEL PORTAL</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="La pàgina web proporciona l’accés a multitud d’informacions, serveis, programes o dades (d’ara endavant, “els continguts”) en Internet pertanyents a Ruiz Ayala, Annao als seus llicenciadors als quals l’USUARI pugui tenir accés. L’USUARI assumeix la responsabilitat de l’ús del portal. Aquesta responsabilitat s’estén al registre que anés necessari per accedir a determinats serveis o continguts." 
+                data-lang-es="La página web proporciona el acceso a multitud de informaciones, servicios, programas o datos (en adelante, “los contenidos”) en Internet pertenecientes a Ruiz Ayala, Anna o a sus licenciantes a los que el USUARIO pueda tener acceso. El USUARIO asume la responsabilidad del uso del portal. Dicha responsabilidad se extiende al registro que fuese necesario para acceder a determinados servicios o contenidos.">
+                La pàgina web proporciona l’accés a multitud d’informacions, serveis, programes o dades (d’ara endavant, “els continguts”) en Internet pertanyents a Ruiz Ayala, Annao als seus llicenciadors als quals l’USUARI pugui tenir accés. L’USUARI assumeix la responsabilitat de l’ús del portal. Aquesta responsabilitat s’estén al registre que anés necessari per accedir a determinats serveis o continguts.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="En aquest registre l’USUARI serà responsable d’aportar informació veraç i lícita. Com a conseqüència d’aquest registre, a l’USUARI se li pot proporcionar una contrasenya de la qual serà responsable, comprometent-se a fer un ús diligent i confidencial de la mateixa. L’USUARI es compromet a fer un ús adequat dels continguts i serveis que Ruiz Ayala, Anna ofereix a través del seu portal i amb caràcter enunciatiu però no limitatiu, a no emprar-los para: " 
+                data-lang-es="En dicho registro el USUARIO será responsable de aportar información veraz y lícita. Como consecuencia de este registro, al USUARIO se le puede proporcionar una contraseña de la que será responsable, comprometiéndose a hacer un uso diligente y confidencial de la misma. El USUARIO se compromete a hacer un uso adecuado de los contenidos y servicios que Ruiz Ayala, Anna ofrece a través de su portal y con carácter enunciativo pero no limitativo, a no emplearlos para: ">
+                En aquest registre l’USUARI serà responsable d’aportar informació veraç i lícita. Com a conseqüència d’aquest registre, a l’USUARI se li pot proporcionar una contrasenya de la qual serà responsable, comprometent-se a fer un ús diligent i confidencial de la mateixa. L’USUARI es compromet a fer un ús adequat dels continguts i serveis que Ruiz Ayala, Anna ofereix a través del seu portal i amb caràcter enunciatiu però no limitatiu, a no emprar-los para: </p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>1. </strong>incórrer en activitats il·lícites, il·legals o contràries a la bona fe i a l’ordre públic." 
+                data-lang-es="<strong>1. </strong>incurrir en actividades ilícitas, ilegales o contrarias a la buena fe y al orden público.">
+                <strong>1. </strong>incórrer en activitats il·lícites, il·legals o contràries a la bona fe i a l’ordre públic.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>2. </strong>difondre continguts o propaganda de caràcter racista, xenòfob, pornogràfic-il·legal, d’apologia del terrorisme o atemptatori contra els drets humans." 
+                data-lang-es="<strong>2. </strong>difundir contenidos o propaganda de carácter racista, xenófobo, pornográfico-ilegal, de apología del terrorismo o atentatorio contra los derechos humanos.">
+                <strong>2. </strong>difondre continguts o propaganda de caràcter racista, xenòfob, pornogràfic-il·legal, d’apologia del terrorisme o atemptatori contra els drets humans.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>3. </strong>provocar danys en els sistemes físics i lògics de  Ruiz Ayala, Anna dels seus proveïdors o de terceres persones, introduir o difondre a la xarxa virus informàtics o qualssevol altres sistemes físics o lògics que siguin susceptibles de provocar els danys anteriorment esmentats." 
+                data-lang-es="<strong>3. </strong>provocar daños en los sistemas físicos y lógicos de Ruiz Ayala, Anna, de sus proveedores o de terceras personas, introducir o difundir en la red virus informáticos o cualesquiera otros sistemas físicos o lógicos que sean susceptibles de provocar los daños anteriormente mencionados.">
+                <strong>3. </strong>provocar danys en els sistemes físics i lògics de  Ruiz Ayala, Anna dels seus proveïdors o de terceres persones, introduir o difondre a la xarxa virus informàtics o qualssevol altres sistemes físics o lògics que siguin susceptibles de provocar els danys anteriorment esmentats.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="<strong>4. </strong>intentar accedir i, si escau, utilitzar els comptes de correu electrònic d’altres usuaris i modificar manipular els seus missatges. Ruiz Ayala, Anna es reserva el dret de retirar tots aquells comentaris i aportacions que vulnerin el respecte a la dignitat de la persona, que siguin discriminatoris, xenòfobs, racistes, pornogràfics, que atemptin contra la joventut o la infància, l’ordre o la seguretat pública o que, al seu judici, no resultessin adequats per a la seva publicació. En qualsevol cas, Ruiz Ayala, Anna o serà responsable de les opinions abocades pels usuaris a través dels fòrums, xats, o altres eines de participació." 
+                data-lang-es="<strong>4. </strong>intentar acceder y, en su caso, utilizar las cuentas de correo electrónico de otros usuarios y modificar manipular sus mensajes. Ruiz Ayala, Anna se reserva el derecho de retirar todos aquellos comentarios y aportaciones que vulneren el respeto a la dignidad de la persona, que sean discriminatorios, xenófobos, racistas, pornográficos, que atenten contra la juventud o la infancia, el orden o la seguridad pública o que, a su juicio, no resultaran adecuados para su publicación. En cualquier caso, Ruiz Ayala, Anna no será responsable de las opiniones vertidas por los usuarios a través de los foros, chats, u otras herramientas de participación.">
+                <strong>4. </strong>intentar accedir i, si escau, utilitzar els comptes de correu electrònic d’altres usuaris i modificar manipular els seus missatges. Ruiz Ayala, Anna es reserva el dret de retirar tots aquells comentaris i aportacions que vulnerin el respecte a la dignitat de la persona, que siguin discriminatoris, xenòfobs, racistes, pornogràfics, que atemptin contra la joventut o la infància, l’ordre o la seguretat pública o que, al seu judici, no resultessin adequats per a la seva publicació. En qualsevol cas, Ruiz Ayala, Anna o serà responsable de les opinions abocades pels usuaris a través dels fòrums, xats, o altres eines de participació.</p>
+
+                <h2 class="section-middle-title" data-lang-ca="PROPIETAT INTEL·LECTUAL I INDUSTRIAL" data-lang-es="PROPIEDAD INTELECTUAL E INDUSTRIAL">PROPIETAT INTEL·LECTUAL I INDUSTRIAL</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="Ruiz Ayala, Anna serà titular de tots els drets de propietat intel·lectual i industrial de la seva pàgina web, així com dels elements continguts en la mateixa (a títol enunciatiu, imatges, so, àudio, vídeo, programari o textos; marques o logotips, combinacions de colors, estructura i disseny, selecció de materials usats, programes d’ordinador necessaris per al seu funcionament, accés i ús, etc.)." 
+                data-lang-es="Ruiz Ayala, Anna será titular de todos los derechos de propiedad intelectual e industrial de su página web, así como de los elementos contenidos en la misma (a título enunciativo, imágenes, sonido, audio, vídeo, software o textos; marcas o logotipos, combinaciones de colores, estructura y diseño, selección de materiales usados, programas de ordenador necesarios para su funcionamiento, acceso y uso, etc.).">
+                Ruiz Ayala, Anna serà titular de tots els drets de propietat intel·lectual i industrial de la seva pàgina web, així com dels elements continguts en la mateixa (a títol enunciatiu, imatges, so, àudio, vídeo, programari o textos; marques o logotips, combinacions de colors, estructura i disseny, selecció de materials usats, programes d’ordinador necessaris per al seu funcionament, accés i ús, etc.).</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="Tots els drets reservats. En virtut del que es disposa en els articles 8 i 32.1, paràgraf segon, de la Llei de Propietat Intel·lectual, queden expressament prohibides la reproducció, la distribució i la comunicació pública, inclosa la seva modalitat de posada a disposició, de la totalitat o part dels continguts d’aquesta pàgina web, amb finalitats comercials, en qualsevol suport i per qualsevol mitjà tècnic, sense l’autorització de Ruiz Ayala, Anna L’USUARI es compromet a respectar els drets de Propietat Intel·lectual i Industrial titularitat de Ruiz Ayala, Anna Podrà visualitzar els elements del portal i fins i tot imprimir-los, copiar-los i emmagatzemar-los en el disc dur del seu ordinador o en qualsevol altre suport físic sempre que sigui, única i exclusivament, per al seu ús personal i privat. L’USUARI haurà d’abstenir-se de suprimir, alterar, eludir o manipular qualsevol dispositiu de protecció o sistema de seguretat que estigués instal·lat en el les pàgines de Ruiz Ayala, Anna." 
+                data-lang-es="Todos los derechos reservados. En virtud de lo dispuesto en los artículos 8 y 32.1, párrafo segundo, de la Ley de Propiedad Intelectual, quedan expresamente prohibidas la reproducción, la distribución y la comunicación pública, incluida su modalidad de puesta a disposición, de la totalidad o parte de los contenidos de esta página web, con fines comerciales, en cualquier soporte y por cualquier medio técnico, sin la autorización de Ruiz Ayala, Anna. El USUARIO se compromete a respetar los derechos de Propiedad Intelectual e Industrial titularidad de Ruiz Ayala, Anna. Podrá visualizar los elementos del portal e incluso imprimirlos, copiarlos y almacenarlos en el disco duro de su ordenador o en cualquier otro soporte físico siempre y cuando sea, única y exclusivamente, para su uso personal y privado. El USUARIO deberá abstenerse de suprimir, alterar, eludir o manipular cualquier dispositivo de protección o sistema de seguridad que estuviera instalado en el las páginas de Ruiz Ayala, Anna.">
+                Tots els drets reservats. En virtut del que es disposa en els articles 8 i 32.1, paràgraf segon, de la Llei de Propietat Intel·lectual, queden expressament prohibides la reproducció, la distribució i la comunicació pública, inclosa la seva modalitat de posada a disposició, de la totalitat o part dels continguts d’aquesta pàgina web, amb finalitats comercials, en qualsevol suport i per qualsevol mitjà tècnic, sense l’autorització de Ruiz Ayala, Anna L’USUARI es compromet a respectar els drets de Propietat Intel·lectual i Industrial titularitat de Ruiz Ayala, Anna Podrà visualitzar els elements del portal i fins i tot imprimir-los, copiar-los i emmagatzemar-los en el disc dur del seu ordinador o en qualsevol altre suport físic sempre que sigui, única i exclusivament, per al seu ús personal i privat. L’USUARI haurà d’abstenir-se de suprimir, alterar, eludir o manipular qualsevol dispositiu de protecció o sistema de seguretat que estigués instal·lat en el les pàgines de Ruiz Ayala, Anna.</p>
+
+                <h2 class="section-middle-title" data-lang-ca="EXCLUSIÓ DE GARANTIES I RESPONSABILITAT" data-lang-es="EXCLUSIÓN DE GARANTÍAS Y RESPONSABILIDAD">EXCLUSIÓ DE GARANTIES I RESPONSABILITAT</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="Ruiz Ayala, Anna no es fa responsable, en cap cas, dels danys i perjudicis de qualsevol naturalesa que poguessin ocasionar, a títol enunciatiu: errors o omissions en els continguts, falta de disponibilitat del portal o la transmissió de virus o programes maliciosos o lesius en els continguts, malgrat haver adoptat totes les mesures tecnològiques necessàries per evitar-ho." 
+                data-lang-es="Ruiz Ayala, Anna no se hace responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad del portal o la transmisión de virus o programas maliciosos o lesivos en los contenidos, a pesar de haber adoptado todas las medidas tecnológicas necesarias para evitarlo.">
+                Ruiz Ayala, Anna no es fa responsable, en cap cas, dels danys i perjudicis de qualsevol naturalesa que poguessin ocasionar, a títol enunciatiu: errors o omissions en els continguts, falta de disponibilitat del portal o la transmissió de virus o programes maliciosos o lesius en els continguts, malgrat haver adoptat totes les mesures tecnològiques necessàries per evitar-ho.</p>
+
+                <h2 class="section-middle-title" data-lang-ca="MODIFICACIONS" data-lang-es="MODIFICACIONES">MODIFICACIONS</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="Ruiz Ayala, Anna es reserva el dret d’efectuar sense previ avís les modificacions que consideri oportunes al seu portal, podent canviar, suprimir o afegir tant els continguts i serveis que es prestin a través de la mateixa com la forma en la qual aquests apareguin presentats o localitzats al seu portal." 
+                data-lang-es="Ruiz Ayala, Anna se reserva el derecho de efectuar sin previo aviso las modificaciones que considere oportunas en su portal, pudiendo cambiar, suprimir o añadir tanto los contenidos y servicios que se presten a través de la misma como la forma en la que estos aparezcan presentados o localizados en su portal.">
+                Ruiz Ayala, Anna es reserva el dret d’efectuar sense previ avís les modificacions que consideri oportunes al seu portal, podent canviar, suprimir o afegir tant els continguts i serveis que es prestin a través de la mateixa com la forma en la qual aquests apareguin presentats o localitzats al seu portal.</p>
+
+                <h2 class="section-middle-title" data-lang-ca="ENLLAÇOS" data-lang-es="ENLACES">ENLLAÇOS</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="En el cas que a la pàgina web es disposessin enllaços o hipervínculos feia altres llocs d’Internet, Ruiz Ayala, Anna no exercirà cap tipus de control sobre aquests llocs i continguts. En cap cas Ruiz Ayala, Anna assumirà responsabilitat alguna pels continguts d’algun enllaç pertanyent a un lloc web aliè, ni garantirà la disponibilitat tècnica, qualitat, fiabilitat, exactitud, amplitud, veracitat, validesa i constitucionalitat de qualsevol material o informació continguda en cap d’aquests hipervínculos o altres llocs d’Internet." 
+                data-lang-es="En el caso de que en la página web se dispusieran enlaces o hipervínculos hacia otros lugares de Internet, Ruiz Ayala, Anna no ejercerá ningún tipo de control sobre estos lugares y contenidos. En ningún caso Ruiz Ayala, Anna asumirá responsabilidad alguna por los contenidos de algún enlace perteneciente a un sitio web ajeno, ni garantizará la disponibilidad técnica, calidad, fiabilidad, exactitud, amplitud, veracidad, validez y constitucionalidad de cualquier material o información contenida en ninguno de estos hipervínculos u otros lugares de Internet.">
+                Ruiz Ayala, Anna no exercirà cap tipus de control sobre aquests llocs i continguts. En cap cas Ruiz Ayala, Anna assumirà responsabilitat alguna pels continguts d’algun enllaç pertanyent a un lloc web aliè, ni garantirà la disponibilitat tècnica, qualitat, fiabilitat, exactitud, amplitud, veracitat, validesa i constitucionalitat de qualsevol material o informació continguda en cap d’aquests hipervínculos o altres llocs d’Internet.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="Igualment, la inclusió d’aquestes connexions externes no implicarà cap tipus d’associació, fusió o participació amb les entitats connectades." 
+                data-lang-es="Igualmente, la inclusión de estas conexiones externas no implicará ningún tipo de asociación, fusión o participación con las entidades conectadas.">
+                Ruiz Ayala, Anna no exercirà cap tipus d’associació, fusió o participació amb les entitats connectades.</p>
+
+                <h2 class="section-middle-title" data-lang-ca="DRET D’EXCLUSIÓ" data-lang-es="DERECHO DE EXCLUSIÓN">DRET D’EXCLUSIÓ</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="Ruiz Ayala, Anna es reserva el dret a denegar o retirar l’accés a portal i/o els serveis oferts sense necessitat de preavís, a instància pròpia o d’un tercer, a aquells usuaris que incompleixin les presents Condicionis Generals d’Ús." 
+                data-lang-es="Ruiz Ayala, Anna se reserva el derecho a denegar o retirar el acceso al portal y/o los servicios ofrecidos sin necesidad de preaviso, a instancia propia o de un tercero, a aquellos usuarios que incumplan las presentes Condiciones Generales de Uso.">
+                Ruiz Ayala, Anna es reserva el dret a denegar o retirar l’accés a portal i/o els serveis oferts sense necessitat de preavís, a instància pròpia o d’un tercer, a aquells usuaris que incompleixin les presents Condicionis Generals d’Ús.</p>
+
+                <h2 class="section-middle-title" data-lang-ca="GENERALITATS" data-lang-es="GENERALIDADES">GENERALITATS</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="Ruiz Ayala, Anna perseguirà l’incompliment de les presents condicions, així com qualsevol utilització indeguda del seu portal exercint totes les accions civils i penals que li puguin correspondre en dret." 
+                data-lang-es="Ruiz Ayala, Anna perseguirá el incumplimiento de las presentes condiciones, así como cualquier utilización indebida de su portal ejerciendo todas las acciones civiles y penales que le puedan corresponder en derecho.">
+                Ruiz Ayala, Anna perseguirà l’incompliment de les presents condicions, així com qualsevol utilització indeguda del seu portal exercint totes les accions civils i penals que li puguin correspondre en dret.</p>
+
+                <h2 class="section-middle-title" data-lang-ca="MODIFICACIÓ DE LES PRESENTS CONDICIONS I DURADA" data-lang-es="MODIFICACIÓN DE LAS PRESENTES CONDICIONES Y DURACIÓN">MODIFICACIÓ DE LES PRESENTS CONDICIONS I DURADA</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="Ruiz Ayala, Anna podrà modificar a qualsevol moment les condicions aquí determinades, sent degudament publicades com aquí apareixen." 
+                data-lang-es="Ruiz Ayala, Anna podrá modificar en cualquier momento las condiciones aquí determinadas, siendo debidamente publicadas como aquí aparecen.">
+                Ruiz Ayala, Anna podrà modificar a qualsevol moment les condicions aquí determinades, sent degudament publicades com aquí apareixen.</p>
+                <p class="regular-paragraph" 
+                data-lang-ca="La vigència de les citades condicions anirà en funció de la seva exposició i estaran vigents fins que siguin modificades per unes altres degudament publicades." 
+                data-lang-es="La vigencia de las citadas condiciones irá en función de su exposición y estarán vigentes hasta que sean modificadas por otras debidamente publicadas.">
+                La vigència de les citades condicions anirà en funció de la seva exposició i estaran vigents fins que siguin modificades per unes altres degudament publicades.</p>
+
+                <h2 class="section-middle-title" data-lang-ca="LEGISLACIÓ APLICABLE I JURISDICCIÓ" data-lang-es="LEGISLACIÓN APLICABLE Y JURISDICCIÓN">LEGISLACIÓ APLICABLE I JURISDICCIÓ</h2>
+                <p class="regular-paragraph" 
+                data-lang-ca="La relació entre Ruiz Ayala, Anna i  l’USUARI es regirà per la normativa espanyola vigent i qualsevol controvèrsia se sotmetrà als Jutjats i tribunals de la ciutat anteriorment indicada." 
+                data-lang-es="La relación entre Ruiz Ayala, Anna y el USUARIO se regirá por la normativa española vigente y cualquier controversia se someterá a los Juzgados y tribunales de la ciudad anteriormente indicada.">
+                La relació entre Ruiz Ayala, Anna i  l’USUARI es regirà per la normativa espanyola vigent i qualsevol controvèrsia se sotmetrà als Jutjats i tribunals de la ciutat anteriorment indicada.</p>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =================== FOOTER START =================== -->
+    <!-- The <footer> tag is used for semantics, telling the browser and search engines what this section is. -->
+    <footer id="footer" class="site-footer">
+        <!-- This is a container to keep the content centered and constrained to a max-width. -->
+        <div class="footer-container">
+            <!-- This grid container will hold our two main columns. -->
+            <div class="footer-main-grid">
+
+                <!-- Column 1: Text content and social links. -->
+                <div class="footer-column-left">
+                    <!-- Main heading for the column -->
+                    <h3 class="footer-title" data-lang-ca="PARLEM?" data-lang-es="¿HABLAMOS?">PARLEM?</h3>
+                    <!-- First paragraph of text -->
+                    <p data-lang-ca="Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu." data-lang-es="¿Tienes alguna duda, proposta o idea? ¡Queremos conocerte! Rellena este formulario y nos pondremos en contacto contigo.">Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu.</p>
+                    <!-- Second paragraph of text -->
+                    <p data-lang-ca="També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!" data-lang-es="¡También puedes seguirnos en nuestras redes sociales i sumarte a nuestra comunitat!">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
+                    <!-- Container for social media icon links -->
+                    <div class="footer-social-icons">
+                        <!-- Each 'a' tag is a link to a social profile. The 'aria-label' is for accessibility. -->
+                        <a href="https://www.instagram.com/aulasputnik/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: The contact form. -->
+                <div class="footer-column-right">
+                    <!-- We will connect this to a service like Formspree later. -->
+                    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <!-- Form field for Name. The label is now visually hidden but still exists for screen readers. -->
+                        <div class="form-group">
+                            <!-- The 'aria-label' provides an accessible name for the input now that the label is hidden. -->
+                            <input type="text" id="name" name="name" required placeholder="Nom i Cognoms*" data-lang-ca-placeholder="Nom i Cognoms*" data-lang-es-placeholder="Nombre y Apellidos*" aria-label="Nom i Cognoms">
+                        </div>
+                        <!-- Form field for Email. -->
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder="Correu electrònic*" data-lang-ca-placeholder="Correu electrònic*" data-lang-es-placeholder="Correo electrónico*" aria-label="Correu electrònic">
+                        </div>
+                        <!-- Form field for Institution. -->
+                        <div class="form-group">
+                            <input type="text" id="institution" name="institution" required placeholder="Empresa, escola, institut, etc.*" data-lang-ca-placeholder="Empresa, escola, institut, etc.*" data-lang-es-placeholder="Empresa, colegio, instituto, etc.*" aria-label="Empresa, escola, institut, etc.">
+                        </div>
+                        <!-- Custom Multi-Select Dropdown for Workshops -->
+                        <div class="form-group">
+                            <!-- This is the main container for our custom component. We set its position to relative so we can position the dropdown options inside it. -->
+                            <div class="multiselect-container" id="workshops-multiselect">
+                                <!-- This is the visible, clickable part that looks like a form input. -->
+                                <div class="multiselect-display">
+                                    <!-- This span holds the placeholder text (e.g., "2 seleccionats"). -->
+                                    <span class="multiselect-placeholder" 
+                                        data-lang-ca="T'agradaria rebre informació d'algún taller en concret?" 
+                                        data-lang-es="¿Te gustaría recibir información de algún taller en concreto?">
+                                        T'agradaria rebre informació d'algún taller en concret?
+                                    </span>
+                                    <!-- A Font Awesome icon to indicate that it's a dropdown. -->
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <!-- This is the dropdown panel that contains all the selectable options. It's hidden by default. -->
+                                <div class="multiselect-options">
+                                    <!-- Each workshop is a checkbox/label pair. -->
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Nanosatèl·lits">
+                                        <span data-lang-ca="Ajudem al nostre planeta a través dels nanosatèl·lits." data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites.">Ajudem al nostre planeta a través dels nanosatèl·lits.</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Explorem espai">
+                                        <span data-lang-ca="Explorem l’espai amb AulaSPUTNIK!" data-lang-es="¡Exploramos el espacio con AulaSPUTNIK!">Explorem l’espai amb AulaSPUTNIK!</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Dona aeroespacial">
+                                        <span data-lang-ca="La dona al sector aeroespacial." data-lang-es="La mujer en el sector aeroespacial.">La dona al sector aeroespacial.</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Constel·lacions">
+                                        <span data-lang-ca="Les constel·lacions com a quadern vital." data-lang-es="Las constelaciones como cuaderno vital.">Les constel·lacions com a quadern vital.</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Biologia espai">
+                                        <span data-lang-ca="La biologia a l'espai: com són els aliens?" data-lang-es="La biología en el espacio: ¿cómo son los aliens?">La biologia a l'espai: com són els aliens?</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="workshop" value="Sistema estelar">
+                                        <span data-lang-ca="Crea el teu propi sistema estelar!" data-lang-es="¡Crea tu propio sistema estelar!">Crea el teu propi sistema estelar!</span>
+                                    </label>
+                                </div>
+                                <!-- This is a hidden input. Its value will be updated by JavaScript with all the selected workshops. This is what Formspree will receive. -->
+                                <input type="hidden" name="selected_workshops" id="selected-workshops-input">
+                            </div>
+                        </div>
+                        <!-- Form field for the message. 'textarea' allows for multiple lines of text. -->
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" required placeholder="El teu missatge" data-lang-ca-placeholder="El teu missatge" data-lang-es-placeholder="Tu mensaje" aria-label="El teu missatge"></textarea>
+                        </div>
+                        <!-- Privacy Consent Section -->
+                        <div class="privacy-section">
+                            <!-- A header for this section, with a link to your future Privacy Policy page. -->
+                            <!-- Note: The href="#" is a placeholder you should change later to the actual page link. -->
+                            <p class="privacy-header" 
+                                data-lang-ca="En relació amb la nostra <a href='#'>Política de Privacitat</a>*:" 
+                                data-lang-es="En relación con nuestra <a href='#'>Política de Privacidad</a>*:">
+                                En relació amb la nostra <a href="#">Política de Privacitat</a>*:
+                            </p>
+                            <!-- Checkbox 1: Privacy Policy Acceptance. The 'required' attribute makes this mandatory. -->
+                            <div class="form-group-checkbox">
+                                <!-- The actual checkbox input, which we will hide visually with CSS. -->
+                                <input type="checkbox" id="privacy-accept" name="privacy-accept" required>
+                                <!-- The label is what users will see and click. It's linked to the input by the 'for' attribute. -->
+                                <label for="privacy-accept" 
+                                    data-lang-ca="Confirmo haver-la llegit i l'accepto." 
+                                    data-lang-es="Confirmo haberla leído y la acepto.">
+                                    Confirmo haver-la llegit i l'accepto.
+                                </label>
+                            </div>
+                            <!-- Checkbox 2: Commercial Use Consent. This one is optional. -->
+                            <div class="form-group-checkbox">
+                                <input type="checkbox" id="commercial-accept" name="commercial-accept" required>
+                                <label for="commercial-accept" 
+                                    data-lang-ca="Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics." 
+                                    data-lang-es="Acepto que mis datos identificativos sean incluidos para fines comerciales por medios electrónicos.">
+                                    Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics.
+                                </label>
+                            </div>
+                        </div>
+                        <!-- End of Privacy Consent Section -->
+                        <!-- The submit button for the form. -->
+                        <button type="submit" class="submit-btn" data-lang-ca="Enviar" data-lang-es="Enviar">Enviar</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- This is the bottom bar of the footer. -->
+            <div class="footer-bottom-bar">
+                <!-- Copyright notice. -->
+                <p class="copyright-text" data-lang-ca="© 2025 AulaSputnik. Tots els drets reservats." data-lang-es="© 2024 AulaSputnik. Todos los derechos reservados.">© 2024 AulaSputnik. Tots els drets reservats.</p>
+                <!-- Container for the legal links. -->
+                <div class="footer-legal-links">
+                    <a href="#" data-lang-ca="Política de Privacitat" data-lang-es="Política de Privacidad">Política de Privacitat</a>
+                    <a href="#" data-lang-ca="Avís Legal" data-lang-es="Aviso Legal">Avís Legal</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- =================== FOOTER END =================== -->
+
+    <!-- The "Scroll to Top" button. It will be hidden by default with CSS. -->
+    <button id="scroll-to-top-btn" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Link to your JavaScript file -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
