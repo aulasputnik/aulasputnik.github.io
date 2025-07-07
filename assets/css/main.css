@@ -306,7 +306,7 @@ a.nav-button:not(.nav-button-secondary) {
         width: 100%;
         padding-top: 100px; /* Space for the header */
         padding-bottom: 30px;
-        background-color: var(--color-text);
+        background-color: var(--color-background);
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .nav-menu.is-active {
@@ -464,11 +464,17 @@ a.nav-button:not(.nav-button-secondary) {
         /* Reduce font size on smaller screens to prevent it from looking too big. */
         font-size: 40px;
     }
-    .hero-button {
-        /* Reduce padding and font size for the button on mobile. */
-        padding: 12px 28px;
-        font-size: 16px;
-    }
+  .hero-buttons-container {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center; /* Center the buttons horizontally */
+  }
+  .hero-button,
+  .hero-button--secondary {
+    width: auto;         /* Let buttons keep their natural width */
+    min-width: 0;        /* Prevent unwanted stretching */
+    text-align: center;
+  }
 }
 
 .hero-floating-image {
