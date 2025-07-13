@@ -1758,8 +1758,8 @@ html {
 
 /* El contenidor de la foto. */
 .team-member-photo {
-    width: 100%;
-    max-width: 300px; /* Limitem la mida de la foto. */
+    width: 75%;
+    max-width: 200px; /* Limitem la mida de la foto. */
     justify-self: center; /* Centrem la foto dins la seva columna. */
 }
 
@@ -1768,8 +1768,8 @@ html {
     height: auto;
     aspect-ratio: 1 / 1; /* Assegura que la imatge sigui quadrada abans de fer-la rodona. */
     object-fit: cover; /* Evita que la imatge es deformi. */
-    border-radius: 6px; /* La clau per a la foto circular. */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 150px; /* La clau per a la foto circular. */
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
 }
 
 /* El contenidor de la informació. */
@@ -1791,6 +1791,15 @@ html {
     font-size: 16px;
     line-height: 1.7;
     color: var(--color-text);
+}
+
+.team-member-quote {
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--color-text);
+    font-family: 'Domine', serif;
+    font-style: italic;
+    padding: 6px 20px;
 }
 
 /* --- Ajustos responsius per a la secció de l'equip --- */
