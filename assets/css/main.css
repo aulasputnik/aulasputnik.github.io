@@ -31,6 +31,30 @@
     --font-body: 'Inter', sans-serif;         /* The font for all paragraphs and general text. */
     --font-heading: 'Urbanist', sans-serif;   /* A distinct, bold font for all headings (h1, h2, etc). */
 }
+/* --- FINAL FOOTER OVERFLOW FIXES (2025-07-13) --- */
+@media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+  }
+  .footer-main-grid,
+  .footer-column-left,
+  .footer-column-right {
+    min-width: 0 !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+  .footer-column-left p,
+  .footer-column-right p,
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form select,
+  .contact-form textarea {
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+}
 /* --- EXTRA FOOTER RESPONSIVE FIXES (2025-07-13) --- */
 @media (max-width: 600px) {
   .footer-container,
@@ -1960,4 +1984,44 @@ html {
         grid-column: 1;
         grid-row: auto;
     }
+}
+
+/* --- EXTRA FOOTER RESPONSIVE FIXES (2025-07-13) --- */
+@media (max-width: 600px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr !important;
+    min-width: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  .footer-container {
+    overflow-x: hidden;
+  }
+  .footer-column-left,
+  .footer-column-right {
+    min-width: 0;
+    width: 100%;
+    max-width: 100vw;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .footer-column-left p,
+  .footer-column-right p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
+    max-width: 100vw;
+    min-width: 0;
+    box-sizing: border-box;
+    padding-left: 6px;
+    padding-right: 6px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+}
 }
