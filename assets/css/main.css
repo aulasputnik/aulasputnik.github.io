@@ -915,6 +915,8 @@ a.nav-button:not(.nav-button-secondary) {
     font-size: 14px;
     /* Use the standard body font. */
     font-family: var(--font-body);
+    box-sizing: border-box; 
+
 }
 .contact-form select {
     /* Allows custom arrow styling if needed later. */
