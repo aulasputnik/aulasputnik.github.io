@@ -186,7 +186,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* The container that centers the nav content. */
 .nav-container {
-    max-width: 1200px;
+    max-width: 1250px;
     margin: 0 auto;
     padding: 0 40px;
     /* Use flexbox to lay out the logo and menu. */
@@ -408,12 +408,15 @@ a.nav-button:not(.nav-button-secondary) {
     align-items: start; 
     padding: 18vh 80px 0 80px;
     gap: 40px;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* The container for the text and button. */
 .hero-content {
     z-index: 2;
-    
+    max-width: 1250px;
     /* Aligns the text to the left within this container. */
     text-align: left;
 }
@@ -1252,6 +1255,18 @@ a.nav-button:not(.nav-button-secondary) {
     font-size: 14px;
     color: var(--color-text-alt);
 }
+
+.copyright-text a {
+    font-size: 14px; /* Increased font size for legal links */
+    text-decoration: none;
+    transition: color 0.2s ease;
+    color: var(--color-text-alt);
+}
+.copyright-text a:hover {
+    color: var(--color-white);
+}
+
+
 .footer-legal-links a {
     font-size: 14px; /* Increased font size for legal links */
     text-decoration: none;
@@ -1401,9 +1416,7 @@ html {
 
 /* Contenidor principal per a les seccions d'introducció de les sub-pàgines. */
 .page-intro-section {
-    /* El color de fons que ja tenies. */
     background-color: var(--color-background);
-    /* Augmentem el padding inferior per donar espai al degradat. */
     padding: 130px 40px 30px 40px;
 }
 
@@ -1779,20 +1792,19 @@ html {
 
 /* 2. El contenidor interior: té la imatge de fons. */
 .repte-banner-inner {
-    /* Apliquem la imatge i la capa de color per a la llegibilitat. */
     background-image: 
         linear-gradient(rgba(25, 50, 90, 0.75), rgba(25, 50, 90, 0.75)),
-        url('../images/repte-banner.png'); /* <-- Assegura't que el nom és correcte */
-    
+        url('../images/repte-banner.png');
     background-size: cover;
     background-position: center;
-    
-    /* L'espaiat interior per al text. */
     padding: 80px 40px;
     text-align: center;
     color: var(--color-white);
-    border-radius: 12px; /* Cantonades arrodonides per a la imatge. */
+    border-radius: 12px;
     box-shadow: 0 10px 10px rgba(0,0,0,0.01);
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Estils per al contingut (títol, subtítol, botó) - Aquests no canvien. */
@@ -1907,7 +1919,7 @@ html {
 
 .team-member-bio {
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.4;
     color: var(--color-text);
 }
 
