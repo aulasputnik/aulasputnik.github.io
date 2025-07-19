@@ -1445,11 +1445,12 @@ html {
 
 /* Els paràgrafs introductoris, amb un estil una mica diferent. */
 .regular-paragraph {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.4;
     text-align: justify;
     color: var(--color-text);
     margin-bottom: 2px;
+    margin-top: 10px;
 }
 
 /* El subtítol (per exemple, "Metodologia"). */
@@ -1468,6 +1469,11 @@ html {
 .tallers-section {
     padding: 10px 40px 20px 40px;
     background-color: var(--color-background);
+}
+
+.tallers-section p {
+    text-align: justify;
+    line-height: 1.4;
 }
 
 /* La graella que conté les targetes. */
@@ -1504,10 +1510,26 @@ html {
 }
 
 .taller-icon {
-    color: rgba(161, 93, 246, 0.75);
-    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    min-width: 48px;
+    min-height: 48px;
+    max-width: 80px;
+    max-height: 80px;
     flex-shrink: 0; /* Evita que la icona s'encongeixi. */
+    /* Remove color/font-size, now for images */
 }
+
+.taller-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
 
 .taller-main-info {
     flex-grow: 1; /* Fa que aquesta secció ocupi tot l'espai disponible. */
@@ -1542,6 +1564,13 @@ html {
     opacity: 0.6;
     transition: transform 0.4s ease;
     margin-left: 20px; /* Espai a l'esquerra de la fletxa. */
+    margin-right: 0;
+    /* Fixem la icona a la dreta de la capçalera */
+    margin-left: auto;
+    /* Ens assegurem que no s'encongeixi */
+    flex-shrink: 0;
+    /* Opcional: alineem verticalment si cal */
+    align-self: center;
 }
 .taller-card.is-open .taller-expand-icon {
     transform: rotate(180deg);
@@ -1626,8 +1655,8 @@ html {
 }
 
 .ods-images img {
-    width: 40px; /* Amplada de la imatge. */
-    height: 40px; /* Alçada de la imatge per fer-la quadrada. */
+    width: 80px; /* Amplada de la imatge. */
+    height: 80px; /* Alçada de la imatge per fer-la quadrada. */
     object-fit: cover; /* Assegura que la imatge ompli l'espai sense deformar-se. */
     border-radius: 0px; /* Cantonades lleugerament arrodonides. */
     transition: transform 0.2s ease;
@@ -1763,7 +1792,7 @@ html {
     text-align: center;
     color: var(--color-white);
     border-radius: 12px; /* Cantonades arrodonides per a la imatge. */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 10px rgba(0,0,0,0.01);
 }
 
 /* Estils per al contingut (títol, subtítol, botó) - Aquests no canvien. */
@@ -1941,7 +1970,7 @@ html {
 /* El contenidor de la foto. */
 .projectes-member-photo {
     width: 100%;
-    max-width: 300px; /* Limitem la mida de la foto. */
+    max-width: 220px; /* Limitem la mida de la foto. */
     justify-self: center; /* Centrem la foto dins la seva columna. */
 }
 
@@ -1950,8 +1979,8 @@ html {
     height: auto;
     aspect-ratio: 1 / 1; /* Assegura que la imatge sigui quadrada abans de fer-la rodona. */
     object-fit: cover; /* Evita que la imatge es deformi. */
-    border-radius: 6px; /* La clau per a la foto circular. */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px; /* La clau per a la foto circular. */
+    /* box-shadow removed to blend with section background */
 }
 
 /* El contenidor de la informació. */
@@ -1959,13 +1988,15 @@ html {
     font-size: 22px;
     font-weight: 700;
     color: var(--color-heading);
-    margin-bottom: 0px;
+    margin-bottom: 2px;
 }
 
 .projectes-member-bio {
     font-size: 16px;
     line-height: 1.4;
     color: var(--color-text);
+    text-align: justify;
+    margin-bottom: 0.4em;
 }
 
 /* --- Ajustos responsius per a la secció de l'equip --- */
@@ -2024,4 +2055,4 @@ html {
     word-break: break-word;
   }
 }
-}
+
