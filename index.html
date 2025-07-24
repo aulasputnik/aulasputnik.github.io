@@ -281,15 +281,15 @@
                         <!-- Form field for Name. The label is now visually hidden but still exists for screen readers. -->
                         <div class="form-group">
                             <!-- The 'aria-label' provides an accessible name for the input now that the label is hidden. -->
-                            <input type="text" id="name" name="name" required placeholder="Nom i Cognoms*" data-lang-ca-placeholder="Nom i Cognoms*" data-lang-es-placeholder="Nombre y Apellidos*" aria-label="Nom i Cognoms">
+                            <input type="text" id="name" name="Nom" required placeholder="Nom i Cognoms*" data-lang-ca-placeholder="Nom i Cognoms*" data-lang-es-placeholder="Nombre y Apellidos*" aria-label="Nom i Cognoms">
                         </div>
                         <!-- Form field for Email. -->
                         <div class="form-group">
-                            <input type="email" id="email" name="email" required placeholder="Correu electrònic*" data-lang-ca-placeholder="Correu electrònic*" data-lang-es-placeholder="Correo electrónico*" aria-label="Correu electrònic">
+                            <input type="email" id="email" name="Email" required placeholder="Correu electrònic*" data-lang-ca-placeholder="Correu electrònic*" data-lang-es-placeholder="Correo electrónico*" aria-label="Correu electrònic">
                         </div>
                         <!-- Form field for Institution. -->
                         <div class="form-group">
-                            <input type="text" id="institution" name="institution" required placeholder="Empresa, escola, institut, etc.*" data-lang-ca-placeholder="Empresa, escola, institut, etc.*" data-lang-es-placeholder="Empresa, colegio, instituto, etc.*" aria-label="Empresa, escola, institut, etc.">
+                            <input type="text" id="institution" name="Institució" required placeholder="Empresa, escola, institut, etc.*" data-lang-ca-placeholder="Empresa, escola, institut, etc.*" data-lang-es-placeholder="Empresa, colegio, instituto, etc.*" aria-label="Empresa, escola, institut, etc.">
                         </div>
                         <!-- Custom Multi-Select Dropdown for Workshops -->
                         <div class="form-group">
@@ -314,11 +314,11 @@
                                         <span data-lang-ca="Ajudem al nostre planeta a través dels nanosatèl·lits." data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites.">Ajudem al nostre planeta a través dels nanosatèl·lits.</span>
                                     </label>
                                     <label class="multiselect-option">
-                                        <input type="checkbox" name="workshop" value="Explorem espai">
+                                        <input type="checkbox" name="workshop" value="Coets">
                                         <span data-lang-ca="Explorem l’espai amb AulaSPUTNIK!" data-lang-es="¡Exploramos el espacio con AulaSPUTNIK!">Explorem l’espai amb AulaSPUTNIK!</span>
                                     </label>
                                     <label class="multiselect-option">
-                                        <input type="checkbox" name="workshop" value="Dona aeroespacial">
+                                        <input type="checkbox" name="workshop" value="Dona a l'Espai">
                                         <span data-lang-ca="La dona al sector aeroespacial." data-lang-es="La mujer en el sector aeroespacial.">La dona al sector aeroespacial.</span>
                                     </label>
                                     <label class="multiselect-option">
@@ -326,7 +326,7 @@
                                         <span data-lang-ca="Les constel·lacions com a quadern vital." data-lang-es="Las constelaciones como cuaderno vital.">Les constel·lacions com a quadern vital.</span>
                                     </label>
                                     <label class="multiselect-option">
-                                        <input type="checkbox" name="workshop" value="Biologia espai">
+                                        <input type="checkbox" name="workshop" value="Aliens">
                                         <span data-lang-ca="La biologia a l'espai: com són els aliens?" data-lang-es="La biología en el espacio: ¿cómo son los aliens?">La biologia a l'espai: com són els aliens?</span>
                                     </label>
                                     <label class="multiselect-option">
@@ -339,21 +339,21 @@
                                     </label>
                                 </div>
                                 <!-- This is a hidden input. Its value will be updated by JavaScript with all the selected workshops. This is what Formspree will receive. -->
-                                <input type="hidden" name="selected_workshops" id="selected-workshops-input">
+                                <input type="hidden" name="Tallers Seleccionats" id="selected-workshops-input">
                             </div>
                         </div>
                         <!-- Form field for the message. 'textarea' allows for multiple lines of text. -->
                         <div class="form-group">
-                            <textarea id="message" name="message" rows="4" required placeholder="El teu missatge" data-lang-ca-placeholder="El teu missatge" data-lang-es-placeholder="Tu mensaje" aria-label="El teu missatge"></textarea>
+                            <textarea id="message" name="Missatge" rows="4" required placeholder="El teu missatge" data-lang-ca-placeholder="El teu missatge" data-lang-es-placeholder="Tu mensaje" aria-label="El teu missatge"></textarea>
                         </div>
                         <!-- Privacy Consent Section -->
                         <div class="privacy-section">
                             <!-- A header for this section, with a link to your future Privacy Policy page. -->
                             <!-- Note: The href="#" is a placeholder you should change later to the actual page link. -->
                             <p class="privacy-header" 
-                                data-lang-ca="En relació amb la nostra <a href='#'>Política de Privacitat</a>*:" 
-                                data-lang-es="En relación con nuestra <a href='#'>Política de Privacidad</a>*:">
-                                En relació amb la nostra <a href="#">Política de Privacitat</a>*:
+                                data-lang-ca="En relació amb la nostra <a href='politica-de-privacitat.html'>Política de Privacitat</a>*:" 
+                                data-lang-es="En relación con nuestra <a href='politica-de-privacitat.html'>Política de Privacidad</a>*:">
+                                En relació amb la nostra <a href="politica-de-privacitat.html">Política de Privacitat</a>*:
                             </p>
                             <!-- Checkbox 1: Privacy Policy Acceptance. The 'required' attribute makes this mandatory. -->
                             <div class="form-group-checkbox">
