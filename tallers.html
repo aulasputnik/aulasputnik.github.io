@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html lang="ca"> 
 <head>
-    <!-- The 'charset' meta tag defines the character set for the document. -->
-    <!-- UTF-8 is a universal standard that includes characters for almost all written languages, which is essential for handling Spanish (ñ) and Catalan (ç, ·) correctly. -->
+    <!-- Charset meta tag: defines the character set for the document. -->
+    <!-- UTF-8 supports almost all written languages, including Spanish (ñ) and Catalan (ç, ·). -->
     <meta charset="UTF-8">
 
-    <!-- The 'viewport' meta tag is crucial for responsive design. It controls how the page is displayed on mobile devices. -->
-    <!-- 'width=device-width' sets the width of the page to follow the screen-width of the device. -->
-    <!-- 'initial-scale=1.0' sets the initial zoom level when the page is first loaded by the browser. -->
+    <!-- Viewport meta tag: essential for responsive design. -->
+    <!-- width=device-width: sets the page width to the device screen width. -->
+    <!-- initial-scale=1.0: sets the initial zoom level. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- The 'title' tag sets the text that appears in the browser tab, in bookmarks, and in search engine results. -->
-    <!-- The 'data-lang-*' attributes hold the text for our language-switching JavaScript. -->
+    <!-- Title tag: text for browser tab, bookmarks, and search results. -->
+    <!-- data-lang-* attributes: used for language switching via JavaScript. -->
     <title data-lang-ca="Tallers - AulaSPUTNIK" data-lang-es="Talleres - AulaSPUTNIK">Tallers - AulaSPUTNIK</title>
 
-    <!-- The 'icon' link tag sets the "favicon" -- the small icon that appears in the browser tab next to the title. -->
-    <!-- 'href' points to the location of your image file. -->
-    <!-- 'type' tells the browser the format of the image. -->
+    <!-- Favicon: small icon in browser tab. -->
     <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
 
-    <!-- SEO Meta Tags: These help search engines understand your page content -->
-    <!-- The 'description' tag provides a short summary of the page. It's often shown under your page title in search results. -->
+    <!-- SEO Meta Tags: help search engines understand your page. -->
+    <!-- Description: short summary for search results. -->
     <meta name="description" content="">
-    <!-- The 'keywords' tag lists relevant terms for your site. While less important for Google today, it can still be useful for other search engines. -->
+    <!-- Keywords: relevant terms for search engines. -->
     <meta name="keywords" content="">
 
-    <!-- Preconnect to Google Fonts for a minor performance boost -->
+    <!-- Preconnect to Google Fonts for performance. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Import the "Urbanist" and "Inter" fonts from Google Fonts. -->
-    <!-- This version uses a variable font range (wght@300..900), which allows us to use any font-weight from 300 to 900 in our CSS file, giving us full design flexibility. -->
+    <!-- Import Google Fonts: Urbanist, Inter, Domine. -->
+    <!-- Variable font range (wght@300..900) for design flexibility. -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Urbanist:wght@300..900&family=Domine:wght@400;700&display=swap" rel="stylesheet">
 
-    <!--  Import Font Awesome for icons -->
+    <!-- Import Font Awesome for icons. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Link to the CSS stylesheet -->
+    <!-- Link to main CSS stylesheet. -->
     <link rel="stylesheet" href="assets/css/main.css">
 
     
@@ -52,29 +50,26 @@
     </script> 
 </head>
 <body>
-    <!-- We'll build this out properly later, but it helps to have some content to style. -->
+    <!-- Main site header and navigation. -->
     <header class="site-header">
         <nav class="site-nav">
             <div class="nav-container">
-
                 <div class="nav-logo">
                     <a href="index.html" aria-label="Homepage">
                         <img src="assets/images/logo.svg" alt="AulaSputnik Logo">
                     </a>
                 </div>
-
                 <button class="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
                 </button>
-
                 <div class="nav-menu">
                     <ul class="nav-list">
                         <li><a href="index.html" data-lang-ca="Inici" data-lang-es="Inicio">Inici</a></li>
                         <li><a href="projectes.html" data-lang-ca="Projectes" data-lang-es="Proyectos">Projectes</a></li>
                         <li><a href="equip.html" data-lang-ca="Equip" data-lang-es="Equipo">Equip</a></li>
-                        <li><a href="tallers.html" class="nav-button active-page" data-lang-ca="Tallers" data-lang-es="Talleres">Tallers</a></li>
+                        <li><a href="tallers.html" class="nav-button" data-lang-ca="Tallers" data-lang-es="Talleres">Tallers</a></li>
                         <li><a href="#footer" class="nav-button nav-button-secondary" data-lang-ca="Contacte" data-lang-es="Contacto">Contacte</a></li>
                         <li class="lang-switcher">
                             <button id="lang-ca-btn" class="lang-switcher-btn" data-lang="ca">CA</button>
@@ -82,7 +77,6 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
         </nav>
     </header>
@@ -90,16 +84,16 @@
     <section class="page-intro-section">
         <div class="section-container">
             
-            <!-- Aquest és el contenidor del contingut de text. -->
+            <!-- Container for all intro section content. -->
             <div class="intro-content">
-                <!-- Títol principal de la pàgina. -->
+                <!-- Main page title. -->
                 <h1 class="page-title" data-lang-ca="Els Nostres Tallers" data-lang-es="Nuestros Talleres">Els Nostres Tallers</h1>
                 
-                <!-- Paràgrafs introductoris. Els donem una classe per estilitzar-los. -->
+                <!-- Introductory paragraphs. -->
                 <p class="lead-paragraph" data-lang-ca="Els recursos educatius desenvolupats per la realització dels tallers són un referent en l’àmbit educatiu i d’alt valor innovador." data-lang-es="Los recursos educativos desarrollados para la realización de los talleres son un referente en el ámbito educativo y de alto valor innovador.">Els recursos educatius desenvolupats per la realització dels tallers són un referent en l’àmbit educatiu i d’alt valor innovador.</p>
                 <p class="lead-paragraph" data-lang-ca="AulaSputnik ofereix l’oportunitat d’endinsar-se en unes temàtiques innovadores i que permeten obrir noves capacitats i punts de vista a totes les persones realitzant diferents activitats i projectes." data-lang-es="AulaSputnik ofrece la oportunidad de adentrarse en unas temáticas innovadoras y que permiten abrir nuevas capacities y puntos de vista a todas les persones realitzant diferents activitats i projectes." data-lang-en="AulaSputnik offers the opportunity to delve into innovative themes that open up new skills and perspectives for all individuals through various activities and projects.">AulaSputnik ofereix l’oportunitat d’endinsar-se en unes temàtiques innovadores i que permeten obrir noves capacitats i punts de vista a totes les persones realitzant diferents activitats i projectes.</p>
 
-                <!-- Subtítol per a la secció de metodologia. -->
+                <!-- Subtitle for methodology section. -->
                 <h2 class="section-subtitle" data-lang-ca="Metodologia" data-lang-es="Metodología">Metodologia</h2>
                 <p class="lead-paragraph" data-lang-ca="Les sessions dels tallers es basen en una estructura on s’<strong>INTRODUEIX</strong> el <strong>REPTE</strong> per arribar a una <strong>CONCLUSIÓ</strong>." data-lang-es="Las sesiones de los talleres se basan en una estructura donde se <strong>INTRODUCE</strong> el <strong>RETO</strong> para llegar a una <strong>CONCLUSIÓN</strong>.">Les sessions dels tallers es basen en una estructura on s’<strong>INTRODUEIX</strong> el <strong>REPTE</strong> per arribar a una <strong>CONCLUSIÓ</strong>.</p>
                 <p class="lead-paragraph" data-lang-ca="Les sessions són d’<strong>1 HORA I MITJA</strong> per a <strong>grups de 15/25 persones</strong>. Inclou un dossier per als participants i per al professorat." data-lang-es="Las sesiones son de <strong>1 HORA Y MEDIA</strong> para grupos de 15/25 personas. Incluye un dosier para los participants i per al professorat.">Les sessions són d’1 HORA I MITJA per a grups de 15/25 persones. Inclou un dossier per als participants i per al professorat.</p>
@@ -112,12 +106,12 @@
 <section class="tallers-section">
     <div class="section-container">
         
-        <!-- Graella de targetes de tallers (una per fila) -->
+        <!-- Grid of workshop cards (one per row). -->
         <div class="taller-grid">
             
-            <!-- Targeta 1: Nanosatèl·lits -->
+            <!-- Card 1: Nanosatèl·lits -->
             <div class="taller-card">
-                <!-- La capçalera és la part visible i clicable. -->
+                <!-- Card header: visible and clickable part. -->
                 <div class="taller-card-header">
                     <div class="taller-icon"><img src="assets/images/tallers/taller1/taller1_icon.png" alt="Taller icona 1"></div>
                     <div class="taller-main-info">
@@ -133,10 +127,10 @@
                     </div>
                     <div class="taller-expand-icon"><i class="fa-solid fa-chevron-down"></i></div>
                 </div>
-                <!-- Part oculta que es desplega -->
+                <!-- Hidden part that expands. -->
                 <div class="taller-card-hidden">
                     <div class="taller-hidden-content">
-                        <!-- Contingut detallat de dues columnes -->
+                        <!-- Detailed content in two columns. -->
                         <div class="taller-details-grid">
                             <div class="taller-details-main">
                                 <h4 data-lang-ca="Resum" data-lang-es="Resumen">Resum</h4>
@@ -191,42 +185,21 @@
                                 <div class="taller-ods-section">
                                 <h4 data-lang-ca="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
                                 <div class="ods-images">
-                                    <!-- Utilitzem un nou atribut 'data-lang-ca-src' per canviar la imatge segons l'idioma. -->
+                                    <!-- Use new attribute 'data-lang-ca-src' to switch image by language. -->
                                     <img src="assets/images/ods/cat/9.jpg" alt="ODS 9" data-lang-ca-src="assets/images/ods/esp/9.png" data-lang-es-src="assets/images/ods/cat/9.jpg">
                                     <img src="assets/images/ods/cat/13.jpg" alt="ODS 13" data-lang-ca-src="assets/images/ods/esp/13.png" data-lang-es-src="assets/images/ods/cat/13.jpg">
                                 </div>      
                                 </div>
                             </div>
                         </div>
-                        <!-- =================== CARRUSEL D'IMATGES START =================== -->
-                        <div class="taller-carousel">
-                            <div class="carousel-track">
-                                <!-- IMPORTANT: Canvia les URLs per les teves imatges reals. -->
-                                <div class="carousel-slide">
-                                    <img src="assets/images/tallers/taller1/" alt="Foto 1 del taller">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/images/tallers/taller1/" alt="Foto 2 del taller">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/images/tallers/taller1/" alt="Foto 3 del taller">
-                                </div>
-                            </div>
-                            <button class="carousel-button carousel-button--left">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </button>
-                            <button class="carousel-button carousel-button--right">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
 
 
-            <!-- Targeta 2 -->
+            <!-- Card 2: Coets -->
             <div class="taller-card">
-                <!-- La capçalera és la part visible i clicable. -->
+                <!-- Card header: visible and clickable part. -->
                 <div class="taller-card-header">
                     <div class="taller-icon"><img src="assets/images/tallers/taller2/taller2_icon.png" alt="Taller icona 2"></div>
                     <div class="taller-main-info">
@@ -242,10 +215,10 @@
                     </div>
                     <div class="taller-expand-icon"><i class="fa-solid fa-chevron-down"></i></div>
                 </div>
-                <!-- Part oculta que es desplega -->
+                <!-- Hidden part that expands. -->
                 <div class="taller-card-hidden">
                     <div class="taller-hidden-content">
-                        <!-- Contingut detallat de dues columnes -->
+                        <!-- Detailed content in two columns. -->
                         <div class="taller-details-grid">
                             <div class="taller-details-main">
                                 <h4 data-lang-ca="Resum" data-lang-es="Resumen">Resum</h4>
@@ -300,42 +273,21 @@
                                 <div class="taller-ods-section">
                                 <h4 data-lang-ca="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
                                 <div class="ods-images">
-                                    <!-- Utilitzem un nou atribut 'data-lang-ca-src' per canviar la imatge segons l'idioma. -->
+                                    <!-- Use new attribute 'data-lang-ca-src' to switch image by language. -->
                                     <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-lang-ca-src="assets/images/ods/esp/4.png" data-lang-es-src="assets/images/ods/cat/4.jpg">
                                     <img src="assets/images/ods/cat/9.jpg" alt="ODS 9" data-lang-ca-src="assets/images/ods/esp/9.png" data-lang-es-src="assets/images/ods/cat/9.jpg">
                                 </div>      
                                 </div>
                             </div>
                         </div>
-                        <!-- =================== CARRUSEL D'IMATGES START =================== -->
-                        <div class="taller-carousel">
-                            <div class="carousel-track">
-                                <!-- IMPORTANT: Canvia les URLs per les teves imatges reals. -->
-                                <div class="carousel-slide">
-                                    <img src="assets/images/tallers/taller1/" alt="Foto 1 del taller">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/images/tallers/taller1/" alt="Foto 2 del taller">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/images/tallers/taller1/" alt="Foto 3 del taller">
-                                </div>
-                            </div>
-                            <button class="carousel-button carousel-button--left">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </button>
-                            <button class="carousel-button carousel-button--right">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
 
 
-            <!-- Targeta 3 -->
+            <!-- Card 3: Dona a l'Espai -->
             <div class="taller-card">
-                <!-- La capçalera és la part visible i clicable. -->
+                <!-- Card header: visible and clickable part. -->
                 <div class="taller-card-header">
                     <div class="taller-icon"><img src="assets/images/tallers/taller3/taller3_icon.png" alt="Taller icona 3"></div>
                     <div class="taller-main-info">
@@ -351,10 +303,10 @@
                     </div>
                     <div class="taller-expand-icon"><i class="fa-solid fa-chevron-down"></i></div>
                 </div>
-                <!-- Part oculta que es desplega -->
+                <!-- Hidden part that expands. -->
                 <div class="taller-card-hidden">
                     <div class="taller-hidden-content">
-                        <!-- Contingut detallat de dues columnes -->
+                        <!-- Detailed content in two columns. -->
                         <div class="taller-details-grid">
                             <div class="taller-details-main">
                                 <h4 data-lang-ca="Resum" data-lang-es="Resumen">Resum</h4>
@@ -415,27 +367,6 @@
                                 </div>      
                                 </div>
                             </div>
-                        </div>
-                        <!-- =================== CARRUSEL D'IMATGES START =================== -->
-                        <div class="taller-carousel">
-                            <div class="carousel-track">
-                                <!-- IMPORTANT: Canvia les URLs per les teves imatges reals. -->
-                                <div class="carousel-slide">
-                                    <img src="assets/images/tallers/taller1/" alt="Foto 1 del taller">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/images/tallers/taller1/" alt="Foto 2 del taller">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/images/tallers/taller1/" alt="Foto 3 del taller">
-                                </div>
-                            </div>
-                            <button class="carousel-button carousel-button--left">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </button>
-                            <button class="carousel-button carousel-button--right">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -529,27 +460,6 @@
                                 </div>      
                                 </div>
                             </div>
-                        </div>
-                        <!-- =================== CARRUSEL D'IMATGES START =================== -->
-                        <div class="taller-carousel">
-                            <div class="carousel-track">
-                                <!-- IMPORTANT: Canvia les URLs per les teves imatges reals. -->
-                                <div class="carousel-slide">
-                                    <img src="assets/images/tallers/taller1/" alt="Foto 1 del taller">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/images/tallers/taller1/" alt="Foto 2 del taller">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/images/tallers/taller1/" alt="Foto 3 del taller">
-                                </div>
-                            </div>
-                            <button class="carousel-button carousel-button--left">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </button>
-                            <button class="carousel-button carousel-button--right">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -648,27 +558,6 @@
                                 </div>      
                                 </div>
                             </div>
-                        </div>
-                        <!-- =================== CARRUSEL D'IMATGES START =================== -->
-                        <div class="taller-carousel">
-                            <div class="carousel-track">
-                                <!-- IMPORTANT: Canvia les URLs per les teves imatges reals. -->
-                                <div class="carousel-slide">
-                                    <img src="assets/images/tallers/taller1/" alt="Foto 1 del taller">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/images/tallers/taller1/" alt="Foto 2 del taller">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/images/tallers/taller1/" alt="Foto 3 del taller">
-                                </div>
-                            </div>
-                            <button class="carousel-button carousel-button--left">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </button>
-                            <button class="carousel-button carousel-button--right">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -814,32 +703,32 @@
                     <!-- First paragraph of text -->
                     <p data-lang-ca="Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu." data-lang-es="¿Tienes alguna duda, proposta o idea? ¡Queremos conocerte! Rellena este formulario y nos pondremos en contacto contigo.">Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu.</p>
                     <!-- Second paragraph of text -->
-                    <p data-lang-ca="També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!" data-lang-es="¡También puedes seguirnos en nuestras redes sociales i sumarte a nuestra comunitat!">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
+                    <p data-lang-ca="També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!" data-lang-es="¡También puedes seguirnos en nuestras redes sociales y sumarte a nuestra comunidad!">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
                     <!-- Container for social media icon links -->
                     <div class="footer-social-icons">
                         <!-- Each 'a' tag is a link to a social profile. The 'aria-label' is for accessibility. -->
                         <a href="https://www.instagram.com/aulasputnik/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="#" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/company/aulasputnik/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.tiktok.com/@aula_sputnik" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
                     </div>
                 </div>
 
                 <!-- Column 2: The contact form. -->
                 <div class="footer-column-right">
                     <!-- We will connect this to a service like Formspree later. -->
-                    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <form class="contact-form" action="https://formspree.io/f/mrblpwrg" method="POST">
                         <!-- Form field for Name. The label is now visually hidden but still exists for screen readers. -->
                         <div class="form-group">
                             <!-- The 'aria-label' provides an accessible name for the input now that the label is hidden. -->
-                            <input type="text" id="name" name="name" required placeholder="Nom i Cognoms*" data-lang-ca-placeholder="Nom i Cognoms*" data-lang-es-placeholder="Nombre y Apellidos*" aria-label="Nom i Cognoms">
+                            <input type="text" id="name" name="Nom" required placeholder="Nom i Cognoms*" data-lang-ca-placeholder="Nom i Cognoms*" data-lang-es-placeholder="Nombre y Apellidos*" aria-label="Nom i Cognoms">
                         </div>
                         <!-- Form field for Email. -->
                         <div class="form-group">
-                            <input type="email" id="email" name="email" required placeholder="Correu electrònic*" data-lang-ca-placeholder="Correu electrònic*" data-lang-es-placeholder="Correo electrónico*" aria-label="Correu electrònic">
+                            <input type="email" id="email" name="Email" required placeholder="Correu electrònic*" data-lang-ca-placeholder="Correu electrònic*" data-lang-es-placeholder="Correo electrónico*" aria-label="Correu electrònic">
                         </div>
                         <!-- Form field for Institution. -->
                         <div class="form-group">
-                            <input type="text" id="institution" name="institution" required placeholder="Empresa, escola, institut, etc.*" data-lang-ca-placeholder="Empresa, escola, institut, etc.*" data-lang-es-placeholder="Empresa, colegio, instituto, etc.*" aria-label="Empresa, escola, institut, etc.">
+                            <input type="text" id="institution" name="Institució" required placeholder="Empresa, escola, institut, etc.*" data-lang-ca-placeholder="Empresa, escola, institut, etc.*" data-lang-es-placeholder="Empresa, colegio, instituto, etc.*" aria-label="Empresa, escola, institut, etc.">
                         </div>
                         <!-- Custom Multi-Select Dropdown for Workshops -->
                         <div class="form-group">
@@ -860,46 +749,50 @@
                                 <div class="multiselect-options">
                                     <!-- Each workshop is a checkbox/label pair. -->
                                     <label class="multiselect-option">
-                                        <input type="checkbox" name="workshop" value="Nanosatèl·lits">
+                                        <input type="checkbox" name="Taller" value="Nanosatèl·lits">
                                         <span data-lang-ca="Ajudem al nostre planeta a través dels nanosatèl·lits." data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites.">Ajudem al nostre planeta a través dels nanosatèl·lits.</span>
                                     </label>
                                     <label class="multiselect-option">
-                                        <input type="checkbox" name="workshop" value="Explorem espai">
+                                        <input type="checkbox" name="Taller" value="Coets">
                                         <span data-lang-ca="Explorem l’espai amb AulaSPUTNIK!" data-lang-es="¡Exploramos el espacio con AulaSPUTNIK!">Explorem l’espai amb AulaSPUTNIK!</span>
                                     </label>
                                     <label class="multiselect-option">
-                                        <input type="checkbox" name="workshop" value="Dona aeroespacial">
+                                        <input type="checkbox" name="Taller" value="Dona a l'Espai">
                                         <span data-lang-ca="La dona al sector aeroespacial." data-lang-es="La mujer en el sector aeroespacial.">La dona al sector aeroespacial.</span>
                                     </label>
                                     <label class="multiselect-option">
-                                        <input type="checkbox" name="workshop" value="Constel·lacions">
+                                        <input type="checkbox" name="Taller" value="Constel·lacions">
                                         <span data-lang-ca="Les constel·lacions com a quadern vital." data-lang-es="Las constelaciones como cuaderno vital.">Les constel·lacions com a quadern vital.</span>
                                     </label>
                                     <label class="multiselect-option">
-                                        <input type="checkbox" name="workshop" value="Biologia espai">
+                                        <input type="checkbox" name="Taller" value="Aliens">
                                         <span data-lang-ca="La biologia a l'espai: com són els aliens?" data-lang-es="La biología en el espacio: ¿cómo son los aliens?">La biologia a l'espai: com són els aliens?</span>
                                     </label>
                                     <label class="multiselect-option">
-                                        <input type="checkbox" name="workshop" value="Sistema estelar">
+                                        <input type="checkbox" name="Taller" value="Sistema estelar">
                                         <span data-lang-ca="Crea el teu propi sistema estelar!" data-lang-es="¡Crea tu propio sistema estelar!">Crea el teu propi sistema estelar!</span>
+                                    </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="Taller" value="Repte AulaSPUTNIK">
+                                        <span data-lang-ca="El Repte AulaSPUTNIK" data-lang-es="El Reto AulaSPUTNIK">El Repte AulaSPUTNIK</span>
                                     </label>
                                 </div>
                                 <!-- This is a hidden input. Its value will be updated by JavaScript with all the selected workshops. This is what Formspree will receive. -->
-                                <input type="hidden" name="selected_workshops" id="selected-workshops-input">
+                                <input type="hidden" name="Tallers Seleccionats" id="selected-workshops-input">
                             </div>
                         </div>
                         <!-- Form field for the message. 'textarea' allows for multiple lines of text. -->
                         <div class="form-group">
-                            <textarea id="message" name="message" rows="4" required placeholder="El teu missatge" data-lang-ca-placeholder="El teu missatge" data-lang-es-placeholder="Tu mensaje" aria-label="El teu missatge"></textarea>
+                            <textarea id="message" name="Missatge" rows="4" required placeholder="El teu missatge" data-lang-ca-placeholder="El teu missatge" data-lang-es-placeholder="Tu mensaje" aria-label="El teu missatge"></textarea>
                         </div>
                         <!-- Privacy Consent Section -->
                         <div class="privacy-section">
                             <!-- A header for this section, with a link to your future Privacy Policy page. -->
                             <!-- Note: The href="#" is a placeholder you should change later to the actual page link. -->
                             <p class="privacy-header" 
-                                data-lang-ca="En relació amb la nostra <a href='#'>Política de Privacitat</a>*:" 
-                                data-lang-es="En relación con nuestra <a href='#'>Política de Privacidad</a>*:">
-                                En relació amb la nostra <a href="#">Política de Privacitat</a>*:
+                                data-lang-ca="En relació amb la nostra <a href='politica-de-privacitat.html'>Política de Privacitat</a>*:" 
+                                data-lang-es="En relación con nuestra <a href='politica-de-privacitat.html'>Política de Privacidad</a>*:">
+                                En relació amb la nostra <a href="politica-de-privacitat.html">Política de Privacitat</a>*:
                             </p>
                             <!-- Checkbox 1: Privacy Policy Acceptance. The 'required' attribute makes this mandatory. -->
                             <div class="form-group-checkbox">
@@ -932,11 +825,11 @@
             <!-- This is the bottom bar of the footer. -->
             <div class="footer-bottom-bar">
                 <!-- Copyright notice. -->
-                <p class="copyright-text" data-lang-ca="© 2025 AulaSputnik. Tots els drets reservats." data-lang-es="© 2024 AulaSputnik. Todos los derechos reservados.">© 2024 AulaSputnik. Tots els drets reservats.</p>
+                <p class="copyright-text" data-lang-ca='© 2025 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.' data-lang-es='© 2024 <a href="index.html">AulaSPUTNIK</a>. Todos los derechos reservados.'>© 2024 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.</p>
                 <!-- Container for the legal links. -->
                 <div class="footer-legal-links">
-                    <a href="#" data-lang-ca="Política de Privacitat" data-lang-es="Política de Privacidad">Política de Privacitat</a>
-                    <a href="#" data-lang-ca="Avís Legal" data-lang-es="Aviso Legal">Avís Legal</a>
+                    <a href="politica-de-privacitat.html" data-lang-ca="Política de Privacitat" data-lang-es="Política de Privacidad">Política de Privacitat</a>
+                    <a href="avis-legal.html" data-lang-ca="Avís Legal" data-lang-es="Aviso Legal">Avís Legal</a>
                 </div>
             </div>
         </div>

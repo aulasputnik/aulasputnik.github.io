@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html lang="ca"> 
 <head>
-    <!-- The 'charset' meta tag defines the character set for the document. -->
-    <!-- UTF-8 is a universal standard that includes characters for almost all written languages, which is essential for handling Spanish (ñ) and Catalan (ç, ·) correctly. -->
+    <!-- Charset meta tag: defines the character set for the document. -->
+    <!-- UTF-8 supports almost all written languages, including Spanish (ñ) and Catalan (ç, ·). -->
     <meta charset="UTF-8">
 
-    <!-- The 'viewport' meta tag is crucial for responsive design. It controls how the page is displayed on mobile devices. -->
-    <!-- 'width=device-width' sets the width of the page to follow the screen-width of the device. -->
-    <!-- 'initial-scale=1.0' sets the initial zoom level when the page is first loaded by the browser. -->
+    <!-- Viewport meta tag: essential for responsive design. -->
+    <!-- width=device-width: sets the page width to the device screen width. -->
+    <!-- initial-scale=1.0: sets the initial zoom level. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- The 'title' tag sets the text that appears in the browser tab, in bookmarks, and in search engine results. -->
-    <!-- The 'data-lang-*' attributes hold the text for our language-switching JavaScript. -->
+    <!-- Title tag: text for browser tab, bookmarks, and search results. -->
+    <!-- data-lang-* attributes: used for language switching via JavaScript. -->
     <title data-lang-ca="AulaSPUTNIK" data-lang-es="AulaSPUTNIK">AulaSPUTNIK</title>
 
-    <!-- The 'icon' link tag sets the "favicon" -- the small icon that appears in the browser tab next to the title. -->
-    <!-- 'href' points to the location of your image file. -->
-    <!-- 'type' tells the browser the format of the image. -->
+    <!-- Favicon: small icon in browser tab. -->
     <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
 
-    <!-- SEO Meta Tags: These help search engines understand your page content -->
-    <!-- The 'description' tag provides a short summary of the page. It's often shown under your page title in search results. -->
+    <!-- SEO Meta Tags: help search engines understand your page. -->
+    <!-- Description: short summary for search results. -->
     <meta name="description" content="">
-    <!-- The 'keywords' tag lists relevant terms for your site. While less important for Google today, it can still be useful for other search engines. -->
+    <!-- Keywords: relevant terms for search engines. -->
     <meta name="keywords" content="">
 
-    <!-- Preconnect to Google Fonts for a minor performance boost -->
+    <!-- Preconnect to Google Fonts for performance. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Import the "Urbanist" and "Inter" fonts from Google Fonts. -->
-    <!-- This version uses a variable font range (wght@300..900), which allows us to use any font-weight from 300 to 900 in our CSS file, giving us full design flexibility. -->
+    <!-- Import Google Fonts: Urbanist, Inter, Domine. -->
+    <!-- Variable font range (wght@300..900) for design flexibility. -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Urbanist:wght@300..900&family=Domine:wght@400;700&display=swap" rel="stylesheet">
 
-    <!--  Import Font Awesome for icons -->
+    <!-- Import Font Awesome for icons. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Link to the CSS stylesheet -->
+    <!-- Link to main CSS stylesheet. -->
     <link rel="stylesheet" href="assets/css/main.css">
 
     
@@ -52,7 +50,7 @@
     </script> 
 </head>
 <body>
-    <!-- We'll build this out properly later, but it helps to have some content to style. -->
+    <!-- Main site header and navigation. -->
     <header class="site-header">
         <nav class="site-nav">
             <div class="nav-container">
@@ -71,7 +69,7 @@
 
                 <div class="nav-menu">
                     <ul class="nav-list">
-                        <li><a href="#hero" data-lang-ca="Inici" data-lang-es="Inicio">Inici</a></li>
+                        <li><a href="index.html" data-lang-ca="Inici" data-lang-es="Inicio">Inici</a></li>
                         <li><a href="projectes.html" data-lang-ca="Projectes" data-lang-es="Proyectos">Projectes</a></li>
                         <li><a href="equip.html" data-lang-ca="Equip" data-lang-es="Equipo">Equip</a></li>
                         <li><a href="tallers.html" class="nav-button" data-lang-ca="Tallers" data-lang-es="Talleres">Tallers</a></li>
@@ -89,12 +87,12 @@
 
 <section class="page-intro-section">
         <div class="section-container">
-            <!-- Aquest és el contenidor del contingut de text. -->
+            <!-- Container for page intro text content. -->
             <div class="intro-content">
-                <!-- Títol principal de la pàgina. -->
+                <!-- Main page title. -->
                 <h1 class="page-title" data-lang-ca="Els Nostres Projectes" data-lang-es="Nuestros Proyectos">Els Nostres Projectes</h1>
 
-                <!-- Paràgrafs introductoris. Els donem una classe per estilitzar-los. -->
+                <!-- Introductory paragraphs. Given a class for styling. -->
                 <p class="lead-paragraph" 
                 data-lang-ca="A AulaSPUTNIK creiem en la col·laboració amb altres entitats, fundacions i projectes per impactar a major escala a la nostra societat. També creiem en l’intercanvi d’aprenentatges i experiències, que ens ajuda a créixer com a projecte i com a persones. En aquest apartat, us expliquem algunes de les nostres iniciatives." 
                 data-lang-es="En AulaSPUTNIK creemos en la colaboración con otras entidades, fundaciones y proyectos para impactar a mayor escala en nuestra sociedad. También creemos en el intercambio de aprendizajes y experiencias, que nos ayuda a crecer como proyecto y como personas. En este apartado, te explicamos algunas de nuestras iniciativas.">
@@ -103,12 +101,12 @@
         </div>
     </section>
 
-<!-- =================== SECCIÓ BANNER REPTE START =================== -->
-<!-- Aquest és el contenidor exterior, que tindrà el color de fons. -->
+<!-- =================== CHALLENGE BANNER SECTION START =================== -->
+<!-- This is the outer container, which will have the background color. -->
 <section class="repte-banner-section">
-    <!-- AQUEST ÉS EL NOU CONTENIDOR INTERN, que tindrà la imatge de fons. -->
+    <!-- THIS IS THE NEW INNER CONTAINER, which will have the background image. -->
     <div class="repte-banner-inner">
-        <!-- El contingut (títol, subtítol, botó) va aquí dins. -->
+        <!-- The content (title, subtitle, button) goes here. -->
         <div class="section-container">
             <h2 class="repte-banner-title" data-lang-ca="El Repte AulaSputnik" data-lang-es="El Reto AulaSputnik">El Repte AulaSputnik</h2>
             <p class="repte-banner-subtitle" data-lang-ca="Una missió espacial única que combina tots els nostres tallers en una experiència inoblidable." data-lang-es="Una misión espacial única que combina todos nuestros talleres en una experiencia inolvidable.">Una missió espacial única que combina tots els nostres tallers en una experiència inoblidable.</p>
@@ -117,19 +115,19 @@
     </div>
 </section>
 
-<!-- Secció de l'equip amb files alternades -->
+<!-- Team section with alternating rows -->
         <section class="projectes-section-classic">
             <div class="section-container">
                 
-                <!-- Membre 1 (Foto esquerra, Text dreta) -->
+                <!-- Member 1 (Photo left, Text right) -->
                 <div class="projectes-member-row">
                     <div class="projectes-member-photo">
-                        <img src="assets/images/projectes/fcri_2022.jpg" alt="Foto de Jaume Puig">
+                        <img src="assets/images/projectes/fcri_2022.jpg" alt="Photo of Jaume Puig">
                     </div>
                     <div class="projectes-member-info">
                         <h2 data-lang-ca="Subvenció FCRI 2022" data-lang-es="Subvención FCRI 2022">Subvenció FCRI 2022</h2>
                         <p class="projectes-member-bio" data-lang-ca="El projecte AulaSPUTNIK va rebre l'any 2022 un ajut econòmic de la Fundació Catalana per la Recerca i la Innovació (FCRI). Amb aquesta subvenció, AulaSPUTNIK ha pogut realitzar 20 tallers a diferents escoles i centres de les comarques del Bages, Anoia i Osona." data-lang-es="El proyecto AulaSPUTNIK recibió en 2022 una ayuda economica de la Fundación Catalana para la Investigación y la Innovación (FCRI). Con esta subvención, AulaSPUTNIK ha podido realizar 20 talleres en diferentes escuelas y centros de las comarcas del Bages, Anoia y Osona.">El projecte AulaSPUTNIK va rebre l'any 2022 un ajut econòmic de la Fundació Catalana per la Recerca i la Innovació (FCRI). Amb aquesta subvenció, AulaSPUTNIK ha pogut realitzar 20 tallers a diferents escoles i centres de les comarques del Bages, Anoia i Osona.</p>
-                        <p class="projectes-member-bio" data-lang-ca="Més de 400 nens i nenes de Catalunya han tingut l'oportunitat de viure un taller AulaSPUTNlK. Han pogut aprendre sobre com els nanosatél·lits ens ajuden a la societat, a treballar en equip construint un coet i per últim, han reflexionat sobre els prejudicis que tenim cap a certes professions, coneixent dones en el sector aeroespacial." data-lang-es="Más de 400 niños y niñas de Cataluña han tenido la oportunidad de vivir un taller AulaSPUTNlK. Han podido aprender sobre cómo los nanosatélites nos ayudan a la sociedad, a trabajar en equipo construyendo un cohete y por último, han reflexionado sobre los prejuicios que tenemos hacia ciertas profesiones, conociendo a mujeres en el sector aeroespacial.">Més de 400 nens i nenes de Catalunya han tingut l'oportunitat de viure un taller AulaSPUTNlK. Han pogut aprendre sobre com els nanosatél·lits ens ajuden a la societat, a treballar en equip construint un coet i per últim, han reflexionat sobre els prejudicis que tenim cap a certes professions, coneixent dones en el sector aeroespacial.</p>
+                        <p class="projectes-member-bio" data-lang-ca="Més de 400 nens i nenes de Catalunya han tingut l'oportunitat de viure un taller AulaSPUTNlK. Han pogut aprendre sobre com els nanosatèl·lits ens ajuden a la societat, a treballar en equip construint un coet i per últim, han reflexionat sobre els prejudicis que tenim cap a certes professions, coneixent dones en el sector aeroespacial." data-lang-es="Más de 400 niños y niñas de Cataluña han tenido la oportunidad de vivir un taller AulaSPUTNlK. Han podido aprender sobre cómo los nanosatélites nos ayudan a la sociedad, a trabajar en equipo construyendo un cohete y por último, han reflexionado sobre los prejuicios que tenemos hacia ciertas profesiones, conociendo a mujeres en el sector aeroespacial.">Més de 400 nens i nenes de Catalunya han tingut l'oportunitat de viure un taller AulaSPUTNlK. Han pogut aprendre sobre com els nanosatèl·lits ens ajuden a la societat, a treballar en equip construint un coet i per últim, han reflexionat sobre els prejudicis que tenim cap a certes professions, coneixent dones en el sector aeroespacial.</p>
                     </div>
                 </div>
 
@@ -137,24 +135,24 @@
         </section>
 
     <!-- =================== FOOTER START =================== -->
-    <!-- The <footer> tag is used for semantics, telling the browser and search engines what this section is. -->
+    <!-- The <footer> tag is semantic, indicating this is the page footer. -->
     <footer id="footer" class="site-footer">
-        <!-- This is a container to keep the content centered and constrained to a max-width. -->
+        <!-- Container to keep content centered and constrained to max-width. -->
         <div class="footer-container">
-            <!-- This grid container will hold our two main columns. -->
+            <!-- Grid container for the two main columns. -->
             <div class="footer-main-grid">
 
                 <!-- Column 1: Text content and social links. -->
                 <div class="footer-column-left">
-                    <!-- Main heading for the column -->
+                    <!-- Main heading for the column. -->
                     <h3 class="footer-title" data-lang-ca="PARLEM?" data-lang-es="¿HABLAMOS?">PARLEM?</h3>
-                    <!-- First paragraph of text -->
+                    <!-- First paragraph of text. -->
                     <p data-lang-ca="Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu." data-lang-es="¿Tienes alguna duda, proposta o idea? ¡Queremos conocerte! Rellena este formulario y nos pondremos en contacto contigo.">Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu.</p>
-                    <!-- Second paragraph of text -->
+                    <!-- Second paragraph of text. -->
                     <p data-lang-ca="També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!" data-lang-es="¡También puedes seguirnos en nuestras redes sociales y sumarte a nuestra comunidad!">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
-                    <!-- Container for social media icon links -->
+                    <!-- Container for social media icon links. -->
                     <div class="footer-social-icons">
-                        <!-- Each 'a' tag is a link to a social profile. The 'aria-label' is for accessibility. -->
+                        <!-- Each 'a' tag is a link to a social profile. 'aria-label' is for accessibility. -->
                         <a href="https://www.instagram.com/aulasputnik/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/company/aulasputnik/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                         <a href="https://www.tiktok.com/@aula_sputnik" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
@@ -163,86 +161,89 @@
 
                 <!-- Column 2: The contact form. -->
                 <div class="footer-column-right">
-                    <!-- We will connect this to a service like Formspree later. -->
-                    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                        <!-- Form field for Name. The label is now visually hidden but still exists for screen readers. -->
+                    <!-- Connected to Formspree for submissions. -->
+                    <form class="contact-form" action="https://formspree.io/f/mrblpwrg" method="POST">
+                        <!-- Form field for Name. Label is visually hidden but present for screen readers. -->
                         <div class="form-group">
-                            <!-- The 'aria-label' provides an accessible name for the input now that the label is hidden. -->
-                            <input type="text" id="name" name="name" required placeholder="Nom i Cognoms*" data-lang-ca-placeholder="Nom i Cognoms*" data-lang-es-placeholder="Nombre y Apellidos*" aria-label="Nom i Cognoms">
+                            <!-- 'aria-label' provides an accessible name for the input. -->
+                            <input type="text" id="name" name="Nom" required placeholder="Nom i Cognoms*" data-lang-ca-placeholder="Nom i Cognoms*" data-lang-es-placeholder="Nombre y Apellidos*" aria-label="Nom i Cognoms">
                         </div>
                         <!-- Form field for Email. -->
                         <div class="form-group">
-                            <input type="email" id="email" name="email" required placeholder="Correu electrònic*" data-lang-ca-placeholder="Correu electrònic*" data-lang-es-placeholder="Correo electrónico*" aria-label="Correu electrònic">
+                            <input type="email" id="email" name="Email" required placeholder="Correu electrònic*" data-lang-ca-placeholder="Correu electrònic*" data-lang-es-placeholder="Correo electrónico*" aria-label="Correu electrònic">
                         </div>
                         <!-- Form field for Institution. -->
                         <div class="form-group">
-                            <input type="text" id="institution" name="institution" required placeholder="Empresa, escola, institut, etc.*" data-lang-ca-placeholder="Empresa, escola, institut, etc.*" data-lang-es-placeholder="Empresa, colegio, instituto, etc.*" aria-label="Empresa, escola, institut, etc.">
+                            <input type="text" id="institution" name="Institució" required placeholder="Empresa, escola, institut, etc.*" data-lang-ca-placeholder="Empresa, escola, institut, etc.*" data-lang-es-placeholder="Empresa, colegio, instituto, etc.*" aria-label="Empresa, escola, institut, etc.">
                         </div>
-                        <!-- Custom Multi-Select Dropdown for Workshops -->
+                        <!-- Custom Multi-Select Dropdown for Workshops. -->
                         <div class="form-group">
-                            <!-- This is the main container for our custom component. We set its position to relative so we can position the dropdown options inside it. -->
+                            <!-- Main container for custom component. Position is relative for dropdown options. -->
                             <div class="multiselect-container" id="workshops-multiselect">
-                                <!-- This is the visible, clickable part that looks like a form input. -->
+                                <!-- Visible, clickable part styled as form input. -->
                                 <div class="multiselect-display">
-                                    <!-- This span holds the placeholder text (e.g., "2 seleccionats"). -->
+                                    <!-- Span for placeholder text (e.g., "2 selected"). -->
                                     <span class="multiselect-placeholder" 
                                         data-lang-ca="T'agradaria rebre informació d'algún taller en concret?" 
                                         data-lang-es="¿Te gustaría recibir información de algún taller en concreto?">
                                         T'agradaria rebre informació d'algún taller en concret?
                                     </span>
-                                    <!-- A Font Awesome icon to indicate that it's a dropdown. -->
+                                    <!-- Font Awesome icon to indicate dropdown. -->
                                     <i class="fa-solid fa-chevron-down"></i>
                                 </div>
-                                <!-- This is the dropdown panel that contains all the selectable options. It's hidden by default. -->
+                                <!-- Dropdown panel with selectable options, hidden by default. -->
                                 <div class="multiselect-options">
                                     <!-- Each workshop is a checkbox/label pair. -->
                                     <label class="multiselect-option">
-                                        <input type="checkbox" name="workshop" value="Nanosatèl·lits">
+                                        <input type="checkbox" name="Taller" value="Nanosatèl·lits">
                                         <span data-lang-ca="Ajudem al nostre planeta a través dels nanosatèl·lits." data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites.">Ajudem al nostre planeta a través dels nanosatèl·lits.</span>
                                     </label>
                                     <label class="multiselect-option">
-                                        <input type="checkbox" name="workshop" value="Explorem espai">
+                                        <input type="checkbox" name="Taller" value="Coets">
                                         <span data-lang-ca="Explorem l’espai amb AulaSPUTNIK!" data-lang-es="¡Exploramos el espacio con AulaSPUTNIK!">Explorem l’espai amb AulaSPUTNIK!</span>
                                     </label>
                                     <label class="multiselect-option">
-                                        <input type="checkbox" name="workshop" value="Dona aeroespacial">
+                                        <input type="checkbox" name="Taller" value="Dona a l'Espai">
                                         <span data-lang-ca="La dona al sector aeroespacial." data-lang-es="La mujer en el sector aeroespacial.">La dona al sector aeroespacial.</span>
                                     </label>
                                     <label class="multiselect-option">
-                                        <input type="checkbox" name="workshop" value="Constel·lacions">
+                                        <input type="checkbox" name="Taller" value="Constel·lacions">
                                         <span data-lang-ca="Les constel·lacions com a quadern vital." data-lang-es="Las constelaciones como cuaderno vital.">Les constel·lacions com a quadern vital.</span>
                                     </label>
                                     <label class="multiselect-option">
-                                        <input type="checkbox" name="workshop" value="Biologia espai">
+                                        <input type="checkbox" name="Taller" value="Aliens">
                                         <span data-lang-ca="La biologia a l'espai: com són els aliens?" data-lang-es="La biología en el espacio: ¿cómo son los aliens?">La biologia a l'espai: com són els aliens?</span>
                                     </label>
                                     <label class="multiselect-option">
-                                        <input type="checkbox" name="workshop" value="Sistema estelar">
+                                        <input type="checkbox" name="Taller" value="Sistema estelar">
                                         <span data-lang-ca="Crea el teu propi sistema estelar!" data-lang-es="¡Crea tu propio sistema estelar!">Crea el teu propi sistema estelar!</span>
                                     </label>
+                                    <label class="multiselect-option">
+                                        <input type="checkbox" name="Taller" value="Repte AulaSPUTNIK">
+                                        <span data-lang-ca="El Repte AulaSPUTNIK" data-lang-es="El Reto AulaSPUTNIK">El Repte AulaSPUTNIK</span>
+                                    </label>
                                 </div>
-                                <!-- This is a hidden input. Its value will be updated by JavaScript with all the selected workshops. This is what Formspree will receive. -->
-                                <input type="hidden" name="selected_workshops" id="selected-workshops-input">
+                                <!-- Hidden input updated by JavaScript with selected workshops for Formspree. -->
+                                <input type="hidden" name="Tallers Seleccionats" id="selected-workshops-input">
                             </div>
                         </div>
-                        <!-- Form field for the message. 'textarea' allows for multiple lines of text. -->
+                        <!-- Form field for the message. 'textarea' allows multiple lines. -->
                         <div class="form-group">
-                            <textarea id="message" name="message" rows="4" required placeholder="El teu missatge" data-lang-ca-placeholder="El teu missatge" data-lang-es-placeholder="Tu mensaje" aria-label="El teu missatge"></textarea>
+                            <textarea id="message" name="Missatge" rows="4" required placeholder="El teu missatge" data-lang-ca-placeholder="El teu missatge" data-lang-es-placeholder="Tu mensaje" aria-label="El teu missatge"></textarea>
                         </div>
-                        <!-- Privacy Consent Section -->
+                        <!-- Privacy Consent Section. -->
                         <div class="privacy-section">
-                            <!-- A header for this section, with a link to your future Privacy Policy page. -->
-                            <!-- Note: The href="#" is a placeholder you should change later to the actual page link. -->
+                            <!-- Header for this section, with link to Privacy Policy page. -->
                             <p class="privacy-header" 
-                                data-lang-ca="En relació amb la nostra <a href='#'>Política de Privacitat</a>*:" 
-                                data-lang-es="En relación con nuestra <a href='#'>Política de Privacidad</a>*:">
-                                En relació amb la nostra <a href="#">Política de Privacitat</a>*:
+                                data-lang-ca="En relació amb la nostra <a href='politica-de-privacitat.html'>Política de Privacitat</a>*:" 
+                                data-lang-es="En relación con nuestra <a href='politica-de-privacitat.html'>Política de Privacidad</a>*:">
+                                En relació amb la nostra <a href="politica-de-privacitat.html">Política de Privacitat</a>*:
                             </p>
-                            <!-- Checkbox 1: Privacy Policy Acceptance. The 'required' attribute makes this mandatory. -->
+                            <!-- Checkbox 1: Privacy Policy Acceptance. 'required' makes it mandatory. -->
                             <div class="form-group-checkbox">
-                                <!-- The actual checkbox input, which we will hide visually with CSS. -->
+                                <!-- Actual checkbox input, visually hidden with CSS. -->
                                 <input type="checkbox" id="privacy-accept" name="privacy-accept" required>
-                                <!-- The label is what users will see and click. It's linked to the input by the 'for' attribute. -->
+                                <!-- Label is visible and linked to input by 'for' attribute. -->
                                 <label for="privacy-accept" 
                                     data-lang-ca="Confirmo haver-la llegit i l'accepto." 
                                     data-lang-es="Confirmo haberla leído y la acepto.">
@@ -259,18 +260,18 @@
                                 </label>
                             </div>
                         </div>
-                        <!-- End of Privacy Consent Section -->
-                        <!-- The submit button for the form. -->
+                        <!-- End of Privacy Consent Section. -->
+                        <!-- Submit button for the form. -->
                         <button type="submit" class="submit-btn" data-lang-ca="Enviar" data-lang-es="Enviar">Enviar</button>
                     </form>
                 </div>
             </div>
 
-            <!-- This is the bottom bar of the footer. -->
+            <!-- Bottom bar of the footer. -->
             <div class="footer-bottom-bar">
                 <!-- Copyright notice. -->
-                <p class="copyright-text" data-lang-ca="© 2025 AulaSputnik. Tots els drets reservats." data-lang-es="© 2024 AulaSputnik. Todos los derechos reservados.">© 2024 AulaSputnik. Tots els drets reservats.</p>
-                <!-- Container for the legal links. -->
+                <p class="copyright-text" data-lang-ca='© 2025 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.' data-lang-es='© 2024 <a href="index.html">AulaSPUTNIK</a>. Todos los derechos reservados.'>© 2024 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.</p>
+                <!-- Container for legal links. -->
                 <div class="footer-legal-links">
                     <a href="politica-de-privacitat.html" data-lang-ca="Política de Privacitat" data-lang-es="Política de Privacidad">Política de Privacitat</a>
                     <a href="avis-legal.html" data-lang-ca="Avís Legal" data-lang-es="Aviso Legal">Avís Legal</a>
@@ -280,12 +281,12 @@
     </footer>
     <!-- =================== FOOTER END =================== -->
 
-    <!-- The "Scroll to Top" button. It will be hidden by default with CSS. -->
+    <!-- "Scroll to Top" button, hidden by default with CSS. -->
     <button id="scroll-to-top-btn" aria-label="Scroll to top">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <!-- Link to your JavaScript file -->
+    <!-- Link to main JavaScript file. -->
     <script src="assets/js/main.js"></script>
 </body>
 </html>
