@@ -304,26 +304,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let currentIndex = 0;
+        let isAnimating = false;
 
         // Funció per actualitzar la posició del carrusel.
         const updateCarousel = () => {
             const slideWidth = slides[0].getBoundingClientRect().width;
+            track.style.transition = 'transform 0.4s ease-in-out';
             track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
             prevButton.classList.toggle('is-hidden', currentIndex === 0);
             nextButton.classList.toggle('is-hidden', currentIndex === slides.length - 1);
         };
-        
+
+        // Listen for transition end to unlock animation
+        track.addEventListener('transitionend', () => {
+            isAnimating = false;
+        });
+
         // Esdeveniments dels botons.
         nextButton.addEventListener('click', () => {
+            if (isAnimating) return;
             if (currentIndex < slides.length - 1) {
                 currentIndex++;
+                isAnimating = true;
                 updateCarousel();
             }
         });
 
         prevButton.addEventListener('click', () => {
+            if (isAnimating) return;
             if (currentIndex > 0) {
                 currentIndex--;
+                isAnimating = true;
                 updateCarousel();
             }
         });
@@ -382,4 +393,79 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 250);
     });
     
+    // --- LÒGICA PER AL CARRUSEL DE TESTIMONIS AMB BUCLE INFINIT ---
+    const testimonialCarousel = document.querySelector('.testimonial-carousel');
+    if (testimonialCarousel) {
+        const track = testimonialCarousel.querySelector('.testimonial-track');
+        const prevButton = testimonialCarousel.querySelector('.carousel-nav-btn.prev');
+        const nextButton = testimonialCarousel.querySelector('.carousel-nav-btn.next');
+        const slides = Array.from(track.children);
+        let currentIndex = 0;
+        let autoplayInterval;
+        let isTransitioning = false;
+
+        // Clonem els slides per a l'efecte de bucle
+        const clones = slides.map(slide => slide.cloneNode(true));
+        clones.forEach(clone => track.appendChild(clone));
+
+        const allSlides = Array.from(track.children);
+
+        const updateCarousel = (withTransition = true) => {
+            const cardWidth = slides[0].offsetWidth + 20; // Amplada + marges
+            if (!withTransition) {
+                track.style.transition = 'none';
+            }
+            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            if (!withTransition) {
+                // Forcem el navegador a aplicar el canvi abans de reactivar la transició
+                setTimeout(() => {
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                }, 50);
+            }
+        };
+
+        const moveToNext = () => {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            currentIndex++;
+            updateCarousel();
+        };
+
+        const moveToPrev = () => {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            currentIndex--;
+            updateCarousel();
+        };
+
+        track.addEventListener('transitionend', () => {
+            isTransitioning = false;
+            if (currentIndex >= slides.length) {
+                currentIndex = 0;
+                updateCarousel(false);
+            }
+            if (currentIndex < 0) {
+                currentIndex = slides.length - 1;
+                updateCarousel(false);
+            }
+        });
+
+        const startAutoplay = () => {
+            stopAutoplay();
+            autoplayInterval = setInterval(moveToNext, 5000);
+        };
+
+        const stopAutoplay = () => {
+            clearInterval(autoplayInterval);
+        };
+
+        nextButton.addEventListener('click', moveToNext);
+        prevButton.addEventListener('click', moveToPrev);
+        testimonialCarousel.addEventListener('mouseenter', stopAutoplay);
+        testimonialCarousel.addEventListener('mouseleave', startAutoplay);
+        
+        window.addEventListener('resize', () => updateCarousel(false));
+
+        startAutoplay();
+    }
 });

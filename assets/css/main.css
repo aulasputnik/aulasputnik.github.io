@@ -1679,6 +1679,29 @@ html {
     transform: scale(1); /* Un petit efecte de zoom en passar per sobre. */
 }
 
+/* Estil per al botó de 'Sol·licita informació' dins dels tallers */
+.taller-cta-container {
+    text-align: center; /* Centra el botó */
+    margin-top: 30px; /* Afegeix un espai per sobre */
+}
+
+.taller-cta-button {
+    display: inline-block; /* Permet aplicar padding i marges correctament */
+    background-color: var(--color-btn);
+    color: var(--color-white);
+    padding: 8px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.taller-cta-button:hover {
+    background-color: var(--color-btn-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
 /* --- 14. CARRUSEL DE FOTOS DELS TALLERS (VERSIÓ AMB CENTRAT D'IMATGE) --- */
 
 .taller-carousel {
@@ -1855,6 +1878,12 @@ html {
     .repte-banner-subtitle {
         font-size: 16px;
     }
+}
+
+.repte-content-section {
+    padding: 0 40px 80px 40px; /* Espaiat inferior per separar-lo del footer. */
+    background-color: var(--color-background);
+    text-align: justify; 
 }
 
 /* --- 16. SECCIÓ DE L'EQUIP (DISSENY CLÀSSIC) --- */
@@ -2068,3 +2097,125 @@ html {
   }
 }
 
+/* --- 18. SECCIÓ DE TESTIMONIS --- */
+
+.testimonials-section {
+    padding: 40px 40px;
+    background-color: var(--color-background);
+}
+
+.testimonial-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* La clau per a l'efecte de carrusel */
+}
+
+.testimonial-track {
+    display: flex;
+    /* La transició per al moviment suau */
+    transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-card {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    text-align: center;
+    /* Definim l'amplada de cada targeta */
+    flex: 0 0 calc(100% / 3 - 20px); /* 3 targetes menys el gap */
+    margin: 0 10px; /* Espai entre targetes */
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-taller-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin: 0 auto 15px auto;
+}
+
+.testimonial-card .taller-title {
+    font-size: 18px;
+    min-height: 44px; /* Assegura una alçada consistent per als títols */
+}
+
+.testimonial-body {
+    border-top: 1px solid var(--color-background);
+    padding-top: 20px;
+    margin-top: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-quote {
+    font-family: 'Domine', serif;
+    font-style: italic;
+    font-size: 15px;
+    flex-grow: 1;
+    color: var(--color-text);
+    margin-bottom: 5px; /* Reduced space below quote */
+}
+
+.testimonial-author {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: auto; /* Empeny l'autor cap avall */
+    color: var(--color-primary);
+}
+
+/* Botons de navegació del carrusel */
+.testimonial-carousel .carousel-nav-btn {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+.testimonial-carousel:hover .carousel-nav-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+.carousel-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+.carousel-nav-btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+.carousel-nav-btn.prev {
+    left: 0px; /* Prevent button from being cut off */
+}
+.carousel-nav-btn.next {
+    right: 0px; /* Prevent button from being cut off */
+}
+
+/* --- Responsivitat del carrusel de testimonis --- */
+@media (max-width: 1024px) {
+    .testimonial-card {
+        flex-basis: calc(100% / 2 - 20px); /* 2 targetes */
+    }
+}
+@media (max-width: 768px) {
+    .testimonial-card {
+        flex-basis: calc(100% - 20px); /* 1 targeta */
+    }
+    .carousel-nav-btn.prev {
+        left: 5px;
+    }
+    .carousel-nav-btn.next {
+        right: 5px;
+    }
+}
