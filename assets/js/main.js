@@ -1,3 +1,4 @@
+// (Col·laboradors logo hover effect removed as per user request)
 /**
  * Main JavaScript file for the website.
  * Handles the language switching functionality.
@@ -18,7 +19,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const langCaButton = document.getElementById('lang-ca-btn');
     const langEsButton = document.getElementById('lang-es-btn');
 
-    // --- CORE FUNCTIONS ---
+
+    // --- CATALOGUE DOWNLOAD BUTTON LOGIC ---
+    // This assumes you will have:
+    // assets/fitxers/catalogue-ca.pdf (Catalan)
+    // assets/fitxers/catalogue-es.pdf (Spanish)
+    // and want to set the download name accordingly
+    const catalogueBtn = document.getElementById('catalogue-download-btn');
+    function updateCatalogueBtn(lang) {
+        if (!catalogueBtn) return;
+        if (lang === 'es') {
+            catalogueBtn.href = 'assets/fitxers/dossier-es.pdf';
+            catalogueBtn.setAttribute('download', 'Dossier-Talleres-2025.pdf');
+        } else {
+            catalogueBtn.href = 'assets/fitxers/dossier-ca.pdf';
+            catalogueBtn.setAttribute('download', 'Dossier-Tallers-2025.pdf');
+        }
+    }
 
     /**
  * Updates all text on the page to the selected language.
@@ -55,6 +72,9 @@ const setLanguage = (lang) => {
             element.setAttribute('placeholder', placeholderText);
         }
     });
+
+    // Update the catalogue download button for the selected language
+    updateCatalogueBtn(lang);
 
 
     // Update the visual style of the buttons to show which language is active.

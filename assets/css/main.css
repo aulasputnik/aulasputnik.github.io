@@ -497,7 +497,7 @@ a.nav-button:not(.nav-button-secondary) {
        '2' means it will only run twice.
        '1s' is a delay before it starts.
     */
-    animation: bounce 2.5s 2 1s;
+    animation: bounce 2s infinite ease-in-out;
 }
 .scroll-down-link:hover {
     opacity: 1;
@@ -505,15 +505,17 @@ a.nav-button:not(.nav-button-secondary) {
 
 /* We define the keyframes for our limited bounce animation. */
 @keyframes bounce {
-    /* At each step, we must include the original translateX(-50%) to keep it centered. */
     0%, 20%, 50%, 80%, 100% {
-        transform: translateX(-50%) translateY(0);
+        transform: translateY(0);
+        color: var(--color-text-alt);
     }
     40% {
-        transform: translateX(-50%) translateY(10px);
+        transform: translateY(-2px);
+        color: var(--color-text-accent);
     }
     60% {
-        transform: translateX(-50%) translateY(5px);
+        transform: translateY(-1px);
+        color: var(--color-text-accent);
     }
 }
 
@@ -1982,7 +1984,7 @@ html {
 /* --- 16. SECCIÓ DE L'EQUIP (DISSENY CLÀSSIC) --- */
 
 .projectes-section-classic {
-    padding: 20px 40px 40px 40px;
+    padding: 20px 40px 20px 40px;
     background-color: var(--color-background);
 }
 
@@ -2217,5 +2219,58 @@ html {
     }
     .carousel-nav-btn.next {
         right: 5px;
+    }
+}
+
+/* =================== COL·LABORADORS SECTION =================== */
+.collaboradors-section {
+    padding: 20px 0 40px 0;
+    background: var(--color-background);
+    text-align: center;
+}
+.collaboradors-title {
+    letter-spacing: 1px;
+    font-size: 42px;
+    font-weight: 900;
+    text-align: center;
+    /* Un marge inferior per separar-lo del contingut. */
+    margin-bottom: 40px;
+    color: var(--color-heading);
+}
+.collaboradors-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 36px;
+}
+.collaboradors-logo-item {
+    flex: 0 1 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+.collaboradors-logo-item:hover {
+    transform: scale(1.07);
+}
+.collaboradors-logo {
+    width: 110px;
+    height: auto;
+    filter: grayscale(100%) contrast(0.8);
+    transition: transform 0.2s, filter 0.2s, opacity 0.2s;
+    opacity: 0.7;
+    cursor: pointer;
+}
+.collaboradors-logo:hover {
+    transform: scale(1.13);
+    filter: grayscale(0%) contrast(1);
+    /* Keep grayscale and opacity, just scale up */
+}
+@media (max-width: 600px) {
+    .collaboradors-logos {
+        gap: 18px;
+    }
+    .collaboradors-logo {
+        width: 80px;
     }
 }
