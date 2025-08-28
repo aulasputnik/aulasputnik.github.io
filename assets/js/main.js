@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!catalogueBtn) return;
         if (lang === 'es') {
             catalogueBtn.href = 'assets/fitxers/dossier-es.pdf';
-            catalogueBtn.setAttribute('download', 'Dossier-Talleres-2025.pdf');
+            catalogueBtn.setAttribute('download', 'AulaSPUTNIK-Dossier-Talleres-2025.pdf');
         } else {
             catalogueBtn.href = 'assets/fitxers/dossier-ca.pdf';
-            catalogueBtn.setAttribute('download', 'Dossier-Tallers-2025.pdf');
+            catalogueBtn.setAttribute('download', 'AulaSPUTNIK-Dossier-Tallers-2025.pdf');
         }
     }
 
