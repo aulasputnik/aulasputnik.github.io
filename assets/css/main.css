@@ -300,6 +300,58 @@ a.nav-button:not(.nav-button-secondary) {
     color: var(--color-primary); /* El ressaltem amb el color principal. */
 }
 
+/* LinkedIn button under team member quotes */
+.linkedin-btn {
+    margin-top: 10px;
+    color: #0A66C2;
+    font-size: 1.7em;
+    transition: color 0.2s;
+    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.05em;
+    margin-top: 8px;
+    background: #0A66C2;
+    color: #fff;
+    font-size: 0.75em;
+    font-weight: 300;
+    border-radius: 20px;
+    padding: 0.25em 1em 0.25em 0.8em;
+    border: none;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(10,102,194,0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+    min-height: 2em;
+    min-width: 0;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+}
+.linkedin-btn:hover {
+    text-decoration: none;
+    background: #5393d4;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(10,102,194,0.15);
+}
+
+/* LinkedIn button icon style */
+.linkedin-btn i.fa-linkedin {
+    font-size: 1em;
+    margin-right: 0.3em;
+    vertical-align: middle;
+}
+
+/* LinkedIn button text style */
+.linkedin-btn-text {
+    font-size: 0.9em;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    vertical-align: middle;
+    margin-left: 0.1em;
+}
+
+
 /* We define the animation steps for the background color change. */
 @keyframes pulse-color {
     /* The animation starts and ends at the button's default background color. */
@@ -2242,6 +2294,13 @@ html {
     flex-wrap: wrap;
     justify-content: center;
     gap: 36px;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Limit to 4 items per row using max-width and flex-basis */
+    /* Each logo item is 120px wide, so 4 * 120px + 3 * 36px gap = 564px */
+    max-width: calc(4 * 120px + 3 * 36px);
+    margin-left: auto;
+    margin-right: auto;
 }
 .collaboradors-logo-item {
     flex: 0 1 120px;
@@ -2293,7 +2352,7 @@ html {
     text-transform: uppercase;
     font-weight: 400;
     font-size: 1.2rem;
-    padding: 0.85em 2.4em;
+    padding: 0.5em 2em;
     border: none;
     border-radius: 12px;
     box-shadow: 0 2px 8px 0 rgba(161, 93, 246, 0.10);
