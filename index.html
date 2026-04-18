@@ -19,17 +19,37 @@
 
     <!-- SEO Meta Tags: help search engines understand your page. -->
     <!-- Description: short summary for search results. -->
-    <meta name="description" content="">
+    <meta name="description" content="Un projecte educatiu per inspirar i despertar el talent de les noves generacions a través de la ciència i la tecnologia aeroespacial.">
     <!-- Keywords: relevant terms for search engines. -->
-    <meta name="keywords" content="">
+    <meta name="keywords" content="educació, ciència, tecnologia, aeroespacial, tallers, STEAM">
+
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="AulaSPUTNIK">
+    <meta property="og:description" content="Un projecte educatiu per inspirar i despertar el talent de les noves generacions a través de la ciència i la tecnologia aeroespacial.">
+    <meta property="og:image" content="assets/images/logo.svg">
+    <meta property="og:url" content="https://aulasputnik.com/index.html">
+    <meta property="og:type" content="website">
+
+    <!-- Canonical link -->
+    <link rel="canonical" href="https://aulasputnik.com/index.html">
+
+    <!-- hreflang for multilinguality -->
+    <link rel="alternate" hreflang="ca" href="https://aulasputnik.com/index.html">
+    <link rel="alternate" hreflang="es" href="https://aulasputnik.com/index.html">
+    <link rel="alternate" hreflang="en" href="https://aulasputnik.com/index.html">
+    <link rel="alternate" hreflang="x-default" href="https://aulasputnik.com/index.html">
+
+    <!-- PWA manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#a15df6">
 
     <!-- Preconnect to Google Fonts for performance. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Import Google Fonts: Urbanist, Inter, Domine. -->
-    <!-- Variable font range (wght@300..900) for design flexibility. -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Urbanist:wght@300..900&family=Domine:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Import Google Fonts: Urbanist, Inter, Domine, Playfair Display. -->
+    <!-- Optimized: specific weights only to reduce payload. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Urbanist:wght@300;400;700;800;900&family=Domine:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <!-- Import Font Awesome for icons. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -58,7 +78,7 @@
                     </a>
                 </div>
 
-                <button class="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false">
+                <button class="hamburger-menu" data-i18n-aria="nav.openMenu" aria-expanded="false">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
@@ -66,14 +86,15 @@
 
                 <div class="nav-menu">
                     <ul class="nav-list">
-                        <li><a href="index.html" data-lang-ca="Inici" data-lang-es="Inicio">Inici</a></li>
-                        <li><a href="projectes.html" data-lang-ca="Projectes" data-lang-es="Proyectos">Projectes</a></li>
-                        <li><a href="equip.html" data-lang-ca="Equip" data-lang-es="Equipo">Equip</a></li>
-                        <li><a href="tallers.html" class="nav-button" data-lang-ca="Tallers" data-lang-es="Talleres">Tallers</a></li>
-                        <li><a href="#footer" class="nav-button nav-button-secondary" data-lang-ca="Contacte" data-lang-es="Contacto">Contacte</a></li>
+                        <li><a href="index.html" data-i18n="nav.home">Inici</a></li>
+                        <li><a href="projectes.html" data-i18n="nav.projects">Projectes</a></li>
+                        <li><a href="equip.html" data-i18n="nav.team">Equip</a></li>
+                        <li><a href="tallers.html" class="nav-button" data-i18n="nav.workshops">Tallers</a></li>
+                        <li><a href="#footer" class="nav-button nav-button-secondary" data-i18n="nav.contact">Contacte</a></li>
                         <li class="lang-switcher">
-                            <button id="lang-ca-btn" class="lang-switcher-btn" data-lang="ca">CA</button>
-                            <button id="lang-es-btn" class="lang-switcher-btn" data-lang="es">ES</button>
+                            <button id="lang-ca-btn" class="lang-switcher-btn" data-lang="ca" data-i18n="lang.ca">CA</button>
+                            <button id="lang-es-btn" class="lang-switcher-btn" data-lang="es" data-i18n="lang.es">ES</button>
+                            <button id="lang-en-btn" class="lang-switcher-btn" data-lang="en" data-i18n="lang.en">EN</button>
                         </li>
                     </ul>
                 </div>
@@ -89,24 +110,18 @@
         <!-- Hero section content container. -->
         <div class="hero-content">
             <!-- Main title with highlighted span. -->
-            <h1 class="hero-title"
-                data-lang-ca="A <span class='highlight'>AulaSPUTNIK</span> ens llancem a una nova educació en valors"
-                data-lang-es="En <span class='highlight'>AulaSPUTNIK</span> nos lanzamos a una nueva educación en valores">
+            <h1 class="hero-title" data-i18n-html="hero.title">
                 A <span class="highlight">AulaSPUTNIK</span> ens llancem a una nova educació en valors
             </h1>
 
             <!-- Hero buttons container. -->
             <div class="hero-buttons-container">
                 <!-- Main hero button. -->
-                <a href="tallers.html" class="hero-button"
-                    data-lang-ca="Els Nostres Tallers &nbsp;<i class='fa-solid fa-arrow-right'></i>"
-                    data-lang-es="Nuestros Talleres &nbsp;<i class='fa-solid fa-arrow-right'></i>">
+                <a href="tallers.html" class="hero-button" data-i18n-html="hero.button1">
                     Els Nostres Tallers &nbsp;<i class="fa-solid fa-arrow-right"></i>
                 </a>
                 <!-- Secondary hero button with alternate style. -->
-                <a href="repte-aulasputnik.html" class="hero-button hero-button--secondary"
-                    data-lang-ca="El Repte AulaSPUTNIK &nbsp;<i class='fa-solid fa-arrow-right'></i>"
-                    data-lang-es="El Reto AulaSPUTNIK &nbsp;<i class='fa-solid fa-arrow-right'></i>">
+                <a href="repte-aulasputnik.html" class="hero-button hero-button--secondary" data-i18n-html="hero.button2">
                     El Repte AulaSPUTNIK &nbsp;<i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
@@ -114,7 +129,7 @@
 
         <!-- Animated scroll down link to the next section. -->
         <a href="#context" class="scroll-down-link">
-            <span data-lang-ca="Saber Més" data-lang-es="Saber Más">Saber Més</span>
+            <span data-i18n="hero.scrollDown">Saber Més</span>
             <!-- Font Awesome arrow icon. -->
             <i class="fa-solid fa-chevron-down"></i>
         </a>
@@ -131,7 +146,7 @@
         <div class="section-container">
             <div class="context-grid">
                 <div class="context-text-content">
-                    <h2 class="section-title" data-lang-ca="CONTEXT" data-lang-es="CONTEXTO">CONTEXT</h2>
+                    <h2 class="section-title" data-i18n="context.title">CONTEXT</h2>
                     <p data-lang-ca="En el context de la nova societat que estem construint, una societat incerta i complexa, és molt important <strong>desenvolupar i obrir noves capacitats</strong> a les persones per aprendre a cooperar i participar. Per això, és molt important per un col·lectiu, apoderar-se i construir-se des del mètode científic, el pensament crític i la <strong>inspiració</strong>." data-lang-es="En el contexto de la nueva sociedad que estamos construyendo, una sociedad incierta y compleja, es muy importante <strong>desarrollar y abrir nuevas capacidades</strong> a las personas para aprender a cooperar y participar. Por ello, es muy importante para un colectivo, apoderarse y construirse desde el método científico, el pensamiento crítico y la <strong>inspiración</strong>.">En el context de la nova societat que estem construint, una societat incerta i complexa, és molt important <strong>desenvolupar i obrir noves capacitats</strong> a les persones per aprendre a cooperar i participar. Per això, és molt important per un col·lectiu, apoderar-se i construir-se des del mètode científic, el pensament crítics i la <strong>inspiració</strong>.</p>
                     <p data-lang-ca="El món científic i tecnològic és un àmbit molt llunyà per a moltes persones. Per això, humanitzar la ciència i la tecnologia és un repte fonamental i més si parlem del sector aeroespacial. El sector aeroespacial és un àmbit que <strong>impulsa</strong> la millora de les competències acadèmiques i de ocupabilitat, com també innova per <strong>trobar solucions</strong> als nous reptes socials com el canvi climàtic." data-lang-es="El mundo científico y tecnológico es un ámbito muy lejano para muchas personas. Por ello, humanizar la ciencia y la tecnología es un reto fundamental y más si hablamos del sector aeroespacial. El sector aeroespacial es un ámbito que <strong>impulsa</strong> la mejora de las competencias académicas y de empleabilidad, así como innova para <strong>encontrar soluciones</strong> a los nuevos retos sociales como el cambio climático.">El món científic i tecnològic és un àmbit molt llunyà per a moltes persones. Per això, humanitzar la ciència i la tecnologia és un repte fonamental i més si parlem del sector aeroespacial. El sector aeroespacial és un àmbit que <strong>impulsa</strong> la millora de les competències acadèmiques i de ocupabilitat, com també innova per <strong>trobar solucions</strong> als nous reptes socials com el canvi climàtic.</p>
                     <p data-lang-ca="Per aquest motiu, l’educació i el sector aeroespacial són dues de les claus per avançar en aquests futurs reptes col·lectius. Les noves generacions són la <strong>clau</strong> per construir una societat més cooperativa, líder i inclusiva, on qualsevol persona <strong>sense diferència de gènere, context, edat o cultura</strong>, pot tenir les mateixes oportunitats." data-lang-es="Por este motivo, la educación y el sector aeroespacial son dos de las claves para avanzar en estos futuros retos colectivos. Las nuevas generaciones son la clave para construir una sociedad más cooperativa, líder e inclusiva, donde cualquier persona <strong>sin diferencia de género, contexto, edad o cultura</strong>, puede tener las mismas oportunidades.">Per aquest motiu, l’educació i el sector aeroespacial són dues de les claus per avançar en aquests futurs reptes col·lectius. Les noves generacions són la <strong>clau</strong> per construir una societat més cooperativa, líder i inclusiva, on qualsevol persona <strong>sense diferència de gènere, context, edat o cultura</strong>, pot tenir les mateixes oportunitats.</p>
@@ -171,50 +186,49 @@
         </div>
     </section>
 
-    <!-- =================== VALUES SECTION START =================== -->
     <!-- Section with ID for menu linking. -->
     <section id="valors" class="valors-section">
         <!-- Container to keep content centered. -->
         <div class="section-container">
             <!-- Main section title. -->
-            <h2 class="section-title" data-lang-ca="VALORS" data-lang-es="VALORES">VALORS</h2>
+            <h2 class="section-title" data-i18n="values.title">VALORS</h2>
             <!-- Grid containing all value cards. -->
             <div class="valors-grid">
                 <!-- Card 1: Empathy -->
                 <div class="valor-card">
                     <div class="valor-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
-                    <h3 class="valor-title" data-lang-ca="Empatia" data-lang-es="Empatía">Empatia</h3>
-                    <p class="valor-subtitle" data-lang-ca="Comprendre i comprendre’ns" data-lang-es="Comprender y comprendernos">Comprendre i comprendre’ns</p>
+                    <h3 class="valor-title" data-i18n="values.empathy">Empatia</h3>
+                    <p class="valor-subtitle" data-i18n="values.empathySub">Comprendre i comprendre’ns</p>
                 </div>
                 <!-- Card 2: Trust -->
                 <div class="valor-card">
                     <div class="valor-icon"><i class="fa-solid fa-handshake-simple"></i></div>
-                    <h3 class="valor-title" data-lang-ca="Confiança" data-lang-es="Confianza">Confiança</h3>
-                    <p class="valor-subtitle" data-lang-ca="Confia en mi que jo confio en tu" data-lang-es="Confía en mí que yo confío en ti">Confia en mi que jo confio en tu</p>
+                    <h3 class="valor-title" data-i18n="values.trust">Confiança</h3>
+                    <p class="valor-subtitle" data-i18n="values.trustSub">Confia en mi que jo confio en tu</p>
                 </div>
                 <!-- Card 3: Courage -->
                 <div class="valor-card">
                     <div class="valor-icon"><i class="fa-solid fa-shield-heart"></i></div>
-                    <h3 class="valor-title" data-lang-ca="Valentia" data-lang-es="Valentía">Valentia</h3>
-                    <p class="valor-subtitle" data-lang-ca="Demanar ajuda quan es necessita" data-lang-es="Pedir ayuda cuando se necesita">Demanar ajuda quan es necessita</p>
+                    <h3 class="valor-title" data-i18n="values.courage">Valentia</h3>
+                    <p class="valor-subtitle" data-i18n="values.courageSub">Demanar ajuda quan es necessita</p>
                 </div>
                 <!-- Card 4: Teamwork -->
                 <div class="valor-card">
                     <div class="valor-icon"><i class="fa-solid fa-users"></i></div>
-                    <h3 class="valor-title" data-lang-ca="Treball en equip" data-lang-es="Trabajo en equipo">Treball en equip</h3>
-                    <p class="valor-subtitle" data-lang-ca="Tots i totes som necessaris" data-lang-es="Todos y todas somos necesarios">Tots i totes som necessaris</p>
+                    <h3 class="valor-title" data-i18n="values.teamwork">Treball en equip</h3>
+                    <p class="valor-subtitle" data-i18n="values.teamworkSub">Tots i totes som necessaris</p>
                 </div>
                 <!-- Card 5: Active listening -->
                 <div class="valor-card">
                     <div class="valor-icon"><i class="fa-solid fa-ear-listen"></i></div>
-                    <h3 class="valor-title" data-lang-ca="Escolta activa" data-lang-es="Escucha activa">Escolta activa</h3>
-                    <p class="valor-subtitle" data-lang-ca="Totes les veus compten" data-lang-es="Todas las voces cuentan">Totes les veus compten</p>
+                    <h3 class="valor-title" data-i18n="values.listening">Escolta activa</h3>
+                    <p class="valor-subtitle" data-i18n="values.listeningSub">Totes les veus compten</p>
                 </div>
                 <!-- Card 6: Enthusiasm -->
                 <div class="valor-card">
                     <div class="valor-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <h3 class="valor-title" data-lang-ca="Il·lusió" data-lang-es="Ilusión">Il·lusió</h3>
-                    <p class="valor-subtitle" data-lang-ca="En el nostre dia a dia" data-lang-es="En nuestro día a día">En el nostre dia a dia</p>
+                    <h3 class="valor-title" data-i18n="values.enthusiasm">Il·lusió</h3>
+                    <p class="valor-subtitle" data-i18n="values.enthusiasmSub">En el nostre dia a dia</p>
                 </div>
             </div>
         </div>
@@ -233,14 +247,14 @@
                 <!-- Column 1: Text content and social links. -->
                 <div class="footer-column-left">
                     <!-- Main heading for the column. -->
-                    <h3 class="footer-title" data-lang-ca="PARLEM?" data-lang-es="¿HABLAMOS?">PARLEM?</h3>
+                    <h3 class="footer-title" data-i18n="footer.title">PARLEM?</h3>
                     <!-- First paragraph of text. -->
-                    <p data-lang-ca="Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu." data-lang-es="¿Tienes alguna duda, proposta o idea? ¡Queremos conocerte! Rellena este formulario y nos pondremos en contacto contigo.">Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu.</p>
+                    <p data-i18n="footer.para1">Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu.</p>
                     <!-- Second paragraph of text. -->
-                    <p data-lang-ca="També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!" data-lang-es="¡También puedes seguirnos en nuestras redes sociales y sumarte a nuestra comunidad!">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
+                    <p data-i18n="footer.para2">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
                     <!-- Container for social media icon links. -->
                     <div class="footer-social-icons">
-                        <!-- Each 'a' tag is a link to a social profile. 'aria-label' is for accessibility. -->
+                        <!-- Each ‘a’ tag is a link to a social profile. ‘aria-label’ is for accessibility. -->
                         <a href="https://www.instagram.com/aulasputnik/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/company/aulasputnik/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                         <a href="https://www.tiktok.com/@aula_sputnik" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
@@ -253,16 +267,16 @@
                     <form class="contact-form" action="https://formspree.io/f/mrblpwrg" method="POST">
                         <!-- Form field for Name. Label is visually hidden but present for screen readers. -->
                         <div class="form-group">
-                            <!-- 'aria-label' provides an accessible name for the input. -->
-                            <input type="text" id="name" name="Nom" required placeholder="Nom i Cognoms*" data-lang-ca-placeholder="Nom i Cognoms*" data-lang-es-placeholder="Nombre y Apellidos*" aria-label="Nom i Cognoms">
+                            <!-- ‘aria-label’ provides an accessible name for the input. -->
+                            <input type="text" id="name" name="Nom" required placeholder="Nom i Cognoms*" data-i18n-ph="form.namePlaceholder" aria-label="Nom i Cognoms">
                         </div>
                         <!-- Form field for Email. -->
                         <div class="form-group">
-                            <input type="email" id="email" name="Email" required placeholder="Correu electrònic*" data-lang-ca-placeholder="Correu electrònic*" data-lang-es-placeholder="Correo electrónico*" aria-label="Correu electrònic">
+                            <input type="email" id="email" name="Email" required placeholder="Correu electrònic*" data-i18n-ph="form.emailPlaceholder" aria-label="Correu electrònic">
                         </div>
                         <!-- Form field for Institution. -->
                         <div class="form-group">
-                            <input type="text" id="institution" name="Institució" required placeholder="Empresa, escola, institut, etc.*" data-lang-ca-placeholder="Empresa, escola, institut, etc.*" data-lang-es-placeholder="Empresa, colegio, instituto, etc.*" aria-label="Empresa, escola, institut, etc.">
+                            <input type="text" id="institution" name="Institució" required placeholder="Empresa, escola, institut, etc.*" data-i18n-ph="form.institutionPlaceholder" aria-label="Empresa, escola, institut, etc.">
                         </div>
                         <!-- Custom Multi-Select Dropdown for Workshops. -->
                         <div class="form-group">
@@ -271,10 +285,8 @@
                                 <!-- Visible, clickable part styled as form input. -->
                                 <div class="multiselect-display">
                                     <!-- Span for placeholder text (e.g., "2 selected"). -->
-                                    <span class="multiselect-placeholder" 
-                                        data-lang-ca="T'agradaria rebre informació d'algún taller en concret?" 
-                                        data-lang-es="¿Te gustaría recibir información de algún taller en concreto?">
-                                        T'agradaria rebre informació d'algún taller en concret?
+                                    <span class="multiselect-placeholder" data-i18n="form.workshopPlaceholder">
+                                        T’agradaria rebre informació d’algún taller en concret?
                                     </span>
                                     <!-- Font Awesome icon to indicate dropdown. -->
                                     <i class="fa-solid fa-chevron-down"></i>
@@ -284,73 +296,67 @@
                                     <!-- Each workshop is a checkbox/label pair. -->
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Nanosatèl·lits">
-                                        <span data-lang-ca="Ajudem al nostre planeta a través dels nanosatèl·lits." data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites.">Ajudem al nostre planeta a través dels nanosatèl·lits.</span>
+                                        <span data-i18n="workshop.1.tags">canvi climàtic, satèl·lits, treball en grup, creativitat</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Coets">
-                                        <span data-lang-ca="Explorem l’espai amb AulaSPUTNIK!" data-lang-es="¡Exploramos el espacio con AulaSPUTNIK!">Explorem l’espai amb AulaSPUTNIK!</span>
+                                        <span>Explorem l’espai amb AulaSPUTNIK!</span>
                                     </label>
                                     <label class="multiselect-option">
-                                        <input type="checkbox" name="Taller" value="Dona a l'Espai">
-                                        <span data-lang-ca="La dona al sector aeroespacial." data-lang-es="La mujer en el sector aeroespacial.">La dona al sector aeroespacial.</span>
+                                        <input type="checkbox" name="Taller" value="Dona a l’Espai">
+                                        <span>La dona al sector aeroespacial.</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Constel·lacions">
-                                        <span data-lang-ca="Les constel·lacions com a quadern vital." data-lang-es="Las constelaciones como cuaderno vital.">Les constel·lacions com a quadern vital.</span>
+                                        <span>Les constel·lacions com a quadern vital.</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Aliens">
-                                        <span data-lang-ca="La biologia a l'espai: com són els aliens?" data-lang-es="La biología en el espacio: ¿cómo son los aliens?">La biologia a l'espai: com són els aliens?</span>
+                                        <span>La biologia a l’espai: com són els aliens?</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Sistema estelar">
-                                        <span data-lang-ca="Crea el teu propi sistema estelar!" data-lang-es="¡Crea tu propio sistema estelar!">Crea el teu propi sistema estelar!</span>
+                                        <span>Crea el teu propi sistema estelar!</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Repte AulaSPUTNIK">
-                                        <span data-lang-ca="El Repte AulaSPUTNIK" data-lang-es="El Reto AulaSPUTNIK">El Repte AulaSPUTNIK</span>
+                                        <span data-i18n="challenge.title">El Repte AulaSPUTNIK</span>
                                     </label>
                                 </div>
                                 <!-- Hidden input updated by JavaScript with selected workshops for Formspree. -->
                                 <input type="hidden" name="Tallers Seleccionats" id="selected-workshops-input">
                             </div>
                         </div>
-                        <!-- Form field for the message. 'textarea' allows multiple lines. -->
+                        <!-- Form field for the message. ‘textarea’ allows multiple lines. -->
                         <div class="form-group">
-                            <textarea id="message" name="Missatge" rows="4" required placeholder="El teu missatge" data-lang-ca-placeholder="El teu missatge" data-lang-es-placeholder="Tu mensaje" aria-label="El teu missatge"></textarea>
+                            <textarea id="message" name="Missatge" rows="4" required placeholder="El teu missatge" data-i18n-ph="form.messagePlaceholder" aria-label="El teu missatge"></textarea>
                         </div>
                         <!-- Privacy Consent Section. -->
                         <div class="privacy-section">
                             <!-- Header for this section, with link to Privacy Policy page. -->
-                            <p class="privacy-header" 
-                                data-lang-ca="En relació amb la nostra <a href='politica-de-privacitat.html'>Política de Privacitat</a>*:" 
-                                data-lang-es="En relación con nuestra <a href='politica-de-privacitat.html'>Política de Privacidad</a>*:">
-                                En relació amb la nostra <a href="politica-de-privacitat.html">Política de Privacitat</a>*:
+                            <p class="privacy-header" data-i18n-html="form.privacyHeader">
+                                En relació amb la nostra <a href=’politica-de-privacitat.html’>Política de Privacitat</a>*:
                             </p>
-                            <!-- Checkbox 1: Privacy Policy Acceptance. 'required' makes it mandatory. -->
+                            <!-- Checkbox 1: Privacy Policy Acceptance. ‘required’ makes it mandatory. -->
                             <div class="form-group-checkbox">
                                 <!-- Actual checkbox input, visually hidden with CSS. -->
                                 <input type="checkbox" id="privacy-accept" name="privacy-accept" required>
-                                <!-- Label is visible and linked to input by 'for' attribute. -->
-                                <label for="privacy-accept" 
-                                    data-lang-ca="Confirmo haver-la llegit i l'accepto." 
-                                    data-lang-es="Confirmo haberla leído y la acepto.">
-                                    Confirmo haver-la llegit i l'accepto.
+                                <!-- Label is visible and linked to input by ‘for’ attribute. -->
+                                <label for="privacy-accept" data-i18n="form.privacyAccept">
+                                    Confirmo haver-la llegit i l’accepto.
                                 </label>
                             </div>
                             <!-- Checkbox 2: Commercial Use Consent. This one is optional. -->
                             <div class="form-group-checkbox">
                                 <input type="checkbox" id="commercial-accept" name="commercial-accept" required>
-                                <label for="commercial-accept" 
-                                    data-lang-ca="Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics." 
-                                    data-lang-es="Acepto que mis datos identificativos sean incluidos para fines comerciales por medios electrónicos.">
+                                <label for="commercial-accept" data-i18n="form.commercialAccept">
                                     Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics.
                                 </label>
                             </div>
                         </div>
                         <!-- End of Privacy Consent Section. -->
                         <!-- Submit button for the form. -->
-                        <button type="submit" class="submit-btn" data-lang-ca="Enviar" data-lang-es="Enviar">Enviar</button>
+                        <button type="submit" class="submit-btn" data-i18n="form.submit">Enviar</button>
                     </form>
                 </div>
             </div>
@@ -358,11 +364,11 @@
             <!-- Bottom bar of the footer. -->
             <div class="footer-bottom-bar">
                 <!-- Copyright notice. -->
-                <p class="copyright-text" data-lang-ca='© 2025 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.' data-lang-es='© 2024 <a href="index.html">AulaSPUTNIK</a>. Todos los derechos reservados.'>© 2024 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.</p>
+                <p class="copyright-text" data-i18n-html="footer.copyright">© 2025 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.</p>
                 <!-- Container for legal links. -->
                 <div class="footer-legal-links">
-                    <a href="politica-de-privacitat.html" data-lang-ca="Política de Privacitat" data-lang-es="Política de Privacidad">Política de Privacitat</a>
-                    <a href="avis-legal.html" data-lang-ca="Avís Legal" data-lang-es="Aviso Legal">Avís Legal</a>
+                    <a href="politica-de-privacitat.html" data-i18n="footer.privacyLink">Política de Privacitat</a>
+                    <a href="avis-legal.html" data-i18n="footer.legalLink">Avís Legal</a>
                 </div>
             </div>
         </div>
@@ -370,7 +376,7 @@
     <!-- =================== FOOTER END =================== -->
 
     <!-- "Scroll to Top" button, hidden by default with CSS. -->
-    <button id="scroll-to-top-btn" aria-label="Scroll to top">
+    <button id="scroll-to-top-btn" data-i18n-aria="scroll.top">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 

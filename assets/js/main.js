@@ -1,259 +1,286 @@
-// (Col·laboradors logo hover effect removed as per user request)
 /**
- * Main JavaScript file for the website.
- * Handles the language switching functionality.
+ * Main JavaScript file for AulaSPUTNIK
+ * Handles i18n with JSON translations, navigation, forms, and carousels
  */
 
-// This event listener waits for the HTML document to be fully loaded and parsed
-// before running the script, preventing errors from trying to access elements that don't exist yet.
-document.addEventListener('DOMContentLoaded', () => {
+// Global translations cache
+let translations = {};
+let currentLanguage = 'ca';
 
-    // --- CONFIGURATION ---
+/**
+ * Load translations from JSON file
+ */
+async function loadTranslations() {
+    try {
+        const response = await fetch('assets/i18n/translations.json');
+        if (!response.ok) throw new Error('Failed to load translations');
+        translations = await response.json();
+        return true;
+    } catch (error) {
+        console.error('Error loading translations:', error);
+        return false;
+    }
+}
 
-    // An array of supported language codes. This makes the script easily scalable if we add English later.
-    const supportedLangs = ['ca', 'es'];
-    // The default language to use if a user's browser language is not supported or cannot be detected.
+/**
+ * Get a translation string by key and language
+ * Supports nested keys like "workshop.1.title"
+ */
+function getTranslation(lang, keyPath) {
+    const keys = keyPath.split('.');
+    let value = translations[lang];
+
+    for (let key of keys) {
+        if (value && typeof value === 'object') {
+            value = value[key];
+        } else {
+            return null;
+        }
+    }
+
+    return typeof value === 'string' ? value : null;
+}
+
+/**
+ * Determine the user's preferred language
+ * Priority: 1. Saved preference, 2. Browser setting, 3. Default
+ */
+function getInitialLanguage() {
+    const supportedLangs = ['ca', 'es', 'en'];
     const defaultLang = 'ca';
 
-    // Get references to the language switcher buttons from the HTML file.
-    const langCaButton = document.getElementById('lang-ca-btn');
-    const langEsButton = document.getElementById('lang-es-btn');
-
-
-    // --- CATALOGUE DOWNLOAD BUTTON LOGIC ---
-    // This assumes you will have:
-    // assets/fitxers/catalogue-ca.pdf (Catalan)
-    // assets/fitxers/catalogue-es.pdf (Spanish)
-    // and want to set the download name accordingly
-    const catalogueBtn = document.getElementById('catalogue-download-btn');
-    function updateCatalogueBtn(lang) {
-        if (!catalogueBtn) return;
-        if (lang === 'es') {
-            catalogueBtn.href = 'assets/fitxers/dossier-es.pdf';
-            catalogueBtn.setAttribute('download', 'AulaSPUTNIK-Dossier-Talleres-2025.pdf');
-        } else {
-            catalogueBtn.href = 'assets/fitxers/dossier-ca.pdf';
-            catalogueBtn.setAttribute('download', 'AulaSPUTNIK-Dossier-Tallers-2025.pdf');
-        }
+    // 1. Check localStorage
+    const savedLang = localStorage.getItem('userLanguage');
+    if (savedLang && supportedLangs.includes(savedLang)) {
+        return savedLang;
     }
 
-    /**
- * Updates all text on the page to the selected language.
- * @param {string} lang - The language code to switch to (e.g., 'ca').
- */
-const setLanguage = (lang) => {
-    // First, check if the chosen language is actually supported.
-    if (!supportedLangs.includes(lang)) {
-        console.error(`Language "${lang}" is not supported.`);
-        return;
+    // 2. Check browser language
+    const browserLang = navigator.language.split('-')[0];
+    if (supportedLangs.includes(browserLang)) {
+        return browserLang;
     }
 
-    // Set the 'lang' attribute on the <html> tag for accessibility and SEO.
-    document.documentElement.lang = lang;
-
-    // Save the user's choice in their browser's localStorage for their next visit.
-    localStorage.setItem('userLanguage', lang);
-
-    // Find all elements that have our special 'data-lang-ca' attribute (for text content).
-    const elementsToTranslate = document.querySelectorAll('[data-lang-ca]');
-    elementsToTranslate.forEach(element => {
-        const translation = element.getAttribute(`data-lang-${lang}`);
-        if (translation) {
-            // Use innerHTML instead of textContent to allow for icons inside elements.
-            element.innerHTML = translation;
-        }
-    });
-    // Find all elements that need their placeholder translated.
-    const placeholdersToTranslate = document.querySelectorAll('[data-lang-ca-placeholder]');
-    placeholdersToTranslate.forEach(element => {
-        const placeholderText = element.getAttribute(`data-lang-${lang}-placeholder`);
-        if (placeholderText) {
-            // Set the placeholder attribute to the correct language.
-            element.setAttribute('placeholder', placeholderText);
-        }
-    });
-
-    // Update the catalogue download button for the selected language
-    updateCatalogueBtn(lang);
-
-
-    // Update the visual style of the buttons to show which language is active.
-    updateButtonStyles(lang);
-    };
-
-    /**
-     * Determines the user's preferred language.
-     * Priority: 1. Saved preference, 2. Browser setting, 3. Default.
-     * @returns {string} The determined language code.
-     */
-    const getInitialLanguage = () => {
-        // 1. Check for a previously saved language in local storage.
-        const savedLang = localStorage.getItem('userLanguage');
-        if (savedLang && supportedLangs.includes(savedLang)) {
-            return savedLang;
-        }
-
-        // 2. Check the browser's language setting. `navigator.language` can be 'es-ES', so we split and take the 'es'.
-        const browserLang = navigator.language.split('-')[0];
-        if (supportedLangs.includes(browserLang)) {
-            return browserLang;
-        }
-
-        // 3. If neither of the above are found, use the default language.
-        return defaultLang;
-    };
-
-    /**
-     * Visually distinguishes the active language button.
-     * @param {string} activeLang - The currently active language code.
-     */
-    const updateButtonStyles = (activeLang) => {
-        // Add the 'active' class to the current language's button and remove it from the other.
-        if (activeLang === 'ca') {
-            langCaButton.classList.add('active');
-            langEsButton.classList.remove('active');
-        } else if (activeLang === 'es') {
-            langEsButton.classList.add('active');
-            langCaButton.classList.remove('active');
-        }
-    };
-
-    // --- INITIALIZATION ---
-
-    // Add click event listeners to the buttons. When clicked, they will call setLanguage.
-    langCaButton.addEventListener('click', () => setLanguage('ca'));
-    langEsButton.addEventListener('click', () => setLanguage('es'));
-
-    // Determine and set the initial language when the page first loads.
-    const initialLang = getInitialLanguage();
-    setLanguage(initialLang);
-});
+    // 3. Default to Catalan
+    return defaultLang;
+}
 
 /**
- * Logic for the custom multi-select dropdown component.
+ * Apply translations to all elements with data-i18n* attributes
  */
-document.addEventListener('DOMContentLoaded', () => {
-    // Find the main container of our multi-select component.
+function applyTranslations(lang) {
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+    currentLanguage = lang;
+
+    // Handle data-i18n (textContent)
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const text = getTranslation(lang, key);
+        if (text) element.textContent = text;
+    });
+
+    // Handle data-i18n-html (innerHTML with markup)
+    document.querySelectorAll('[data-i18n-html]').forEach(element => {
+        const key = element.getAttribute('data-i18n-html');
+        const html = getTranslation(lang, key);
+        if (html) element.innerHTML = html;
+    });
+
+    // Handle data-i18n-ph (placeholder)
+    document.querySelectorAll('[data-i18n-ph]').forEach(element => {
+        const key = element.getAttribute('data-i18n-ph');
+        const text = getTranslation(lang, key);
+        if (text) element.setAttribute('placeholder', text);
+    });
+
+    // Handle data-i18n-aria (aria-label)
+    document.querySelectorAll('[data-i18n-aria]').forEach(element => {
+        const key = element.getAttribute('data-i18n-aria');
+        const text = getTranslation(lang, key);
+        if (text) element.setAttribute('aria-label', text);
+    });
+
+    // Handle data-i18n-title (title attribute)
+    document.querySelectorAll('[data-i18n-title]').forEach(element => {
+        const key = element.getAttribute('data-i18n-title');
+        const text = getTranslation(lang, key);
+        if (text) element.setAttribute('title', text);
+    });
+
+    // Update page title
+    const titleKey = document.querySelector('[data-i18n-page-title]');
+    if (titleKey) {
+        const key = titleKey.getAttribute('data-i18n-page-title');
+        const title = getTranslation(lang, key);
+        if (title) document.title = title + ' - AulaSPUTNIK';
+    }
+
+    // Update language buttons
+    updateLanguageButtonStyles(lang);
+
+    // Update dossier download buttons
+    updateDossierButtons(lang);
+
+    // Update ODS images
+    updateODSImages(lang);
+
+    // Update multiselect placeholder
+    updateMultiselectPlaceholder(lang);
+
+    // Update hamburger menu aria-label
+    updateHamburgerLabel(lang);
+
+    // Save preference
+    localStorage.setItem('userLanguage', lang);
+}
+
+/**
+ * Update language button styles
+ */
+function updateLanguageButtonStyles(lang) {
+    document.querySelectorAll('.lang-switcher-btn').forEach(btn => {
+        const btnLang = btn.getAttribute('data-lang');
+        btn.classList.toggle('active', btnLang === lang);
+    });
+}
+
+/**
+ * Update language-aware dossier download buttons
+ */
+function updateDossierButtons(lang) {
+    document.querySelectorAll('[data-dossier]').forEach(btn => {
+        const dossierType = btn.getAttribute('data-dossier');
+        let filename = '';
+
+        if (dossierType === 'workshops') {
+            filename = `dossier-${lang}.pdf`;
+        } else if (dossierType === 'challenge') {
+            filename = `dossier-repte-${lang}.pdf`;
+        }
+
+        if (filename) {
+            btn.href = `assets/fitxers/${filename}`;
+            btn.setAttribute('download', filename);
+        }
+
+        // Update button text
+        const textKey = btn.getAttribute('data-i18n');
+        if (textKey) {
+            const text = getTranslation(lang, textKey);
+            if (text) btn.textContent = text;
+        }
+    });
+}
+
+/**
+ * Update ODS images based on language
+ * Smooth fade transition
+ */
+function updateODSImages(lang) {
+    document.querySelectorAll('[data-i18n-src]').forEach(img => {
+        const src = img.getAttribute(`data-i18n-src-${lang}`);
+        if (src) {
+            // Fade out
+            img.style.opacity = '0';
+
+            // After fade, change src
+            setTimeout(() => {
+                img.src = src;
+                // Fade in
+                img.style.opacity = '1';
+            }, 150);
+        }
+    });
+}
+
+/**
+ * Update multiselect placeholder based on current language
+ */
+function updateMultiselectPlaceholder(lang) {
     const multiselect = document.getElementById('workshops-multiselect');
-    // If the component doesn't exist on the page, stop the script.
     if (!multiselect) return;
 
-    // Get references to the key parts of the component.
-    const display = multiselect.querySelector('.multiselect-display');
     const placeholder = multiselect.querySelector('.multiselect-placeholder');
-    const optionsContainer = multiselect.querySelector('.multiselect-options');
-    const checkboxes = optionsContainer.querySelectorAll('input[type="checkbox"]');
-    const hiddenInput = document.getElementById('selected-workshops-input');
-    
-    // Get the default placeholder text for both languages.
-    const defaultTextCA = placeholder.getAttribute('data-lang-ca');
-    const defaultTextES = placeholder.getAttribute('data-lang-es');
+    if (!placeholder) return;
 
-    // --- Event Listeners ---
+    // If no workshops selected, show placeholder
+    const checkboxes = multiselect.querySelectorAll('input[type="checkbox"]');
+    const selectedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
 
-    // Toggle the dropdown when the display area is clicked.
-    display.addEventListener('click', () => {
-        multiselect.classList.toggle('active');
-        display.classList.toggle('active');
-    });
-
-    // Close the dropdown if the user clicks anywhere else on the page.
-    document.addEventListener('click', (e) => {
-        // Check if the click was outside the main multiselect container.
-        if (!multiselect.contains(e.target)) {
-            multiselect.classList.remove('active');
-            display.classList.remove('active');
-        }
-    });
-
-    // Update everything when any checkbox is changed.
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', updateMultiselectState);
-    });
-    
-    // --- Core Functions ---
-
-    /**
-     * This function runs every time a checkbox is checked or unchecked.
-     */
-    function updateMultiselectState() {
-        // Get a list of all currently checked checkboxes.
-        const selectedCheckboxes = Array.from(checkboxes).filter(cb => cb.checked);
-        // Get the values of the selected checkboxes (e.g., "Nanosatèl·lits", "Explorem espai").
-        const selectedValues = selectedCheckboxes.map(cb => cb.value);
-        
-        // Update the hidden input field with a comma-separated string for Formspree.
-        hiddenInput.value = selectedValues.join(', ');
-
-        // Update the visible text in the display area.
-        if (selectedCheckboxes.length === 0) {
-            // If nothing is selected, show the default placeholder text.
-            const currentLang = document.documentElement.lang;
-            placeholder.textContent = currentLang === 'es' ? defaultTextES : defaultTextCA;
-            placeholder.style.opacity = '0.7'; // Make it look like a placeholder
-        } else if (selectedCheckboxes.length === 1) {
-            // If one item is selected, show its full text.
-            // We find the 'span' next to the checkbox to get its text content.
-            placeholder.textContent = selectedCheckboxes[0].nextElementSibling.textContent;
-            placeholder.style.opacity = '1'; // Make it look like selected text
-        } else {
-            // If multiple items are selected, show a summary.
-            const currentLang = document.documentElement.lang;
-            if (currentLang === 'es') {
-                placeholder.textContent = `${selectedCheckboxes.length} talleres seleccionados`;
-            } else {
-                placeholder.textContent = `${selectedCheckboxes.length} tallers seleccionats`;
-            }
-            placeholder.style.opacity = '1';
-        }
+    if (selectedCount === 0) {
+        const key = placeholder.getAttribute('data-i18n');
+        const text = getTranslation(lang, key);
+        if (text) placeholder.textContent = text;
     }
-    // --- NAVIGATION LOGIC ---
+}
 
-    // Get references to the navigation bar and the hamburger menu button.
+/**
+ * Update hamburger menu aria-label based on language
+ */
+function updateHamburgerLabel(lang) {
+    const hamburger = document.querySelector('.hamburger-menu');
+    if (!hamburger) return;
+
+    const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+    const key = isOpen ? 'nav.closeMenu' : 'nav.openMenu';
+    const label = getTranslation(lang, key);
+    if (label) hamburger.setAttribute('aria-label', label);
+}
+
+// =================== INITIALIZATION ===================
+
+document.addEventListener('DOMContentLoaded', async () => {
+    // Load translations first
+    await loadTranslations();
+
+    // Get initial language and apply
+    const lang = getInitialLanguage();
+    applyTranslations(lang);
+
+    // ============ LANGUAGE SWITCHING ============
+    document.querySelectorAll('.lang-switcher-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const selectedLang = btn.getAttribute('data-lang');
+            applyTranslations(selectedLang);
+        });
+    });
+
+    // ============ NAVIGATION ============
+
     const nav = document.querySelector('.site-nav');
     const hamburger = document.querySelector('.hamburger-menu');
     const navMenu = document.querySelector('.nav-menu');
 
-    // --- 1. Scroll Effect ---
-    // This function handles adding/removing the 'scrolled' class to the nav.
+    // Scroll effect
     const handleScroll = () => {
-        // Check if the user has scrolled more than 50 pixels down the page.
         if (window.scrollY > 50) {
-            // If so, add the 'scrolled' class.
             nav.classList.add('scrolled');
         } else {
-            // Otherwise, remove it.
             nav.classList.remove('scrolled');
         }
     };
-
-    // Add an event listener to the window to detect when the user scrolls.
     window.addEventListener('scroll', handleScroll);
 
+    // Mobile hamburger menu
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('is-active');
+            navMenu.classList.toggle('is-active');
 
-    // --- 2. Mobile Hamburger Menu ---
-    // Add an event listener to the hamburger button for click events.
-    hamburger.addEventListener('click', () => {
-        // Toggle the 'is-active' class on both the hamburger and the menu itself.
-        hamburger.classList.toggle('is-active');
-        navMenu.classList.toggle('is-active');
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
 
-        // Update the aria-expanded attribute for accessibility.
-        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-        hamburger.setAttribute('aria-expanded', !isExpanded);
-    });
+            // Update label
+            updateHamburgerLabel(currentLanguage);
+        });
+    }
 
-    // --- SCROLL TO TOP BUTTON LOGIC ---
+    // ============ SCROLL TO TOP BUTTON ============
 
-    // Get a reference to the button from the HTML.
     const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
-    
-    // Check if the button actually exists on the page before adding listeners.
     if (scrollToTopBtn) {
-        
-        // This function adds/removes the 'is-visible' class based on scroll position.
         const toggleVisibility = () => {
-            // We'll show the button after the user scrolls down 400 pixels.
             if (window.scrollY > 400) {
                 scrollToTopBtn.classList.add('is-visible');
             } else {
@@ -261,54 +288,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // This function scrolls the page smoothly to the top when the button is clicked.
         const scrollToTop = () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth' // This is what makes the scrolling smooth!
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         };
 
-        // Add the event listeners.
         window.addEventListener('scroll', toggleVisibility);
         scrollToTopBtn.addEventListener('click', scrollToTop);
     }
-    // Seleccionem tots els elements que són capçaleres de l'acordió.
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
 
-    // Recorrem cada capçalera per afegir-li un esdeveniment de clic.
+    // ============ ACCORDION ============
+
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
     accordionHeaders.forEach(header => {
         header.addEventListener('click', () => {
-            // Trobem l'element pare de la capçalera (l'ítem sencer de l'acordió).
             const accordionItem = header.parentElement;
-            
-            // Comprovem si l'ítem clicat ja estava obert.
             const isActive = accordionItem.classList.contains('is-active');
 
-            // --- Opcional: Tancar tots els altres ítems ---
-            // Si vols que només es pugui obrir un ítem a la vegada, descomenta aquest bloc.
-            // document.querySelectorAll('.accordion-item').forEach(item => {
-            //     item.classList.remove('is-active');
-            //     item.querySelector('.accordion-content').style.maxHeight = '0px';
-            // });
-            // ---------------------------------------------
-
-            // Si l'ítem NO estava actiu, l'obrim. Si sí que ho estava, el tanquem.
             if (!isActive) {
                 accordionItem.classList.add('is-active');
                 const content = accordionItem.querySelector('.accordion-content');
-                // Calculem l'alçada real del contingut i l'apliquem com a max-height per a l'animació.
                 content.style.maxHeight = content.scrollHeight + 'px';
+
+                // Set aria-expanded
+                header.setAttribute('aria-expanded', 'true');
             } else {
                 accordionItem.classList.remove('is-active');
                 accordionItem.querySelector('.accordion-content').style.maxHeight = '0px';
+
+                // Set aria-expanded
+                header.setAttribute('aria-expanded', 'false');
             }
         });
     });
-    
-    // --- LÒGICA PER A LES TARGETES DESPLEGABLES I CARRUSELS DE TALLERS ---
+
+    // ============ WORKSHOP CARDS ============
+
     const setupCarousel = (carousel) => {
-        // Si ja està inicialitzat, no fem res.
         if (carousel.dataset.initialized === 'true') return;
 
         const track = carousel.querySelector('.carousel-track');
@@ -316,17 +331,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const nextButton = carousel.querySelector('.carousel-button--right');
         const prevButton = carousel.querySelector('.carousel-button--left');
 
-        // Si només hi ha una imatge, amaguem els botons.
         if (slides.length <= 1) {
-            if(nextButton) nextButton.style.display = 'none';
-            if(prevButton) prevButton.style.display = 'none';
+            if (nextButton) nextButton.style.display = 'none';
+            if (prevButton) prevButton.style.display = 'none';
             return;
         }
 
         let currentIndex = 0;
         let isAnimating = false;
 
-        // Funció per actualitzar la posició del carrusel.
         const updateCarousel = () => {
             const slideWidth = slides[0].getBoundingClientRect().width;
             track.style.transition = 'transform 0.4s ease-in-out';
@@ -335,12 +348,10 @@ document.addEventListener('DOMContentLoaded', () => {
             nextButton.classList.toggle('is-hidden', currentIndex === slides.length - 1);
         };
 
-        // Listen for transition end to unlock animation
         track.addEventListener('transitionend', () => {
             isAnimating = false;
         });
 
-        // Esdeveniments dels botons.
         nextButton.addEventListener('click', () => {
             if (isAnimating) return;
             if (currentIndex < slides.length - 1) {
@@ -359,13 +370,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Guardem la funció d'actualització per poder-la cridar des de fora (en canviar la mida).
         carousel.updateDimensions = updateCarousel;
         carousel.dataset.initialized = 'true';
-        updateCarousel(); // Crida inicial per posicionar-lo correctament.
+        updateCarousel();
     };
 
-    // Lògica principal per obrir/tancar les targetes.
     const tallerCardHeaders = document.querySelectorAll('.taller-card-header');
     tallerCardHeaders.forEach(header => {
         header.addEventListener('click', () => {
@@ -379,8 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 hiddenContent.style.maxHeight = hiddenContent.scrollHeight + 'px';
                 const carousel = card.querySelector('.taller-carousel');
                 if (carousel) {
-                    // Esperem un instant perquè l'animació d'obertura acabi abans d'activar el carrusel.
-                    setTimeout(() => setupCarousel(carousel), 50); 
+                    setTimeout(() => setupCarousel(carousel), 50);
                 }
             } else {
                 hiddenContent.style.maxHeight = null;
@@ -388,21 +396,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- ESCOLTADOR PER AL CANVI DE MIDA (RESIZE) ---
+    // Resize handler for workshop cards
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
-            // Recalculem l'alçada de totes les targetes obertes.
             document.querySelectorAll('.taller-card.is-open').forEach(card => {
                 const hiddenContent = card.querySelector('.taller-card-hidden');
                 if (hiddenContent) {
-                    // Primer resetegem l'alçada per obtenir el nou 'scrollHeight' correcte.
                     hiddenContent.style.maxHeight = 'none';
-                    // Després, en el següent fotograma, apliquem la nova alçada.
                     requestAnimationFrame(() => {
                         hiddenContent.style.maxHeight = hiddenContent.scrollHeight + 'px';
-                        // Actualitzem les dimensions del carrusel si existeix.
                         const carousel = card.querySelector('.taller-carousel');
                         if (carousel && carousel.dataset.initialized === 'true') {
                             carousel.updateDimensions();
@@ -412,8 +416,62 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, 250);
     });
-    
-    // --- LÒGICA PER AL CARRUSEL DE TESTIMONIS AMB BUCLE INFINIT ---
+
+    // ============ MULTI-SELECT DROPDOWN ============
+
+    const multiselect = document.getElementById('workshops-multiselect');
+    if (multiselect) {
+        const display = multiselect.querySelector('.multiselect-display');
+        const placeholder = multiselect.querySelector('.multiselect-placeholder');
+        const optionsContainer = multiselect.querySelector('.multiselect-options');
+        const checkboxes = optionsContainer.querySelectorAll('input[type="checkbox"]');
+        const hiddenInput = document.getElementById('selected-workshops-input');
+
+        // Toggle dropdown
+        display.addEventListener('click', () => {
+            multiselect.classList.toggle('active');
+            display.classList.toggle('active');
+        });
+
+        // Close dropdown on outside click
+        document.addEventListener('click', (e) => {
+            if (!multiselect.contains(e.target)) {
+                multiselect.classList.remove('active');
+                display.classList.remove('active');
+            }
+        });
+
+        // Update multiselect state
+        function updateMultiselectState() {
+            const selectedCheckboxes = Array.from(checkboxes).filter(cb => cb.checked);
+            const selectedValues = selectedCheckboxes.map(cb => cb.value);
+
+            hiddenInput.value = selectedValues.join(', ');
+
+            if (selectedCheckboxes.length === 0) {
+                const key = placeholder.getAttribute('data-i18n');
+                const text = getTranslation(currentLanguage, key);
+                placeholder.textContent = text || 'Select...';
+                placeholder.style.opacity = '0.7';
+            } else if (selectedCheckboxes.length === 1) {
+                placeholder.textContent = selectedCheckboxes[0].nextElementSibling.textContent;
+                placeholder.style.opacity = '1';
+            } else {
+                const key = 'form.selected';
+                let countText = getTranslation(currentLanguage, key) || '{n} selected';
+                countText = countText.replace('{n}', selectedCheckboxes.length);
+                placeholder.textContent = countText;
+                placeholder.style.opacity = '1';
+            }
+        }
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateMultiselectState);
+        });
+    }
+
+    // ============ TESTIMONIAL CAROUSEL ============
+
     const testimonialCarousel = document.querySelector('.testimonial-carousel');
     if (testimonialCarousel) {
         const track = testimonialCarousel.querySelector('.testimonial-track');
@@ -424,20 +482,19 @@ document.addEventListener('DOMContentLoaded', () => {
         let autoplayInterval;
         let isTransitioning = false;
 
-        // Clonem els slides per a l'efecte de bucle
+        // Clone slides for loop effect
         const clones = slides.map(slide => slide.cloneNode(true));
         clones.forEach(clone => track.appendChild(clone));
 
         const allSlides = Array.from(track.children);
 
         const updateCarousel = (withTransition = true) => {
-            const cardWidth = slides[0].offsetWidth + 20; // Amplada + marges
+            const cardWidth = slides[0].offsetWidth + 20;
             if (!withTransition) {
                 track.style.transition = 'none';
             }
             track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
             if (!withTransition) {
-                // Forcem el navegador a aplicar el canvi abans de reactivar la transició
                 setTimeout(() => {
                     track.style.transition = 'transform 0.5s ease-in-out';
                 }, 50);
@@ -479,13 +536,75 @@ document.addEventListener('DOMContentLoaded', () => {
             clearInterval(autoplayInterval);
         };
 
-        nextButton.addEventListener('click', moveToNext);
-        prevButton.addEventListener('click', moveToPrev);
+        if (nextButton && prevButton) {
+            nextButton.addEventListener('click', moveToNext);
+            prevButton.addEventListener('click', moveToPrev);
+        }
+
         testimonialCarousel.addEventListener('mouseenter', stopAutoplay);
         testimonialCarousel.addEventListener('mouseleave', startAutoplay);
-        
         window.addEventListener('resize', () => updateCarousel(false));
 
         startAutoplay();
+    }
+
+    // ============ CONTACT FORM - AJAX ============
+
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const formFeedback = document.querySelector('.form-feedback') ||
+                createFormFeedback();
+
+            // Disable button and show sending state
+            submitBtn.disabled = true;
+            const originalText = submitBtn.textContent;
+            const sendingText = getTranslation(currentLanguage, 'form.sending');
+            submitBtn.textContent = sendingText || 'Sending...';
+
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: formData
+                });
+
+                if (response.ok) {
+                    const successMsg = getTranslation(currentLanguage, 'form.success');
+                    formFeedback.textContent = successMsg || 'Message sent successfully!';
+                    formFeedback.className = 'form-feedback success';
+                    formFeedback.style.display = 'block';
+
+                    contactForm.reset();
+                    setTimeout(() => {
+                        formFeedback.style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                const errorMsg = getTranslation(currentLanguage, 'form.error');
+                formFeedback.textContent = errorMsg || 'Error sending message.';
+                formFeedback.className = 'form-feedback error';
+                formFeedback.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+    }
+
+    function createFormFeedback() {
+        const feedback = document.createElement('div');
+        feedback.className = 'form-feedback';
+        const form = document.querySelector('.contact-form');
+        if (form) {
+            form.insertAdjacentElement('beforebegin', feedback);
+        }
+        return feedback;
     }
 });

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/fitxers/
+
+Sitemap: https://aulasputnik.com/sitemap.xml

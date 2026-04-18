@@ -12,24 +12,41 @@
 
     <!-- Title tag: text for browser tab, bookmarks, and search results. -->
     <!-- data-lang-* attributes: used for language switching via JavaScript. -->
-    <title data-lang-ca="Tallers - AulaSPUTNIK" data-lang-es="Talleres - AulaSPUTNIK">Tallers - AulaSPUTNIK</title>
+    <title data-i18n="page.tallers">Tallers - AulaSPUTNIK</title>
 
     <!-- Favicon: small icon in browser tab. -->
     <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
 
     <!-- SEO Meta Tags: help search engines understand your page. -->
-    <!-- Description: short summary for search results. -->
-    <meta name="description" content="">
-    <!-- Keywords: relevant terms for search engines. -->
-    <meta name="keywords" content="">
+    <meta name="description" data-i18n="meta.tallers.description" content="Descobreix els nostres tallers educatius en ciència i tecnologia aeroespacial per a tots els nivells. Activitats interactives, pràctiques i innovadores.">
+    <meta name="keywords" content="tallers, educació, ciència, tecnologia, aeroespacial, STEAM, nens, joves">
+
+    <!-- Open Graph Tags (Social Media) -->
+    <meta property="og:title" data-i18n="page.tallers" content="Tallers - AulaSPUTNIK">
+    <meta property="og:description" data-i18n="meta.tallers.description" content="Descobreix els nostres tallers educatius en ciència i tecnologia aeroespacial per a tots els nivells.">
+    <meta property="og:image" content="https://aulasputnik.com/assets/images/og-tallers.png">
+    <meta property="og:url" content="https://aulasputnik.com/tallers.html">
+    <meta property="og:type" content="website">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://aulasputnik.com/tallers.html">
+
+    <!-- hreflang Alternates for Multi-Language -->
+    <link rel="alternate" hreflang="ca" href="https://aulasputnik.com/tallers.html">
+    <link rel="alternate" hreflang="es" href="https://aulasputnik.com/tallers.html">
+    <link rel="alternate" hreflang="en" href="https://aulasputnik.com/tallers.html">
+    <link rel="alternate" hreflang="x-default" href="https://aulasputnik.com/tallers.html">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#a15df6">
 
     <!-- Preconnect to Google Fonts for performance. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Import Google Fonts: Urbanist, Inter, Domine. -->
-    <!-- Variable font range (wght@300..900) for design flexibility. -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Urbanist:wght@300..900&family=Domine:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Import Google Fonts with specific weights for optimization. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Urbanist:wght@300;400;700;800;900&family=Domine:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Import Font Awesome for icons. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -48,21 +65,22 @@
                         <img src="assets/images/logo.svg" alt="AulaSputnik Logo">
                     </a>
                 </div>
-                <button class="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false">
+                <button class="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false" data-i18n-aria="nav.openMenu">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
                 </button>
                 <div class="nav-menu">
                     <ul class="nav-list">
-                        <li><a href="index.html" data-lang-ca="Inici" data-lang-es="Inicio">Inici</a></li>
-                        <li><a href="projectes.html" data-lang-ca="Projectes" data-lang-es="Proyectos">Projectes</a></li>
-                        <li><a href="equip.html" data-lang-ca="Equip" data-lang-es="Equipo">Equip</a></li>
-                        <li><a href="tallers.html" class="nav-button" data-lang-ca="Tallers" data-lang-es="Talleres">Tallers</a></li>
-                        <li><a href="#footer" class="nav-button nav-button-secondary" data-lang-ca="Contacte" data-lang-es="Contacto">Contacte</a></li>
+                        <li><a href="index.html" data-i18n="nav.home">Inici</a></li>
+                        <li><a href="projectes.html" data-i18n="nav.projects">Projectes</a></li>
+                        <li><a href="equip.html" data-i18n="nav.team">Equip</a></li>
+                        <li><a href="tallers.html" class="nav-button" data-i18n="nav.workshops">Tallers</a></li>
+                        <li><a href="#footer" class="nav-button nav-button-secondary" data-i18n="nav.contact">Contacte</a></li>
                         <li class="lang-switcher">
                             <button id="lang-ca-btn" class="lang-switcher-btn" data-lang="ca">CA</button>
                             <button id="lang-es-btn" class="lang-switcher-btn" data-lang="es">ES</button>
+                            <button id="lang-en-btn" class="lang-switcher-btn" data-lang="en">EN</button>
                         </li>
                     </ul>
                 </div>
@@ -76,16 +94,16 @@
             <!-- Container for all intro section content. -->
             <div class="intro-content">
                 <!-- Main page title. -->
-                <h1 class="page-title" data-lang-ca="Els Nostres Tallers" data-lang-es="Nuestros Talleres">Els Nostres Tallers</h1>
-                
+                <h1 class="page-title" data-i18n="workshop.title">Els Nostres Tallers</h1>
+
                 <!-- Introductory paragraphs. -->
-                <p class="lead-paragraph" data-lang-ca="Els recursos educatius desenvolupats per la realització dels tallers són un referent en l’àmbit educatiu i d’alt valor innovador." data-lang-es="Los recursos educativos desarrollados para la realización de los talleres son un referente en el ámbito educativo y de alto valor innovador.">Els recursos educatius desenvolupats per la realització dels tallers són un referent en l’àmbit educatiu i d’alt valor innovador.</p>
-                <p class="lead-paragraph" data-lang-ca="AulaSputnik ofereix l’oportunitat d’endinsar-se en unes temàtiques innovadores i que permeten obrir noves capacitats i punts de vista a totes les persones realitzant diferents activitats i projectes." data-lang-es="AulaSputnik ofrece la oportunidad de adentrarse en unas temáticas innovadoras y que permiten abrir nuevas capacities y puntos de vista a todas les persones realitzant diferents activitats i projectes." data-lang-en="AulaSputnik offers the opportunity to delve into innovative themes that open up new skills and perspectives for all individuals through various activities and projects.">AulaSputnik ofereix l’oportunitat d’endinsar-se en unes temàtiques innovadores i que permeten obrir noves capacitats i punts de vista a totes les persones realitzant diferents activitats i projectes.</p>
+                <p class="lead-paragraph" data-i18n="workshop.intro1">Els recursos educatius desenvolupats per la realització dels tallers són un referent en l’àmbit educatiu i d’alt valor innovador.</p>
+                <p class="lead-paragraph" data-i18n="workshop.intro2">AulaSputnik ofereix l’oportunitat d’endinsar-se en unes temàtiques innovadores i que permeten obrir noves capacitats i punts de vista a totes les persones realitzant diferents activitats i projectes.</p>
 
                 <!-- Subtitle for methodology section. -->
-                <h2 class="section-subtitle" data-lang-ca="Metodologia" data-lang-es="Metodología">Metodologia</h2>
-                <p class="lead-paragraph" data-lang-ca="Les sessions dels tallers es basen en una estructura on s’<strong>INTRODUEIX</strong> el <strong>REPTE</strong> per arribar a una <strong>CONCLUSIÓ</strong>." data-lang-es="Las sesiones de los talleres se basan en una estructura donde se <strong>INTRODUCE</strong> el <strong>RETO</strong> para llegar a una <strong>CONCLUSIÓN</strong>.">Les sessions dels tallers es basen en una estructura on s’<strong>INTRODUEIX</strong> el <strong>REPTE</strong> per arribar a una <strong>CONCLUSIÓ</strong>.</p>
-                <p class="lead-paragraph" data-lang-ca="Les sessions són d’<strong>1 HORA I MITJA</strong> per a <strong>grups de 15/25 persones</strong>. Inclou un dossier per als participants i per al professorat." data-lang-es="Las sesiones son de <strong>1 HORA Y MEDIA</strong> para grupos de 15/25 personas. Incluye un dosier para los participants i per al professorat.">Les sessions són d’1 HORA I MITJA per a grups de 15/25 persones. Inclou un dossier per als participants i per al professorat.</p>
+                <h2 class="section-subtitle" data-i18n="workshop.methodology">Metodologia</h2>
+                <p class="lead-paragraph" data-i18n="workshop.methodology1">Les sessions dels tallers es basen en una estructura on s’<strong>INTRODUEIX</strong> el <strong>REPTE</strong> per arribar a una <strong>CONCLUSIÓ</strong>.</p>
+                <p class="lead-paragraph" data-i18n="workshop.methodology2">Les sessions són d’<strong>1 HORA I MITJA</strong> per a <strong>grups de 15/25 persones</strong>. Inclou un dossier per als participants i per al professorat.</p>
             </div>
 
         </div>
@@ -104,13 +122,8 @@
                 <div class="taller-card-header">
                     <div class="taller-icon"><img src="assets/images/tallers/taller1/taller1_icon.png" alt="Taller icona 1"></div>
                     <div class="taller-main-info">
-                        <h3 class="taller-title" 
-                            data-lang-ca="Ajudem al nostre planeta a través dels nanosatèl·lits" 
-                            data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites">
-                            Ajudem al nostre planeta a través dels nanosatèl·lits</h3>
-                        <div class="taller-tags" 
-                            data-lang-ca="<span>canvi climàtic</span><span>satèl·lits</span><span>treball en grup</span><span>creativitat</span>" 
-                            data-lang-es="<span>cambio climático</span><span>satélites</span><span>trabajo en grupo</span><span>creatividad</span>">
+                        <h3 class="taller-title" data-i18n="workshop.1.title">Ajudem al nostre planeta a través dels nanosatèl·lits</h3>
+                        <div class="taller-tags" data-i18n="workshop.1.tags">
                             <span>canvi climàtic</span><span>satèl·lits</span><span>treball en grup</span><span>creativitat</span>
                         </div>
                     </div>
@@ -122,67 +135,36 @@
                         <!-- Detailed content in two columns. -->
                         <div class="taller-details-grid">
                             <div class="taller-details-main">
-                                <h4 data-lang-ca="Resum" data-lang-es="Resumen">Resum</h4>
-                                <p data-lang-ca="L’objectiu principal d’aquest taller és explicar què són els satèl·lits i els principis bàsics d’aquesta tecnologia, per entendre com ens poden ajudar a millorar el nostre planeta Terra." 
-                                    data-lang-es="El objetivo principal de este taller es explicar qué son los satélites y los principios básicos de esta tecnología, para entender cómo nos pueden ayudar a mejorar nuestro planeta Tierra.">
-                                    L’objectiu principal d’aquest taller és explicar què són els satèl·lits i els principis bàsics d’aquesta tecnologia, per entendre com ens poden ajudar a millorar el nostre planeta Terra.</p>
-                                <p data-lang-ca="Seguidament, a través d’un repte per grups, l’alumnat ha de dissenyar un satèl·lit, construir una maqueta amb un kit bàsic i realitzar una presentació de la seva idea de projecte. El propòsit d’aquest satèl·lit ha de ser oferir un servei que ajudi a la nostra societat a reduir l’impacte del canvi climàtic. Per tant, l’alumnat haurà de despertar la seva creativitat i capacitat de trobar solucions a diferents reptes socials." 
-                                    data-lang-es="Seguidamente, a través de un reto por grupos, el alumnado tiene que diseñar un satélite, construir una maqueta con un kit básico y realizar una presentación de su idea de proyecto. El propósito de este satélite tiene que ser ofrecer un servicio que ayude a nuestra sociedad a reducir el impacto del cambio climático. Por lo tanto, el alumnado tendrá que despertar su creatividad y capacidad de encontrar soluciones en diferentes retos sociales.">
-                                    Seguidament, a través d’un repte per grups, l’alumnat ha de dissenyar un satèl·lit, construir una maqueta amb un kit bàsic i realitzar una presentació de la seva idea de projecte. El propòsit d’aquest satèl·lit ha de ser oferir un servei que ajudi a la nostra societat a reduir l’impacte del canvi climàtic. Per tant, l’alumnat haurà de despertar la seva creativitat i capacitat de trobar solucions a diferents reptes socials.</p>
-                                <h4 data-lang-ca="L’alumnat aprendrà…" data-lang-es="El alumnado aprenderá…">L’alumnat aprendrà…</h4>
+                                <h4 data-i18n="workshop.1.summary">Resum</h4>
+                                <p data-i18n="workshop.1.description1">L’objectiu principal d’aquest taller és explicar què són els satèl·lits i els principis bàsics d’aquesta tecnologia, per entendre com ens poden ajudar a millorar el nostre planeta Terra.</p>
+                                <p data-i18n="workshop.1.description2">Seguidament, a través d’un repte per grups, l’alumnat ha de dissenyar un satèl·lit, construir una maqueta amb un kit bàsic i realitzar una presentació de la seva idea de projecte. El propòsit d’aquest satèl·lit ha de ser oferir un servei que ajudi a la nostra societat a reduir l’impacte del canvi climàtic. Per tant, l’alumnat haurà de despertar la seva creativitat i capacitat de trobar solucions a diferents reptes socials.</p>
+                                <h4 data-i18n="workshop.commonLearning">L’alumnat aprendrà…</h4>
                                 <ul>
-                                    <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Les fases d’una missió espacial: disseny, construcció i llançament dels satèl·lits." 
-                                        data-lang-es="Las fases de una misión espacial: diseño, construcción y lanzamiento de los satélites.">
-                                        Les fases d’una missió espacial: disseny, construcció i llançament dels satèl·lits.</span></li>
-                                    <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="La valoració de l’impacte del desenvolupament tecnològic en les condicions de vida i en el treball." 
-                                        data-lang-es="La valoración del impacto del desarrollo tecnológico en las condiciones de vida y en el trabajo.">
-                                        La valoració de l’impacte del desenvolupament tecnològic en les condicions de vida i en el treball.</span></li>
-                                    <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Els avenços, productes i materials que intervenen en el progrés de la societat." 
-                                        data-lang-es="Los adelantos, productos y materiales que intervienen en el progreso de la sociedad.">
-                                        Els avenços, productes i materials que intervenen en el progrés de la societat.</span></li>
-                                    <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Consciència sobre els problemes socials rellevants." 
-                                        data-lang-es="Conciencia sobre los problemas sociales relevantes.">
-                                        Consciència sobre els problemes socials rellevants.</span></li>
+                                    <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span data-i18n="workshop.1.learning1">Les fases d’una missió espacial: disseny, construcció i llançament dels satèl·lits.</span></li>
+                                    <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span data-i18n="workshop.1.learning2">La valoració de l’impacte del desenvolupament tecnològic en les condicions de vida i en el treball.</span></li>
+                                    <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span data-i18n="workshop.1.learning3">Els avenços, productes i materials que intervenen en el progrés de la societat.</span></li>
+                                    <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span data-i18n="workshop.1.learning4">Consciència sobre els problemes socials rellevants.</span></li>
                                 </ul>
                             </div>
                             <div class="taller-details-sidebar">
-                                <h4 data-lang-ca="Característiques" data-lang-es="Características">Característiques</h4>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span 
-                                    data-lang-ca="<strong>Rang d’edat:</strong> 8 - 14 anys" 
-                                    data-lang-es="<strong>Rango de edad:</strong> 8 - 14 años">
-                                    <strong>Rang d’edat:</strong> 8 - 14 anys</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span 
-                                    data-lang-ca="<strong>Tipus:</strong> activitats en grup" 
-                                    data-lang-es="<strong>Tipo:</strong> actividades en grupo">
-                                    <strong>Tipus:</strong> activitats en grup</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span 
-                                    data-lang-ca="<strong>Complexitat:</strong> mitjana" 
-                                    data-lang-es="<strong>Complejidad:</strong> media">
-                                    <strong>Complexitat:</strong> mitjana</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span 
-                                    data-lang-ca="<strong>Durada:</strong> 1h 30min" 
-                                    data-lang-es="<strong>Duración:</strong> 1h 30min">
-                                    <strong>Durada:</strong> 1h 30min</span></div>
-                                <h4 data-lang-ca="Material Inclòs" data-lang-es="Material Incluido">Material Inclòs</h4>
-                                <p data-lang-ca="Material de construcció, llapis, gomes i dossier d’activitats." 
-                                    data-lang-es="Material de construcción, lápiz, gomas y dosier de actividades.">
-                                    Material de construcció, llapis, gomes i dossier d’activitats.</p>
+                                <h4 data-i18n="workshop.characteristics">Característiques</h4>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span data-i18n="workshop.1.ageRange"><strong>Rang d’edat:</strong> 8 - 14 anys</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span data-i18n="workshop.commonType"><strong>Tipus:</strong> activitats en grup</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span data-i18n="workshop.1.complexity"><strong>Complexitat:</strong> mitjana</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span data-i18n="workshop.1.duration"><strong>Durada:</strong> 1h 30min</span></div>
+                                <h4 data-i18n="workshop.materials">Material Inclòs</h4>
+                                <p data-i18n="workshop.1.materials">Material de construcció, llapis, gomes i dossier d’activitats.</p>
                                 <div class="taller-ods-section">
-                                <h4 data-lang-ca="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
+                                <h4 data-i18n="workshop.ods">Quins ODS treballarem?</h4>
                                 <div class="ods-images">
-                                    <!-- Use new attribute 'data-lang-ca-src' to switch image by language. -->
-                                    <img src="assets/images/ods/cat/9.jpg" alt="ODS 9" data-lang-ca-src="assets/images/ods/esp/9.png" data-lang-es-src="assets/images/ods/cat/9.jpg">
-                                    <img src="assets/images/ods/cat/13.jpg" alt="ODS 13" data-lang-ca-src="assets/images/ods/esp/13.png" data-lang-es-src="assets/images/ods/cat/13.jpg">
-                                </div>      
+                                    <img src="assets/images/ods/cat/9.jpg" alt="ODS 9" data-i18n-src-ca="assets/images/ods/cat/9.jpg" data-i18n-src-es="assets/images/ods/esp/9.png" data-i18n-src-en="assets/images/ods/eng/9.png">
+                                    <img src="assets/images/ods/cat/13.jpg" alt="ODS 13" data-i18n-src-ca="assets/images/ods/cat/13.jpg" data-i18n-src-es="assets/images/ods/esp/13.png" data-i18n-src-en="assets/images/ods/eng/13.png">
+                                </div>
                                 </div>
                             </div>
                         </div>
                         <div class="taller-cta-container">
-                            <a href="#footer" class="taller-cta-button" data-lang-ca="Sol·licita més informació" data-lang-es="Solicita más información">Sol·licita més informació</a>
+                            <a href="#footer" class="taller-cta-button" data-i18n="workshop.moreInfo">Sol·licita més informació</a>
                         </div>
                     </div>
                 </div>
@@ -196,11 +178,11 @@
                     <div class="taller-icon"><img src="assets/images/tallers/taller2/taller2_icon.png" alt="Taller icona 2"></div>
                     <div class="taller-main-info">
                         <h3 class="taller-title" 
-                            data-lang-ca="Explorem l'Espai amb AulaSPUTNIK" 
+                            data-i18n="Explorem l'Espai amb AulaSPUTNIK" 
                             data-lang-es="Exploramos el Espacio con AulaSPUTNIK">
                             Explorem l'Espai amb AulaSPUTNIK</h3>
                         <div class="taller-tags" 
-                            data-lang-ca="<span>coets</span><span>creativitat</span><span>exploració</span><span>treball en grup</span>" 
+                            data-i18n="<span>coets</span><span>creativitat</span><span>exploració</span><span>treball en grup</span>" 
                             data-lang-es="<span>cohetes</span><span>creatividad</span><span>exploración</span><span>trabajo en grupo</span>">
                             <span>coets</span><span>creativitat</span><span>exploració</span><span>treball en grup</span>
                         </div>
@@ -213,67 +195,65 @@
                         <!-- Detailed content in two columns. -->
                         <div class="taller-details-grid">
                             <div class="taller-details-main">
-                                <h4 data-lang-ca="Resum" data-lang-es="Resumen">Resum</h4>
-                                <p data-lang-ca="L’objectiu principal d’aquest taller és explicar que són els coets, com funcionen i perquè són tan importants per explorar l’espai i conèixer millor el que ens envolta." 
+                                <h4 data-i18n="Resum" data-lang-es="Resumen">Resum</h4>
+                                <p data-i18n="L’objectiu principal d’aquest taller és explicar que són els coets, com funcionen i perquè són tan importants per explorar l’espai i conèixer millor el que ens envolta." 
                                     data-lang-es="El objetivo principal de este taller es explicar que son los cohetes, como funcionan y porque son tan importantes para explorar el espacio y conocer mejor el que nos rodea.">
                                     L’objectiu principal d’aquest taller és explicar que són els coets, com funcionen i perquè són tan importants per explorar l’espai i conèixer millor el que ens envolta.</p>
-                                <p data-lang-ca="Seguidament, a través d’un repte per grups, se li plantejarà a l’alumnat unes hipòtesis amb l’objectiu de dissenyar i construir un coet de paper i la base de llançament. Hauran de coordinar-se i organitzar-se en rols i tasques. Després, es faran els llançaments d’aquests coets amb l’objectiu de respondre aquestes qüestions i recollir les dades de distància necessàries. A partir d’aquest exercici, cada equip reflexionarà les conclusions dels seus resultats i realitzarà una presentació del seu projecte." 
+                                <p data-i18n="Seguidament, a través d’un repte per grups, se li plantejarà a l’alumnat unes hipòtesis amb l’objectiu de dissenyar i construir un coet de paper i la base de llançament. Hauran de coordinar-se i organitzar-se en rols i tasques. Després, es faran els llançaments d’aquests coets amb l’objectiu de respondre aquestes qüestions i recollir les dades de distància necessàries. A partir d’aquest exercici, cada equip reflexionarà les conclusions dels seus resultats i realitzarà una presentació del seu projecte." 
                                     data-lang-es="Seguidamente, a través de un reto en grupos, el alumnado tiene que diseñar un satélite, construir una maqueta cono un kit básico y realizar una presentación de su idea de proyecto. El propósito de este satélite tiene que ser ofrecer un servicio que ayude a nuestra sociedad a reducir lo impacto del cambio climático. Miedo lo tanto, el alumnado tendrá que despertar su creatividad y capacidad de encontrar solucionas en diferentes retos sociales.">
                                     Seguidament, a través d’un repte per grups, se li plantejarà a l’alumnat unes hipòtesis amb l’objectiu de dissenyar i construir un coet de paper i la base de llançament. Hauran de coordinar-se i organitzar-se en rols i tasques. Després, es faran els llançaments d’aquests coets amb l’objectiu de respondre aquestes qüestions i recollir les dades de distància necessàries. A partir d’aquest exercici, cada equip reflexionarà les conclusions dels seus resultats i realitzarà una presentació del seu projecte.</p>
-                                <h4 data-lang-ca="L’alumnat aprendrà…" data-lang-es="El alumnado aprenderá…">L’alumnat aprendrà…</h4>
+                                <h4 data-i18n="L’alumnat aprendrà…" data-lang-es="El alumnado aprenderá…">L’alumnat aprendrà…</h4>
                                 <ul>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Anàlisis de la complexitat de sortir de l’atmosfera terrestre." 
+                                        data-i18n="Anàlisis de la complexitat de sortir de l’atmosfera terrestre." 
                                         data-lang-es="Análisis de la complejidad de salir de la atmósfera terrestre.">
                                         Anàlisis de la complexitat de sortir de l’atmosfera terrestre.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Capacitat crítica per avaluar i prendre decisions lògiques de forma imparcial i raonada." 
+                                        data-i18n="Capacitat crítica per avaluar i prendre decisions lògiques de forma imparcial i raonada." 
                                         data-lang-es="Capacidad crítica para evaluar y tomar decisiones lógicas de forma imparcial y razonada.">
                                         Capacitat crítica per avaluar i prendre decisions lògiques de forma imparcial i raonada.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Les fases d’una missió espacial: disseny, construcció i llançament dels coets." 
+                                        data-i18n="Les fases d’una missió espacial: disseny, construcció i llançament dels coets." 
                                         data-lang-es="Las fases de una misión espacial: diseño, construcción y lanzamiento de los cohetes.">
                                         Les fases d’una missió espacial: disseny, construcció i llançament dels coets.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Planificació i organització duent a terme un simulacre de missió espacial." 
+                                        data-i18n="Planificació i organització duent a terme un simulacre de missió espacial." 
                                         data-lang-es="Planificación y organización llevando a cabo un simulacro de misión espacial.">
                                         Planificació i organització duent a terme un simulacre de missió espacial.</span></li>
                                 </ul>
                             </div>
                             <div class="taller-details-sidebar">
-                                <h4 data-lang-ca="Característiques" data-lang-es="Características">Característiques</h4>
+                                <h4 data-i18n="Característiques" data-lang-es="Características">Característiques</h4>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span 
-                                    data-lang-ca="<strong>Rang d’edat:</strong> 8 - 14 anys" 
+                                    data-i18n="<strong>Rang d’edat:</strong> 8 - 14 anys" 
                                     data-lang-es="<strong>Rango de edad:</strong> 8 - 14 años">
                                     <strong>Rang d’edat:</strong> 8 - 14 anys</span></div>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span 
-                                    data-lang-ca="<strong>Tipus:</strong> activitats en grup" 
+                                    data-i18n="<strong>Tipus:</strong> activitats en grup" 
                                     data-lang-es="<strong>Tipo:</strong> actividades en grupo">
                                     <strong>Tipus:</strong> activitats en grup</span></div>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span 
-                                    data-lang-ca="<strong>Complexitat:</strong> mitjana" 
+                                    data-i18n="<strong>Complexitat:</strong> mitjana" 
                                     data-lang-es="<strong>Complejidad:</strong> media">
                                     <strong>Complexitat:</strong> mitjana</span></div>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span 
-                                    data-lang-ca="<strong>Durada:</strong> 1h 30min" 
+                                    data-i18n="<strong>Durada:</strong> 1h 30min" 
                                     data-lang-es="<strong>Duración:</strong> 1h 30min">
                                     <strong>Durada:</strong> 1h 30min</span></div>
-                                <h4 data-lang-ca="Material Inclòs" data-lang-es="Material Incluido">Material Inclòs</h4>
-                                <p data-lang-ca="Dossier, llapis, gomes, tisores, cola, cinta adhesiva, ampolles de plàstic buides i peces impreses en 3D (PBLs)." 
+                                <h4 data-i18n="Material Inclòs" data-lang-es="Material Incluido">Material Inclòs</h4>
+                                <p data-i18n="Dossier, llapis, gomes, tisores, cola, cinta adhesiva, ampolles de plàstic buides i peces impreses en 3D (PBLs)." 
                                     data-lang-es="Dosier, lápiz, gomas, tijeras, cola, cinta adhesiva, botellas de plástico vacías y piezas impresas en 3D (PBLs).">
                                     Dossier, llapis, gomes, tisores, cola, cinta adhesiva, ampolles de plàstic buides i peces impreses en 3D (PBLs).</p>
                                 <div class="taller-ods-section">
-                                <h4 data-lang-ca="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
+                                <h4 data-i18n="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
                                 <div class="ods-images">
-                                    <!-- Use new attribute 'data-lang-ca-src' to switch image by language. -->
-                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-lang-ca-src="assets/images/ods/esp/4.png" data-lang-es-src="assets/images/ods/cat/4.jpg">
-                                    <img src="assets/images/ods/cat/9.jpg" alt="ODS 9" data-lang-ca-src="assets/images/ods/esp/9.png" data-lang-es-src="assets/images/ods/cat/9.jpg">
-                                </div>      
+                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-i18n-src-ca="assets/images/ods/cat/4.jpg" data-i18n-src-es="assets/images/ods/esp/4.png" data-i18n-src-en="assets/images/ods/eng/4.png">
+                                    <img src="assets/images/ods/cat/9.jpg" alt="ODS 9" data-i18n-src-ca="assets/images/ods/cat/9.jpg" data-i18n-src-es="assets/images/ods/esp/9.png" data-i18n-src-en="assets/images/ods/eng/9.png">
                                 </div>
                             </div>
                         </div>
                         <div class="taller-cta-container">
-                            <a href="#footer" class="taller-cta-button" data-lang-ca="Sol·licita més informació" data-lang-es="Solicita más información">Sol·licita més informació</a>
+                            <a href="#footer" class="taller-cta-button" data-i18n="workshop.moreInfo">Sol·licita més informació</a>
                         </div>
                     </div>
                 </div>
@@ -287,11 +267,11 @@
                     <div class="taller-icon"><img src="assets/images/tallers/taller3/taller3_icon.png" alt="Taller icona 3"></div>
                     <div class="taller-main-info">
                         <h3 class="taller-title" 
-                            data-lang-ca="La dona al sector aeroespacial" 
+                            data-i18n="La dona al sector aeroespacial" 
                             data-lang-es="La mujer en el sector aeroespacial">
                             La dona al sector aeroespacial</h3>
                         <div class="taller-tags" 
-                            data-lang-ca="<span>igualtat</span><span>dones</span><span>referents</span><span>coeducació</span><span>estereotips</span>" 
+                            data-i18n="<span>igualtat</span><span>dones</span><span>referents</span><span>coeducació</span><span>estereotips</span>" 
                             data-lang-es="<span>igualdad</span><span>mujeres</span><span>referentes</span><span>coeducación</span><span>estereotipos</span>">
                             <span>igualtat</span><span>dones</span><span>referents</span><span>coeducació</span><span>estereotips</span>
                         </div>
@@ -304,71 +284,71 @@
                         <!-- Detailed content in two columns. -->
                         <div class="taller-details-grid">
                             <div class="taller-details-main">
-                                <h4 data-lang-ca="Resum" data-lang-es="Resumen">Resum</h4>
-                                <p data-lang-ca="L’objectiu principal d’aquesta activitat és reflexionar sobre els estereotips dins les professions STEAM i donar visibilitat a la dona dins de la ciència i la tecnologia aeroespacial. El propòsit és inspirar i motivar a nenes a seguir els seus somnis i acompanyar els nens a trencar amb les seves creences limitants i fer-los partícips d’aquest missatge." 
+                                <h4 data-i18n="Resum" data-lang-es="Resumen">Resum</h4>
+                                <p data-i18n="L’objectiu principal d’aquesta activitat és reflexionar sobre els estereotips dins les professions STEAM i donar visibilitat a la dona dins de la ciència i la tecnologia aeroespacial. El propòsit és inspirar i motivar a nenes a seguir els seus somnis i acompanyar els nens a trencar amb les seves creences limitants i fer-los partícips d’aquest missatge." 
                                     data-lang-es="El objetivo principal de esta actividad es reflexionar sobre los estereotipos dentro de las profesiones STEAM y dar visibilidad a la mujer dentro de la ciencia y la tecnología aeroespacial. El propósito es inspirar y motivar a niñas a seguir sus sueños y acompañar los niños a romper con sus creencias limitantes y hacerlos partícipes de este mensaje.">
                                     L’objectiu principal d’aquesta activitat és reflexionar sobre els estereotips dins les professions STEAM i donar visibilitat a la dona dins de la ciència i la tecnologia aeroespacial. El propòsit és inspirar i motivar a nenes a seguir els seus somnis i acompanyar els nens a trencar amb les seves creences limitants i fer-los partícips d’aquest missatge.
-                                <p data-lang-ca="Es realitzaran dues activitats principals en aquest taller. La primera es centrarà a reflexionar i detectar conductes i prejudicis inconscients sobre el paper de la dona en el sector aeroespacial. La segona activitat es proposarà fer un joc de cartes per tal de conèixer la trajectòria i vida professional d’algunes dones importants del sector, i així, crear referents." 
+                                <p data-i18n="Es realitzaran dues activitats principals en aquest taller. La primera es centrarà a reflexionar i detectar conductes i prejudicis inconscients sobre el paper de la dona en el sector aeroespacial. La segona activitat es proposarà fer un joc de cartes per tal de conèixer la trajectòria i vida professional d’algunes dones importants del sector, i així, crear referents." 
                                     data-lang-es="Se realizarán dos actividades principales en este taller. La primera se centrará a reflexionar y detectar conductas y prejuicios inconscientes sobre el papel de la mujer en el sector aeroespacial. La segunda actividad se propondrá hacer un juego de cartas para conocer la trayectoria y vida profesional de algunas mujeres importantes del sector, y así, crear referentes.">
                                     Es realitzaran dues activitats principals en aquest taller. La primera es centrarà a reflexionar i detectar conductes i prejudicis inconscients sobre el paper de la dona en el sector aeroespacial. La segona activitat es proposarà fer un joc de cartes per tal de conèixer la trajectòria i vida professional d’algunes dones importants del sector, i així, crear referents.</p>
-                                <h4 data-lang-ca="L’alumnat aprendrà…" data-lang-es="El alumnado aprenderá…">L’alumnat aprendrà…</h4>
+                                <h4 data-i18n="L’alumnat aprendrà…" data-lang-es="El alumnado aprenderá…">L’alumnat aprendrà…</h4>
                                 <ul>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Identificació dels propis prejudicis i estereotips." 
+                                        data-i18n="Identificació dels propis prejudicis i estereotips." 
                                         data-lang-es="Identificación de los propios prejuicios y estereotipos.">
                                         Identificació dels propis prejudicis i estereotips.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Causes que provoquen situacions de marginació, discriminació i injustícia social en l’entorn local i en el món." 
+                                        data-i18n="Causes que provoquen situacions de marginació, discriminació i injustícia social en l’entorn local i en el món." 
                                         data-lang-es="Causas que provocan situaciones de marginación, discriminación e injusticia social en el entorno local y en el mundo.">
                                         Causes que provoquen situacions de marginació, discriminació i injustícia social en l’entorn local i en el món.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Valoració de la igualtat de drets d’homes i dones en qualsevol àmbit." 
+                                        data-i18n="Valoració de la igualtat de drets d’homes i dones en qualsevol àmbit." 
                                         data-lang-es="Valoración de la igualdad de derechos de hombres y mujeres en cualquier ámbito.">
                                         Valoració de la igualtat de drets d’homes i dones en qualsevol àmbit.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Reconeixement de les diferències per raó de naixement, raça, sexe, opinió o qualsevol altra condició o circumstància personal o social." 
+                                        data-i18n="Reconeixement de les diferències per raó de naixement, raça, sexe, opinió o qualsevol altra condició o circumstància personal o social." 
                                         data-lang-es="Reconocimiento de las diferencias por razón de nacimiento, raza, sexo, opinión o cualquier otra condición o circunstancia personal o social.">
                                         Reconeixement de les diferències per raó de naixement, raça, sexe, opinió o qualsevol altra condició o circumstància personal o social.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Consideració d’aquestes diferències com un element enriquidor de les relacions interpersonals." 
+                                        data-i18n="Consideració d’aquestes diferències com un element enriquidor de les relacions interpersonals." 
                                         data-lang-es="Consideración de estas diferencias como un elemento enriquecedor de las relaciones interpersonales.">
                                         Consideració d’aquestes diferències com un element enriquidor de les relacions interpersonals.</span></li>
                                     </ul>
                             </div>
                             <div class="taller-details-sidebar">
-                                <h4 data-lang-ca="Característiques" data-lang-es="Características">Característiques</h4>
+                                <h4 data-i18n="Característiques" data-lang-es="Características">Característiques</h4>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span 
-                                    data-lang-ca="<strong>Rang d’edat:</strong> 8 - 14 anys" 
+                                    data-i18n="<strong>Rang d’edat:</strong> 8 - 14 anys" 
                                     data-lang-es="<strong>Rango de edad:</strong> 8 - 14 años">
                                     <strong>Rang d’edat:</strong> 8 - 14 anys</span></div>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span 
-                                    data-lang-ca="<strong>Tipus:</strong> activitats en grup" 
+                                    data-i18n="<strong>Tipus:</strong> activitats en grup" 
                                     data-lang-es="<strong>Tipo:</strong> actividades en grupo">
                                     <strong>Tipus:</strong> activitats en grup</span></div>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span 
-                                    data-lang-ca="<strong>Complexitat:</strong> mitjana" 
+                                    data-i18n="<strong>Complexitat:</strong> mitjana" 
                                     data-lang-es="<strong>Complejidad:</strong> media">
                                     <strong>Complexitat:</strong> mitjana</span></div>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span 
-                                    data-lang-ca="<strong>Durada:</strong> 1h 30min" 
+                                    data-i18n="<strong>Durada:</strong> 1h 30min" 
                                     data-lang-es="<strong>Duración:</strong> 1h 30min">
                                     <strong>Durada:</strong> 1h 30min</span></div>
-                                <h4 data-lang-ca="Material Inclòs" data-lang-es="Material Incluido">Material Inclòs</h4>
-                                <p data-lang-ca="Cartolines, llapis, gomes, colors, i dossier d’activitats." 
+                                <h4 data-i18n="Material Inclòs" data-lang-es="Material Incluido">Material Inclòs</h4>
+                                <p data-i18n="Cartolines, llapis, gomes, colors, i dossier d’activitats." 
                                     data-lang-es="Cartulinas, lápices, gomas, colores, y dossier de actividades.">
                                     Cartolines, llapis, gomes, colors i dossier d’activitats.</p>
                                 <div class="taller-ods-section">
-                                <h4 data-lang-ca="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
+                                <h4 data-i18n="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
                                 <div class="ods-images">
                                     <!-- Utilitzem un nou atribut 'data-lang-ca-src' per canviar la imatge segons l'idioma. -->
-                                    <img src="assets/images/ods/cat/5.jpg" alt="ODS 5" data-lang-ca-src="assets/images/ods/esp/5.png" data-lang-es-src="assets/images/ods/cat/5.jpg">
-                                    <img src="assets/images/ods/cat/10.jpg" alt="ODS 10" data-lang-ca-src="assets/images/ods/esp/10.png" data-lang-es-src="assets/images/ods/cat/10.jpg">
+                                    <img src="assets/images/ods/cat/5.jpg" alt="ODS 5" data-i18n-src-ca="assets/images/ods/cat/5.jpg" data-i18n-src-es="assets/images/ods/esp/5.png" data-i18n-src-en="assets/images/ods/eng/5.png">
+                                    <img src="assets/images/ods/cat/10.jpg" alt="ODS 10" data-i18n-src-ca="assets/images/ods/cat/10.jpg" data-i18n-src-es="assets/images/ods/esp/10.png" data-i18n-src-en="assets/images/ods/eng/10.png">
                                 </div>      
                                 </div>
                             </div>
                         </div>
                         <div class="taller-cta-container">
-                            <a href="#footer" class="taller-cta-button" data-lang-ca="Sol·licita més informació" data-lang-es="Solicita más información">Sol·licita més informació</a>
+                            <a href="#footer" class="taller-cta-button" data-i18n="workshop.moreInfo">Sol·licita més informació</a>
                         </div>
                     </div>
                 </div>
@@ -383,11 +363,11 @@
                     <div class="taller-icon"><img src="assets/images/tallers/taller4/taller4_icon.png" alt="Taller icona 4"></div>
                     <div class="taller-main-info">
                         <h3 class="taller-title" 
-                            data-lang-ca="Les constel·lacions com a quadern vital" 
+                            data-i18n="Les constel·lacions com a quadern vital" 
                             data-lang-es="Las constelaciones como cuaderno vital">
                             Les constel·lacions com a quadern vital</h3>
                         <div class="taller-tags" 
-                            data-lang-ca="<span>constel·lacions</span><span>cel nocturn</span><span>creativitat</span><span>conte</span>" 
+                            data-i18n="<span>constel·lacions</span><span>cel nocturn</span><span>creativitat</span><span>conte</span>" 
                             data-lang-es="<span>constelaciones</span><span>cielo nocturno</span><span>creatividad</span><span>cuento</span>">
                             <span>constel·lacions</span><span>cel nocturn</span><span>creativitat</span><span>conte</span>
                         </div>
@@ -400,71 +380,71 @@
                         <!-- Contingut detallat de dues columnes -->
                         <div class="taller-details-grid">
                             <div class="taller-details-main">
-                                <h4 data-lang-ca="Resum" data-lang-es="Resumen">Resum</h4>
-                                <p data-lang-ca="L’objectiu principal d’aquesta activitat és entendre que el cel nocturn ha jugat i juga un paper clau en la vida humana, tant per a la comprensió del pas del temps, l’organització de l’activitat agrícola i la transmissió de coneixement." 
+                                <h4 data-i18n="Resum" data-lang-es="Resumen">Resum</h4>
+                                <p data-i18n="L’objectiu principal d’aquesta activitat és entendre que el cel nocturn ha jugat i juga un paper clau en la vida humana, tant per a la comprensió del pas del temps, l’organització de l’activitat agrícola i la transmissió de coneixement." 
                                     data-lang-es="El objetivo principal de esta actividad es entender que el cielo nocturno ha jugado y juega un papel clave en la vida humana, tanto para la comprensión del paso del tiempo, la organización de la actividad agrícola y la transmisión de conocimiento.">
                                     L'objectiu principal d’aquesta activitat és entendre que el cel nocturn ha jugat i juga un paper clau en la vida humana, tant per a la comprensió del pas del temps, l’organització de l’activitat agrícola i la transmissió de coneixement.</p>
-                                <p data-lang-ca="Depenent del cicle en què s'efectuï aquest taller, es realitzaran dues activitats principals o una. La primera se centra en la comprensió del cel nocturn com a suport de transmissió de coneixement a través d'un conte especialment preparat per al taller, a més de la posterior redacció d'una història pròpia. La segona activitat comporta la identificació de les constel·lacions treballades i la creació de la seva pròpia. D'aquesta manera, amb la combinació d'ambdues activitats podem adaptar-nos als requisits formatius de cada cicle al qual ens dirigim." 
+                                <p data-i18n="Depenent del cicle en què s'efectuï aquest taller, es realitzaran dues activitats principals o una. La primera se centra en la comprensió del cel nocturn com a suport de transmissió de coneixement a través d'un conte especialment preparat per al taller, a més de la posterior redacció d'una història pròpia. La segona activitat comporta la identificació de les constel·lacions treballades i la creació de la seva pròpia. D'aquesta manera, amb la combinació d'ambdues activitats podem adaptar-nos als requisits formatius de cada cicle al qual ens dirigim." 
                                     data-lang-es="Dependiendo del ciclo en el que se efectúe este taller se realizarán dos actividades principales o una. La primera sienta las bases y se centra en la comprensión del cielo nocturno como soporte de transmisión de conocimiento a través de un cuento especialmente preparado para el taller, además de la posterior redacción de una historia propia. La segunda actividad conlleva la identificación de las constelaciones trabajadas y la creación de la suya propia. De este modo, con la combinación de ambas actividades podemos adaptarnos a los requerimientos formativos de cada ciclo al que nos dirigimos.">
                                     Depenent del cicle en què s'efectuï aquest taller, es realitzaran dues activitats principals o una. La primera se centra en la comprensió del cel nocturn com a suport de transmissió de coneixement a través d'un conte especialment preparat per al taller, a més de la posterior redacció d'una història pròpia. La segona activitat comporta la identificació de les constel·lacions treballades i la creació de la seva pròpia. D'aquesta manera, amb la combinació d'ambdues activitats podem adaptar-nos als requisits formatius de cada cicle al qual ens dirigim.</p>
-                                <h4 data-lang-ca="L’alumnat aprendrà…" data-lang-es="El alumnado aprenderá…">L’alumnat aprendrà…</h4>
+                                <h4 data-i18n="L’alumnat aprendrà…" data-lang-es="El alumnado aprenderá…">L’alumnat aprendrà…</h4>
                                 <ul>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Identificació i ubicació de les constel·lacions més representatives del cel nocturn en el hemisferi nord." 
+                                        data-i18n="Identificació i ubicació de les constel·lacions més representatives del cel nocturn en el hemisferi nord." 
                                         data-lang-es="Identificación y ubicación de las constelaciones más representativas del cielo nocturno en el hemisferio norte.">
                                         Identificació i ubicació de les constel·lacions més representatives del cel nocturn en el hemisferi nord.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Àmbits de la vida humana per als quals s'ha utilitzat el cel nocturn com a guia." 
+                                        data-i18n="Àmbits de la vida humana per als quals s'ha utilitzat el cel nocturn com a guia." 
                                         data-lang-es="Ámbitos de la vida humana para los que se ha usado en cielo nocturno como guía.">
                                         Àmbits de la vida humana per als quals s'ha utilitzat el cel nocturn com a guia.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Evolució del cel nocturn a través dels mesos de l'any." 
+                                        data-i18n="Evolució del cel nocturn a través dels mesos de l'any." 
                                         data-lang-es="Evolución del cielo nocturno a lo largo de los meses del año.">
                                         Evolució del cel nocturn a través dels mesos de l'any.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Mètodes tradicionals de transmissió del coneixement." 
+                                        data-i18n="Mètodes tradicionals de transmissió del coneixement." 
                                         data-lang-es="Métodos tradicionales de transmisión del conocimiento.">
                                         Mètodes tradicionals de transmissió del coneixement.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Creativitat per elaborar les seves pròpies constel·lacions i assignar-los històries significatives." 
+                                        data-i18n="Creativitat per elaborar les seves pròpies constel·lacions i assignar-los històries significatives." 
                                         data-lang-es="Creatividad para elaborar sus propias constelaciones y asignarles historias significativas.">
                                         Creativitat per elaborar les seves pròpies constel·lacions i assignar-los històries significatives.</span></li>
                                 </ul>
                             </div>
                             <div class="taller-details-sidebar">
-                                <h4 data-lang-ca="Característiques" data-lang-es="Características">Característiques</h4>
+                                <h4 data-i18n="Característiques" data-lang-es="Características">Característiques</h4>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span 
-                                    data-lang-ca="<strong>Rang d’edat:</strong> 6 - 14 anys" 
+                                    data-i18n="<strong>Rang d’edat:</strong> 6 - 14 anys" 
                                     data-lang-es="<strong>Rango de edad:</strong> 6 - 14 años">
                                     <strong>Rang d’edat:</strong> 6 - 14 anys</span></div>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span 
-                                    data-lang-ca="<strong>Tipus:</strong> activitats en grup" 
+                                    data-i18n="<strong>Tipus:</strong> activitats en grup" 
                                     data-lang-es="<strong>Tipo:</strong> actividades en grupo">
                                     <strong>Tipus:</strong> activitats en grup</span></div>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span 
-                                    data-lang-ca="<strong>Complexitat:</strong> mitjana" 
+                                    data-i18n="<strong>Complexitat:</strong> mitjana" 
                                     data-lang-es="<strong>Complejidad:</strong> media">
                                     <strong>Complexitat:</strong> mitjana</span></div>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span 
-                                    data-lang-ca="<strong>Durada:</strong> 1h 30min" 
+                                    data-i18n="<strong>Durada:</strong> 1h 30min" 
                                     data-lang-es="<strong>Duración:</strong> 1h 30min">
                                     <strong>Durada:</strong> 1h 30min</span></div>
-                                <h4 data-lang-ca="Material Inclòs" data-lang-es="Material Incluido">Material Inclòs</h4>
-                                <p data-lang-ca="Llapis, gomes i colors, i dossier d’activitats." 
+                                <h4 data-i18n="Material Inclòs" data-lang-es="Material Incluido">Material Inclòs</h4>
+                                <p data-i18n="Llapis, gomes i colors, i dossier d’activitats." 
                                     data-lang-es="Lápices, gomas y colores, y dosier de actividades.">
                                     Llapis, gomes i colors, i dossier d’activitats.</p>
                                 <div class="taller-ods-section">
-                                <h4 data-lang-ca="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
+                                <h4 data-i18n="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
                                 <div class="ods-images">
                                     <!-- Utilitzem un nou atribut 'data-lang-ca-src' per canviar la imatge segons l'idioma. -->
-                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-lang-ca-src="assets/images/ods/esp/4.png" data-lang-es-src="assets/images/ods/cat/4.jpg">
-                                    <img src="assets/images/ods/cat/13.jpg" alt="ODS 9" data-lang-ca-src="assets/images/ods/esp/13.png" data-lang-es-src="assets/images/ods/cat/13.jpg">
-                                </div>      
+                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-i18n-src-ca="assets/images/ods/cat/4.jpg" data-i18n-src-es="assets/images/ods/esp/4.png" data-i18n-src-en="assets/images/ods/eng/4.png">
+                                    <img src="assets/images/ods/cat/13.jpg" alt="ODS 9" data-i18n-src-ca="assets/images/ods/cat/13.jpg" data-i18n-src-es="assets/images/ods/esp/13.png" data-i18n-src-en="assets/images/ods/eng/13.png">
+                                </div>
                                 </div>
                             </div>
                         </div>
                         <div class="taller-cta-container">
-                            <a href="#footer" class="taller-cta-button" data-lang-ca="Sol·licita més informació" data-lang-es="Solicita más información">Sol·licita més informació</a>
+                            <a href="#footer" class="taller-cta-button" data-i18n="workshop.moreInfo">Sol·licita més informació</a>
                         </div>
                     </div>
                 </div>
@@ -479,11 +459,11 @@
                     <div class="taller-icon"><img src="assets/images/tallers/taller5/taller5_icon.png" alt="Taller icona 5"></div>
                     <div class="taller-main-info">
                         <h3 class="taller-title" 
-                            data-lang-ca="La biologia en l'espai: Com són els aliens?" 
+                            data-i18n="La biologia en l'espai: Com són els aliens?" 
                             data-lang-es="La biología en el espacio: ¿Cómo son los aliens?">
                             La biologia en l'espai: Com són els aliens?</h3>
                         <div class="taller-tags" 
-                            data-lang-ca="<span>aliens</span><span>astrobiologia</span><span>treball en grup</span><span>evolució</span>" 
+                            data-i18n="<span>aliens</span><span>astrobiologia</span><span>treball en grup</span><span>evolució</span>" 
                             data-lang-es="<span>aliens</span><span>astrobiología</span><span>trabajo en grupo</span><span>evolución</span>">
                             <span>aliens</span><span>astrobiologia</span><span>treball en grup</span><span>evolució</span>
                         </div>
@@ -496,76 +476,76 @@
                         <!-- Contingut detallat de dues columnes -->
                         <div class="taller-details-grid">
                             <div class="taller-details-main">
-                                <h4 data-lang-ca="Resum" data-lang-es="Resumen">Resum</h4>
-                                <p data-lang-ca="L’objectiu principal d’aquesta activitat és explorar l'astrobiologia i comprendre com podria ser la vida en altres planetes en funció del seu entorn. A través d'una introducció teòrica i una activitat pràctica, els participants descobriran els conceptes clau de la cerca de vida extraterrestre i com les condicions ambientals determinen l'evolució dels éssers vius." 
+                                <h4 data-i18n="Resum" data-lang-es="Resumen">Resum</h4>
+                                <p data-i18n="L’objectiu principal d’aquesta activitat és explorar l'astrobiologia i comprendre com podria ser la vida en altres planetes en funció del seu entorn. A través d'una introducció teòrica i una activitat pràctica, els participants descobriran els conceptes clau de la cerca de vida extraterrestre i com les condicions ambientals determinen l'evolució dels éssers vius." 
                                     data-lang-es="El objetivo principal de esta actividad es explorar la astrobiología y comprender cómo podría ser la vida en otros planetas en función de su entorno. A través de una introducción teórica y una actividad práctica, los participantes descubrirán los conceptos clave de la búsqueda de vida extraterrestre y cómo las condiciones ambientales determinan la evolución de los seres vivos.">
                                     L'objectiu principal d’aquesta activitat és explorar l'astrobiologia i comprendre com podria ser la vida en altres planetes en funció del seu entorn. A través d'una introducció teòrica i una activitat pràctica, els participants descobriran els conceptes clau de la cerca de vida extraterrestre i com les condicions ambientals determinen l'evolució dels éssers vius.</p>
-                                <p data-lang-ca="El taller combina explicacions interactives sobre com busquem vida fora de la Terra i com es representen els alienígenes en la cultura popular, amb una dinàmica pràctica en la qual els alumnes treballaran en grups per imaginar i dissenyar un ésser alienígena basat en les característiques d'un planeta fictici. Aquesta estructura permet adaptar-se a diferents nivells educatius, fomentant el pensament crític, la creativitat i el treball en equip." 
+                                <p data-i18n="El taller combina explicacions interactives sobre com busquem vida fora de la Terra i com es representen els alienígenes en la cultura popular, amb una dinàmica pràctica en la qual els alumnes treballaran en grups per imaginar i dissenyar un ésser alienígena basat en les característiques d'un planeta fictici. Aquesta estructura permet adaptar-se a diferents nivells educatius, fomentant el pensament crític, la creativitat i el treball en equip." 
                                     data-lang-es="El taller combina explicaciones interactivas sobre cómo buscamos vida fuera de la Tierra y cómo se representan los alienígenas en la cultura popular, con una dinámica práctica en la que los alumnos trabajarán en grupos para imaginar y diseñar un ser alienígena basado en las características de un planeta ficticio. Esta estructura permite adaptarse a diferentes niveles educativos, fomentando el pensamiento crítico, la creatividad y el trabajo en equipo.">
                                     El taller combina explicacions interactives sobre com busquem vida fora de la Terra i com es representen els alienígenes en la cultura popular, amb una dinàmica pràctica en la qual els alumnes treballaran en grups per imaginar i dissenyar un ésser alienígena basat en les característiques d'un planeta fictici. Aquesta estructura permet adaptar-se a diferents nivells educatius, fomentant el pensament crític, la creativitat i el treball en equip.</p>
-                                <h4 data-lang-ca="L’alumnat aprendrà…" data-lang-es="El alumnado aprenderá…">L’alumnat aprendrà…</h4>
+                                <h4 data-i18n="L’alumnat aprendrà…" data-lang-es="El alumnado aprenderá…">L’alumnat aprendrà…</h4>
                                 <ul>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Els principis bàsics de l'astrobiologia i la seva relació amb la cerca de vida extraterrestre." 
+                                        data-i18n="Els principis bàsics de l'astrobiologia i la seva relació amb la cerca de vida extraterrestre." 
                                         data-lang-es="Los principios básicos de la astrobiología y su relación con la búsqueda de vida extraterrestre.">
                                         Els principis bàsics de l'astrobiologia i la seva relació amb la cerca de vida extraterrestre.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Els mètodes científics utilitzats per detectar vida en altres planetes." 
+                                        data-i18n="Els mètodes científics utilitzats per detectar vida en altres planetes." 
                                         data-lang-es="Los métodos científicos utilizados para detectar vida en otros planetas.">
                                         Els mètodes científics utilitzats per detectar vida en altres planetes.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="La influència de les condicions ambientals en l'evolució dels éssers vius." 
+                                        data-i18n="La influència de les condicions ambientals en l'evolució dels éssers vius." 
                                         data-lang-es="La influencia de las condiciones ambientales en la evolución de los seres vivos.">
                                         La influència de les condicions ambientals en l'evolució dels éssers vius.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Diferències entre la representació dels alienígenes en la cultura popular i les possibilitats científiques reals." 
+                                        data-i18n="Diferències entre la representació dels alienígenes en la cultura popular i les possibilitats científiques reals." 
                                         data-lang-es="Diferencias entre la representación de los alienígenas en la cultura popular y las posibilidades científicas reales.">
                                         Diferències entre la representació dels alienígenes en la cultura popular i les possibilitats científiques reals.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Treball en equip i creativitat per dissenyar un ésser alienígena adaptat a un entorn específic." 
+                                        data-i18n="Treball en equip i creativitat per dissenyar un ésser alienígena adaptat a un entorn específic." 
                                         data-lang-es="Trabajo en equipo y creatividad para diseñar un ser alienígena adaptado a un entorno específico.">
                                         Treball en equip i creativitat per dissenyar un ésser alienígena adaptat a un entorn específic.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Argumentació i justificació científica en la presentació de les seves propostes." 
+                                        data-i18n="Argumentació i justificació científica en la presentació de les seves propostes." 
                                         data-lang-es="Argumentación y justificación científica en la presentación de sus propuestas.">
                                         Argumentació i justificació científica en la presentació de les seves propostes.</span></li>
                                 </ul>
                             </div>
                             <div class="taller-details-sidebar">
-                                <h4 data-lang-ca="Característiques" data-lang-es="Características">Característiques</h4>
+                                <h4 data-i18n="Característiques" data-lang-es="Características">Característiques</h4>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span 
-                                    data-lang-ca="<strong>Rang d’edat:</strong> 9 - 16 anys" 
+                                    data-i18n="<strong>Rang d’edat:</strong> 9 - 16 anys" 
                                     data-lang-es="<strong>Rango de edad:</strong> 9 - 16 años">
                                     <strong>Rang d’edat:</strong> 9 - 16 anys</span></div>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span 
-                                    data-lang-ca="<strong>Tipus:</strong> activitats en grup" 
+                                    data-i18n="<strong>Tipus:</strong> activitats en grup" 
                                     data-lang-es="<strong>Tipo:</strong> actividades en grupo">
                                     <strong>Tipus:</strong> activitats en grup</span></div>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span 
-                                    data-lang-ca="<strong>Complexitat:</strong> mitjana" 
+                                    data-i18n="<strong>Complexitat:</strong> mitjana" 
                                     data-lang-es="<strong>Complejidad:</strong> media">
                                     <strong>Complexitat:</strong> mitjana</span></div>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span 
-                                    data-lang-ca="<strong>Durada:</strong> 1h 30min" 
+                                    data-i18n="<strong>Durada:</strong> 1h 30min" 
                                     data-lang-es="<strong>Duración:</strong> 1h 30min">
                                     <strong>Durada:</strong> 1h 30min</span></div>
-                                <h4 data-lang-ca="Material Inclòs" data-lang-es="Material Incluido">Material Inclòs</h4>
-                                <p data-lang-ca="Llapis i material per dibuixar, cartes dels planetes, i dossier d’activitats." 
+                                <h4 data-i18n="Material Inclòs" data-lang-es="Material Incluido">Material Inclòs</h4>
+                                <p data-i18n="Llapis i material per dibuixar, cartes dels planetes, i dossier d’activitats." 
                                     data-lang-es="Lápices y material para dibujar, cartas de los planetas, y dosier de actividades.">
                                     Llapis i material per dibuixar, cartes dels planetes, i dossier d’activitats.</p>
                                 <div class="taller-ods-section">
-                                <h4 data-lang-ca="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
+                                <h4 data-i18n="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
                                 <div class="ods-images">
                                     <!-- Utilitzem un nou atribut 'data-lang-ca-src' per canviar la imatge segons l'idioma. -->
-                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-lang-ca-src="assets/images/ods/esp/4.png" data-lang-es-src="assets/images/ods/cat/4.jpg">
-                                    <img src="assets/images/ods/cat/14.jpg" alt="ODS 14" data-lang-ca-src="assets/images/ods/esp/14.png" data-lang-es-src="assets/images/ods/cat/14.jpg">
-                                    <img src="assets/images/ods/cat/15.jpg" alt="ODS 15" data-lang-ca-src="assets/images/ods/esp/15.png" data-lang-es-src="assets/images/ods/cat/15.jpg">
+                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-i18n-src-ca="assets/images/ods/cat/4.jpg" data-i18n-src-es="assets/images/ods/esp/4.png" data-i18n-src-en="assets/images/ods/eng/4.png">
+                                    <img src="assets/images/ods/cat/14.jpg" alt="ODS 14" data-i18n-src-ca="assets/images/ods/cat/14.jpg" data-i18n-src-es="assets/images/ods/esp/14.png" data-i18n-src-en="assets/images/ods/eng/14.png">
+                                    <img src="assets/images/ods/cat/15.jpg" alt="ODS 15" data-i18n-src-ca="assets/images/ods/cat/15.jpg" data-i18n-src-es="assets/images/ods/esp/15.png" data-i18n-src-en="assets/images/ods/eng/15.png">
                                 </div>      
                                 </div>
                             </div>
                         </div>
                         <div class="taller-cta-container">
-                            <a href="#footer" class="taller-cta-button" data-lang-ca="Sol·licita més informació" data-lang-es="Solicita más información">Sol·licita més informació</a>
+                            <a href="#footer" class="taller-cta-button" data-i18n="workshop.moreInfo">Sol·licita més informació</a>
                         </div>
                     </div>
                 </div>
@@ -580,11 +560,11 @@
                     <div class="taller-icon"><img src="assets/images/tallers/taller6/taller6_icon.png" alt="Taller icona 6"></div>
                     <div class="taller-main-info">
                         <h3 class="taller-title" 
-                            data-lang-ca="Crea el teu propi sistema estel·lar!" 
+                            data-i18n="Crea el teu propi sistema estel·lar!" 
                             data-lang-es="¡Crea tu propio sistema estelar!">
                             Crea el teu propi sistema estel·lar!</h3>
                         <div class="taller-tags" 
-                            data-lang-ca="<span>univers</span><span>sistema solar</span><span>estacions</span><span>satèl·lits naturals</span>" 
+                            data-i18n="<span>univers</span><span>sistema solar</span><span>estacions</span><span>satèl·lits naturals</span>" 
                             data-lang-es="<span>universo</span><span>sistema solar</span><span>estaciones</span><span>satélites naturales</span>">
                             <span>univers</span><span>sistema solar</span><span>estacions</span><span>satèl·lits naturals</span>
                         </div>
@@ -597,84 +577,77 @@
                         <!-- Contingut detallat de dues columnes -->
                         <div class="taller-details-grid">
                             <div class="taller-details-main">
-                                <h4 data-lang-ca="Resum" data-lang-es="Resumen">Resum</h4>
-                                <p data-lang-ca="Basat en el currículum escolar de la assignatura de coneixement del medi, aquest taller suposa el reforç dels conceptes clau i aspectes més abstractes del temari." 
+                                <h4 data-i18n="Resum" data-lang-es="Resumen">Resum</h4>
+                                <p data-i18n="Basat en el currículum escolar de la assignatura de coneixement del medi, aquest taller suposa el reforç dels conceptes clau i aspectes més abstractes del temari." 
                                     data-lang-es="Basado en el currículum escolar de la asignatura de conocimiento del medio, este taller supone el refuerzo de los conceptos clave y aspectos más abstractos del temario.">
                                     Basat en el currículum escolar de la assignatura de coneixement del medi, aquest taller suposa el reforç dels conceptes clau i aspectes més abstractes del temari.</p>
-                                <p data-lang-ca="L'objectiu principal d'aquesta activitat és interioritzar conceptes com l'origen i el nostre lloc en l'univers, la nostra família dins del sistema solar, els moviments que realitza la Terra, les conseqüències d'aquests moviments, la dansa amb el nostre satèl·lit natural, la Lluna i els seus efectes, el per què dels climes i les estacions de la Terra i la conscienciació sobre la importància de cuidar el medi ambient."
+                                <p data-i18n="L'objectiu principal d'aquesta activitat és interioritzar conceptes com l'origen i el nostre lloc en l'univers, la nostra família dins del sistema solar, els moviments que realitza la Terra, les conseqüències d'aquests moviments, la dansa amb el nostre satèl·lit natural, la Lluna i els seus efectes, el per què dels climes i les estacions de la Terra i la conscienciació sobre la importància de cuidar el medi ambient."
                                     data-lang-es="El objetivo principal de esta actividad es interiorizar conceptos como el origen y nuestro lugar en el universo, nuestra familia dentro del sistema solar, los movimientos que realiza la Tierra, las consecuencias de estos movimientos, la danza con nuestro satélite natural, la Luna y sus efectos, el por qué de los climas y las estaciones de la Tierra y la concienciación sobre la importancia de cuidar el medio ambiente.">
                                     L'objectiu principal d'aquesta activitat és interioritzar conceptes com l'origen i el nostre lloc en l'univers, la nostra família dins del sistema solar, els moviments que realitza la Terra, les conseqüències d'aquests moviments, la dansa amb el nostre satèl·lit natural, la Lluna i els seus efectes, el per què dels climes i les estacions de la Terra i la conscienciació sobre la importància de cuidar el medi ambient.</p>
-                                 <p data-lang-ca="Mitjançant el plantejament d'un escenari on els i les alumnes són els primers exploradors d'un nou sistema estel·lar molt similar al nostre sistema solar, es divideix la classe en equips que hauran d'identificar amb sentit totes les variables del sistema i del planeta amb més probabilitats d'albergar vida."
+                                 <p data-i18n="Mitjançant el plantejament d'un escenari on els i les alumnes són els primers exploradors d'un nou sistema estel·lar molt similar al nostre sistema solar, es divideix la classe en equips que hauran d'identificar amb sentit totes les variables del sistema i del planeta amb més probabilitats d'albergar vida."
                                     data-lang-es="Mediante el planteamiento de un escenario donde los y las alumnas son los primeros exploradores de un nuevo sistema estelar muy similar a nuestro sistema solar se divide la clase en equipos que deberán identificar con sentido todas las variables del sistema y del planeta con más probabilidades de albergar vida.">
                                     Mitjançant el plantejament d'un escenari on els i les alumnes són els primers exploradors d'un nou sistema estel·lar molt similar al nostre sistema solar, es divideix la classe en equips que hauran d'identificar amb sentit totes les variables del sistema i del planeta amb més probabilitats d'albergar vida.</p>
-                                <h4 data-lang-ca="L’alumnat aprendrà…" data-lang-es="El alumnado aprenderá…">L’alumnat aprendrà…</h4>
+                                <h4 data-i18n="L’alumnat aprendrà…" data-lang-es="El alumnado aprenderá…">L’alumnat aprendrà…</h4>
                                 <ul>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="L'origen de l'univers." 
+                                        data-i18n="L'origen de l'univers." 
                                         data-lang-es="El  origen del universo.">
                                         L'origen de l'univers.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Tipus de cossos que podem trobar a l'espai." 
+                                        data-i18n="Tipus de cossos que podem trobar a l'espai." 
                                         data-lang-es="Tipos de cuerpos que podemos encontrar en el espacio.">
                                         Tipus de cossos que podem trobar a l'espai.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="El nostre lloc a l'univers, la Via Làctia i el Sistema Solar." 
+                                        data-i18n="El nostre lloc a l'univers, la Via Làctia i el Sistema Solar." 
                                         data-lang-es="Nuestro lugar en el universo, la Vía Láctea y el Sistema Solar.">
                                         El nostre lloc a l'univers, la Via Làctia i el Sistema Solar.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Moviments de la Terra i els seus efectes sobre nosaltres." 
+                                        data-i18n="Moviments de la Terra i els seus efectes sobre nosaltres." 
                                         data-lang-es="Movimientos de la Tierra y sus consecuencias.">
                                         Moviments de la Terra i els seus efectes sobre nosaltres.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="La Lluna, el nostre satèl·lit natural i els seus efectes sobre nosaltres." 
+                                        data-i18n="La Lluna, el nostre satèl·lit natural i els seus efectes sobre nosaltres." 
                                         data-lang-es="La Luna, nuestro satélite natural y sus efectos sobre nosotros.">
                                         La Lluna, el nostre satèl·lit natural i els seus efectes sobre nosaltres.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Climes i estacions terrestres." 
+                                        data-i18n="Climes i estacions terrestres." 
                                         data-lang-es="Climas y estaciones terrestres.">
                                         Climes i estacions terrestres.</span></li>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                        data-lang-ca="Consciència mediambiental." 
+                                        data-i18n="Consciència mediambiental." 
                                         data-lang-es="Conciencia medioambiental.">
                                         Consciència mediambiental.</span></li>
                                 </ul>
                             </div>
                             <div class="taller-details-sidebar">
-                                <h4 data-lang-ca="Característiques" data-lang-es="Características">Característiques</h4>
+                                <h4 data-i18n="Característiques" data-lang-es="Características">Característiques</h4>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span 
-                                    data-lang-ca="<strong>Rang d’edat:</strong> 11 - 14 anys" 
+                                    data-i18n="<strong>Rang d’edat:</strong> 11 - 14 anys" 
                                     data-lang-es="<strong>Rango de edad:</strong> 11 - 14 años">
                                     <strong>Rang d’edat:</strong> 11 - 14 anys</span></div>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span 
-                                    data-lang-ca="<strong>Tipus:</strong> activitats en grup" 
+                                    data-i18n="<strong>Tipus:</strong> activitats en grup" 
                                     data-lang-es="<strong>Tipo:</strong> actividades en grupo">
                                     <strong>Tipus:</strong> activitats en grup</span></div>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span 
-                                    data-lang-ca="<strong>Complexitat:</strong> mitjana" 
+                                    data-i18n="<strong>Complexitat:</strong> mitjana" 
                                     data-lang-es="<strong>Complejidad:</strong> media">
                                     <strong>Complexitat:</strong> mitjana</span></div>
                                 <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span 
-                                    data-lang-ca="<strong>Durada:</strong> 2h" 
+                                    data-i18n="<strong>Durada:</strong> 2h" 
                                     data-lang-es="<strong>Duración:</strong> 2h">
                                     <strong>Durada:</strong> 2h</span></div>
-                                <h4 data-lang-ca="Material Inclòs" data-lang-es="Material Incluido">Material Inclòs</h4>
-                                <p data-lang-ca="Llapis, gomes, i colors." 
+                                <h4 data-i18n="Material Inclòs" data-lang-es="Material Incluido">Material Inclòs</h4>
+                                <p data-i18n="Llapis, gomes, i colors." 
                                     data-lang-es="Lápiz, gomas, y colores.">
                                     Llapis, gomes, i colors.
                                 </p>
                                 <div class="taller-ods-section">
-                                <h4 data-lang-ca="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
+                                <h4 data-i18n="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
                                 <div class="ods-images">
                                     <!-- Utilitzem un nou atribut 'data-lang-ca-src' per canviar la imatge segons l'idioma. -->
-                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-lang-ca-src="assets/images/ods/esp/4.png" data-lang-es-src="assets/images/ods/cat/4.jpg">
-                                    <img src="assets/images/ods/cat/13.jpg" alt="ODS 9" data-lang-ca-src="assets/images/ods/esp/13.png" data-lang-es-src="assets/images/ods/cat/13.jpg">
-                                </div>      
-                                </div>
-                            </div>
-                        </div>
-                        <div class="taller-cta-container">
-                            <a href="#footer" class="taller-cta-button" data-lang-ca="Sol·licita més informació" data-lang-es="Solicita más información">Sol·licita més informació</a>
-                        </div>
+                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-i18n-src-ca="assets/images/ods/cat/4.jpg" data-i18n-src-es="assets/images/ods/esp/4.png" data-i18n-src-en="assets/images/ods/eng/4.png">
+                                    <img src="assets/images/ods/cat/13.jpg" alt="ODS 9" data-i18n-src-ca="assets/images/ods/cat/13.jpg" data-i18n-src-es="assets/images/ods/esp/13.png" data-i18n-src-en="assets/images/ods/eng/13.png">
                     </div>
                 </div>
             </div>
@@ -686,7 +659,7 @@
                 <!-- Download Catalogue Button at the end of the workshop cards -->
                 <div style="margin: 2.5rem 0 0 0; text-align: center;">
                                                         <a id="catalogue-download-btn" href="assets/fitxers/dossier-ca.pdf" download="Dossier-Tallers-2025.pdf" target="_blank" class="dossier-download-btn" style="font-size: 1.1rem; text-decoration: none;"
-                                                            data-lang-ca="Descarrega el nostre dossier" data-lang-es="Descarga nuestro dossier">
+                                                            data-i18n="Descarrega el nostre dossier" data-lang-es="Descarga nuestro dossier">
                                                             Descarrega el nostre dossier
                                                         </a>
                 </div>
@@ -699,9 +672,9 @@
     <div class="repte-banner-inner">
         <!-- El contingut (títol, subtítol, botó) va aquí dins. -->
         <div class="section-container">
-            <h2 class="repte-banner-title" data-lang-ca="El Repte AulaSputnik" data-lang-es="El Reto AulaSputnik">El Repte AulaSputnik</h2>
-            <p class="repte-banner-subtitle" data-lang-ca="Una missió espacial única que combina tots els nostres tallers en una experiència inoblidable." data-lang-es="Una misión espacial única que combina todos nuestros talleres en una experiencia inolvidable.">Una missió espacial única que combina tots els nostres tallers en una experiència inoblidable.</p>
-            <a href="repte-aulasputnik.html" class="repte-banner-button" data-lang-ca="Informa-te'n" data-lang-es="Infórmate">Informa-te'n</a>
+            <h2 class="repte-banner-title" data-i18n="El Repte AulaSputnik" data-lang-es="El Reto AulaSputnik">El Repte AulaSputnik</h2>
+            <p class="repte-banner-subtitle" data-i18n="Una missió espacial única que combina tots els nostres tallers en una experiència inoblidable." data-lang-es="Una misión espacial única que combina todos nuestros talleres en una experiencia inolvidable.">Una missió espacial única que combina tots els nostres tallers en una experiència inoblidable.</p>
+            <a href="repte-aulasputnik.html" class="repte-banner-button" data-i18n="Informa-te'n" data-lang-es="Infórmate">Informa-te'n</a>
         </div>
     </div>
 </section>
@@ -717,11 +690,11 @@
                 <!-- Column 1: Text content and social links. -->
                 <div class="footer-column-left">
                     <!-- Main heading for the column -->
-                    <h3 class="footer-title" data-lang-ca="PARLEM?" data-lang-es="¿HABLAMOS?">PARLEM?</h3>
+                    <h3 class="footer-title" data-i18n="PARLEM?" data-lang-es="¿HABLAMOS?">PARLEM?</h3>
                     <!-- First paragraph of text -->
-                    <p data-lang-ca="Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu." data-lang-es="¿Tienes alguna duda, proposta o idea? ¡Queremos conocerte! Rellena este formulario y nos pondremos en contacto contigo.">Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu.</p>
+                    <p data-i18n="Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu." data-lang-es="¿Tienes alguna duda, proposta o idea? ¡Queremos conocerte! Rellena este formulario y nos pondremos en contacto contigo.">Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu.</p>
                     <!-- Second paragraph of text -->
-                    <p data-lang-ca="També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!" data-lang-es="¡También puedes seguirnos en nuestras redes sociales y sumarte a nuestra comunidad!">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
+                    <p data-i18n="També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!" data-lang-es="¡También puedes seguirnos en nuestras redes sociales y sumarte a nuestra comunidad!">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
                     <!-- Container for social media icon links -->
                     <div class="footer-social-icons">
                         <!-- Each 'a' tag is a link to a social profile. The 'aria-label' is for accessibility. -->
@@ -738,15 +711,15 @@
                         <!-- Form field for Name. The label is now visually hidden but still exists for screen readers. -->
                         <div class="form-group">
                             <!-- The 'aria-label' provides an accessible name for the input now that the label is hidden. -->
-                            <input type="text" id="name" name="Nom" required placeholder="Nom i Cognoms*" data-lang-ca-placeholder="Nom i Cognoms*" data-lang-es-placeholder="Nombre y Apellidos*" aria-label="Nom i Cognoms">
+                            <input type="text" id="name" name="Nom" required placeholder="Nom i Cognoms*" data-i18n-ph="contact.nameLabel" aria-label="Nom i Cognoms">
                         </div>
                         <!-- Form field for Email. -->
                         <div class="form-group">
-                            <input type="email" id="email" name="Email" required placeholder="Correu electrònic*" data-lang-ca-placeholder="Correu electrònic*" data-lang-es-placeholder="Correo electrónico*" aria-label="Correu electrònic">
+                            <input type="email" id="email" name="Email" required placeholder="Correu electrònic*" data-i18n-ph="contact.emailLabel" aria-label="Correu electrònic">
                         </div>
                         <!-- Form field for Institution. -->
                         <div class="form-group">
-                            <input type="text" id="institution" name="Institució" required placeholder="Empresa, escola, institut, etc.*" data-lang-ca-placeholder="Empresa, escola, institut, etc.*" data-lang-es-placeholder="Empresa, colegio, instituto, etc.*" aria-label="Empresa, escola, institut, etc.">
+                            <input type="text" id="institution" name="Institució" required placeholder="Empresa, escola, institut, etc.*" data-i18n-ph="contact.institutionLabel" aria-label="Empresa, escola, institut, etc.">
                         </div>
                         <!-- Custom Multi-Select Dropdown for Workshops -->
                         <div class="form-group">
@@ -756,7 +729,7 @@
                                 <div class="multiselect-display">
                                     <!-- This span holds the placeholder text (e.g., "2 seleccionats"). -->
                                     <span class="multiselect-placeholder" 
-                                        data-lang-ca="T'agradaria rebre informació d'algún taller en concret?" 
+                                        data-i18n="T'agradaria rebre informació d'algún taller en concret?" 
                                         data-lang-es="¿Te gustaría recibir información de algún taller en concreto?">
                                         T'agradaria rebre informació d'algún taller en concret?
                                     </span>
@@ -768,31 +741,31 @@
                                     <!-- Each workshop is a checkbox/label pair. -->
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Nanosatèl·lits">
-                                        <span data-lang-ca="Ajudem al nostre planeta a través dels nanosatèl·lits." data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites.">Ajudem al nostre planeta a través dels nanosatèl·lits.</span>
+                                        <span data-i18n="Ajudem al nostre planeta a través dels nanosatèl·lits." data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites.">Ajudem al nostre planeta a través dels nanosatèl·lits.</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Coets">
-                                        <span data-lang-ca="Explorem l’espai amb AulaSPUTNIK!" data-lang-es="¡Exploramos el espacio con AulaSPUTNIK!">Explorem l’espai amb AulaSPUTNIK!</span>
+                                        <span data-i18n="Explorem l’espai amb AulaSPUTNIK!" data-lang-es="¡Exploramos el espacio con AulaSPUTNIK!">Explorem l’espai amb AulaSPUTNIK!</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Dona a l'Espai">
-                                        <span data-lang-ca="La dona al sector aeroespacial." data-lang-es="La mujer en el sector aeroespacial.">La dona al sector aeroespacial.</span>
+                                        <span data-i18n="La dona al sector aeroespacial." data-lang-es="La mujer en el sector aeroespacial.">La dona al sector aeroespacial.</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Constel·lacions">
-                                        <span data-lang-ca="Les constel·lacions com a quadern vital." data-lang-es="Las constelaciones como cuaderno vital.">Les constel·lacions com a quadern vital.</span>
+                                        <span data-i18n="Les constel·lacions com a quadern vital." data-lang-es="Las constelaciones como cuaderno vital.">Les constel·lacions com a quadern vital.</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Aliens">
-                                        <span data-lang-ca="La biologia a l'espai: com són els aliens?" data-lang-es="La biología en el espacio: ¿cómo son los aliens?">La biologia a l'espai: com són els aliens?</span>
+                                        <span data-i18n="La biologia a l'espai: com són els aliens?" data-lang-es="La biología en el espacio: ¿cómo son los aliens?">La biologia a l'espai: com són els aliens?</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Sistema estelar">
-                                        <span data-lang-ca="Crea el teu propi sistema estelar!" data-lang-es="¡Crea tu propio sistema estelar!">Crea el teu propi sistema estelar!</span>
+                                        <span data-i18n="Crea el teu propi sistema estelar!" data-lang-es="¡Crea tu propio sistema estelar!">Crea el teu propi sistema estelar!</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Repte AulaSPUTNIK">
-                                        <span data-lang-ca="El Repte AulaSPUTNIK" data-lang-es="El Reto AulaSPUTNIK">El Repte AulaSPUTNIK</span>
+                                        <span data-i18n="El Repte AulaSPUTNIK" data-lang-es="El Reto AulaSPUTNIK">El Repte AulaSPUTNIK</span>
                                     </label>
                                 </div>
                                 <!-- This is a hidden input. Its value will be updated by JavaScript with all the selected workshops. This is what Formspree will receive. -->
@@ -801,15 +774,13 @@
                         </div>
                         <!-- Form field for the message. 'textarea' allows for multiple lines of text. -->
                         <div class="form-group">
-                            <textarea id="message" name="Missatge" rows="4" required placeholder="El teu missatge" data-lang-ca-placeholder="El teu missatge" data-lang-es-placeholder="Tu mensaje" aria-label="El teu missatge"></textarea>
+                            <textarea id="message" name="Missatge" rows="4" required placeholder="El teu missatge" data-i18n-ph="contact.messageLabel" aria-label="El teu missatge"></textarea>
                         </div>
                         <!-- Privacy Consent Section -->
                         <div class="privacy-section">
                             <!-- A header for this section, with a link to your future Privacy Policy page. -->
                             <!-- Note: The href="#" is a placeholder you should change later to the actual page link. -->
-                            <p class="privacy-header" 
-                                data-lang-ca="En relació amb la nostra <a href='politica-de-privacitat.html'>Política de Privacitat</a>*:" 
-                                data-lang-es="En relación con nuestra <a href='politica-de-privacitat.html'>Política de Privacidad</a>*:">
+                            <p class="privacy-header" data-i18n-html="contact.privacyHeader">
                                 En relació amb la nostra <a href="politica-de-privacitat.html">Política de Privacitat</a>*:
                             </p>
                             <!-- Checkbox 1: Privacy Policy Acceptance. The 'required' attribute makes this mandatory. -->
@@ -817,25 +788,21 @@
                                 <!-- The actual checkbox input, which we will hide visually with CSS. -->
                                 <input type="checkbox" id="privacy-accept" name="privacy-accept" required>
                                 <!-- The label is what users will see and click. It's linked to the input by the 'for' attribute. -->
-                                <label for="privacy-accept" 
-                                    data-lang-ca="Confirmo haver-la llegit i l'accepto." 
-                                    data-lang-es="Confirmo haberla leído y la acepto.">
+                                <label for="privacy-accept" data-i18n="contact.privacyAccept">
                                     Confirmo haver-la llegit i l'accepto.
                                 </label>
                             </div>
                             <!-- Checkbox 2: Commercial Use Consent. This one is optional. -->
                             <div class="form-group-checkbox">
-                                <input type="checkbox" id="commercial-accept" name="commercial-accept" required>
-                                <label for="commercial-accept" 
-                                    data-lang-ca="Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics." 
-                                    data-lang-es="Acepto que mis datos identificativos sean incluidos para fines comerciales por medios electrónicos.">
+                                <input type="checkbox" id="commercial-accept"name="commercial-accept" required>
+                                <label for="commercial-accept" data-i18n="contact.commercialAccept">
                                     Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics.
                                 </label>
                             </div>
                         </div>
                         <!-- End of Privacy Consent Section -->
                         <!-- The submit button for the form. -->
-                        <button type="submit" class="submit-btn" data-lang-ca="Enviar" data-lang-es="Enviar">Enviar</button>
+                        <button type="submit" class="submit-btn" data-i18n="contact.submit">Enviar</button>
                     </form>
                 </div>
             </div>
@@ -843,11 +810,11 @@
             <!-- This is the bottom bar of the footer. -->
             <div class="footer-bottom-bar">
                 <!-- Copyright notice. -->
-                <p class="copyright-text" data-lang-ca='© 2025 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.' data-lang-es='© 2024 <a href="index.html">AulaSPUTNIK</a>. Todos los derechos reservados.'>© 2024 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.</p>
+                <p class="copyright-text" data-i18n-html="footer.copyright">© 2025 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.</p>
                 <!-- Container for the legal links. -->
                 <div class="footer-legal-links">
-                    <a href="politica-de-privacitat.html" data-lang-ca="Política de Privacitat" data-lang-es="Política de Privacidad">Política de Privacitat</a>
-                    <a href="avis-legal.html" data-lang-ca="Avís Legal" data-lang-es="Aviso Legal">Avís Legal</a>
+                    <a href="politica-de-privacitat.html" data-i18n="footer.privacy">Política de Privacitat</a>
+                    <a href="avis-legal.html" data-i18n="footer.legal">Avís Legal</a>
                 </div>
             </div>
         </div>
@@ -855,7 +822,7 @@
     <!-- =================== FOOTER END =================== -->
 
     <!-- The "Scroll to Top" button. It will be hidden by default with CSS. -->
-    <button id="scroll-to-top-btn" aria-label="Scroll to top">
+    <button id="scroll-to-top-btn" aria-label="Scroll to top" data-i18n-aria="scroll.top">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 

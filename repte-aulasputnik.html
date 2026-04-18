@@ -10,26 +10,41 @@
     <!-- initial-scale=1.0: sets the initial zoom level. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Title tag: text for browser tab, bookmarks, and search results. -->
-    <!-- data-lang-* attributes: used for language switching via JavaScript. -->
-    <title data-lang-ca="AulaSPUTNIK" data-lang-es="AulaSPUTNIK">AulaSPUTNIK</title>
+    <title data-i18n="page.challenge">El Repte AulaSPUTNIK</title>
 
     <!-- Favicon: small icon in browser tab. -->
     <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
 
     <!-- SEO Meta Tags: help search engines understand your page. -->
-    <!-- Description: short summary for search results. -->
-    <meta name="description" content="">
-    <!-- Keywords: relevant terms for search engines. -->
-    <meta name="keywords" content="">
+    <meta name="description" data-i18n="meta.challenge.description" content="El Repte AulaSPUTNIK: una experiència única combinant tots els nostres tallers en una missió espacial educativa.">
+    <meta name="keywords" content="repte, missió espacial, educació, ciència, tecnologia">
+
+    <!-- Open Graph Tags (Social Media) -->
+    <meta property="og:title" data-i18n="page.challenge" content="El Repte AulaSPUTNIK">
+    <meta property="og:description" data-i18n="meta.challenge.description" content="El Repte AulaSPUTNIK: una experiència única combinant tots els nostres tallers.">
+    <meta property="og:image" content="https://aulasputnik.com/assets/images/og-repte.png">
+    <meta property="og:url" content="https://aulasputnik.com/repte-aulasputnik.html">
+    <meta property="og:type" content="website">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://aulasputnik.com/repte-aulasputnik.html">
+
+    <!-- hreflang Alternates for Multi-Language -->
+    <link rel="alternate" hreflang="ca" href="https://aulasputnik.com/repte-aulasputnik.html">
+    <link rel="alternate" hreflang="es" href="https://aulasputnik.com/repte-aulasputnik.html">
+    <link rel="alternate" hreflang="en" href="https://aulasputnik.com/repte-aulasputnik.html">
+    <link rel="alternate" hreflang="x-default" href="https://aulasputnik.com/repte-aulasputnik.html">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#a15df6">
 
     <!-- Preconnect to Google Fonts for performance. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Import Google Fonts: Urbanist, Inter, Domine. -->
-    <!-- Variable font range (wght@300..900) for design flexibility. -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Urbanist:wght@300..900&family=Domine:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Import Google Fonts with specific weights for optimization. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Urbanist:wght@300;400;700;800;900&family=Domine:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Import Font Awesome for icons. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -171,13 +186,13 @@
                         <div class="taller-ods-section">
                             <h4 data-lang-ca="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
                             <div class="ods-images">
-                                <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-lang-ca-src="assets/images/ods/esp/4.png" data-lang-es-src="assets/images/ods/cat/4.jpg">
-                                <img src="assets/images/ods/cat/5.jpg" alt="ODS 5" data-lang-ca-src="assets/images/ods/esp/5.png" data-lang-es-src="assets/images/ods/cat/5.jpg">
-                                <img src="assets/images/ods/cat/9.jpg" alt="ODS 9" data-lang-ca-src="assets/images/ods/esp/9.png" data-lang-es-src="assets/images/ods/cat/9.jpg">
-                                <img src="assets/images/ods/cat/10.jpg" alt="ODS 10" data-lang-ca-src="assets/images/ods/esp/10.png" data-lang-es-src="assets/images/ods/cat/10.jpg">
-                                <img src="assets/images/ods/cat/13.jpg" alt="ODS 13" data-lang-ca-src="assets/images/ods/esp/13.png" data-lang-es-src="assets/images/ods/cat/13.jpg">
-                                <img src="assets/images/ods/cat/14.jpg" alt="ODS 14" data-lang-ca-src="assets/images/ods/esp/14.png" data-lang-es-src="assets/images/ods/cat/14.jpg">
-                                <img src="assets/images/ods/cat/15.jpg" alt="ODS 15" data-lang-ca-src="assets/images/ods/esp/15.png" data-lang-es-src="assets/images/ods/cat/15.jpg">
+                                <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-i18n-src-ca="assets/images/ods/cat/4.jpg" data-i18n-src-es="assets/images/ods/esp/4.png">
+                                <img src="assets/images/ods/cat/5.jpg" alt="ODS 5" data-i18n-src-ca="assets/images/ods/cat/5.jpg" data-i18n-src-es="assets/images/ods/esp/5.png">
+                                <img src="assets/images/ods/cat/9.jpg" alt="ODS 9" data-i18n-src-ca="assets/images/ods/cat/9.jpg" data-i18n-src-es="assets/images/ods/esp/9.png">
+                                <img src="assets/images/ods/cat/10.jpg" alt="ODS 10" data-i18n-src-ca="assets/images/ods/cat/10.jpg" data-i18n-src-es="assets/images/ods/esp/10.png">
+                                <img src="assets/images/ods/cat/13.jpg" alt="ODS 13" data-i18n-src-ca="assets/images/ods/cat/13.jpg" data-i18n-src-es="assets/images/ods/esp/13.png">
+                                <img src="assets/images/ods/cat/14.jpg" alt="ODS 14" data-i18n-src-ca="assets/images/ods/cat/14.jpg" data-i18n-src-es="assets/images/ods/esp/14.png">
+                                <img src="assets/images/ods/cat/15.jpg" alt="ODS 15" data-i18n-src-ca="assets/images/ods/cat/15.jpg" data-i18n-src-es="assets/images/ods/esp/15.png">
                             </div>      
                         </div>
                     </div>
