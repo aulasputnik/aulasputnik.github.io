@@ -8,9 +8,14 @@ let translations = {};
 let currentLanguage = 'ca';
 
 /**
- * Load translations from JSON file
+ * Load translations — uses pre-loaded window.TRANSLATIONS_DATA if available
+ * (set by translations-data.js), otherwise falls back to fetch
  */
 async function loadTranslations() {
+    if (window.TRANSLATIONS_DATA) {
+        translations = window.TRANSLATIONS_DATA;
+        return true;
+    }
     try {
         const response = await fetch('assets/i18n/translations.json');
         if (!response.ok) throw new Error('Failed to load translations');
@@ -27,9 +32,25 @@ async function loadTranslations() {
  * Supports nested keys like "workshop.1.title"
  */
 function getTranslation(lang, keyPath) {
-    const keys = keyPath.split('.');
-    let value = translations[lang];
+    const langData = translations[lang];
+    if (!langData) return null;
 
+    // Try flat dot-notation key first (e.g. "nav.home" stored as-is)
+    if (keyPath in langData) {
+        const val = langData[keyPath];
+        return typeof val === 'string' ? val : null;
+    }
+
+    // For Catalan (default language), treat the key itself as a fallback
+    // for legacy elements where the data-i18n value IS the Catalan text.
+    // Skip if the key contains HTML — textContent would render literal tags.
+    if (lang === 'ca' && !keyPath.includes('<')) {
+        return keyPath;
+    }
+
+    // Fall back to nested traversal
+    const keys = keyPath.split('.');
+    let value = langData;
     for (let key of keys) {
         if (value && typeof value === 'object') {
             value = value[key];
@@ -37,7 +58,6 @@ function getTranslation(lang, keyPath) {
             return null;
         }
     }
-
     return typeof value === 'string' ? value : null;
 }
 
@@ -68,10 +88,16 @@ function getInitialLanguage() {
 /**
  * Apply translations to all elements with data-i18n* attributes
  */
-function applyTranslations(lang) {
+function applyTranslations(lang, savePreference = false) {
     // Update HTML lang attribute
     document.documentElement.lang = lang;
     currentLanguage = lang;
+
+    // Handle legacy data-lang-* attributes (inline translated text/HTML)
+    document.querySelectorAll(`[data-lang-${lang}]`).forEach(element => {
+        const text = element.getAttribute(`data-lang-${lang}`);
+        if (text !== null) element.innerHTML = text;
+    });
 
     // Handle data-i18n (textContent)
     document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -131,8 +157,8 @@ function applyTranslations(lang) {
     // Update hamburger menu aria-label
     updateHamburgerLabel(lang);
 
-    // Save preference
-    localStorage.setItem('userLanguage', lang);
+    // Save preference only when user explicitly chose the language
+    if (savePreference) localStorage.setItem('userLanguage', lang);
 }
 
 /**
@@ -178,7 +204,7 @@ function updateDossierButtons(lang) {
  * Smooth fade transition
  */
 function updateODSImages(lang) {
-    document.querySelectorAll('[data-i18n-src]').forEach(img => {
+    document.querySelectorAll('[data-i18n-src-ca]').forEach(img => {
         const src = img.getAttribute(`data-i18n-src-${lang}`);
         if (src) {
             // Fade out
@@ -192,6 +218,80 @@ function updateODSImages(lang) {
             }, 150);
         }
     });
+}
+
+/**
+ * Workshop filter bar — keyword, age range, duration
+ */
+function initWorkshopFilter() {
+    const keywordInput = document.getElementById('filter-keyword');
+    if (!keywordInput) return;
+
+    const cards = document.querySelectorAll('.taller-card');
+    const noResults = document.getElementById('filter-no-results');
+    let activeAge = 'all';
+    let activeDuration = 'all';
+
+    function applyFilters() {
+        const keyword = keywordInput.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const ageMin = parseInt(card.dataset.ageMin) || 0;
+            const ageMax = parseInt(card.dataset.ageMax) || 99;
+            const duration = card.dataset.duration || '';
+            const title = card.querySelector('.taller-title')?.textContent.toLowerCase() || '';
+            const tags = card.querySelector('.taller-tags')?.textContent.toLowerCase() || '';
+
+            const keywordMatch = !keyword || title.includes(keyword) || tags.includes(keyword);
+
+            let ageMatch = true;
+            if (activeAge !== 'all') {
+                const [chipMin, chipMax] = activeAge.split('-').map(Number);
+                ageMatch = ageMin <= chipMax && ageMax >= chipMin;
+            }
+
+            const durationMatch = activeDuration === 'all' || duration === activeDuration;
+
+            const visible = keywordMatch && ageMatch && durationMatch;
+            card.style.display = visible ? '' : 'none';
+            if (visible) visibleCount++;
+        });
+
+        if (noResults) noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    keywordInput.addEventListener('input', applyFilters);
+
+    document.querySelectorAll('[data-filter-age]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('[data-filter-age]').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeAge = btn.dataset.filterAge;
+            applyFilters();
+        });
+    });
+
+    document.querySelectorAll('[data-filter-duration]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('[data-filter-duration]').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeDuration = btn.dataset.filterDuration;
+            applyFilters();
+        });
+    });
+
+    const clearBtn = document.getElementById('filter-clear');
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            keywordInput.value = '';
+            activeAge = 'all';
+            activeDuration = 'all';
+            document.querySelectorAll('[data-filter-age]').forEach(b => b.classList.toggle('active', b.dataset.filterAge === 'all'));
+            document.querySelectorAll('[data-filter-duration]').forEach(b => b.classList.toggle('active', b.dataset.filterDuration === 'all'));
+            applyFilters();
+        });
+    }
 }
 
 /**
@@ -228,6 +328,118 @@ function updateHamburgerLabel(lang) {
     if (label) hamburger.setAttribute('aria-label', label);
 }
 
+/**
+ * Cookie consent banner — shown once, preference stored in localStorage
+ */
+function initCookieBanner() {
+    if (localStorage.getItem('cookieConsent')) return;
+
+    const t = (key) => getTranslation(currentLanguage, key);
+    const banner = document.createElement('div');
+    banner.className = 'cookie-banner';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', 'Cookie consent');
+    banner.innerHTML = `
+        <div class="cookie-banner-content">
+            <p class="cookie-text">
+                ${t('cookie.banner')}
+                <a href="politica-de-privacitat.html">${t('cookie.learnMore')}</a>
+            </p>
+            <div class="cookie-actions">
+                <button class="cookie-btn cookie-accept" id="cookie-accept">${t('cookie.accept')}</button>
+                <button class="cookie-btn cookie-decline" id="cookie-decline">${t('cookie.reject')}</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(banner);
+    requestAnimationFrame(() => banner.classList.add('visible'));
+
+    const dismiss = (value) => {
+        localStorage.setItem('cookieConsent', value);
+        banner.classList.remove('visible');
+        setTimeout(() => banner.remove(), 400);
+    };
+
+    banner.querySelector('#cookie-accept').addEventListener('click', () => dismiss('accepted'));
+    banner.querySelector('#cookie-decline').addEventListener('click', () => dismiss('declined'));
+}
+
+/**
+ * Real-time form validation — shows inline errors on blur, clears on input
+ */
+function initFormValidation() {
+    const form = document.querySelector('.contact-form');
+    if (!form) return;
+
+    const t = (key) => getTranslation(currentLanguage, key);
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const rules = {
+        name:        (v) => v.trim().length < 1 ? t('form.error.name') : null,
+        email:       (v) => !v.trim() ? t('form.error.email.required') : !EMAIL_RE.test(v.trim()) ? t('form.error.email.invalid') : null,
+        institution: (v) => v.trim().length < 1 ? t('form.error.institution') : null,
+        message:     (v) => v.trim().length < 1 ? t('form.error.message') : null,
+    };
+
+    Object.entries(rules).forEach(([id, validate]) => {
+        const field = form.querySelector(`#${id}`);
+        if (!field) return;
+
+        const group = field.closest('.form-group');
+        const errorEl = document.createElement('span');
+        errorEl.className = 'form-error';
+        group.appendChild(errorEl);
+
+        const check = () => {
+            const error = validate(field.value);
+            if (error) {
+                errorEl.textContent = error;
+                group.classList.add('has-error');
+                group.classList.remove('is-valid');
+            } else {
+                group.classList.remove('has-error');
+                if (field.value.trim()) group.classList.add('is-valid');
+            }
+        };
+
+        field.addEventListener('blur', check);
+        field.addEventListener('input', () => {
+            if (group.classList.contains('has-error')) check();
+        });
+    });
+
+    form.addEventListener('submit', (e) => {
+        let hasErrors = false;
+        Object.keys(rules).forEach((id) => {
+            const field = form.querySelector(`#${id}`);
+            if (field) field.dispatchEvent(new Event('blur'));
+            if (form.querySelector(`#${id}`)?.closest('.form-group')?.classList.contains('has-error')) {
+                hasErrors = true;
+            }
+        });
+        if (hasErrors) e.stopImmediatePropagation();
+    }, true);
+}
+
+/**
+ * Scroll-triggered fade-in animations via IntersectionObserver
+ */
+function initScrollAnimations() {
+    const targets = document.querySelectorAll('.scroll-animate');
+    if (!targets.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    targets.forEach(el => observer.observe(el));
+}
+
 // =================== INITIALIZATION ===================
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -238,11 +450,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     const lang = getInitialLanguage();
     applyTranslations(lang);
 
+    // ============ WORKSHOP FILTER ============
+    initWorkshopFilter();
+
+    // ============ SCROLL ANIMATIONS ============
+    initScrollAnimations();
+
+    // ============ COOKIE BANNER ============
+    initCookieBanner();
+
+    // ============ FORM VALIDATION ============
+    initFormValidation();
+
     // ============ LANGUAGE SWITCHING ============
     document.querySelectorAll('.lang-switcher-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const selectedLang = btn.getAttribute('data-lang');
-            applyTranslations(selectedLang);
+            applyTranslations(selectedLang, true);
         });
     });
 

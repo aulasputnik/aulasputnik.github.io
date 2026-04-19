@@ -1548,7 +1548,7 @@ html {
     display: grid;
     /* Una sola columna per a les targetes. */
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 40px;
     /* Limitem l'amplada per a una millor llegibilitat en pantalles grans. */
     max-width: 1200px; 
     margin: 0 auto; /* Centrem la graella a la pàgina. */
@@ -1756,7 +1756,132 @@ html {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* --- 14. CARRUSEL DE FOTOS DELS TALLERS (VERSIÓ AMB CENTRAT D'IMATGE) --- */
+/* --- 14. WORKSHOP FILTER BAR --- */
+
+.filter-section {
+    padding: 0;
+    background-color: var(--color-background);
+}
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 20px;
+    padding: 20px 24px;
+    background: var(--color-background);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-search-group {
+    position: relative;
+    flex: 1 1 200px;
+    min-width: 180px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.filter-search-icon {
+    position: absolute;
+    left: 12px;
+    color: var(--color-text-muted, #888);
+    font-size: 0.85rem;
+    pointer-events: none;
+}
+
+.filter-search-input {
+    width: 100%;
+    padding: 9px 12px 9px 34px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    font-family: var(--font-body, inherit);
+    font-size: 0.9rem;
+    background: var(--color-white);
+    color: var(--color-text);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.filter-search-input:focus {
+    border-color: var(--color-accent, #a15df6);
+    box-shadow: 0 0 0 3px rgba(161, 93, 246, 0.12);
+}
+
+.filter-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted, #888);
+}
+
+.filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.filter-chip {
+    padding: 6px 14px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    background: var(--color-white);
+    color: var(--color-text);
+    font-size: 0.83rem;
+    font-family: var(--font-body, inherit);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.filter-chip:hover {
+    border-color: var(--color-accent, #a15df6);
+    background: rgba(161, 93, 246, 0.07);
+}
+
+.filter-chip.active {
+    background: var(--color-accent, #a15df6);
+    border-color: var(--color-accent, #a15df6);
+    color: white;
+    font-weight: 600;
+}
+
+.filter-clear-btn {
+    align-self: flex-end;
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    color: var(--color-text-muted, #888);
+    font-size: 0.83rem;
+    font-family: var(--font-body, inherit);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.15s;
+    white-space: nowrap;
+}
+
+.filter-clear-btn:hover {
+    color: var(--color-accent, #a15df6);
+}
+
+.filter-no-results {
+    display: none;
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--color-text-muted, #888);
+    font-style: italic;
+}
+
+.taller-card[style*="display: none"] + .taller-card {
+    margin-top: 0;
+}
+
+/* --- 15. CARRUSEL DE FOTOS DELS TALLERS (VERSIÓ AMB CENTRAT D'IMATGE) --- */
 
 .taller-carousel {
     position: relative;
@@ -2507,4 +2632,312 @@ select:focus-visible {
     .hero-section::before {
         position: absolute;
     }
+}
+
+/* ===================================================================
+   COOKIE CONSENT BANNER
+   =================================================================== */
+
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: var(--color-heading);
+    color: #fff;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: center;
+    transform: translateY(100%);
+    transition: transform 0.35s ease;
+}
+
+.cookie-banner.visible {
+    transform: translateY(0);
+}
+
+.cookie-banner-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    width: 100%;
+}
+
+.cookie-text {
+    flex: 1 1 300px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+    color: rgba(255,255,255,0.9);
+}
+
+.cookie-text a {
+    color: var(--color-primary-light, #c99aff);
+    text-decoration: underline;
+}
+
+.cookie-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.cookie-btn {
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-family: var(--font-body, inherit);
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.cookie-btn:hover { opacity: 0.85; }
+
+.cookie-accept {
+    background: var(--color-primary, #a15df6);
+    color: #fff;
+    border: none;
+}
+
+.cookie-decline {
+    background: transparent;
+    color: rgba(255,255,255,0.75);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* ===================================================================
+   TEAM PHOTO MOBILE OVERLAY
+   =================================================================== */
+
+.team-member-photo {
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-name-overlay {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .photo-name-overlay {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 24px 12px 10px;
+        background: linear-gradient(transparent, rgba(30, 10, 60, 0.72));
+        color: #fff;
+        pointer-events: none;
+    }
+
+    .photo-overlay-name {
+        font-weight: 800;
+        font-size: 1rem;
+        line-height: 1.2;
+    }
+
+    .photo-overlay-title {
+        font-size: 0.78rem;
+        opacity: 0.85;
+        font-weight: 500;
+    }
+}
+
+/* ===================================================================
+   FORM VALIDATION ERRORS
+   =================================================================== */
+
+.form-error {
+    display: none;
+    font-size: 0.8rem;
+    color: #e53935;
+    margin-top: 4px;
+    padding-left: 2px;
+}
+
+.form-group.has-error .form-error {
+    display: block;
+}
+
+.form-group.has-error input,
+.form-group.has-error textarea {
+    border-color: #e53935 !important;
+    box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.1);
+}
+
+.form-group.is-valid input,
+.form-group.is-valid textarea {
+    border-color: #43a047 !important;
+}
+
+/* ===================================================================
+   ACCESSIBILITY — SKIP LINK & FOCUS STYLES
+   =================================================================== */
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 16px;
+    z-index: 10000;
+    padding: 10px 18px;
+    background: var(--color-heading);
+    color: #fff;
+    font-weight: 700;
+    border-radius: 0 0 8px 8px;
+    text-decoration: none;
+    transition: top 0.15s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+:focus-visible {
+    outline: 3px solid var(--color-primary, #a15df6);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Remove default outline only when focus-visible is supported */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ===================================================================
+   SCROLL-TRIGGERED ANIMATIONS
+   =================================================================== */
+
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.scroll-animate.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-animate.delay-1 { transition-delay: 0.1s; }
+.scroll-animate.delay-2 { transition-delay: 0.2s; }
+.scroll-animate.delay-3 { transition-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-animate {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* ===================================================================
+   WORKSHOP COMPARISON TABLE
+   =================================================================== */
+
+.comparison-section {
+    background-color: var(--color-background);
+    padding: 20px 0 0;
+}
+
+.comparison-table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-white);
+    font-size: 0.9rem;
+}
+
+.comparison-table thead {
+    background: var(--color-heading);
+    color: #fff;
+}
+
+.comparison-table th {
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.comparison-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-background);
+    vertical-align: middle;
+    color: var(--color-text);
+}
+
+.comparison-table td:first-child {
+    font-weight: 600;
+}
+
+.comparison-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table tbody tr:hover {
+    background: rgba(161, 93, 246, 0.04);
+}
+
+.comparison-table td:nth-child(2),
+.comparison-table td:nth-child(3),
+.comparison-table th:nth-child(2),
+.comparison-table th:nth-child(3) {
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* ---- Breadcrumb navigation ---- */
+.breadcrumb-nav {
+    padding: 10px 0 0;
+    max-width: var(--max-width, 1200px);
+    margin: 0 auto;
+    padding-left: var(--spacing-lg, 24px);
+    padding-right: var(--spacing-lg, 24px);
+}
+
+.breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.82rem;
+    color: var(--color-text-muted, #6b7280);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: '/';
+    margin-right: 4px;
+    opacity: 0.5;
+}
+
+.breadcrumb-item a {
+    color: var(--color-primary, #a15df6);
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-current {
+    color: var(--color-text-muted, #6b7280);
+    font-weight: 500;
 }

@@ -10,28 +10,42 @@
     <!-- 'initial-scale=1.0' sets the initial zoom level when the page is first loaded by the browser. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- The 'title' tag sets the text that appears in the browser tab, in bookmarks, and in search engine results. -->
-    <!-- The 'data-lang-*' attributes hold the text for our language-switching JavaScript. -->
-    <title data-i18n="page.equip">Page</title>
+    <title data-i18n="page.equip">Equip - AulaSPUTNIK</title>
 
     <!-- The 'icon' link tag sets the "favicon" -- the small icon that appears in the browser tab next to the title. -->
-    <!-- 'href' points to the location of your image file. -->
-    <!-- 'type' tells the browser the format of the image. -->
     <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
 
-    <!-- SEO Meta Tags: These help search engines understand your page content -->
-    <!-- The 'description' tag provides a short summary of the page. It's often shown under your page title in search results. -->
-    <meta name="description" content="">
-    <!-- The 'keywords' tag lists relevant terms for your site. While less important for Google today, it can still be useful for other search engines. -->
-    <meta name="keywords" content="">
+    <!-- SEO Meta Tags -->
+    <meta name="description" data-i18n="meta.equip.description" content="Coneix l'equip d'AulaSPUTNIK. Professionals dedicats a inspirar la pròxima generació en ciència i tecnologia aeroespacial.">
+    <meta name="keywords" content="equip, team, AulaSPUTNIK, professionals, educació">
+
+    <!-- Open Graph Tags (Social Media) -->
+    <meta property="og:title" data-i18n="page.equip" content="Equip - AulaSPUTNIK">
+    <meta property="og:description" data-i18n="meta.equip.description" content="Coneix l'equip d'AulaSPUTNIK.">
+    <meta property="og:image" content="https://aulasputnik.com/assets/images/patch.png">
+    <meta property="og:url" content="https://aulasputnik.com/equip.html">
+        <meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://aulasputnik.com/equip.html">
+
+    <!-- hreflang Alternates for Multi-Language -->
+    <link rel="alternate" hreflang="ca" href="https://aulasputnik.com/equip.html">
+    <link rel="alternate" hreflang="es" href="https://aulasputnik.com/equip.html">
+    <link rel="alternate" hreflang="en" href="https://aulasputnik.com/equip.html">
+    <link rel="alternate" hreflang="x-default" href="https://aulasputnik.com/equip.html">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#a15df6">
 
     <!-- Preconnect to Google Fonts for a minor performance boost -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Import the "Urbanist" and "Inter" fonts from Google Fonts. -->
-    <!-- This version uses a variable font range (wght@300..900), which allows us to use any font-weight from 300 to 900 in our CSS file, giving us full design flexibility. -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Urbanist:wght@300..900&family=Domine:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Import Google Fonts with specific weights -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Urbanist:wght@300;400;700;800;900&family=Domine:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
     <!--  Import Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -39,8 +53,36 @@
     <!-- Link to the CSS stylesheet -->
     <link rel="stylesheet" href="assets/css/main.css">
 
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://aulasputnik.com/equip.html",
+                "url": "https://aulasputnik.com/equip.html",
+                "name": "Equip - AulaSPUTNIK",
+                "description": "Coneix l'equip d'AulaSPUTNIK. Professionals dedicats a inspirar la pròxima generació en ciència i tecnologia aeroespacial.",
+                "inLanguage": ["ca", "es", "en"],
+                "isPartOf": { "@id": "https://aulasputnik.com/#website" },
+                "publisher": { "@id": "https://aulasputnik.com/#organization" }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Inici", "item": "https://aulasputnik.com/index.html" },
+                    { "@type": "ListItem", "position": 2, "name": "Equip", "item": "https://aulasputnik.com/equip.html" }
+                ]
+            }
+        ]
+    }
+    </script>
+
 </head>
 <body>
+    <a class="skip-link" href="#main-content" data-i18n="a11y.skipToContent">Saltar al contingut</a>
+
     <!-- We'll build this out properly later, but it helps to have some content to style. -->
     <header class="site-header">
         <nav class="site-nav">
@@ -60,11 +102,11 @@
 
                 <div class="nav-menu">
                     <ul class="nav-list">
-                        <li><a href="index.html" data-lang-ca="Inici" data-lang-es="Inicio">Inici</a></li>
-                        <li><a href="projectes.html" data-lang-ca="Projectes" data-lang-es="Proyectos">Projectes</a></li>
-                        <li><a href="equip.html" data-lang-ca="Equip" data-lang-es="Equipo">Equip</a></li>
-                        <li><a href="tallers.html" class="nav-button" data-lang-ca="Tallers" data-lang-es="Talleres">Tallers</a></li>
-                        <li><a href="#footer" class="nav-button nav-button-secondary" data-lang-ca="Contacte" data-lang-es="Contacto">Contacte</a></li>
+                        <li><a href="index.html" data-i18n="nav.home" data-lang-ca="Inici" data-lang-es="Inicio">Inici</a></li>
+                        <li><a href="projectes.html" data-i18n="nav.projects" data-lang-ca="Projectes" data-lang-es="Proyectos">Projectes</a></li>
+                        <li><a href="equip.html" data-i18n="nav.team" data-lang-ca="Equip" data-lang-es="Equipo">Equip</a></li>
+                        <li><a href="tallers.html" class="nav-button" data-i18n="nav.workshops" data-lang-ca="Tallers" data-lang-es="Talleres">Tallers</a></li>
+                        <li><a href="#footer" class="nav-button nav-button-secondary" data-i18n="nav.contact" data-lang-ca="Contacte" data-lang-es="Contacto">Contacte</a></li>
                         <li class="lang-switcher">
                             <button id="lang-ca-btn" class="lang-switcher-btn" data-lang="ca">CA</button>
                             <button id="lang-es-btn" class="lang-switcher-btn" data-lang="es">ES</button>
@@ -76,20 +118,29 @@
             </div>
         </nav>
     </header>
+    <main id="main-content">
+
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+        <ol class="breadcrumb-list">
+            <li class="breadcrumb-item"><a href="index.html" data-i18n="nav.home">Inici</a></li>
+            <li class="breadcrumb-item breadcrumb-current" aria-current="page" data-i18n="nav.team">Equip</li>
+        </ol>
+    </nav>
 
 <section class="page-intro-section">
         <div class="section-container">
             <!-- Aquest és el contenidor del contingut de text. -->
             <div class="intro-content">
                 <!-- Títol principal de la pàgina. -->
-                <h1 class="page-title" data-lang-ca="El Nostre Equip" data-lang-es="Nuestro Equipo">El Nostre Equip</h1>
+                <h1 class="page-title" data-i18n="equip.pageTitle" data-lang-ca="El Nostre Equip" data-lang-es="Nuestro Equipo">El Nostre Equip</h1>
                 
                 <!-- Paràgrafs introductoris. Els donem una classe per estilitzar-los. -->
                 <p class="lead-paragraph" 
-                data-lang-ca="Els projectes es construeixen gràcies a les persones que dediquen el seu temps i energia a fer realitat petites tasques. Per nosaltres i nosaltres, és molt important el valor de formar equip. Per això, AulaSPUTNIK és l’energia, la motivació i el cor de l’equip humà que som." 
+                data-i18n="equip.lead1"
+                data-lang-ca="Els projectes es construeixen gràcies a les persones que dediquen el seu temps i energia a fer realitat petites tasques. Per nosaltres i nosaltres, és molt important el valor de formar equip. Per això, AulaSPUTNIK és l’energia, la motivació i el cor de l’equip humà que som."
                 data-lang-es="Los proyectos se construyen gracias a las personas que dedican su tiempo y energía en hacer realidad pequeñas tareas. Para nosotras y nosotros, es muy importante el valor del formar equipo. Por eso, AulaSPUTNIK es la energía, motivación y corazón del equipo humano que somos.">
                 Els projectes es construeixen gràcies a les persones que dediquen el seu temps i energia a fer realitat petites tasques. Per nosaltres i nosaltres, és molt important el valor de formar equip. Per això, AulaSPUTNIK és l’energia, la motivació i el cor de l’equip humà que som.</p>
-                <p class="lead-paragraph" 
+                <p class="lead-paragraph" data-i18n-html="equip.lead2"
                 data-lang-ca="<strong>Ens vols conèixer?</strong>" 
                 data-lang-es="<strong>¿Nos quieres conocer?</strong>">
                 <strong>Ens vols conèixer?</strong></p>
@@ -104,69 +155,87 @@
             <div class="section-container">
                 
                 <!-- Membre 1 (Foto esquerra, Text dreta) -->
-                <div class="team-member-row">
+                <div class="team-member-row scroll-animate">
                     <div class="team-member-photo">
-                        <img src="assets/images/equip/anna.jpg" alt="Foto de Anna Ruiz">
+                        <img src="assets/images/equip/anna.jpg" alt="Foto de Anna Ruiz" loading="lazy" width="1550" height="2020">
+                        <div class="photo-name-overlay">
+                            <span class="photo-overlay-name">Anna Ruiz</span>
+                            <span class="photo-overlay-title" data-i18n="team.anna.title">Coordinadora i RRSS</span>
+                        </div>
                     </div>
                     <div class="team-member-info">
                         <h2 data-lang-ca="Anna Ruiz" data-lang-es="Anna Ruiz">Anna Ruiz</h2>
-                        <p class="team-member-title" data-lang-ca="Coordinadora i RRSS" data-lang-es="Coordinadora y RRSS">Coordinadora i RRSS</p>
+                        <p class="team-member-title" data-i18n="team.anna.title" data-lang-ca="Coordinadora i RRSS" data-lang-es="Coordinadora y RRSS">Coordinadora i RRSS</p>
                         <p class="team-member-bio" 
-                        data-lang-ca="Graduada en Enginyeria de Sistemes Aeroespacials i Comunicació Científica, ha unit les dues passions: l'espai i les persones. La seva curiositat i les seves ganes de transformar el món la van portar a crear aquest projecte educatiu on les emocions, els valors i la ciència es donen la mà a cada taller." 
+                        data-i18n="team.anna.bio"
+                        data-lang-ca="Graduada en Enginyeria de Sistemes Aeroespacials i Comunicació Científica, ha unit les dues passions: l'espai i les persones. La seva curiositat i les seves ganes de transformar el món la van portar a crear aquest projecte educatiu on les emocions, els valors i la ciència es donen la mà a cada taller."
                         data-lang-es="Graduada en Ingeniería de Sistemas Aeroespaciales y Comunicación Científica, ha unido sus dos pasiones: el espacio y las personas.  Su curiosidad y sus ganas de transformar el mundo la llevaron a crear este proyecto educativo donde las emociones, los valores y la ciencia se dan la mano en cada taller.">
                         Graduada en Enginyeria de Sistemes Aeroespacials i Comunicació Científica, ha unit les dues passions: l'espai i les persones. La seva curiositat i les seves ganes de transformar el món la van portar a crear aquest projecte educatiu on les emocions, els valors i la ciència es donen la mà a cada taller.</p>
                         <p class="team-member-quote" 
-                        data-lang-ca="“Vull que els nens i nenes mirin al cel, no només per somiar, sinó també per entendre el món que habiten”" 
-                        data-lang-es="“Quiero que los niños y niñas miren al cielo, no solo para soñar, sino también para entender el mundo que habitan”">
+                        data-i18n=”team.anna.quote”
+                        data-lang-ca=””Vull que els nens i nenes mirin al cel, no només per somiar, sinó també per entendre el món que habiten””
+                        data-lang-es=””Quiero que los niños y niñas miren al cielo, no solo para soñar, sino también para entender el mundo que habitan””>
                         “Vull que els nens i nenes mirin al cel, no només per somiar, sinó també per entendre el món que habiten”</p>
                         <a class="linkedin-btn" href="https://www.linkedin.com/in/anna-ruiz-ayala/" target="_blank" aria-label="LinkedIn Anna Ruiz">
                             <i class="fa-brands fa-linkedin"></i>
-                            <span class="linkedin-btn-text" data-lang-ca="Connecta amb mi" data-lang-es="Conecta conmigo">Connecta amb mi</span>
+                            <span class="linkedin-btn-text" data-i18n="team.linkedinBtn" data-lang-ca="Connecta amb mi" data-lang-es="Conecta conmigo">Connecta amb mi</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Membre 2 (Text esquerra, Foto dreta) -->
-                <div class="team-member-row">
+                <div class="team-member-row scroll-animate">
                     <div class="team-member-photo">
-                        <img src="assets/images/equip/ana.jpg" alt="Foto de Ana Guerrero">
+                        <img src="assets/images/equip/ana.jpg" alt="Foto de Ana Guerrero" loading="lazy" width="1066" height="1066">
+                        <div class="photo-name-overlay">
+                            <span class="photo-overlay-name">Ana Guerrero</span>
+                            <span class="photo-overlay-title" data-i18n="team.ana.title">Divulgadora i Creadora de Tallers</span>
+                        </div>
                     </div>
                     <div class="team-member-info">
                         <h2 data-lang-ca="Ana Guerrero" data-lang-es="Ana Guerrero">Ana Guerrero</h2>
-                        <p class="team-member-title" data-lang-ca="Divulgadora i Creadora de Tallers" data-lang-es="Divulgadora y Creadora de Talleres">Divulgadora i Creadora de Tallers</p>
+                        <p class="team-member-title" data-i18n="team.ana.title" data-lang-ca="Divulgadora i Creadora de Tallers" data-lang-es="Divulgadora y Creadora de Talleres">Divulgadora i Creadora de Tallers</p>
                         <p class="team-member-bio" 
-                        data-lang-ca="Graduada en Arquitectura i especialitzada en Arquitectura Espacial, aconsegueix combinar la passió per l'espai i l'astronomia amb l'educació." 
+                        data-i18n="team.ana.bio"
+                        data-lang-ca="Graduada en Arquitectura i especialitzada en Arquitectura Espacial, aconsegueix combinar la passió per l'espai i l'astronomia amb l'educació."
                         data-lang-es="Graduada en Arquitectura y especializada en Arquitectura Espacial, consigue combinar su pasión por el espacio y la astronomía con la educación.">
                         Graduada en Arquitectura i especialitzada en Arquitectura Espacial, aconsegueix combinar la passió per l'espai i l'astronomia amb l'educació.</p>
                         <p class="team-member-quote" 
-                        data-lang-ca="“Fem que les noves generacions se sentin capaces d'explorar i impulsar la seva curiositat innata per convertir en realitat allò que fins ara ha sigut ciència-ficció”" 
-                        data-lang-es="“Hagamos que las nuevas generaciones se sientan capaces de explorar e impulsar su curiosidad innata para convertir en realidad lo que hasta ahora ha pertenecido a la ciencia ficción”">
+                        data-i18n=”team.ana.quote”
+                        data-lang-ca=””Fem que les noves generacions se sentin capaces d'explorar i impulsar la seva curiositat innata per convertir en realitat allò que fins ara ha sigut ciència-ficció””
+                        data-lang-es=””Hagamos que las nuevas generaciones se sientan capaces de explorar e impulsar su curiosidad innata para convertir en realidad lo que hasta ahora ha pertenecido a la ciencia ficción””>
                         "Fem que les noves generacions se sentin capaces d'explorar i impulsar la seva curiositat innata per convertir en realitat allò que fins ara ha sigut ciència-ficció"</p>
                         <a class="linkedin-btn" href="https://www.linkedin.com/in/ana-guerrero-a6831292/" target="_blank" aria-label="LinkedIn Ana Guerrero">
                             <i class="fa-brands fa-linkedin"></i>
-                            <span class="linkedin-btn-text" data-lang-ca="Connecta amb mi" data-lang-es="Conecta conmigo">Connecta amb mi</span>
+                            <span class="linkedin-btn-text" data-i18n="team.linkedinBtn" data-lang-ca="Connecta amb mi" data-lang-es="Conecta conmigo">Connecta amb mi</span>
                         </a>
                     </div>
                 </div>
 
-                <div class="team-member-row">
+                <div class="team-member-row scroll-animate">
                     <div class="team-member-photo">
-                        <img src="assets/images/equip/jaume.jpg" alt="Foto de Jaume Puig">
+                        <img src="assets/images/equip/jaume.jpg" alt="Foto de Jaume Puig" loading="lazy" width="1080" height="1080">
+                        <div class="photo-name-overlay">
+                            <span class="photo-overlay-name">Jaume Puig</span>
+                            <span class="photo-overlay-title" data-i18n="team.jaume.title">Divulgador i Creador de Tallers</span>
+                        </div>
                     </div>
                     <div class="team-member-info">
                         <h2 data-lang-ca="Jaume Puig" data-lang-es="Jaume Puig">Jaume Puig</h2>
-                        <p class="team-member-title" data-lang-ca="Divulgador i Creador de Tallers" data-lang-es="Divulgador y Creador de Talleres">Divulgador i Creador de Tallers</p>
+                        <p class="team-member-title" data-i18n="team.jaume.title" data-lang-ca="Divulgador i Creador de Tallers" data-lang-es="Divulgador y Creador de Talleres">Divulgador i Creador de Tallers</p>
                         <p class="team-member-bio" 
-                        data-lang-ca="Amb una trajectòria centrada en la Biotecnologia Espacial i la Biologia Sintètica, desenvolupa solucions innovadores des de la investigació estratègica per millorar la vida a la Terra i obrir camins cap al futur de l'exploració espacial." 
+                        data-i18n="team.jaume.bio"
+                        data-lang-ca="Amb una trajectòria centrada en la Biotecnologia Espacial i la Biologia Sintètica, desenvolupa solucions innovadores des de la investigació estratègica per millorar la vida a la Terra i obrir camins cap al futur de l'exploració espacial."
                         data-lang-es="Con una trayectoria centrada en la Biotecnología Espacial y la Biología Sintética, desarrolla soluciones innovadoras desde la investigación estratégica para mejorar la vida en la Tierra y abrir caminos hacia el futuro de la exploración espacial.">
                         Amb una trajectòria centrada en la Biotecnologia Espacial i la Biologia Sintètica, desenvolupa solucions innovadores des de la investigació estratègica per millorar la vida a la Terra i obrir camins cap al futur de l'exploració espacial. </p>
                         <p class="team-member-quote" 
-                        data-lang-ca="“L'exploració espacial comença dins nostre. Només quan encenem la curiositat, la creativitat i les ganes d'explorar, realment podem arribar més lluny.”" 
-                        data-lang-es="“La exploración espacial comienza dentro de nosotros. Solo cuando encendemos la curiosidad, la creatividad y las ganas de explorar, podemos realmente llegar más lejos.”">
+                        data-i18n=”team.jaume.quote”
+                        data-lang-ca=””L'exploració espacial comença dins nostre. Només quan encenem la curiositat, la creativitat i les ganes d'explorar, realment podem arribar més lluny.””
+                        data-lang-es=””La exploración espacial comienza dentro de nosotros. Solo cuando encendemos la curiosidad, la creatividad y las ganas de explorar, podemos realmente llegar más lejos.””>
                         "L'exploració espacial comença dins nostre. Només quan encenem la curiositat, la creativitat i les ganes d'explorar, realment podem arribar més lluny."</p>
                         <a class="linkedin-btn" href="https://www.linkedin.com/in/jaume-puig/" target="_blank" aria-label="LinkedIn Jaume Puig">
                             <i class="fa-brands fa-linkedin"></i>
-                            <span class="linkedin-btn-text" data-lang-ca="Connecta amb mi" data-lang-es="Conecta conmigo">Connecta amb mi</span>
+                            <span class="linkedin-btn-text" data-i18n="team.linkedinBtn" data-lang-ca="Connecta amb mi" data-lang-es="Conecta conmigo">Connecta amb mi</span>
                         </a>
                     </div>
                 </div>
@@ -177,7 +246,8 @@
 
 
     <!-- =================== FOOTER START =================== -->
-    <!-- The <footer> tag is used for semantics, telling the browser and search engines what this section is. -->
+    <!-- The     </main>
+    <footer> tag is used for semantics, telling the browser and search engines what this section is. -->
     <footer id="footer" class="site-footer">
         <!-- This is a container to keep the content centered and constrained to a max-width. -->
         <div class="footer-container">
@@ -187,11 +257,11 @@
                 <!-- Column 1: Text content and social links. -->
                 <div class="footer-column-left">
                     <!-- Main heading for the column -->
-                    <h3 class="footer-title" data-lang-ca="PARLEM?" data-lang-es="¿HABLAMOS?">PARLEM?</h3>
+                    <h3 class="footer-title" data-i18n="footer.title" data-lang-ca="PARLEM?" data-lang-es="¿HABLAMOS?">PARLEM?</h3>
                     <!-- First paragraph of text -->
-                    <p data-lang-ca="Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu." data-lang-es="¿Tienes alguna duda, proposta o idea? ¡Queremos conocerte! Rellena este formulario y nos pondremos en contacto contigo.">Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu.</p>
+                    <p data-i18n="footer.para1" data-lang-ca="Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu." data-lang-es="¿Tienes alguna duda, proposta o idea? ¡Queremos conocerte! Rellena este formulario y nos pondremos en contacto contigo.">Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu.</p>
                     <!-- Second paragraph of text -->
-                    <p data-lang-ca="També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!" data-lang-es="¡También puedes seguirnos en nuestras redes sociales y sumarte a nuestra comunidad!">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
+                    <p data-i18n="footer.para2" data-lang-ca="També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!" data-lang-es="¡También puedes seguirnos en nuestras redes sociales y sumarte a nuestra comunidad!">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
                     <!-- Container for social media icon links -->
                     <div class="footer-social-icons">
                         <!-- Each 'a' tag is a link to a social profile. The 'aria-label' is for accessibility. -->
@@ -208,15 +278,15 @@
                         <!-- Form field for Name. The label is now visually hidden but still exists for screen readers. -->
                         <div class="form-group">
                             <!-- The 'aria-label' provides an accessible name for the input now that the label is hidden. -->
-                            <input type="text" id="name" name="Nom" required placeholder="Nom i Cognoms*" data-lang-ca-placeholder="Nom i Cognoms*" data-lang-es-placeholder="Nombre y Apellidos*" aria-label="Nom i Cognoms">
+                            <input type="text" id="name" name="Nom" required placeholder="Nom i Cognoms*" data-i18n-ph="form.namePlaceholder" data-lang-ca-placeholder="Nom i Cognoms*" data-lang-es-placeholder="Nombre y Apellidos*" aria-label="Nom i Cognoms">
                         </div>
                         <!-- Form field for Email. -->
                         <div class="form-group">
-                            <input type="email" id="email" name="Email" required placeholder="Correu electrònic*" data-lang-ca-placeholder="Correu electrònic*" data-lang-es-placeholder="Correo electrónico*" aria-label="Correu electrònic">
+                            <input type="email" id="email" name="Email" required placeholder="Correu electrònic*" data-i18n-ph="form.emailPlaceholder" data-lang-ca-placeholder="Correu electrònic*" data-lang-es-placeholder="Correo electrónico*" aria-label="Correu electrònic">
                         </div>
                         <!-- Form field for Institution. -->
                         <div class="form-group">
-                            <input type="text" id="institution" name="Institució" required placeholder="Empresa, escola, institut, etc.*" data-lang-ca-placeholder="Empresa, escola, institut, etc.*" data-lang-es-placeholder="Empresa, colegio, instituto, etc.*" aria-label="Empresa, escola, institut, etc.">
+                            <input type="text" id="institution" name="Institució" required placeholder="Empresa, escola, institut, etc.*" data-i18n-ph="form.institutionPlaceholder" data-lang-ca-placeholder="Empresa, escola, institut, etc.*" data-lang-es-placeholder="Empresa, colegio, instituto, etc.*" aria-label="Empresa, escola, institut, etc.">
                         </div>
                         <!-- Custom Multi-Select Dropdown for Workshops -->
                         <div class="form-group">
@@ -225,8 +295,9 @@
                                 <!-- This is the visible, clickable part that looks like a form input. -->
                                 <div class="multiselect-display">
                                     <!-- This span holds the placeholder text (e.g., "2 seleccionats"). -->
-                                    <span class="multiselect-placeholder" 
-                                        data-lang-ca="T'agradaria rebre informació d'algún taller en concret?" 
+                                    <span class="multiselect-placeholder"
+                                        data-i18n="form.workshopPlaceholder"
+                                        data-lang-ca="T'agradaria rebre informació d'algún taller en concret?"
                                         data-lang-es="¿Te gustaría recibir información de algún taller en concreto?">
                                         T'agradaria rebre informació d'algún taller en concret?
                                     </span>
@@ -238,31 +309,31 @@
                                     <!-- Each workshop is a checkbox/label pair. -->
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Nanosatèl·lits">
-                                        <span data-lang-ca="Ajudem al nostre planeta a través dels nanosatèl·lits." data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites.">Ajudem al nostre planeta a través dels nanosatèl·lits.</span>
+                                        <span data-i18n="workshop.1.title" data-lang-ca="Ajudem al nostre planeta a través dels nanosatèl·lits." data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites.">Ajudem al nostre planeta a través dels nanosatèl·lits.</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Coets">
-                                        <span data-lang-ca="Explorem l’espai amb AulaSPUTNIK!" data-lang-es="¡Exploramos el espacio con AulaSPUTNIK!">Explorem l’espai amb AulaSPUTNIK!</span>
+                                        <span data-i18n="workshop.2.title" data-lang-ca="Explorem l’espai amb AulaSPUTNIK!" data-lang-es="¡Exploramos el espacio con AulaSPUTNIK!">Explorem l’espai amb AulaSPUTNIK!</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Dona a l'Espai">
-                                        <span data-lang-ca="La dona al sector aeroespacial." data-lang-es="La mujer en el sector aeroespacial.">La dona al sector aeroespacial.</span>
+                                        <span data-i18n="workshop.3.title" data-lang-ca="La dona al sector aeroespacial." data-lang-es="La mujer en el sector aeroespacial.">La dona al sector aeroespacial.</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Constel·lacions">
-                                        <span data-lang-ca="Les constel·lacions com a quadern vital." data-lang-es="Las constelaciones como cuaderno vital.">Les constel·lacions com a quadern vital.</span>
+                                        <span data-i18n="workshop.4.title" data-lang-ca="Les constel·lacions com a quadern vital." data-lang-es="Las constelaciones como cuaderno vital.">Les constel·lacions com a quadern vital.</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Aliens">
-                                        <span data-lang-ca="La biologia a l'espai: com són els aliens?" data-lang-es="La biología en el espacio: ¿cómo son los aliens?">La biologia a l'espai: com són els aliens?</span>
+                                        <span data-i18n="workshop.5.title" data-lang-ca="La biologia a l'espai: com són els aliens?" data-lang-es="La biología en el espacio: ¿cómo son los aliens?">La biologia a l'espai: com són els aliens?</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Sistema estelar">
-                                        <span data-lang-ca="Crea el teu propi sistema estelar!" data-lang-es="¡Crea tu propio sistema estelar!">Crea el teu propi sistema estelar!</span>
+                                        <span data-i18n="workshop.6.title" data-lang-ca="Crea el teu propi sistema estelar!" data-lang-es="¡Crea tu propio sistema estelar!">Crea el teu propi sistema estelar!</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Repte AulaSPUTNIK">
-                                        <span data-lang-ca="El Repte AulaSPUTNIK" data-lang-es="El Reto AulaSPUTNIK">El Repte AulaSPUTNIK</span>
+                                        <span data-i18n="challenge.title" data-lang-ca="El Repte AulaSPUTNIK" data-lang-es="El Reto AulaSPUTNIK">El Repte AulaSPUTNIK</span>
                                     </label>
                                 </div>
                                 <!-- This is a hidden input. Its value will be updated by JavaScript with all the selected workshops. This is what Formspree will receive. -->
@@ -271,14 +342,14 @@
                         </div>
                         <!-- Form field for the message. 'textarea' allows for multiple lines of text. -->
                         <div class="form-group">
-                            <textarea id="message" name="Missatge" rows="4" required placeholder="El teu missatge" data-lang-ca-placeholder="El teu missatge" data-lang-es-placeholder="Tu mensaje" aria-label="El teu missatge"></textarea>
+                            <textarea id="message" name="Missatge" rows="4" required placeholder="El teu missatge" data-i18n-ph="form.messagePlaceholder" data-lang-ca-placeholder="El teu missatge" data-lang-es-placeholder="Tu mensaje" aria-label="El teu missatge"></textarea>
                         </div>
                         <!-- Privacy Consent Section -->
                         <div class="privacy-section">
                             <!-- A header for this section, with a link to your future Privacy Policy page. -->
                             <!-- Note: The href="#" is a placeholder you should change later to the actual page link. -->
-                            <p class="privacy-header" 
-                                data-lang-ca="En relació amb la nostra <a href='politica-de-privacitat.html'>Política de Privacitat</a>*:" 
+                            <p class="privacy-header" data-i18n-html="form.privacyHeader"
+                                data-lang-ca="En relació amb la nostra <a href='politica-de-privacitat.html'>Política de Privacitat</a>*:"
                                 data-lang-es="En relación con nuestra <a href='politica-de-privacitat.html'>Política de Privacidad</a>*:">
                                 En relació amb la nostra <a href="politica-de-privacitat.html">Política de Privacitat</a>*:
                             </p>
@@ -287,8 +358,8 @@
                                 <!-- The actual checkbox input, which we will hide visually with CSS. -->
                                 <input type="checkbox" id="privacy-accept" name="privacy-accept" required>
                                 <!-- The label is what users will see and click. It's linked to the input by the 'for' attribute. -->
-                                <label for="privacy-accept" 
-                                    data-lang-ca="Confirmo haver-la llegit i l'accepto." 
+                                <label for="privacy-accept" data-i18n="form.privacyAccept"
+                                    data-lang-ca="Confirmo haver-la llegit i l'accepto."
                                     data-lang-es="Confirmo haberla leído y la acepto.">
                                     Confirmo haver-la llegit i l'accepto.
                                 </label>
@@ -296,8 +367,8 @@
                             <!-- Checkbox 2: Commercial Use Consent. This one is optional. -->
                             <div class="form-group-checkbox">
                                 <input type="checkbox" id="commercial-accept" name="commercial-accept" required>
-                                <label for="commercial-accept" 
-                                    data-lang-ca="Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics." 
+                                <label for="commercial-accept" data-i18n="form.commercialAccept"
+                                    data-lang-ca="Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics."
                                     data-lang-es="Acepto que mis datos identificativos sean incluidos para fines comerciales por medios electrónicos.">
                                     Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics.
                                 </label>
@@ -305,7 +376,7 @@
                         </div>
                         <!-- End of Privacy Consent Section -->
                         <!-- The submit button for the form. -->
-                        <button type="submit" class="submit-btn" data-lang-ca="Enviar" data-lang-es="Enviar">Enviar</button>
+                        <button type="submit" class="submit-btn" data-i18n="form.submit" data-lang-ca="Enviar" data-lang-es="Enviar">Enviar</button>
                     </form>
                 </div>
             </div>
@@ -313,11 +384,11 @@
             <!-- This is the bottom bar of the footer. -->
             <div class="footer-bottom-bar">
                 <!-- Copyright notice. -->
-                <p class="copyright-text" data-lang-ca='© 2025 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.' data-lang-es='© 2024 <a href="index.html">AulaSPUTNIK</a>. Todos los derechos reservados.'>© 2024 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.</p>
+                <p class="copyright-text" data-i18n-html="footer.copyright" data-lang-ca='© 2025 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.' data-lang-es='© 2024 <a href="index.html">AulaSPUTNIK</a>. Todos los derechos reservados.'>© 2024 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.</p>
                 <!-- Container for the legal links. -->
                 <div class="footer-legal-links">
-                    <a href="politica-de-privacitat.html" data-lang-ca="Política de Privacitat" data-lang-es="Política de Privacidad">Política de Privacitat</a>
-                    <a href="avis-legal.html" data-lang-ca="Avís Legal" data-lang-es="Aviso Legal">Avís Legal</a>
+                    <a href="politica-de-privacitat.html" data-i18n="footer.privacy" data-lang-ca="Política de Privacitat" data-lang-es="Política de Privacidad">Política de Privacitat</a>
+                    <a href="avis-legal.html" data-i18n="footer.legal" data-lang-ca="Avís Legal" data-lang-es="Aviso Legal">Avís Legal</a>
                 </div>
             </div>
         </div>
@@ -330,6 +401,7 @@
     </button>
 
     <!-- Link to your JavaScript file -->
-    <script src="assets/js/main.js"></script>
+    <script defer src="assets/js/translations-data.js"></script>
+    <script defer src="assets/js/main.js"></script>
 </body>
 </html>

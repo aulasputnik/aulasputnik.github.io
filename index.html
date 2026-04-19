@@ -28,7 +28,8 @@
     <meta property="og:description" content="Un projecte educatiu per inspirar i despertar el talent de les noves generacions a través de la ciència i la tecnologia aeroespacial.">
     <meta property="og:image" content="assets/images/logo.svg">
     <meta property="og:url" content="https://aulasputnik.com/index.html">
-    <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website">
 
     <!-- Canonical link -->
     <link rel="canonical" href="https://aulasputnik.com/index.html">
@@ -40,6 +41,7 @@
     <link rel="alternate" hreflang="x-default" href="https://aulasputnik.com/index.html">
 
     <!-- PWA manifest -->
+    <link rel="preload" as="image" href="assets/images/patch.png">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#a15df6">
 
@@ -65,8 +67,39 @@
         gtag('js', new Date());
         gtag('config', 'G-V1PQCYK0JP');
     </script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://aulasputnik.com/#organization",
+                "name": "AulaSPUTNIK",
+                "url": "https://aulasputnik.com",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://aulasputnik.com/assets/images/logo.svg"
+                },
+                "description": "Projecte educatiu per inspirar i despertar el talent de les noves generacions a través de la ciència i la tecnologia aeroespacial.",
+                "sameAs": []
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://aulasputnik.com/#website",
+                "url": "https://aulasputnik.com",
+                "name": "AulaSPUTNIK",
+                "publisher": { "@id": "https://aulasputnik.com/#organization" },
+                "inLanguage": ["ca", "es", "en"]
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content" data-i18n="a11y.skipToContent">Saltar al contingut</a>
+
     <!-- Main site header and navigation. -->
     <header class="site-header">
         <nav class="site-nav">
@@ -102,6 +135,7 @@
             </div>
         </nav>
     </header>
+    <main id="main-content">
 
     <!-- =================== HERO SECTION START =================== -->
     <!-- Main "above the fold" hero section. -->
@@ -136,7 +170,7 @@
 
         <!-- Floating image for visual effect. -->
         <div class="hero-floating-image">
-            <img src="assets/images/patch.png" alt="Description of the floating image">
+            <img src="assets/images/patch.png" alt="Description of the floating image" width="1182" height="1182">
         </div>
 
     </section>
@@ -147,37 +181,37 @@
             <div class="context-grid">
                 <div class="context-text-content">
                     <h2 class="section-title" data-i18n="context.title">CONTEXT</h2>
-                    <p data-lang-ca="En el context de la nova societat que estem construint, una societat incerta i complexa, és molt important <strong>desenvolupar i obrir noves capacitats</strong> a les persones per aprendre a cooperar i participar. Per això, és molt important per un col·lectiu, apoderar-se i construir-se des del mètode científic, el pensament crític i la <strong>inspiració</strong>." data-lang-es="En el contexto de la nueva sociedad que estamos construyendo, una sociedad incierta y compleja, es muy importante <strong>desarrollar y abrir nuevas capacidades</strong> a las personas para aprender a cooperar y participar. Por ello, es muy importante para un colectivo, apoderarse y construirse desde el método científico, el pensamiento crítico y la <strong>inspiración</strong>.">En el context de la nova societat que estem construint, una societat incerta i complexa, és molt important <strong>desenvolupar i obrir noves capacitats</strong> a les persones per aprendre a cooperar i participar. Per això, és molt important per un col·lectiu, apoderar-se i construir-se des del mètode científic, el pensament crítics i la <strong>inspiració</strong>.</p>
-                    <p data-lang-ca="El món científic i tecnològic és un àmbit molt llunyà per a moltes persones. Per això, humanitzar la ciència i la tecnologia és un repte fonamental i més si parlem del sector aeroespacial. El sector aeroespacial és un àmbit que <strong>impulsa</strong> la millora de les competències acadèmiques i de ocupabilitat, com també innova per <strong>trobar solucions</strong> als nous reptes socials com el canvi climàtic." data-lang-es="El mundo científico y tecnológico es un ámbito muy lejano para muchas personas. Por ello, humanizar la ciencia y la tecnología es un reto fundamental y más si hablamos del sector aeroespacial. El sector aeroespacial es un ámbito que <strong>impulsa</strong> la mejora de las competencias académicas y de empleabilidad, así como innova para <strong>encontrar soluciones</strong> a los nuevos retos sociales como el cambio climático.">El món científic i tecnològic és un àmbit molt llunyà per a moltes persones. Per això, humanitzar la ciència i la tecnologia és un repte fonamental i més si parlem del sector aeroespacial. El sector aeroespacial és un àmbit que <strong>impulsa</strong> la millora de les competències acadèmiques i de ocupabilitat, com també innova per <strong>trobar solucions</strong> als nous reptes socials com el canvi climàtic.</p>
-                    <p data-lang-ca="Per aquest motiu, l’educació i el sector aeroespacial són dues de les claus per avançar en aquests futurs reptes col·lectius. Les noves generacions són la <strong>clau</strong> per construir una societat més cooperativa, líder i inclusiva, on qualsevol persona <strong>sense diferència de gènere, context, edat o cultura</strong>, pot tenir les mateixes oportunitats." data-lang-es="Por este motivo, la educación y el sector aeroespacial son dos de las claves para avanzar en estos futuros retos colectivos. Las nuevas generaciones son la clave para construir una sociedad más cooperativa, líder e inclusiva, donde cualquier persona <strong>sin diferencia de género, contexto, edad o cultura</strong>, puede tener las mismas oportunidades.">Per aquest motiu, l’educació i el sector aeroespacial són dues de les claus per avançar en aquests futurs reptes col·lectius. Les noves generacions són la <strong>clau</strong> per construir una societat més cooperativa, líder i inclusiva, on qualsevol persona <strong>sense diferència de gènere, context, edat o cultura</strong>, pot tenir les mateixes oportunitats.</p>
+                    <p data-i18n-html="context.para1" data-lang-ca="En el context de la nova societat que estem construint, una societat incerta i complexa, és molt important <strong>desenvolupar i obrir noves capacitats</strong> a les persones per aprendre a cooperar i participar. Per això, és molt important per un col·lectiu, apoderar-se i construir-se des del mètode científic, el pensament crític i la <strong>inspiració</strong>." data-lang-es="En el contexto de la nueva sociedad que estamos construyendo, una sociedad incierta y compleja, es muy importante <strong>desarrollar y abrir nuevas capacidades</strong> a las personas para aprender a cooperar y participar. Por ello, es muy importante para un colectivo, apoderarse y construirse desde el método científico, el pensamiento crítico y la <strong>inspiración</strong>.">En el context de la nova societat que estem construint, una societat incerta i complexa, és molt important <strong>desenvolupar i obrir noves capacitats</strong> a les persones per aprendre a cooperar i participar. Per això, és molt important per un col·lectiu, apoderar-se i construir-se des del mètode científic, el pensament crítics i la <strong>inspiració</strong>.</p>
+                    <p data-i18n-html="context.para2" data-lang-ca="El món científic i tecnològic és un àmbit molt llunyà per a moltes persones. Per això, humanitzar la ciència i la tecnologia és un repte fonamental i més si parlem del sector aeroespacial. El sector aeroespacial és un àmbit que <strong>impulsa</strong> la millora de les competències acadèmiques i de ocupabilitat, com també innova per <strong>trobar solucions</strong> als nous reptes socials com el canvi climàtic." data-lang-es="El mundo científico y tecnológico es un ámbito muy lejano para muchas personas. Por ello, humanizar la ciencia y la tecnología es un reto fundamental y más si hablamos del sector aeroespacial. El sector aeroespacial es un ámbito que <strong>impulsa</strong> la mejora de las competencias académicas y de empleabilidad, así como innova para <strong>encontrar soluciones</strong> a los nuevos retos sociales como el cambio climático.">El món científic i tecnològic és un àmbit molt llunyà per a moltes persones. Per això, humanitzar la ciència i la tecnologia és un repte fonamental i més si parlem del sector aeroespacial. El sector aeroespacial és un àmbit que <strong>impulsa</strong> la millora de les competències acadèmiques i de ocupabilitat, com també innova per <strong>trobar solucions</strong> als nous reptes socials com el canvi climàtic.</p>
+                    <p data-i18n-html="context.para3" data-lang-ca="Per aquest motiu, l’educació i el sector aeroespacial són dues de les claus per avançar en aquests futurs reptes col·lectius. Les noves generacions són la <strong>clau</strong> per construir una societat més cooperativa, líder i inclusiva, on qualsevol persona <strong>sense diferència de gènere, context, edat o cultura</strong>, pot tenir les mateixes oportunitats." data-lang-es="Por este motivo, la educación y el sector aeroespacial son dos de las claves para avanzar en estos futuros retos colectivos. Las nuevas generaciones son la clave para construir una sociedad más cooperativa, líder e inclusiva, donde cualquier persona <strong>sin diferencia de género, contexto, edad o cultura</strong>, puede tener las mismas oportunidades.">Per aquest motiu, l’educació i el sector aeroespacial són dues de les claus per avançar en aquests futurs reptes col·lectius. Les noves generacions són la <strong>clau</strong> per construir una societat més cooperativa, líder i inclusiva, on qualsevol persona <strong>sense diferència de gènere, context, edat o cultura</strong>, pot tenir les mateixes oportunitats.</p>
                 </div>
                 <div class="context-accordion-content">
                     <div class="accordion">
                         <div class="accordion-item">
                             <button class="accordion-header">
-                                <span data-lang-ca="OBJECTIU" data-lang-es="OBJETIVO">OBJECTIU</span>
+                                <span data-i18n="accordion.objective" data-lang-ca="OBJECTIU" data-lang-es="OBJETIVO">OBJECTIU</span>
                                 <i class="fa-solid fa-plus"></i>
                             </button>
                             <div class="accordion-content">
-                                <p data-lang-ca="AulaSPUTNIK és un projecte educatiu amb l’objectiu de realitzar activitats per inspirar i despertar el talent de les noves generacions, amb el sector aeroespacial com a context, de forma inclusiva, accessible i participativa per a tots els contextos. Creiem en el desenvolupament de la competència científic-tecnològica, entesa com a competència bàsica (i, per tant, imprescindible), per a totes les persones i amb valors." data-lang-es="AulaSPUTNIK es un proyecto educativo con el objetivo de realizar actividades para inspirar y despertar el talento de las nuevas generaciones, con el sector aeroespacial como contexto, de forma inclusiva, accesible y participativa para todos los contextos. Creemos en el desarrollo de la competencia científico-tecnológica, entendida como competencia básica (y, por tanto, imprescindible), para todas las personas y con valores.">AulaSPUTNIK és un projecte educatiu amb l’objectiu de realitzar activitats per inspirar i despertar el talent de les noves generacions, amb el sector aeroespacial com a context, de forma inclusiva, accessible i participativa per a tots els contextos. Creiem en el desenvolupament de la competència científic-tecnològica, entesa com a competència bàsica (i, per tant, imprescindible), per a totes les persones i amb valors.</p>
+                                <p data-i18n="accordion.objectiveContent" data-lang-ca="AulaSPUTNIK és un projecte educatiu amb l’objectiu de realitzar activitats per inspirar i despertar el talent de les noves generacions, amb el sector aeroespacial com a context, de forma inclusiva, accessible i participativa per a tots els contextos. Creiem en el desenvolupament de la competència científic-tecnològica, entesa com a competència bàsica (i, per tant, imprescindible), per a totes les persones i amb valors." data-lang-es="AulaSPUTNIK es un proyecto educativo con el objetivo de realizar actividades para inspirar y despertar el talento de las nuevas generaciones, con el sector aeroespacial como contexto, de forma inclusiva, accesible y participativa para todos los contextos. Creemos en el desarrollo de la competencia científico-tecnológica, entendida como competencia básica (y, por tanto, imprescindible), para todas las personas y con valores.">AulaSPUTNIK és un projecte educatiu amb l’objectiu de realitzar activitats per inspirar i despertar el talent de les noves generacions, amb el sector aeroespacial com a context, de forma inclusiva, accessible i participativa per a tots els contextos. Creiem en el desenvolupament de la competència científic-tecnològica, entesa com a competència bàsica (i, per tant, imprescindible), per a totes les persones i amb valors.</p>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <button class="accordion-header">
-                                <span data-lang-ca="MISSIÓ" data-lang-es="MISIÓN">MISSIÓ</span>
+                                <span data-i18n="accordion.mission" data-lang-ca="MISSIÓ" data-lang-es="MISIÓN">MISSIÓ</span>
                                 <i class="fa-solid fa-plus"></i>
                             </button>
                             <div class="accordion-content">
-                                <p data-lang-ca="La missió és desenvolupar actituds, emocions i identitats positives relacionades amb la ciència i la societat, per això el públic objectiu se centra en persones de 8 a 88 anys. Aprendrem la importància de la participació i lideratge social en la ciència i millorarem les competències acadèmiques i de ocupabilitat, amb el sector aeroespacial com a context." data-lang-es="La misión es desarrollar actitudes, emociones e identidades positivas relacionadas con la ciencia y la sociedad, por ello el público objetivo se centra en personas de 8 a 88 años. Aprenderemos la importancia de la participación y liderazgo social en la ciencia y mejoraremos las competencias académicas y de empleabilidad, con el sector aeroespacial como contexto.">La missió és desenvolupar actituds, emocions i identitats positives relacionades amb la ciència i la societat, per això el públic objectiu se centra en persones de 8 a 88 anys. Aprendrem la importància de la participació i lideratge social en la ciència i millorarem les competències acadèmiques i de ocupabilitat, amb el sector aeroespacial com a context.</p>
+                                <p data-i18n="accordion.missionContent" data-lang-ca="La missió és desenvolupar actituds, emocions i identitats positives relacionades amb la ciència i la societat, per això el públic objectiu se centra en persones de 8 a 88 anys. Aprendrem la importància de la participació i lideratge social en la ciència i millorarem les competències acadèmiques i de ocupabilitat, amb el sector aeroespacial com a context." data-lang-es="La misión es desarrollar actitudes, emociones e identidades positivas relacionadas con la ciencia y la sociedad, por ello el público objetivo se centra en personas de 8 a 88 años. Aprenderemos la importancia de la participación y liderazgo social en la ciencia y mejoraremos las competencias académicas y de empleabilidad, con el sector aeroespacial como contexto.">La missió és desenvolupar actituds, emocions i identitats positives relacionades amb la ciència i la societat, per això el públic objectiu se centra en persones de 8 a 88 anys. Aprendrem la importància de la participació i lideratge social en la ciència i millorarem les competències acadèmiques i de ocupabilitat, amb el sector aeroespacial com a context.</p>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <button class="accordion-header">
-                                <span data-lang-ca="VISIÓ" data-lang-es="VISIÓN">VISIÓ</span>
+                                <span data-i18n="accordion.vision" data-lang-ca="VISIÓ" data-lang-es="VISIÓN">VISIÓ</span>
                                 <i class="fa-solid fa-plus"></i>
                             </button>
                             <div class="accordion-content">
-                                <p data-lang-ca="La nostra visió és despertar curiositat i creativitat, com també les capacitats personals i el treball en equip. Volem motivar i educar, i així ampliar les oportunitats de relacionar-se amb la ciència." data-lang-es="Nuestra visión es despertar curiosidad y creatividad, así como las capacidades personales y el trabajo en equipo. Queremos motivar y educar, y así ampliar las oportunidades de relacionarse con la ciencia.">La nostra visió és despertar curiositat i creativitat, com també les capacitats personals i el treball en equip. Volem motivar i educar, i així ampliar les oportunitats de relacionar-se amb la ciència.</p>
+                                <p data-i18n="accordion.visionContent" data-lang-ca="La nostra visió és despertar curiositat i creativitat, com també les capacitats personals i el treball en equip. Volem motivar i educar, i així ampliar les oportunitats de relacionar-se amb la ciència." data-lang-es="Nuestra visión es despertar curiosidad y creatividad, así como las capacidades personales y el trabajo en equipo. Queremos motivar y educar, y así ampliar las oportunidades de relacionarse con la ciencia.">La nostra visió és despertar curiositat i creativitat, com també les capacitats personals i el treball en equip. Volem motivar i educar, i així ampliar les oportunitats de relacionar-se amb la ciència.</p>
                             </div>
                         </div>
                     </div>
@@ -237,7 +271,8 @@
 </section> 
 
     <!-- =================== FOOTER START =================== -->
-    <!-- The <footer> tag is semantic, indicating this is the page footer. -->
+    <!-- The     </main>
+    <footer> tag is semantic, indicating this is the page footer. -->
     <footer id="footer" class="site-footer">
         <!-- Container to keep content centered and constrained to max-width. -->
         <div class="footer-container">
@@ -296,7 +331,7 @@
                                     <!-- Each workshop is a checkbox/label pair. -->
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Nanosatèl·lits">
-                                        <span data-i18n="workshop.1.tags">canvi climàtic, satèl·lits, treball en grup, creativitat</span>
+                                        <span data-i18n-html="workshop.1.tags">canvi climàtic, satèl·lits, treball en grup, creativitat</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Coets">
@@ -381,6 +416,7 @@
     </button>
 
     <!-- Link to main JavaScript file. -->
-    <script src="assets/js/main.js"></script>
+    <script defer src="assets/js/translations-data.js"></script>
+    <script defer src="assets/js/main.js"></script>
 </body>
 </html>

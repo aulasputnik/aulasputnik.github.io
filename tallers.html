@@ -24,9 +24,10 @@
     <!-- Open Graph Tags (Social Media) -->
     <meta property="og:title" data-i18n="page.tallers" content="Tallers - AulaSPUTNIK">
     <meta property="og:description" data-i18n="meta.tallers.description" content="Descobreix els nostres tallers educatius en ciència i tecnologia aeroespacial per a tots els nivells.">
-    <meta property="og:image" content="https://aulasputnik.com/assets/images/og-tallers.png">
+    <meta property="og:image" content="https://aulasputnik.com/assets/images/patch.png">
     <meta property="og:url" content="https://aulasputnik.com/tallers.html">
-    <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website">
 
     <!-- Canonical Link -->
     <link rel="canonical" href="https://aulasputnik.com/tallers.html">
@@ -54,8 +55,36 @@
     <!-- Link to main CSS stylesheet. -->
     <link rel="stylesheet" href="assets/css/main.css">
 
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://aulasputnik.com/tallers.html",
+                "url": "https://aulasputnik.com/tallers.html",
+                "name": "Tallers - AulaSPUTNIK",
+                "description": "Descobreix els nostres tallers educatius en ciència i tecnologia aeroespacial per a tots els nivells.",
+                "inLanguage": ["ca", "es", "en"],
+                "isPartOf": { "@id": "https://aulasputnik.com/#website" },
+                "publisher": { "@id": "https://aulasputnik.com/#organization" }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Inici", "item": "https://aulasputnik.com/index.html" },
+                    { "@type": "ListItem", "position": 2, "name": "Tallers", "item": "https://aulasputnik.com/tallers.html" }
+                ]
+            }
+        ]
+    }
+    </script>
+
 </head>
 <body>
+    <a class="skip-link" href="#main-content" data-i18n="a11y.skipToContent">Saltar al contingut</a>
+
     <!-- Main site header and navigation. -->
     <header class="site-header">
         <nav class="site-nav">
@@ -87,6 +116,14 @@
             </div>
         </nav>
     </header>
+    <main id="main-content">
+
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+        <ol class="breadcrumb-list">
+            <li class="breadcrumb-item"><a href="index.html" data-i18n="nav.home">Inici</a></li>
+            <li class="breadcrumb-item breadcrumb-current" aria-current="page" data-i18n="nav.workshops">Tallers</li>
+        </ol>
+    </nav>
 
     <section class="page-intro-section">
         <div class="section-container">
@@ -102,12 +139,43 @@
 
                 <!-- Subtitle for methodology section. -->
                 <h2 class="section-subtitle" data-i18n="workshop.methodology">Metodologia</h2>
-                <p class="lead-paragraph" data-i18n="workshop.methodology1">Les sessions dels tallers es basen en una estructura on s’<strong>INTRODUEIX</strong> el <strong>REPTE</strong> per arribar a una <strong>CONCLUSIÓ</strong>.</p>
-                <p class="lead-paragraph" data-i18n="workshop.methodology2">Les sessions són d’<strong>1 HORA I MITJA</strong> per a <strong>grups de 15/25 persones</strong>. Inclou un dossier per als participants i per al professorat.</p>
+                <p class="lead-paragraph" data-i18n-html="workshop.methodology1">Les sessions dels tallers es basen en una estructura on s’<strong>INTRODUEIX</strong> el <strong>REPTE</strong> per arribar a una <strong>CONCLUSIÓ</strong>.</p>
+                <p class="lead-paragraph" data-i18n-html="workshop.methodology2">Les sessions són d’<strong>1 HORA I MITJA</strong> per a <strong>grups de 15/25 persones</strong>. Inclou un dossier per als participants i per al professorat.</p>
             </div>
 
         </div>
     </section>
+
+<!-- =================== FILTER BAR =================== -->
+<section class="filter-section">
+    <div class="section-container">
+        <div class="filter-bar">
+            <div class="filter-group filter-search-group">
+                <i class="fa-solid fa-magnifying-glass filter-search-icon"></i>
+                <input type="text" id="filter-keyword" class="filter-search-input" data-i18n-ph="filter.search.placeholder" placeholder="Cerca tallers...">
+            </div>
+            <div class="filter-group">
+                <span class="filter-label" data-i18n="filter.age.label">Edat</span>
+                <div class="filter-chips">
+                    <button class="filter-chip active" data-filter-age="all" data-i18n="filter.age.all">Totes les edats</button>
+                    <button class="filter-chip" data-filter-age="6-8" data-i18n="filter.age.young">6–8 anys</button>
+                    <button class="filter-chip" data-filter-age="9-12" data-i18n="filter.age.middle">9–12 anys</button>
+                    <button class="filter-chip" data-filter-age="12-16" data-i18n="filter.age.older">12–16 anys</button>
+                </div>
+            </div>
+            <div class="filter-group">
+                <span class="filter-label" data-i18n="filter.duration.label">Durada</span>
+                <div class="filter-chips">
+                    <button class="filter-chip active" data-filter-duration="all" data-i18n="filter.duration.all">Qualsevol durada</button>
+                    <button class="filter-chip" data-filter-duration="90" data-i18n="filter.duration.90">1h 30min</button>
+                    <button class="filter-chip" data-filter-duration="120" data-i18n="filter.duration.120">2h</button>
+                </div>
+            </div>
+            <button class="filter-clear-btn" id="filter-clear" data-i18n="filter.clear">Esborra filtres</button>
+        </div>
+        <p class="filter-no-results" id="filter-no-results" data-i18n="filter.noResults">Cap taller coincideix amb els filtres seleccionats.</p>
+    </div>
+</section>
 
 <!-- =================== SECCIÓ DE TALLERS (VERSIÓ FINAL) START =================== -->
 <section class="tallers-section">
@@ -117,13 +185,13 @@
         <div class="taller-grid">
             
             <!-- Card 1: Nanosatèl·lits -->
-            <div class="taller-card">
+            <div class="taller-card scroll-animate" data-age-min="8" data-age-max="14" data-duration="90">
                 <!-- Card header: visible and clickable part. -->
                 <div class="taller-card-header">
-                    <div class="taller-icon"><img src="assets/images/tallers/taller1/taller1_icon.png" alt="Taller icona 1"></div>
+                    <div class="taller-icon"><img src="assets/images/tallers/taller1/taller1_icon.png" alt="Taller icona 1" width="512" height="512"></div>
                     <div class="taller-main-info">
                         <h3 class="taller-title" data-i18n="workshop.1.title">Ajudem al nostre planeta a través dels nanosatèl·lits</h3>
-                        <div class="taller-tags" data-i18n="workshop.1.tags">
+                        <div class="taller-tags" data-i18n-html="workshop.1.tags">
                             <span>canvi climàtic</span><span>satèl·lits</span><span>treball en grup</span><span>creativitat</span>
                         </div>
                     </div>
@@ -135,9 +203,9 @@
                         <!-- Detailed content in two columns. -->
                         <div class="taller-details-grid">
                             <div class="taller-details-main">
-                                <h4 data-i18n="workshop.1.summary">Resum</h4>
-                                <p data-i18n="workshop.1.description1">L’objectiu principal d’aquest taller és explicar què són els satèl·lits i els principis bàsics d’aquesta tecnologia, per entendre com ens poden ajudar a millorar el nostre planeta Terra.</p>
-                                <p data-i18n="workshop.1.description2">Seguidament, a través d’un repte per grups, l’alumnat ha de dissenyar un satèl·lit, construir una maqueta amb un kit bàsic i realitzar una presentació de la seva idea de projecte. El propòsit d’aquest satèl·lit ha de ser oferir un servei que ajudi a la nostra societat a reduir l’impacte del canvi climàtic. Per tant, l’alumnat haurà de despertar la seva creativitat i capacitat de trobar solucions a diferents reptes socials.</p>
+                                <h4 data-i18n="workshop.summary">Resum</h4>
+                                <p data-i18n="workshop.1.summary">L’objectiu principal d’aquest taller és explicar què són els satèl·lits i els principis bàsics d’aquesta tecnologia, per entendre com ens poden ajudar a millorar el nostre planeta Terra.</p>
+                                <p data-i18n="workshop.1.summary2">Seguidament, a través d’un repte per grups, l’alumnat ha de dissenyar un satèl·lit, construir una maqueta amb un kit bàsic i realitzar una presentació de la seva idea de projecte. El propòsit d’aquest satèl·lit ha de ser oferir un servei que ajudi a la nostra societat a reduir l’impacte del canvi climàtic. Per tant, l’alumnat haurà de despertar la seva creativitat i capacitat de trobar solucions a diferents reptes socials.</p>
                                 <h4 data-i18n="workshop.commonLearning">L’alumnat aprendrà…</h4>
                                 <ul>
                                     <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span data-i18n="workshop.1.learning1">Les fases d’una missió espacial: disseny, construcció i llançament dels satèl·lits.</span></li>
@@ -148,17 +216,17 @@
                             </div>
                             <div class="taller-details-sidebar">
                                 <h4 data-i18n="workshop.characteristics">Característiques</h4>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span data-i18n="workshop.1.ageRange"><strong>Rang d’edat:</strong> 8 - 14 anys</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span data-i18n="workshop.commonType"><strong>Tipus:</strong> activitats en grup</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span data-i18n="workshop.1.complexity"><strong>Complexitat:</strong> mitjana</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span data-i18n="workshop.1.duration"><strong>Durada:</strong> 1h 30min</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span data-i18n-html="workshop.1.ageRange"><strong>Rang d’edat:</strong> 8 - 14 anys</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span data-i18n-html="workshop.commonType"><strong>Tipus:</strong> activitats en grup</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span data-i18n-html="workshop.1.complexity"><strong>Complexitat:</strong> mitjana</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span data-i18n-html="workshop.1.duration"><strong>Durada:</strong> 1h 30min</span></div>
                                 <h4 data-i18n="workshop.materials">Material Inclòs</h4>
                                 <p data-i18n="workshop.1.materials">Material de construcció, llapis, gomes i dossier d’activitats.</p>
                                 <div class="taller-ods-section">
                                 <h4 data-i18n="workshop.ods">Quins ODS treballarem?</h4>
                                 <div class="ods-images">
-                                    <img src="assets/images/ods/cat/9.jpg" alt="ODS 9" data-i18n-src-ca="assets/images/ods/cat/9.jpg" data-i18n-src-es="assets/images/ods/esp/9.png" data-i18n-src-en="assets/images/ods/eng/9.png">
-                                    <img src="assets/images/ods/cat/13.jpg" alt="ODS 13" data-i18n-src-ca="assets/images/ods/cat/13.jpg" data-i18n-src-es="assets/images/ods/esp/13.png" data-i18n-src-en="assets/images/ods/eng/13.png">
+                                    <img src="assets/images/ods/cat/9.jpg" alt="ODS 9" data-i18n-src-ca="assets/images/ods/cat/9.jpg" data-i18n-src-es="assets/images/ods/esp/9.png" data-i18n-src-en="assets/images/ods/eng/9.png" loading="lazy" width="1357" height="1357">
+                                    <img src="assets/images/ods/cat/13.jpg" alt="ODS 13" data-i18n-src-ca="assets/images/ods/cat/13.jpg" data-i18n-src-es="assets/images/ods/esp/13.png" data-i18n-src-en="assets/images/ods/eng/13.png" loading="lazy" width="1357" height="1357">
                                 </div>
                                 </div>
                             </div>
@@ -172,18 +240,13 @@
 
 
             <!-- Card 2: Coets -->
-            <div class="taller-card">
+            <div class="taller-card scroll-animate" data-age-min="8" data-age-max="14" data-duration="90">
                 <!-- Card header: visible and clickable part. -->
                 <div class="taller-card-header">
-                    <div class="taller-icon"><img src="assets/images/tallers/taller2/taller2_icon.png" alt="Taller icona 2"></div>
+                    <div class="taller-icon"><img src="assets/images/tallers/taller2/taller2_icon.png" alt="Taller icona 2" width="512" height="512"></div>
                     <div class="taller-main-info">
-                        <h3 class="taller-title" 
-                            data-i18n="Explorem l'Espai amb AulaSPUTNIK" 
-                            data-lang-es="Exploramos el Espacio con AulaSPUTNIK">
-                            Explorem l'Espai amb AulaSPUTNIK</h3>
-                        <div class="taller-tags" 
-                            data-i18n="<span>coets</span><span>creativitat</span><span>exploració</span><span>treball en grup</span>" 
-                            data-lang-es="<span>cohetes</span><span>creatividad</span><span>exploración</span><span>trabajo en grupo</span>">
+                        <h3 class="taller-title" data-i18n="workshop.2.title">Explorem l'Espai amb AulaSPUTNIK</h3>
+                        <div class="taller-tags" data-i18n-html="workshop.2.tags">
                             <span>coets</span><span>creativitat</span><span>exploració</span><span>treball en grup</span>
                         </div>
                     </div>
@@ -224,33 +287,20 @@
                             </div>
                             <div class="taller-details-sidebar">
                                 <h4 data-i18n="Característiques" data-lang-es="Características">Característiques</h4>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span 
-                                    data-i18n="<strong>Rang d’edat:</strong> 8 - 14 anys" 
-                                    data-lang-es="<strong>Rango de edad:</strong> 8 - 14 años">
-                                    <strong>Rang d’edat:</strong> 8 - 14 anys</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span 
-                                    data-i18n="<strong>Tipus:</strong> activitats en grup" 
-                                    data-lang-es="<strong>Tipo:</strong> actividades en grupo">
-                                    <strong>Tipus:</strong> activitats en grup</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span 
-                                    data-i18n="<strong>Complexitat:</strong> mitjana" 
-                                    data-lang-es="<strong>Complejidad:</strong> media">
-                                    <strong>Complexitat:</strong> mitjana</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span 
-                                    data-i18n="<strong>Durada:</strong> 1h 30min" 
-                                    data-lang-es="<strong>Duración:</strong> 1h 30min">
-                                    <strong>Durada:</strong> 1h 30min</span></div>
-                                <h4 data-i18n="Material Inclòs" data-lang-es="Material Incluido">Material Inclòs</h4>
-                                <p data-i18n="Dossier, llapis, gomes, tisores, cola, cinta adhesiva, ampolles de plàstic buides i peces impreses en 3D (PBLs)." 
-                                    data-lang-es="Dosier, lápiz, gomas, tijeras, cola, cinta adhesiva, botellas de plástico vacías y piezas impresas en 3D (PBLs).">
-                                    Dossier, llapis, gomes, tisores, cola, cinta adhesiva, ampolles de plàstic buides i peces impreses en 3D (PBLs).</p>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span data-i18n-html="workshop.2.ageRange"><strong>Rang d’edat:</strong> 8 - 14 anys</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span data-i18n-html="workshop.commonType"><strong>Tipus:</strong> activitats en grup</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span data-i18n-html="workshop.2.complexity"><strong>Complexitat:</strong> mitjana</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span data-i18n-html="workshop.2.duration"><strong>Durada:</strong> 1h 30min</span></div>
+                                <h4 data-i18n="workshop.materials">Material Inclòs</h4>
+                                <p data-i18n="workshop.2.materials">Dossier, llapis, gomes, tisores, cola, cinta adhesiva, ampolles de plàstic buides i peces impreses en 3D (PBLs).</p>
                                 <div class="taller-ods-section">
-                                <h4 data-i18n="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
+                                <h4 data-i18n="workshop.ods">Quins ODS treballarem?</h4>
                                 <div class="ods-images">
-                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-i18n-src-ca="assets/images/ods/cat/4.jpg" data-i18n-src-es="assets/images/ods/esp/4.png" data-i18n-src-en="assets/images/ods/eng/4.png">
-                                    <img src="assets/images/ods/cat/9.jpg" alt="ODS 9" data-i18n-src-ca="assets/images/ods/cat/9.jpg" data-i18n-src-es="assets/images/ods/esp/9.png" data-i18n-src-en="assets/images/ods/eng/9.png">
+                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-i18n-src-ca="assets/images/ods/cat/4.jpg" data-i18n-src-es="assets/images/ods/esp/4.png" data-i18n-src-en="assets/images/ods/eng/4.png" loading="lazy" width="1357" height="1357">
+                                    <img src="assets/images/ods/cat/9.jpg" alt="ODS 9" data-i18n-src-ca="assets/images/ods/cat/9.jpg" data-i18n-src-es="assets/images/ods/esp/9.png" data-i18n-src-en="assets/images/ods/eng/9.png" loading="lazy" width="1357" height="1357">
                                 </div>
                             </div>
+                        </div>
                         </div>
                         <div class="taller-cta-container">
                             <a href="#footer" class="taller-cta-button" data-i18n="workshop.moreInfo">Sol·licita més informació</a>
@@ -261,18 +311,13 @@
 
 
             <!-- Card 3: Dona a l'Espai -->
-            <div class="taller-card">
+            <div class="taller-card scroll-animate" data-age-min="8" data-age-max="14" data-duration="90">
                 <!-- Card header: visible and clickable part. -->
                 <div class="taller-card-header">
-                    <div class="taller-icon"><img src="assets/images/tallers/taller3/taller3_icon.png" alt="Taller icona 3"></div>
+                    <div class="taller-icon"><img src="assets/images/tallers/taller3/taller3_icon.png" alt="Taller icona 3" width="512" height="512"></div>
                     <div class="taller-main-info">
-                        <h3 class="taller-title" 
-                            data-i18n="La dona al sector aeroespacial" 
-                            data-lang-es="La mujer en el sector aeroespacial">
-                            La dona al sector aeroespacial</h3>
-                        <div class="taller-tags" 
-                            data-i18n="<span>igualtat</span><span>dones</span><span>referents</span><span>coeducació</span><span>estereotips</span>" 
-                            data-lang-es="<span>igualdad</span><span>mujeres</span><span>referentes</span><span>coeducación</span><span>estereotipos</span>">
+                        <h3 class="taller-title" data-i18n="workshop.3.title">La dona al sector aeroespacial</h3>
+                        <div class="taller-tags" data-i18n-html="workshop.3.tags">
                             <span>igualtat</span><span>dones</span><span>referents</span><span>coeducació</span><span>estereotips</span>
                         </div>
                     </div>
@@ -317,32 +362,18 @@
                             </div>
                             <div class="taller-details-sidebar">
                                 <h4 data-i18n="Característiques" data-lang-es="Características">Característiques</h4>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span 
-                                    data-i18n="<strong>Rang d’edat:</strong> 8 - 14 anys" 
-                                    data-lang-es="<strong>Rango de edad:</strong> 8 - 14 años">
-                                    <strong>Rang d’edat:</strong> 8 - 14 anys</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span 
-                                    data-i18n="<strong>Tipus:</strong> activitats en grup" 
-                                    data-lang-es="<strong>Tipo:</strong> actividades en grupo">
-                                    <strong>Tipus:</strong> activitats en grup</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span 
-                                    data-i18n="<strong>Complexitat:</strong> mitjana" 
-                                    data-lang-es="<strong>Complejidad:</strong> media">
-                                    <strong>Complexitat:</strong> mitjana</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span 
-                                    data-i18n="<strong>Durada:</strong> 1h 30min" 
-                                    data-lang-es="<strong>Duración:</strong> 1h 30min">
-                                    <strong>Durada:</strong> 1h 30min</span></div>
-                                <h4 data-i18n="Material Inclòs" data-lang-es="Material Incluido">Material Inclòs</h4>
-                                <p data-i18n="Cartolines, llapis, gomes, colors, i dossier d’activitats." 
-                                    data-lang-es="Cartulinas, lápices, gomas, colores, y dossier de actividades.">
-                                    Cartolines, llapis, gomes, colors i dossier d’activitats.</p>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span data-i18n-html="workshop.3.ageRange"><strong>Rang d’edat:</strong> 8 - 14 anys</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span data-i18n-html="workshop.commonType"><strong>Tipus:</strong> activitats en grup</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span data-i18n-html="workshop.3.complexity"><strong>Complexitat:</strong> baixa-mitjana</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span data-i18n-html="workshop.3.duration"><strong>Durada:</strong> 1h 30min</span></div>
+                                <h4 data-i18n="workshop.materials">Material Inclòs</h4>
+                                <p data-i18n="workshop.3.materials">Cartolines, llapis, gomes, colors, i dossier d’activitats.</p>
                                 <div class="taller-ods-section">
-                                <h4 data-i18n="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
+                                <h4 data-i18n="workshop.ods">Quins ODS treballarem?</h4>
                                 <div class="ods-images">
                                     <!-- Utilitzem un nou atribut 'data-lang-ca-src' per canviar la imatge segons l'idioma. -->
-                                    <img src="assets/images/ods/cat/5.jpg" alt="ODS 5" data-i18n-src-ca="assets/images/ods/cat/5.jpg" data-i18n-src-es="assets/images/ods/esp/5.png" data-i18n-src-en="assets/images/ods/eng/5.png">
-                                    <img src="assets/images/ods/cat/10.jpg" alt="ODS 10" data-i18n-src-ca="assets/images/ods/cat/10.jpg" data-i18n-src-es="assets/images/ods/esp/10.png" data-i18n-src-en="assets/images/ods/eng/10.png">
+                                    <img src="assets/images/ods/cat/5.jpg" alt="ODS 5" data-i18n-src-ca="assets/images/ods/cat/5.jpg" data-i18n-src-es="assets/images/ods/esp/5.png" data-i18n-src-en="assets/images/ods/eng/5.png" loading="lazy" width="1357" height="1357">
+                                    <img src="assets/images/ods/cat/10.jpg" alt="ODS 10" data-i18n-src-ca="assets/images/ods/cat/10.jpg" data-i18n-src-es="assets/images/ods/esp/10.png" data-i18n-src-en="assets/images/ods/eng/10.png" loading="lazy" width="1357" height="1357">
                                 </div>      
                                 </div>
                             </div>
@@ -357,18 +388,13 @@
 
 
             <!-- Targeta 4 -->
-            <div class="taller-card">
+            <div class="taller-card scroll-animate" data-age-min="6" data-age-max="14" data-duration="90">
                 <!-- La capçalera és la part visible i clicable. -->
                 <div class="taller-card-header">
-                    <div class="taller-icon"><img src="assets/images/tallers/taller4/taller4_icon.png" alt="Taller icona 4"></div>
+                    <div class="taller-icon"><img src="assets/images/tallers/taller4/taller4_icon.png" alt="Taller icona 4" width="512" height="512"></div>
                     <div class="taller-main-info">
-                        <h3 class="taller-title" 
-                            data-i18n="Les constel·lacions com a quadern vital" 
-                            data-lang-es="Las constelaciones como cuaderno vital">
-                            Les constel·lacions com a quadern vital</h3>
-                        <div class="taller-tags" 
-                            data-i18n="<span>constel·lacions</span><span>cel nocturn</span><span>creativitat</span><span>conte</span>" 
-                            data-lang-es="<span>constelaciones</span><span>cielo nocturno</span><span>creatividad</span><span>cuento</span>">
+                        <h3 class="taller-title" data-i18n="workshop.4.title">Les constel·lacions com a quadern vital</h3>
+                        <div class="taller-tags" data-i18n-html="workshop.4.tags">
                             <span>constel·lacions</span><span>cel nocturn</span><span>creativitat</span><span>conte</span>
                         </div>
                     </div>
@@ -413,32 +439,18 @@
                             </div>
                             <div class="taller-details-sidebar">
                                 <h4 data-i18n="Característiques" data-lang-es="Características">Característiques</h4>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span 
-                                    data-i18n="<strong>Rang d’edat:</strong> 6 - 14 anys" 
-                                    data-lang-es="<strong>Rango de edad:</strong> 6 - 14 años">
-                                    <strong>Rang d’edat:</strong> 6 - 14 anys</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span 
-                                    data-i18n="<strong>Tipus:</strong> activitats en grup" 
-                                    data-lang-es="<strong>Tipo:</strong> actividades en grupo">
-                                    <strong>Tipus:</strong> activitats en grup</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span 
-                                    data-i18n="<strong>Complexitat:</strong> mitjana" 
-                                    data-lang-es="<strong>Complejidad:</strong> media">
-                                    <strong>Complexitat:</strong> mitjana</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span 
-                                    data-i18n="<strong>Durada:</strong> 1h 30min" 
-                                    data-lang-es="<strong>Duración:</strong> 1h 30min">
-                                    <strong>Durada:</strong> 1h 30min</span></div>
-                                <h4 data-i18n="Material Inclòs" data-lang-es="Material Incluido">Material Inclòs</h4>
-                                <p data-i18n="Llapis, gomes i colors, i dossier d’activitats." 
-                                    data-lang-es="Lápices, gomas y colores, y dosier de actividades.">
-                                    Llapis, gomes i colors, i dossier d’activitats.</p>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span data-i18n-html="workshop.4.ageRange"><strong>Rang d’edat:</strong> 6 - 14 anys</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span data-i18n-html="workshop.commonType"><strong>Tipus:</strong> activitats en grup</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span data-i18n-html="workshop.4.complexity"><strong>Complexitat:</strong> baixa</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span data-i18n-html="workshop.4.duration"><strong>Durada:</strong> 1h 30min</span></div>
+                                <h4 data-i18n="workshop.materials">Material Inclòs</h4>
+                                <p data-i18n="workshop.4.materials">Llapis, gomes i colors, i dossier d’activitats.</p>
                                 <div class="taller-ods-section">
-                                <h4 data-i18n="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
+                                <h4 data-i18n="workshop.ods">Quins ODS treballarem?</h4>
                                 <div class="ods-images">
                                     <!-- Utilitzem un nou atribut 'data-lang-ca-src' per canviar la imatge segons l'idioma. -->
-                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-i18n-src-ca="assets/images/ods/cat/4.jpg" data-i18n-src-es="assets/images/ods/esp/4.png" data-i18n-src-en="assets/images/ods/eng/4.png">
-                                    <img src="assets/images/ods/cat/13.jpg" alt="ODS 9" data-i18n-src-ca="assets/images/ods/cat/13.jpg" data-i18n-src-es="assets/images/ods/esp/13.png" data-i18n-src-en="assets/images/ods/eng/13.png">
+                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-i18n-src-ca="assets/images/ods/cat/4.jpg" data-i18n-src-es="assets/images/ods/esp/4.png" data-i18n-src-en="assets/images/ods/eng/4.png" loading="lazy" width="1357" height="1357">
+                                    <img src="assets/images/ods/cat/13.jpg" alt="ODS 9" data-i18n-src-ca="assets/images/ods/cat/13.jpg" data-i18n-src-es="assets/images/ods/esp/13.png" data-i18n-src-en="assets/images/ods/eng/13.png" loading="lazy" width="1357" height="1357">
                                 </div>
                                 </div>
                             </div>
@@ -453,18 +465,13 @@
 
 
             <!-- Targeta 5 -->
-            <div class="taller-card">
+            <div class="taller-card scroll-animate" data-age-min="9" data-age-max="16" data-duration="90">
                 <!-- La capçalera és la part visible i clicable. -->
                 <div class="taller-card-header">
-                    <div class="taller-icon"><img src="assets/images/tallers/taller5/taller5_icon.png" alt="Taller icona 5"></div>
+                    <div class="taller-icon"><img src="assets/images/tallers/taller5/taller5_icon.png" alt="Taller icona 5" width="512" height="512"></div>
                     <div class="taller-main-info">
-                        <h3 class="taller-title" 
-                            data-i18n="La biologia en l'espai: Com són els aliens?" 
-                            data-lang-es="La biología en el espacio: ¿Cómo son los aliens?">
-                            La biologia en l'espai: Com són els aliens?</h3>
-                        <div class="taller-tags" 
-                            data-i18n="<span>aliens</span><span>astrobiologia</span><span>treball en grup</span><span>evolució</span>" 
-                            data-lang-es="<span>aliens</span><span>astrobiología</span><span>trabajo en grupo</span><span>evolución</span>">
+                        <h3 class="taller-title" data-i18n="workshop.5.title">La biologia en l'espai: Com són els aliens?</h3>
+                        <div class="taller-tags" data-i18n-html="workshop.5.tags">
                             <span>aliens</span><span>astrobiologia</span><span>treball en grup</span><span>evolució</span>
                         </div>
                     </div>
@@ -513,33 +520,19 @@
                             </div>
                             <div class="taller-details-sidebar">
                                 <h4 data-i18n="Característiques" data-lang-es="Características">Característiques</h4>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span 
-                                    data-i18n="<strong>Rang d’edat:</strong> 9 - 16 anys" 
-                                    data-lang-es="<strong>Rango de edad:</strong> 9 - 16 años">
-                                    <strong>Rang d’edat:</strong> 9 - 16 anys</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span 
-                                    data-i18n="<strong>Tipus:</strong> activitats en grup" 
-                                    data-lang-es="<strong>Tipo:</strong> actividades en grupo">
-                                    <strong>Tipus:</strong> activitats en grup</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span 
-                                    data-i18n="<strong>Complexitat:</strong> mitjana" 
-                                    data-lang-es="<strong>Complejidad:</strong> media">
-                                    <strong>Complexitat:</strong> mitjana</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span 
-                                    data-i18n="<strong>Durada:</strong> 1h 30min" 
-                                    data-lang-es="<strong>Duración:</strong> 1h 30min">
-                                    <strong>Durada:</strong> 1h 30min</span></div>
-                                <h4 data-i18n="Material Inclòs" data-lang-es="Material Incluido">Material Inclòs</h4>
-                                <p data-i18n="Llapis i material per dibuixar, cartes dels planetes, i dossier d’activitats." 
-                                    data-lang-es="Lápices y material para dibujar, cartas de los planetas, y dosier de actividades.">
-                                    Llapis i material per dibuixar, cartes dels planetes, i dossier d’activitats.</p>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span data-i18n-html="workshop.5.ageRange"><strong>Rang d’edat:</strong> 9 - 16 anys</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span data-i18n-html="workshop.commonType"><strong>Tipus:</strong> activitats en grup</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span data-i18n-html="workshop.5.complexity"><strong>Complexitat:</strong> mitjana-alta</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span data-i18n-html="workshop.5.duration"><strong>Durada:</strong> 1h 30min</span></div>
+                                <h4 data-i18n="workshop.materials">Material Inclòs</h4>
+                                <p data-i18n="workshop.5.materials">Llapis i material per dibuixar, cartes dels planetes, i dossier d’activitats.</p>
                                 <div class="taller-ods-section">
-                                <h4 data-i18n="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
+                                <h4 data-i18n="workshop.ods">Quins ODS treballarem?</h4>
                                 <div class="ods-images">
                                     <!-- Utilitzem un nou atribut 'data-lang-ca-src' per canviar la imatge segons l'idioma. -->
-                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-i18n-src-ca="assets/images/ods/cat/4.jpg" data-i18n-src-es="assets/images/ods/esp/4.png" data-i18n-src-en="assets/images/ods/eng/4.png">
-                                    <img src="assets/images/ods/cat/14.jpg" alt="ODS 14" data-i18n-src-ca="assets/images/ods/cat/14.jpg" data-i18n-src-es="assets/images/ods/esp/14.png" data-i18n-src-en="assets/images/ods/eng/14.png">
-                                    <img src="assets/images/ods/cat/15.jpg" alt="ODS 15" data-i18n-src-ca="assets/images/ods/cat/15.jpg" data-i18n-src-es="assets/images/ods/esp/15.png" data-i18n-src-en="assets/images/ods/eng/15.png">
+                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-i18n-src-ca="assets/images/ods/cat/4.jpg" data-i18n-src-es="assets/images/ods/esp/4.png" data-i18n-src-en="assets/images/ods/eng/4.png" loading="lazy" width="1357" height="1357">
+                                    <img src="assets/images/ods/cat/14.jpg" alt="ODS 14" data-i18n-src-ca="assets/images/ods/cat/14.jpg" data-i18n-src-es="assets/images/ods/esp/14.png" data-i18n-src-en="assets/images/ods/eng/14.png" loading="lazy" width="1357" height="1357">
+                                    <img src="assets/images/ods/cat/15.jpg" alt="ODS 15" data-i18n-src-ca="assets/images/ods/cat/15.jpg" data-i18n-src-es="assets/images/ods/esp/15.png" data-i18n-src-en="assets/images/ods/eng/15.png" loading="lazy" width="1357" height="1357">
                                 </div>      
                                 </div>
                             </div>
@@ -554,18 +547,13 @@
 
 
             <!-- Targeta 6 -->
-            <div class="taller-card">
+            <div class="taller-card scroll-animate" data-age-min="11" data-age-max="14" data-duration="120">
                 <!-- La capçalera és la part visible i clicable. -->
                 <div class="taller-card-header">
-                    <div class="taller-icon"><img src="assets/images/tallers/taller6/taller6_icon.png" alt="Taller icona 6"></div>
+                    <div class="taller-icon"><img src="assets/images/tallers/taller6/taller6_icon.png" alt="Taller icona 6" width="512" height="512"></div>
                     <div class="taller-main-info">
-                        <h3 class="taller-title" 
-                            data-i18n="Crea el teu propi sistema estel·lar!" 
-                            data-lang-es="¡Crea tu propio sistema estelar!">
-                            Crea el teu propi sistema estel·lar!</h3>
-                        <div class="taller-tags" 
-                            data-i18n="<span>univers</span><span>sistema solar</span><span>estacions</span><span>satèl·lits naturals</span>" 
-                            data-lang-es="<span>universo</span><span>sistema solar</span><span>estaciones</span><span>satélites naturales</span>">
+                        <h3 class="taller-title" data-i18n="workshop.6.title">Crea el teu propi sistema estel·lar!</h3>
+                        <div class="taller-tags" data-i18n-html="workshop.6.tags">
                             <span>univers</span><span>sistema solar</span><span>estacions</span><span>satèl·lits naturals</span>
                         </div>
                     </div>
@@ -621,45 +609,33 @@
                             </div>
                             <div class="taller-details-sidebar">
                                 <h4 data-i18n="Característiques" data-lang-es="Características">Característiques</h4>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span 
-                                    data-i18n="<strong>Rang d’edat:</strong> 11 - 14 anys" 
-                                    data-lang-es="<strong>Rango de edad:</strong> 11 - 14 años">
-                                    <strong>Rang d’edat:</strong> 11 - 14 anys</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span 
-                                    data-i18n="<strong>Tipus:</strong> activitats en grup" 
-                                    data-lang-es="<strong>Tipo:</strong> actividades en grupo">
-                                    <strong>Tipus:</strong> activitats en grup</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span 
-                                    data-i18n="<strong>Complexitat:</strong> mitjana" 
-                                    data-lang-es="<strong>Complejidad:</strong> media">
-                                    <strong>Complexitat:</strong> mitjana</span></div>
-                                <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span 
-                                    data-i18n="<strong>Durada:</strong> 2h" 
-                                    data-lang-es="<strong>Duración:</strong> 2h">
-                                    <strong>Durada:</strong> 2h</span></div>
-                                <h4 data-i18n="Material Inclòs" data-lang-es="Material Incluido">Material Inclòs</h4>
-                                <p data-i18n="Llapis, gomes, i colors." 
-                                    data-lang-es="Lápiz, gomas, y colores.">
-                                    Llapis, gomes, i colors.
-                                </p>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-users"></i> <span data-i18n-html="workshop.6.ageRange"><strong>Rang d’edat:</strong> 11 - 14 anys</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-puzzle-piece"></i> <span data-i18n-html="workshop.commonType"><strong>Tipus:</strong> activitats en grup</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-chart-simple"></i> <span data-i18n-html="workshop.6.complexity"><strong>Complexitat:</strong> alta</span></div>
+                                <div class="feature-item"><i class="fa-solid fa-fw fa-clock"></i> <span data-i18n-html="workshop.6.duration"><strong>Durada:</strong> 2h</span></div>
+                                <h4 data-i18n="workshop.materials">Material Inclòs</h4>
+                                <p data-i18n="workshop.6.materials">Llapis, gomes, i colors.</p>
                                 <div class="taller-ods-section">
-                                <h4 data-i18n="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
+                                <h4 data-i18n="workshop.ods">Quins ODS treballarem?</h4>
                                 <div class="ods-images">
                                     <!-- Utilitzem un nou atribut 'data-lang-ca-src' per canviar la imatge segons l'idioma. -->
-                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-i18n-src-ca="assets/images/ods/cat/4.jpg" data-i18n-src-es="assets/images/ods/esp/4.png" data-i18n-src-en="assets/images/ods/eng/4.png">
-                                    <img src="assets/images/ods/cat/13.jpg" alt="ODS 9" data-i18n-src-ca="assets/images/ods/cat/13.jpg" data-i18n-src-es="assets/images/ods/esp/13.png" data-i18n-src-en="assets/images/ods/eng/13.png">
+                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-i18n-src-ca="assets/images/ods/cat/4.jpg" data-i18n-src-es="assets/images/ods/esp/4.png" data-i18n-src-en="assets/images/ods/eng/4.png" loading="lazy" width="1357" height="1357">
+                                    <img src="assets/images/ods/cat/13.jpg" alt="ODS 9" data-i18n-src-ca="assets/images/ods/cat/13.jpg" data-i18n-src-es="assets/images/ods/esp/13.png" data-i18n-src-en="assets/images/ods/eng/13.png" loading="lazy" width="1357" height="1357">
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="taller-cta-container">
+                            <a href="#footer" class="taller-cta-button" data-i18n="workshop.moreInfo">Sol·licita més informació</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-        </div>
-
-    </div>
-
                 <!-- Download Catalogue Button at the end of the workshop cards -->
                 <div style="margin: 2.5rem 0 0 0; text-align: center;">
                                                         <a id="catalogue-download-btn" href="assets/fitxers/dossier-ca.pdf" download="Dossier-Tallers-2025.pdf" target="_blank" class="dossier-download-btn" style="font-size: 1.1rem; text-decoration: none;"
-                                                            data-i18n="Descarrega el nostre dossier" data-lang-es="Descarga nuestro dossier">
+                                                            data-i18n="workshop.downloadCatalogue">
                                                             Descarrega el nostre dossier
                                                         </a>
                 </div>
@@ -680,7 +656,8 @@
 </section>
 
     <!-- =================== FOOTER START =================== -->
-    <!-- The <footer> tag is used for semantics, telling the browser and search engines what this section is. -->
+    <!-- The     </main>
+    <footer> tag is used for semantics, telling the browser and search engines what this section is. -->
     <footer id="footer" class="site-footer">
         <!-- This is a container to keep the content centered and constrained to a max-width. -->
         <div class="footer-container">
@@ -690,11 +667,11 @@
                 <!-- Column 1: Text content and social links. -->
                 <div class="footer-column-left">
                     <!-- Main heading for the column -->
-                    <h3 class="footer-title" data-i18n="PARLEM?" data-lang-es="¿HABLAMOS?">PARLEM?</h3>
+                    <h3 class="footer-title" data-i18n="footer.title">PARLEM?</h3>
                     <!-- First paragraph of text -->
-                    <p data-i18n="Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu." data-lang-es="¿Tienes alguna duda, proposta o idea? ¡Queremos conocerte! Rellena este formulario y nos pondremos en contacto contigo.">Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu.</p>
+                    <p data-i18n="footer.para1">Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu.</p>
                     <!-- Second paragraph of text -->
-                    <p data-i18n="També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!" data-lang-es="¡También puedes seguirnos en nuestras redes sociales y sumarte a nuestra comunidad!">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
+                    <p data-i18n="footer.para2">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
                     <!-- Container for social media icon links -->
                     <div class="footer-social-icons">
                         <!-- Each 'a' tag is a link to a social profile. The 'aria-label' is for accessibility. -->
@@ -728,9 +705,7 @@
                                 <!-- This is the visible, clickable part that looks like a form input. -->
                                 <div class="multiselect-display">
                                     <!-- This span holds the placeholder text (e.g., "2 seleccionats"). -->
-                                    <span class="multiselect-placeholder" 
-                                        data-i18n="T'agradaria rebre informació d'algún taller en concret?" 
-                                        data-lang-es="¿Te gustaría recibir información de algún taller en concreto?">
+                                    <span class="multiselect-placeholder" data-i18n="form.workshopPlaceholder">
                                         T'agradaria rebre informació d'algún taller en concret?
                                     </span>
                                     <!-- A Font Awesome icon to indicate that it's a dropdown. -->
@@ -741,31 +716,31 @@
                                     <!-- Each workshop is a checkbox/label pair. -->
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Nanosatèl·lits">
-                                        <span data-i18n="Ajudem al nostre planeta a través dels nanosatèl·lits." data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites.">Ajudem al nostre planeta a través dels nanosatèl·lits.</span>
+                                        <span data-i18n="workshop.1.title">Ajudem al nostre planeta a través dels nanosatèl·lits.</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Coets">
-                                        <span data-i18n="Explorem l’espai amb AulaSPUTNIK!" data-lang-es="¡Exploramos el espacio con AulaSPUTNIK!">Explorem l’espai amb AulaSPUTNIK!</span>
+                                        <span data-i18n="workshop.2.title">Explorem l’espai amb AulaSPUTNIK!</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Dona a l'Espai">
-                                        <span data-i18n="La dona al sector aeroespacial." data-lang-es="La mujer en el sector aeroespacial.">La dona al sector aeroespacial.</span>
+                                        <span data-i18n="workshop.3.title">La dona al sector aeroespacial.</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Constel·lacions">
-                                        <span data-i18n="Les constel·lacions com a quadern vital." data-lang-es="Las constelaciones como cuaderno vital.">Les constel·lacions com a quadern vital.</span>
+                                        <span data-i18n="workshop.4.title">Les constel·lacions com a quadern vital.</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Aliens">
-                                        <span data-i18n="La biologia a l'espai: com són els aliens?" data-lang-es="La biología en el espacio: ¿cómo son los aliens?">La biologia a l'espai: com són els aliens?</span>
+                                        <span data-i18n="workshop.5.title">La biologia a l'espai: com són els aliens?</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Sistema estelar">
-                                        <span data-i18n="Crea el teu propi sistema estelar!" data-lang-es="¡Crea tu propio sistema estelar!">Crea el teu propi sistema estelar!</span>
+                                        <span data-i18n="workshop.6.title">Crea el teu propi sistema estelar!</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Repte AulaSPUTNIK">
-                                        <span data-i18n="El Repte AulaSPUTNIK" data-lang-es="El Reto AulaSPUTNIK">El Repte AulaSPUTNIK</span>
+                                        <span data-i18n="challenge.title">El Repte AulaSPUTNIK</span>
                                     </label>
                                 </div>
                                 <!-- This is a hidden input. Its value will be updated by JavaScript with all the selected workshops. This is what Formspree will receive. -->
@@ -827,6 +802,7 @@
     </button>
 
     <!-- Link to your JavaScript file -->
-    <script src="assets/js/main.js"></script>
+    <script defer src="assets/js/translations-data.js"></script>
+    <script defer src="assets/js/main.js"></script>
 </body>
 </html>

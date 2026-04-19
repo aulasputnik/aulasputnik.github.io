@@ -1,55 +1,39 @@
 <!DOCTYPE html>
-<html lang="ca"> 
+<html lang="ca">
 <head>
-    <!-- Charset meta tag: defines the character set for the document. -->
-    <!-- UTF-8 supports almost all written languages, including Spanish (ñ) and Catalan (ç, ·). -->
     <meta charset="UTF-8">
-
-    <!-- Viewport meta tag: essential for responsive design. -->
-    <!-- width=device-width: sets the page width to the device screen width. -->
-    <!-- initial-scale=1.0: sets the initial zoom level. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title data-i18n="page.challenge">El Repte AulaSPUTNIK</title>
 
-    <!-- Favicon: small icon in browser tab. -->
     <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
 
-    <!-- SEO Meta Tags: help search engines understand your page. -->
     <meta name="description" data-i18n="meta.challenge.description" content="El Repte AulaSPUTNIK: una experiència única combinant tots els nostres tallers en una missió espacial educativa.">
     <meta name="keywords" content="repte, missió espacial, educació, ciència, tecnologia">
 
-    <!-- Open Graph Tags (Social Media) -->
     <meta property="og:title" data-i18n="page.challenge" content="El Repte AulaSPUTNIK">
     <meta property="og:description" data-i18n="meta.challenge.description" content="El Repte AulaSPUTNIK: una experiència única combinant tots els nostres tallers.">
-    <meta property="og:image" content="https://aulasputnik.com/assets/images/og-repte.png">
+    <meta property="og:image" content="https://aulasputnik.com/assets/images/patch.png">
     <meta property="og:url" content="https://aulasputnik.com/repte-aulasputnik.html">
-    <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website">
 
-    <!-- Canonical Link -->
     <link rel="canonical" href="https://aulasputnik.com/repte-aulasputnik.html">
 
-    <!-- hreflang Alternates for Multi-Language -->
     <link rel="alternate" hreflang="ca" href="https://aulasputnik.com/repte-aulasputnik.html">
     <link rel="alternate" hreflang="es" href="https://aulasputnik.com/repte-aulasputnik.html">
     <link rel="alternate" hreflang="en" href="https://aulasputnik.com/repte-aulasputnik.html">
     <link rel="alternate" hreflang="x-default" href="https://aulasputnik.com/repte-aulasputnik.html">
 
-    <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#a15df6">
 
-    <!-- Preconnect to Google Fonts for performance. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Import Google Fonts with specific weights for optimization. -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Urbanist:wght@300;400;700;800;900&family=Domine:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Import Font Awesome for icons. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Link to main CSS stylesheet. -->
     <link rel="stylesheet" href="assets/css/main.css">
 
     <!-- Google tag (gtag.js) -->
@@ -58,13 +42,39 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-V1PQCYK0JP');
+    </script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://aulasputnik.com/repte-aulasputnik.html",
+                "url": "https://aulasputnik.com/repte-aulasputnik.html",
+                "name": "El Repte AulaSPUTNIK",
+                "description": "El Repte AulaSPUTNIK: una experiència única combinant tots els nostres tallers en una missió espacial educativa.",
+                "inLanguage": ["ca", "es", "en"],
+                "isPartOf": { "@id": "https://aulasputnik.com/#website" },
+                "publisher": { "@id": "https://aulasputnik.com/#organization" }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Inici", "item": "https://aulasputnik.com/index.html" },
+                    { "@type": "ListItem", "position": 2, "name": "El Repte AulaSPUTNIK", "item": "https://aulasputnik.com/repte-aulasputnik.html" }
+                ]
+            }
+        ]
+    }
     </script>
 
 </head>
 <body>
-    <!-- Main site header and navigation. -->
+    <a class="skip-link" href="#main-content" data-i18n="a11y.skipToContent">Saltar al contingut</a>
+
     <header class="site-header">
         <nav class="site-nav">
             <div class="nav-container">
@@ -75,7 +85,7 @@
                     </a>
                 </div>
 
-                <button class="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false">
+                <button class="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false" data-i18n-aria="nav.openMenu">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
@@ -83,14 +93,15 @@
 
                 <div class="nav-menu">
                     <ul class="nav-list">
-                        <li><a href="index.html" data-lang-ca="Inici" data-lang-es="Inicio">Inici</a></li>
-                        <li><a href="projectes.html" data-lang-ca="Projectes" data-lang-es="Proyectos">Projectes</a></li>
-                        <li><a href="equip.html" data-lang-ca="Equip" data-lang-es="Equipo">Equip</a></li>
-                        <li><a href="tallers.html" class="nav-button" data-lang-ca="Tallers" data-lang-es="Talleres">Tallers</a></li>
-                        <li><a href="#footer" class="nav-button nav-button-secondary" data-lang-ca="Contacte" data-lang-es="Contacto">Contacte</a></li>
+                        <li><a href="index.html" data-i18n="nav.home" data-lang-ca="Inici" data-lang-es="Inicio">Inici</a></li>
+                        <li><a href="projectes.html" data-i18n="nav.projects" data-lang-ca="Projectes" data-lang-es="Proyectos">Projectes</a></li>
+                        <li><a href="equip.html" data-i18n="nav.team" data-lang-ca="Equip" data-lang-es="Equipo">Equip</a></li>
+                        <li><a href="tallers.html" class="nav-button" data-i18n="nav.workshops" data-lang-ca="Tallers" data-lang-es="Talleres">Tallers</a></li>
+                        <li><a href="#footer" class="nav-button nav-button-secondary" data-i18n="nav.contact" data-lang-ca="Contacte" data-lang-es="Contacto">Contacte</a></li>
                         <li class="lang-switcher">
                             <button id="lang-ca-btn" class="lang-switcher-btn" data-lang="ca">CA</button>
                             <button id="lang-es-btn" class="lang-switcher-btn" data-lang="es">ES</button>
+                            <button id="lang-en-btn" class="lang-switcher-btn" data-lang="en">EN</button>
                         </li>
                     </ul>
                 </div>
@@ -98,266 +109,187 @@
             </div>
         </nav>
     </header>
+    <main id="main-content">
 
-    
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+        <ol class="breadcrumb-list">
+            <li class="breadcrumb-item"><a href="index.html" data-i18n="nav.home">Inici</a></li>
+            <li class="breadcrumb-item breadcrumb-current" aria-current="page" data-i18n="page.challenge">El Repte AulaSPUTNIK</li>
+        </ol>
+    </nav>
+
     <section class="page-intro-section">
         <div class="section-container">
-            
-            <!-- Container for page intro text content. -->
-            <div class="intro-content">
-                <!-- Main page title. -->
-                <h1 class="page-title" data-lang-ca="El Repte AulaSPUTNIK" data-lang-es="El Reto AulaSPUTNIK">El Repte AulaSPUTNIK</h1>
-
-                <!-- Introductory paragraphs. Given a class for styling. -->
-                <p class="lead-paragraph" data-lang-ca="Busques un projecte trimestral que treballi de manera transversal diferents activitats STEAM promovent la curiositat, la creativitat i el treball en equip?<br><strong>El repte AulaSPUTNIK és la teva activitat!</strong>" data-lang-es="¿Buscas un proyecto trimestral que trabaje de forma transversal diferentes actividades STEAM promoviendo la curiosidad, la creatividad y el trabajo en equipo?<br><strong>¡El reto AulaSPUTNIK es tu actividad!</strong>">Busques un projecte trimestral que treballi de manera transversal diferents activitats STEAM promovent la curiositat, la creativitat i el treball en equip?<br><strong>El repte AulaSPUTNIK és la teva activitat!</strong></p>
+            <div class="intro-content scroll-animate">
+                <h1 class="page-title" data-i18n="page.challenge" data-lang-ca="El Repte AulaSPUTNIK" data-lang-es="El Reto AulaSPUTNIK">El Repte AulaSPUTNIK</h1>
+                <p class="lead-paragraph" data-i18n-html="repte.lead" data-lang-ca="Busques un projecte trimestral que treballi de manera transversal diferents activitats STEAM promovent la curiositat, la creativitat i el treball en equip?<br><strong>El repte AulaSPUTNIK és la teva activitat!</strong>" data-lang-es="¿Buscas un proyecto trimestral que trabaje de forma transversal diferentes actividades STEAM promoviendo la curiosidad, la creatividad y el trabajo en equipo?<br><strong>¡El reto AulaSPUTNIK es tu actividad!</strong>">Busques un projecte trimestral que treballi de manera transversal diferents activitats STEAM promovent la curiositat, la creativitat i el treball en equip?<br><strong>El repte AulaSPUTNIK és la teva activitat!</strong></p>
             </div>
-
         </div>
     </section>
 
-    <!-- =================== SECCIÓ DE CONTINGUT DEL REPTE START =================== -->
-<section class="repte-content-section">
-    <div class="section-container">
-        <!-- Utilitzem la classe 'taller-card' per reutilitzar l'estil de caixa blanca. -->
-        <div class="taller-card">
-            <!-- Utilitzem 'taller-hidden-content' per reutilitzar l'estil de l'espaiat intern. -->
-            <div class="taller-hidden-content">
-                <!-- I finalment, reutilitzem la graella de dues columnes. -->
-                <div class="taller-details-grid">
-                    <!-- Columna esquerra (2/3) -->
-                    <div class="taller-details-main">
-                        <h4 data-lang-ca="En què consisteix?" data-lang-es="¿En qué consiste?">En què consisteix?</h4>
-                        <p data-lang-ca="El Repte AulaSPUTNIK és una simulació d'una missió espacial completa. Durant diverses sessions, els equips participants passaran per totes les fases d'un projecte real: des de la definició d'objectius i el disseny de coets i satèl·lits, fins a la resolució de problemes inesperats i la presentació final de resultats." data-lang-es="El Reto AulaSPUTNIK es una simulación de una misión espacial completa. Durante varias sesiones, los equipos participantes pasarán por todas las fases de un proyecto real: desde la definición de objetivos y el diseño de cohetes y satélites, hasta la resolución de problemas inesperados y la presentación final de resultados.">El Repte AulaSPUTNIK és una simulació d'una missió espacial completa...</p>
-                        <p data-lang-ca="Una experiència educativa única en forma de missió espacial, on els teus alumnes es convertiran en protagonistes del seu propi projecte col·laboratiu, treballant en equip durant diverses setmanes per assolir un objectiu comú." data-lang-es="Una experiencia educativa única en forma de misión espacial, donde tus alumnos se convertirán en protagonistas de su propio proyecto colaborativo, trabajando en equipo durante varias semanas para alcanzar un objetivo común.">Una experiència educativa única en forma de missió espacial, on els teus alumnes es convertiran en protagonistes del seu propi projecte col·laboratiu, treballant en equip durant diverses setmanes per assolir un objectiu comú.</p>
-                        <p data-lang-ca="A través de tallers interconnectats seguint un fil conductor, cada sessió suma coneixements que s'apliquen directament al seu gran projecte espacial, aconseguint resultats elaborats i valuosos per a l'alumnat… i també per al centre!" data-lang-es="A través de talleres interconectados siguiendo un hilo conductor, cada sesión suma conocimientos que se aplican directamente a su gran proyecto espacial, logrando resultados elaborados y valiosos para el alumnado... ¡y también para el centro!">A través de tallers interconnectats seguint un fil conductor, cada sessió suma coneixements que s'apliquen directament al seu gran projecte espacial, aconseguint resultats elaborats i valuosos per a l'alumnat… i també per al centre!</p>
-                        <p data-lang-ca="Ideal per a docents que busquen transformar la vostra aula en un laboratori d'idees, col·laboració i descobriment." data-lang-es="Ideal para docentes que buscan transformar su aula en un laboratorio de ideas, colaboración y descubrimiento." data-lang-en="Ideal for teachers looking to transform their classroom into a laboratory of ideas, collaboration, and discovery.">Ideal per a docents que busquen transformar la vostra aula en un laboratori d'idees, col·laboració i descobriment.</p>
-            
-                        <h4 data-lang-ca="Fases de la Missió" data-lang-es="Fases de la Misión">Fases de la Missió</h4>
-                        <ul>
-                            <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                data-lang-ca="Les constel·lacions com a quadern vital." 
-                                data-lang-es="Las constelaciones como cuaderno vital.">
-                                Les constel·lacions com a quadern vital.</span></li>
-                            <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                data-lang-ca="La biologia a l'espai: Com són els aliens?" 
-                                data-lang-es="La biología en el espacio: ¿Cómo son los aliens?">
-                                La biologia a l'espai: Com són els aliens?</span></li>
-                            <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                data-lang-ca="Com els nanosatèl·lits ajuden el nostre planeta?" 
-                                data-lang-es="¿Cómo ayudan los nanosatélites a nuestro planeta?">
-                                Com els nanosatèl·lits ajuden el nostre planeta?</span></li>
-                            <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                data-lang-ca="Explorem l'espai amb els coets AulaSputnik!" 
-                                data-lang-es="Exploramos el espacio con los cohetes AulaSputnik!">
-                                Explorem l'espai amb els coets AulaSputnik!</span></li>
-                            <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                data-lang-ca="Crea el teu propi sistema estel·lar!" 
-                                data-lang-es="Crea tu propio sistema estelar!">
-                                Crea el teu propi sistema estel·lar!</span></li>
-                            <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                data-lang-ca="Egg drop (només per a ESO)." 
-                                data-lang-es="Egg drop (solo para ESO).">
-                                Egg drop (només per a ESO).</span></li>
-                            <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span 
-                                data-lang-ca="La dona al sector aeroespacial (treballat transversalment al llarg de tots els tallers)." 
-                                data-lang-es="La mujer en el sector aeroespacial (trabajado transversalmente a lo largo de todos los talleres).">
-                                La dona al sector aeroespacial (treballat transversalment al llarg de tots els tallers).</span></li>
-                        </ul>
-                    </div>
-                    <!-- Columna dreta (1/3) -->
-                    <div class="taller-details-sidebar">
-                        <h4 data-lang-ca="Característiques" data-lang-es="Características">Característiques</h4>
-                        <div class="feature-item">
-                            <i class="fa-solid fa-fw fa-users"></i>
-                            <span data-lang-ca="<strong>Edat:</strong> 8 - 16 anys" data-lang-es="<strong>Edad:</strong> 8 - 16 años"><strong>Edat:</strong> 8 - 16 anys</span>
+    <section class="repte-content-section">
+        <div class="section-container">
+            <div class="taller-card">
+                <div class="taller-hidden-content">
+                    <div class="taller-details-grid">
+                        <div class="taller-details-main">
+                            <h4 data-i18n="repte.whatTitle" data-lang-ca="En què consisteix?" data-lang-es="¿En qué consiste?">En què consisteix?</h4>
+                            <p data-i18n="repte.what1" data-lang-ca="El Repte AulaSPUTNIK és una simulació d'una missió espacial completa. Durant diverses sessions, els equips participants passaran per totes les fases d'un projecte real: des de la definició d'objectius i el disseny de coets i satèl·lits, fins a la resolució de problemes inesperats i la presentació final de resultats." data-lang-es="El Reto AulaSPUTNIK es una simulación de una misión espacial completa. Durante varias sesiones, los equipos participantes pasarán por todas las fases de un proyecto real: desde la definición de objetivos y el diseño de cohetes y satélites, hasta la resolución de problemas inesperados y la presentación final de resultados.">El Repte AulaSPUTNIK és una simulació d'una missió espacial completa...</p>
+                            <p data-i18n="repte.what2" data-lang-ca="Una experiència educativa única en forma de missió espacial, on els teus alumnes es convertiran en protagonistes del seu propi projecte col·laboratiu, treballant en equip durant diverses setmanes per assolir un objectiu comú." data-lang-es="Una experiencia educativa única en forma de misión espacial, donde tus alumnos se convertirán en protagonistas de su propio proyecto colaborativo, trabajando en equipo durante varias semanas para alcanzar un objetivo común.">Una experiència educativa única en forma de missió espacial, on els teus alumnes es convertiran en protagonistes del seu propi projecte col·laboratiu, treballant en equip durant diverses setmanes per assolir un objectiu comú.</p>
+                            <p data-i18n="repte.what3" data-lang-ca="A través de tallers interconnectats seguint un fil conductor, cada sessió suma coneixements que s'apliquen directament al seu gran projecte espacial, aconseguint resultats elaborats i valuosos per a l'alumnat… i també per al centre!" data-lang-es="A través de talleres interconectados siguiendo un hilo conductor, cada sesión suma conocimientos que se aplican directamente a su gran proyecto espacial, logrando resultados elaborados y valiosos para el alumnado... ¡y también para el centro!">A través de tallers interconnectats seguint un fil conductor, cada sessió suma coneixements que s'apliquen directament al seu gran projecte espacial, aconseguint resultats elaborats i valuosos per a l'alumnat… i també per al centre!</p>
+                            <p data-i18n="repte.what4" data-lang-ca="Ideal per a docents que busquen transformar la vostra aula en un laboratori d'idees, col·laboració i descobriment." data-lang-es="Ideal para docentes que buscan transformar su aula en un laboratorio de ideas, colaboración y descubrimiento.">Ideal per a docents que busquen transformar la vostra aula en un laboratori d'idees, col·laboració i descobriment.</p>
+
+                            <h4 data-i18n="repte.phasesTitle" data-lang-ca="Fases de la Missió" data-lang-es="Fases de la Misión">Fases de la Missió</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span data-i18n="repte.phase1" data-lang-ca="Les constel·lacions com a quadern vital." data-lang-es="Las constelaciones como cuaderno vital.">Les constel·lacions com a quadern vital.</span></li>
+                                <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span data-i18n="repte.phase2" data-lang-ca="La biologia a l'espai: Com són els aliens?" data-lang-es="La biología en el espacio: ¿Cómo son los aliens?">La biologia a l'espai: Com són els aliens?</span></li>
+                                <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span data-i18n="repte.phase3" data-lang-ca="Com els nanosatèl·lits ajuden el nostre planeta?" data-lang-es="¿Cómo ayudan los nanosatélites a nuestro planeta?">Com els nanosatèl·lits ajuden el nostre planeta?</span></li>
+                                <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span data-i18n="repte.phase4" data-lang-ca="Explorem l'espai amb els coets AulaSputnik!" data-lang-es="Exploramos el espacio con los cohetes AulaSputnik!">Explorem l'espai amb els coets AulaSputnik!</span></li>
+                                <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span data-i18n="repte.phase5" data-lang-ca="Crea el teu propi sistema estel·lar!" data-lang-es="Crea tu propio sistema estelar!">Crea el teu propi sistema estel·lar!</span></li>
+                                <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span data-i18n="repte.phase6" data-lang-ca="Egg drop (només per a ESO)." data-lang-es="Egg drop (solo para ESO).">Egg drop (només per a ESO).</span></li>
+                                <li><i class="fa-solid fa-fw fa-chevron-right"></i> <span data-i18n="repte.phase7" data-lang-ca="La dona al sector aeroespacial (treballat transversalment al llarg de tots els tallers)." data-lang-es="La mujer en el sector aeroespacial (trabajado transversalmente a lo largo de todos los talleres).">La dona al sector aeroespacial (treballat transversalment al llarg de tots els tallers).</span></li>
+                            </ul>
                         </div>
-                        <div class="feature-item">
-                            <i class="fa-solid fa-fw fa-puzzle-piece"></i>
-                            <span data-lang-ca="<strong>Tipus:</strong> activitats en grup" data-lang-es="<strong>Tipo:</strong> actividades en grupo"><strong>Tipus:</strong> activitats en grup</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fa-solid fa-fw fa-calendar-alt"></i>
-                            <span data-lang-ca="<strong>Format:</strong> 6-7 sessions d'1.5 hores" data-lang-es="<strong>Formato:</strong> 6-7 sesiones de 1.5 horas"><strong>Format:</strong> 6-7 sessions d'1.5 hores</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fa-solid fa-fw fa-chart-simple"></i>
-                            <span data-lang-ca="<strong>Complexitat:</strong> mitjana" data-lang-es="<strong>Complejidad:</strong> media"><strong>Complexitat:</strong> mitjana</span>
-                        </div>
-                        <div class="taller-ods-section">
-                            <h4 data-lang-ca="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
-                            <div class="ods-images">
-                                <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-i18n-src-ca="assets/images/ods/cat/4.jpg" data-i18n-src-es="assets/images/ods/esp/4.png">
-                                <img src="assets/images/ods/cat/5.jpg" alt="ODS 5" data-i18n-src-ca="assets/images/ods/cat/5.jpg" data-i18n-src-es="assets/images/ods/esp/5.png">
-                                <img src="assets/images/ods/cat/9.jpg" alt="ODS 9" data-i18n-src-ca="assets/images/ods/cat/9.jpg" data-i18n-src-es="assets/images/ods/esp/9.png">
-                                <img src="assets/images/ods/cat/10.jpg" alt="ODS 10" data-i18n-src-ca="assets/images/ods/cat/10.jpg" data-i18n-src-es="assets/images/ods/esp/10.png">
-                                <img src="assets/images/ods/cat/13.jpg" alt="ODS 13" data-i18n-src-ca="assets/images/ods/cat/13.jpg" data-i18n-src-es="assets/images/ods/esp/13.png">
-                                <img src="assets/images/ods/cat/14.jpg" alt="ODS 14" data-i18n-src-ca="assets/images/ods/cat/14.jpg" data-i18n-src-es="assets/images/ods/esp/14.png">
-                                <img src="assets/images/ods/cat/15.jpg" alt="ODS 15" data-i18n-src-ca="assets/images/ods/cat/15.jpg" data-i18n-src-es="assets/images/ods/esp/15.png">
-                            </div>      
+                        <div class="taller-details-sidebar">
+                            <h4 data-i18n="workshop.characteristics" data-lang-ca="Característiques" data-lang-es="Características">Característiques</h4>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-fw fa-users"></i>
+                                <span data-i18n-html="repte.age" data-lang-ca="<strong>Edat:</strong> 8 - 16 anys" data-lang-es="<strong>Edad:</strong> 8 - 16 años"><strong>Edat:</strong> 8 - 16 anys</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-fw fa-puzzle-piece"></i>
+                                <span data-i18n-html="workshop.commonType" data-lang-ca="<strong>Tipus:</strong> activitats en grup" data-lang-es="<strong>Tipo:</strong> actividades en grupo"><strong>Tipus:</strong> activitats en grup</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-fw fa-calendar-alt"></i>
+                                <span data-i18n-html="repte.format" data-lang-ca="<strong>Format:</strong> 6-7 sessions d'1.5 hores" data-lang-es="<strong>Formato:</strong> 6-7 sesiones de 1.5 horas"><strong>Format:</strong> 6-7 sessions d'1.5 hores</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-fw fa-chart-simple"></i>
+                                <span data-i18n-html="repte.complexity" data-lang-ca="<strong>Complexitat:</strong> mitjana" data-lang-es="<strong>Complejidad:</strong> media"><strong>Complexitat:</strong> mitjana</span>
+                            </div>
+                            <div class="taller-ods-section">
+                                <h4 data-i18n="workshop.ods" data-lang-ca="Quins ODS treballarem?" data-lang-es="¿Qué ODS trabajaremos?">Quins ODS treballarem?</h4>
+                                <div class="ods-images">
+                                    <img src="assets/images/ods/cat/4.jpg" alt="ODS 4" data-i18n-src-ca="assets/images/ods/cat/4.jpg" data-i18n-src-es="assets/images/ods/esp/4.png" data-i18n-src-en="assets/images/ods/eng/4.png" loading="lazy" width="1357" height="1357">
+                                    <img src="assets/images/ods/cat/5.jpg" alt="ODS 5" data-i18n-src-ca="assets/images/ods/cat/5.jpg" data-i18n-src-es="assets/images/ods/esp/5.png" data-i18n-src-en="assets/images/ods/eng/5.png" loading="lazy" width="1357" height="1357">
+                                    <img src="assets/images/ods/cat/9.jpg" alt="ODS 9" data-i18n-src-ca="assets/images/ods/cat/9.jpg" data-i18n-src-es="assets/images/ods/esp/9.png" data-i18n-src-en="assets/images/ods/eng/9.png" loading="lazy" width="1357" height="1357">
+                                    <img src="assets/images/ods/cat/10.jpg" alt="ODS 10" data-i18n-src-ca="assets/images/ods/cat/10.jpg" data-i18n-src-es="assets/images/ods/esp/10.png" data-i18n-src-en="assets/images/ods/eng/10.png" loading="lazy" width="1357" height="1357">
+                                    <img src="assets/images/ods/cat/13.jpg" alt="ODS 13" data-i18n-src-ca="assets/images/ods/cat/13.jpg" data-i18n-src-es="assets/images/ods/esp/13.png" data-i18n-src-en="assets/images/ods/eng/13.png" loading="lazy" width="1357" height="1357">
+                                    <img src="assets/images/ods/cat/14.jpg" alt="ODS 14" data-i18n-src-ca="assets/images/ods/cat/14.jpg" data-i18n-src-es="assets/images/ods/esp/14.png" data-i18n-src-en="assets/images/ods/eng/14.png" loading="lazy" width="1357" height="1357">
+                                    <img src="assets/images/ods/cat/15.jpg" alt="ODS 15" data-i18n-src-ca="assets/images/ods/cat/15.jpg" data-i18n-src-es="assets/images/ods/esp/15.png" data-i18n-src-en="assets/images/ods/eng/15.png" loading="lazy" width="1357" height="1357">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="taller-cta-container">
-                    <a href="#footer" class="taller-cta-button" data-lang-ca="Sol·licita més informació" data-lang-es="Solicita más información">Sol·licita més informació</a>
+                    <div class="taller-cta-container">
+                        <a href="#footer" class="taller-cta-button" data-i18n="workshop.moreInfo" data-lang-ca="Sol·licita més informació" data-lang-es="Solicita más información">Sol·licita més informació</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-    <!-- =================== FOOTER START =================== -->
-    <!-- The <footer> tag is semantic, indicating this is the page footer. -->
+        </main>
     <footer id="footer" class="site-footer">
-        <!-- Container to keep content centered and constrained to max-width. -->
         <div class="footer-container">
-            <!-- Grid container for the two main columns. -->
             <div class="footer-main-grid">
 
-                <!-- Column 1: Text content and social links. -->
                 <div class="footer-column-left">
-                    <!-- Main heading for the column. -->
-                    <h3 class="footer-title" data-lang-ca="PARLEM?" data-lang-es="¿HABLAMOS?">PARLEM?</h3>
-                    <!-- First paragraph of text. -->
-                    <p data-lang-ca="Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu." data-lang-es="¿Tienes alguna duda, proposta o idea? ¡Queremos conocerte! Rellena este formulario y nos pondremos en contacto contigo.">Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu.</p>
-                    <!-- Second paragraph of text. -->
-                    <p data-lang-ca="També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!" data-lang-es="¡También puedes seguirnos en nuestras redes sociales y sumarte a nuestra comunidad!">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
-                    <!-- Container for social media icon links. -->
+                    <h3 class="footer-title" data-i18n="footer.title" data-lang-ca="PARLEM?" data-lang-es="¿HABLAMOS?">PARLEM?</h3>
+                    <p data-i18n="footer.para1" data-lang-ca="Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu." data-lang-es="¿Tienes alguna duda, proposta o idea? ¡Queremos conocerte! Rellena este formulario y nos pondremos en contacto contigo.">Tens algun dubte, proposta o idea? Volem conèixer-te! Omple aquest formulari i ens posarem en contacte amb tu.</p>
+                    <p data-i18n="footer.para2" data-lang-ca="També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!" data-lang-es="¡También puedes seguirnos en nuestras redes sociales y sumarte a nuestra comunidad!">També pots seguir-nos a les nostres xarxes socials i sumar-te a la nostra comunitat!</p>
                     <div class="footer-social-icons">
-                        <!-- Each 'a' tag is a link to a social profile. 'aria-label' is for accessibility. -->
                         <a href="https://www.instagram.com/aulasputnik/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/company/aulasputnik/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                         <a href="https://www.tiktok.com/@aula_sputnik" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
                     </div>
                 </div>
 
-                <!-- Column 2: The contact form. -->
                 <div class="footer-column-right">
-                    <!-- Connected to Formspree for submissions. -->
                     <form class="contact-form" action="https://formspree.io/f/mrblpwrg" method="POST">
-                        <!-- Form field for Name. Label is visually hidden but present for screen readers. -->
                         <div class="form-group">
-                            <!-- 'aria-label' provides an accessible name for the input. -->
-                            <input type="text" id="name" name="Nom" required placeholder="Nom i Cognoms*" data-lang-ca-placeholder="Nom i Cognoms*" data-lang-es-placeholder="Nombre y Apellidos*" aria-label="Nom i Cognoms">
+                            <input type="text" id="name" name="Nom" required placeholder="Nom i Cognoms*" data-i18n-ph="form.namePlaceholder" aria-label="Nom i Cognoms">
                         </div>
-                        <!-- Form field for Email. -->
                         <div class="form-group">
-                            <input type="email" id="email" name="Email" required placeholder="Correu electrònic*" data-lang-ca-placeholder="Correu electrònic*" data-lang-es-placeholder="Correo electrónico*" aria-label="Correu electrònic">
+                            <input type="email" id="email" name="Email" required placeholder="Correu electrònic*" data-i18n-ph="form.emailPlaceholder" aria-label="Correu electrònic">
                         </div>
-                        <!-- Form field for Institution. -->
                         <div class="form-group">
-                            <input type="text" id="institution" name="Institució" required placeholder="Empresa, escola, institut, etc.*" data-lang-ca-placeholder="Empresa, escola, institut, etc.*" data-lang-es-placeholder="Empresa, colegio, instituto, etc.*" aria-label="Empresa, escola, institut, etc.">
+                            <input type="text" id="institution" name="Institució" required placeholder="Empresa, escola, institut, etc.*" data-i18n-ph="form.institutionPlaceholder" aria-label="Empresa, escola, institut, etc.">
                         </div>
-                        <!-- Custom Multi-Select Dropdown for Workshops. -->
                         <div class="form-group">
-                            <!-- Main container for custom component. Position is relative for dropdown options. -->
                             <div class="multiselect-container" id="workshops-multiselect">
-                                <!-- Visible, clickable part styled as form input. -->
                                 <div class="multiselect-display">
-                                    <!-- Span for placeholder text (e.g., "2 selected"). -->
-                                    <span class="multiselect-placeholder" 
-                                        data-lang-ca="T'agradaria rebre informació d'algún taller en concret?" 
-                                        data-lang-es="¿Te gustaría recibir información de algún taller en concreto?">
-                                        T'agradaria rebre informació d'algún taller en concret?
-                                    </span>
-                                    <!-- Font Awesome icon to indicate dropdown. -->
+                                    <span class="multiselect-placeholder" data-i18n="form.workshopPlaceholder" data-lang-ca="T'agradaria rebre informació d'algún taller en concret?" data-lang-es="¿Te gustaría recibir información de algún taller en concreto?">T'agradaria rebre informació d'algún taller en concret?</span>
                                     <i class="fa-solid fa-chevron-down"></i>
                                 </div>
-                                <!-- Dropdown panel with selectable options, hidden by default. -->
                                 <div class="multiselect-options">
-                                    <!-- Each workshop is a checkbox/label pair. -->
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Nanosatèl·lits">
-                                        <span data-lang-ca="Ajudem al nostre planeta a través dels nanosatèl·lits." data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites.">Ajudem al nostre planeta a través dels nanosatèl·lits.</span>
+                                        <span data-i18n="workshop.1.title" data-lang-ca="Ajudem al nostre planeta a través dels nanosatèl·lits." data-lang-es="Ayudamos a nuestro planeta a través de los nanosatélites.">Ajudem al nostre planeta a través dels nanosatèl·lits.</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Coets">
-                                        <span data-lang-ca="Explorem l’espai amb AulaSPUTNIK!" data-lang-es="¡Exploramos el espacio con AulaSPUTNIK!">Explorem l’espai amb AulaSPUTNIK!</span>
+                                        <span data-i18n="workshop.2.title" data-lang-ca="Explorem l'espai amb AulaSPUTNIK!" data-lang-es="¡Exploramos el espacio con AulaSPUTNIK!">Explorem l'espai amb AulaSPUTNIK!</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Dona a l'Espai">
-                                        <span data-lang-ca="La dona al sector aeroespacial." data-lang-es="La mujer en el sector aeroespacial.">La dona al sector aeroespacial.</span>
+                                        <span data-i18n="workshop.3.title" data-lang-ca="La dona al sector aeroespacial." data-lang-es="La mujer en el sector aeroespacial.">La dona al sector aeroespacial.</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Constel·lacions">
-                                        <span data-lang-ca="Les constel·lacions com a quadern vital." data-lang-es="Las constelaciones como cuaderno vital.">Les constel·lacions com a quadern vital.</span>
+                                        <span data-i18n="workshop.4.title" data-lang-ca="Les constel·lacions com a quadern vital." data-lang-es="Las constelaciones como cuaderno vital.">Les constel·lacions com a quadern vital.</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Aliens">
-                                        <span data-lang-ca="La biologia a l'espai: com són els aliens?" data-lang-es="La biología en el espacio: ¿cómo son los aliens?">La biologia a l'espai: com són els aliens?</span>
+                                        <span data-i18n="workshop.5.title" data-lang-ca="La biologia a l'espai: com són els aliens?" data-lang-es="La biología en el espacio: ¿cómo son los aliens?">La biologia a l'espai: com són els aliens?</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Sistema estelar">
-                                        <span data-lang-ca="Crea el teu propi sistema estelar!" data-lang-es="¡Crea tu propio sistema estelar!">Crea el teu propi sistema estelar!</span>
+                                        <span data-i18n="workshop.6.title" data-lang-ca="Crea el teu propi sistema estelar!" data-lang-es="¡Crea tu propio sistema estelar!">Crea el teu propi sistema estelar!</span>
                                     </label>
                                     <label class="multiselect-option">
                                         <input type="checkbox" name="Taller" value="Repte AulaSPUTNIK">
-                                        <span data-lang-ca="El Repte AulaSPUTNIK" data-lang-es="El Reto AulaSPUTNIK">El Repte AulaSPUTNIK</span>
+                                        <span data-i18n="challenge.title" data-lang-ca="El Repte AulaSPUTNIK" data-lang-es="El Reto AulaSPUTNIK">El Repte AulaSPUTNIK</span>
                                     </label>
                                 </div>
-                                <!-- Hidden input updated by JavaScript with selected workshops for Formspree. -->
                                 <input type="hidden" name="Tallers Seleccionats" id="selected-workshops-input">
                             </div>
                         </div>
-                        <!-- Form field for the message. 'textarea' allows multiple lines. -->
                         <div class="form-group">
-                            <textarea id="message" name="Missatge" rows="4" required placeholder="El teu missatge" data-lang-ca-placeholder="El teu missatge" data-lang-es-placeholder="Tu mensaje" aria-label="El teu missatge"></textarea>
+                            <textarea id="message" name="Missatge" rows="4" required placeholder="El teu missatge" data-i18n-ph="form.messagePlaceholder" aria-label="El teu missatge"></textarea>
                         </div>
-                        <!-- Privacy Consent Section. -->
                         <div class="privacy-section">
-                            <!-- Header for this section, with link to Privacy Policy page. -->
-                            <p class="privacy-header" 
-                                data-lang-ca="En relació amb la nostra <a href='politica-de-privacitat.html'>Política de Privacitat</a>*:" 
-                                data-lang-es="En relación con nuestra <a href='politica-de-privacitat.html'>Política de Privacidad</a>*:">
-                                En relació amb la nostra <a href="politica-de-privacitat.html">Política de Privacitat</a>*:
-                            </p>
-                            <!-- Checkbox 1: Privacy Policy Acceptance. 'required' makes it mandatory. -->
+                            <p class="privacy-header" data-i18n-html="form.privacyHeader" data-lang-ca="En relació amb la nostra <a href='politica-de-privacitat.html'>Política de Privacitat</a>*:" data-lang-es="En relación con nuestra <a href='politica-de-privacitat.html'>Política de Privacidad</a>*:">En relació amb la nostra <a href="politica-de-privacitat.html">Política de Privacitat</a>*:</p>
                             <div class="form-group-checkbox">
-                                <!-- Actual checkbox input, visually hidden with CSS. -->
                                 <input type="checkbox" id="privacy-accept" name="privacy-accept" required>
-                                <!-- Label is visible and linked to input by 'for' attribute. -->
-                                <label for="privacy-accept" 
-                                    data-lang-ca="Confirmo haver-la llegit i l'accepto." 
-                                    data-lang-es="Confirmo haberla leído y la acepto.">
-                                    Confirmo haver-la llegit i l'accepto.
-                                </label>
+                                <label for="privacy-accept" data-i18n="form.privacyAccept" data-lang-ca="Confirmo haver-la llegit i l'accepto." data-lang-es="Confirmo haberla leído y la acepto.">Confirmo haver-la llegit i l'accepto.</label>
                             </div>
-                            <!-- Checkbox 2: Commercial Use Consent. This one is optional. -->
                             <div class="form-group-checkbox">
                                 <input type="checkbox" id="commercial-accept" name="commercial-accept" required>
-                                <label for="commercial-accept" 
-                                    data-lang-ca="Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics." 
-                                    data-lang-es="Acepto que mis datos identificativos sean incluidos para fines comerciales por medios electrónicos.">
-                                    Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics.
-                                </label>
+                                <label for="commercial-accept" data-i18n="form.commercialAccept" data-lang-ca="Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics." data-lang-es="Acepto que mis datos identificativos sean incluidos para fines comerciales por medios electrónicos.">Accepto que les meves dades identificatives siguin incloses per a finalitats comercials per mitjans electrònics.</label>
                             </div>
                         </div>
-                        <!-- End of Privacy Consent Section. -->
-                        <!-- Submit button for the form. -->
-                        <button type="submit" class="submit-btn" data-lang-ca="Enviar" data-lang-es="Enviar">Enviar</button>
+                        <button type="submit" class="submit-btn" data-i18n="form.submit" data-lang-ca="Enviar" data-lang-es="Enviar">Enviar</button>
                     </form>
                 </div>
             </div>
 
-            <!-- Bottom bar of the footer. -->
             <div class="footer-bottom-bar">
-                <!-- Copyright notice. -->
-                <p class="copyright-text" data-lang-ca='© 2025 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.' data-lang-es='© 2024 <a href="index.html">AulaSPUTNIK</a>. Todos los derechos reservados.'>© 2024 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.</p>
-                <!-- Container for legal links. -->
+                <p class="copyright-text" data-i18n-html="footer.copyright" data-lang-ca='© 2025 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.' data-lang-es='© 2024 <a href="index.html">AulaSPUTNIK</a>. Todos los derechos reservados.'>© 2025 <a href="index.html">AulaSPUTNIK</a>. Tots els drets reservats.</p>
                 <div class="footer-legal-links">
-                    <a href="politica-de-privacitat.html" data-lang-ca="Política de Privacitat" data-lang-es="Política de Privacidad">Política de Privacitat</a>
-                    <a href="avis-legal.html" data-lang-ca="Avís Legal" data-lang-es="Aviso Legal">Avís Legal</a>
+                    <a href="politica-de-privacitat.html" data-i18n="footer.privacy" data-lang-ca="Política de Privacitat" data-lang-es="Política de Privacidad">Política de Privacitat</a>
+                    <a href="avis-legal.html" data-i18n="footer.legal" data-lang-ca="Avís Legal" data-lang-es="Aviso Legal">Avís Legal</a>
                 </div>
             </div>
         </div>
     </footer>
-    <!-- =================== FOOTER END =================== -->
 
-    <!-- "Scroll to Top" button, hidden by default with CSS. -->
     <button id="scroll-to-top-btn" aria-label="Scroll to top">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <!-- Link to main JavaScript file. -->
-    <script src="assets/js/main.js"></script>
+    <script defer src="assets/js/translations-data.js"></script>
+    <script defer src="assets/js/main.js"></script>
 </body>
 </html>
