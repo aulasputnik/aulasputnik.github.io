@@ -175,14 +175,15 @@ function updateLanguageButtonStyles(lang) {
  * Update language-aware dossier download buttons
  */
 function updateDossierButtons(lang) {
+    const dossierLang = lang === 'en' ? 'ca' : lang;
     document.querySelectorAll('[data-dossier]').forEach(btn => {
         const dossierType = btn.getAttribute('data-dossier');
         let filename = '';
 
         if (dossierType === 'workshops') {
-            filename = `dossier-${lang}.pdf`;
+            filename = `dossier-${dossierLang}.pdf`;
         } else if (dossierType === 'challenge') {
-            filename = `dossier-repte-${lang}.pdf`;
+            filename = `dossier-repte-${dossierLang}.pdf`;
         }
 
         if (filename) {
