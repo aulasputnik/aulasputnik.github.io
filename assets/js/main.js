@@ -621,6 +621,26 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 
+    // Auto-open a workshop card when navigating from the index carousel (e.g. #taller-2)
+    if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target && target.classList.contains('taller-card')) {
+            const hiddenContent = target.querySelector('.taller-card-hidden');
+            if (hiddenContent) {
+                target.classList.add('is-open');
+                hiddenContent.style.maxHeight = hiddenContent.scrollHeight + 'px';
+                const carousel = target.querySelector('.taller-carousel');
+                if (carousel) setTimeout(() => setupCarousel(carousel), 50);
+                setTimeout(() => {
+                    const nav = document.querySelector('.site-nav');
+                    const offset = (nav ? nav.offsetHeight : 0) + 24;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }, 200);
+            }
+        }
+    }
+
     // Resize handler for workshop cards
     let resizeTimer;
     window.addEventListener('resize', () => {
@@ -831,6 +851,125 @@ document.addEventListener('DOMContentLoaded', async () => {
             form.insertAdjacentElement('beforebegin', feedback);
         }
         return feedback;
+    }
+
+    // ============ WORKSHOPS PREVIEW CAROUSEL ============
+
+    const tallersPreviewSection = document.querySelector('.tallers-preview-section');
+    if (tallersPreviewSection) {
+        const track = tallersPreviewSection.querySelector('.tallers-preview-track');
+        const cards = Array.from(track.querySelectorAll('.taller-preview-card'));
+        const prevBtn = tallersPreviewSection.querySelector('.tallers-preview-nav--prev');
+        const nextBtn = tallersPreviewSection.querySelector('.tallers-preview-nav--next');
+        const dotsContainer = tallersPreviewSection.querySelector('.tallers-preview-dots');
+
+        // Clones at each end = max visible count (desktop = 3).
+        // This lets the carousel slide seamlessly into clone territory on any
+        // breakpoint, then snap back to the real equivalent position on transitionend.
+        const CLONES = 3;
+        let currentAugIndex = CLONES; // track index in the augmented (clone-padded) list
+        let isAnimating = false;
+
+        // Prepend clones of the last CLONES real cards (reversed so order is preserved)
+        [...cards.slice(-CLONES)].reverse().forEach(card => {
+            const clone = card.cloneNode(true);
+            clone.setAttribute('tabindex', '-1');
+            clone.setAttribute('aria-hidden', 'true');
+            track.prepend(clone);
+        });
+
+        // Append clones of the first CLONES real cards
+        cards.slice(0, CLONES).forEach(card => {
+            const clone = card.cloneNode(true);
+            clone.setAttribute('tabindex', '-1');
+            clone.setAttribute('aria-hidden', 'true');
+            track.appendChild(clone);
+        });
+
+        function getVisibleCount() {
+            if (window.innerWidth >= 900) return 3;
+            if (window.innerWidth >= 600) return 2;
+            return 1;
+        }
+
+        function getOffset(index) {
+            const cardWidth = cards[0].getBoundingClientRect().width;
+            const gap = parseInt(getComputedStyle(track).gap) || 24;
+            return index * (cardWidth + gap);
+        }
+
+        // Instantly reposition without animation (used for loop snap-back)
+        function snapTo(index) {
+            track.style.transition = 'none';
+            track.style.transform = `translateX(-${getOffset(index)}px)`;
+            void track.offsetHeight; // force reflow so the browser applies the no-transition state
+            track.style.transition = 'transform 0.4s ease';
+            currentAugIndex = index;
+        }
+
+        function animateTo(index) {
+            track.style.transform = `translateX(-${getOffset(index)}px)`;
+            currentAugIndex = index;
+            updateDots();
+        }
+
+        function getRealIndex() {
+            return ((currentAugIndex - CLONES) % cards.length + cards.length) % cards.length;
+        }
+
+        function buildDots() {
+            dotsContainer.innerHTML = '';
+            cards.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'tallers-preview-dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', `Taller ${i + 1}`);
+                dot.addEventListener('click', () => {
+                    if (isAnimating) return;
+                    isAnimating = true;
+                    animateTo(CLONES + i);
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateDots() {
+            dotsContainer.querySelectorAll('.tallers-preview-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === getRealIndex());
+            });
+        }
+
+        // After each animation, check if we landed in the clone zone and snap back
+        track.addEventListener('transitionend', () => {
+            const maxRealAugIndex = CLONES + cards.length - getVisibleCount();
+            if (currentAugIndex > maxRealAugIndex) {
+                snapTo(currentAugIndex - cards.length);
+            } else if (currentAugIndex < CLONES) {
+                snapTo(currentAugIndex + cards.length);
+            }
+            isAnimating = false;
+        });
+
+        prevBtn.disabled = false;
+        prevBtn.addEventListener('click', () => {
+            if (isAnimating) return;
+            isAnimating = true;
+            animateTo(currentAugIndex - 1);
+        });
+        nextBtn.addEventListener('click', () => {
+            if (isAnimating) return;
+            isAnimating = true;
+            animateTo(currentAugIndex + 1);
+        });
+
+        let previewResizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(previewResizeTimer);
+            previewResizeTimer = setTimeout(() => snapTo(currentAugIndex), 150);
+        });
+
+        buildDots();
+        // Defer initial snap to ensure flex layout has been calculated
+        requestAnimationFrame(() => snapTo(CLONES));
     }
 
     // Focus the name input when clicking any contact CTA button

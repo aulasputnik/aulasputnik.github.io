@@ -2000,7 +2000,7 @@ html {
 /* 1. El contenidor exterior: té el color de fons i l'espaiat. */
 .repte-banner-section {
     /* AQUEST ÉS EL COLOR DEL "MARC". Pots canviar-lo per qualsevol de la teva paleta. */
-    background-color: var(--color-background);
+    background-color: var(--color-white);
     /* El padding crea l'espai entre la vora de la secció i la imatge. */
     padding: 20px 40px;
 }
@@ -2511,6 +2511,206 @@ html {
     color: var(--color-btn);
     text-decoration: none;
     box-shadow: 0 6px 20px rgba(161, 93, 246, 0.25);
+}
+
+/* =================== WORKSHOPS PREVIEW SECTION =================== */
+
+.tallers-preview-section {
+    background-color: var(--color-white);
+    padding: 80px 40px;
+}
+
+.tallers-preview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 48px;
+}
+
+.tallers-preview-section-title {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.tallers-preview-viewall {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--color-primary);
+    text-decoration: none;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s ease, opacity 0.2s ease;
+    flex-shrink: 0;
+}
+
+.tallers-preview-viewall:hover {
+    gap: 10px;
+    opacity: 0.8;
+}
+
+.tallers-preview-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.tallers-preview-track-wrapper {
+    flex: 1;
+    overflow: hidden;
+}
+
+.tallers-preview-track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.4s ease;
+}
+
+.taller-preview-card {
+    flex: 0 0 calc((100% - 48px) / 3);
+    background-color: var(--color-text);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 20px rgba(25, 50, 90, 0.1);
+}
+
+.taller-preview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 36px rgba(25, 50, 90, 0.2);
+}
+
+.taller-preview-icon {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.taller-preview-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.taller-preview-title {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--color-white);
+    line-height: 1.35;
+    margin-bottom: 16px;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.taller-preview-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+}
+
+.taller-preview-tags span {
+    background-color: rgba(227, 254, 83, 0.1);
+    border: 1px solid rgba(227, 254, 83, 0.3);
+    color: var(--color-btn-sec);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-family: var(--font-body);
+    font-weight: 500;
+}
+
+.tallers-preview-nav {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-primary);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.tallers-preview-nav:hover:not(:disabled) {
+    background-color: var(--color-btn-hover);
+    transform: scale(1.08);
+}
+
+.tallers-preview-nav:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.tallers-preview-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 28px;
+}
+
+.tallers-preview-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(161, 93, 246, 0.2);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.tallers-preview-dot.active {
+    background-color: var(--color-primary);
+    transform: scale(1.4);
+}
+
+@media (max-width: 900px) {
+    .taller-preview-card {
+        flex: 0 0 calc((100% - 24px) / 2);
+    }
+}
+
+@media (max-width: 600px) {
+    .tallers-preview-section {
+        padding: 60px 24px;
+    }
+
+    .tallers-preview-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 32px;
+    }
+
+    .tallers-preview-carousel-wrapper {
+        gap: 10px;
+    }
+
+    .taller-preview-card {
+        flex: 0 0 78%;
+    }
+
+    .tallers-preview-nav {
+        width: 38px;
+        height: 38px;
+        font-size: 13px;
+    }
 }
 
 /* =================== CTA SECTION =================== */
