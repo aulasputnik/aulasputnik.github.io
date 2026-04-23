@@ -523,6 +523,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // ============ ACCORDION ============
 
+    // Open first accordion item by default
+    const firstAccordionItem = document.querySelector('.accordion-item.is-active');
+    if (firstAccordionItem) {
+        const content = firstAccordionItem.querySelector('.accordion-content');
+        if (content) content.style.maxHeight = content.scrollHeight + 'px';
+    }
+
     const accordionHeaders = document.querySelectorAll('.accordion-header');
     accordionHeaders.forEach(header => {
         header.addEventListener('click', () => {
