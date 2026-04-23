@@ -832,4 +832,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         return feedback;
     }
+
+    // Focus the name input when clicking any contact CTA button
+    document.querySelectorAll('.cta-btn, .nav-button-secondary, .taller-cta-button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const nameInput = document.getElementById('name');
+            if (nameInput) setTimeout(() => nameInput.focus(), 400);
+        });
+    });
 });

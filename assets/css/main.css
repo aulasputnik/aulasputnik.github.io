@@ -106,16 +106,7 @@ html {
 }
 
 body {
-    /* APLIQUEM LA IMATGE DE FONS A TOTA LA PÀGINA */
-    background-image: url('../images/background.png');
-    background-size: cover;
-    background-position: center bottom;
-    background-attachment: fixed;
-
-    /* El color de fons original ara actua com a 'fallback' si la imatge no es carrega. */
     background-color: var(--color-background);
-
-    /* La resta d'estils es mantenen igual. */
     font-family: var(--font-body);
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
@@ -123,10 +114,27 @@ body {
     line-height: 1.6;
 }
 
+/* Fixed background pseudo-element: same visual effect as background-attachment:fixed
+   but works on iOS/Safari and is GPU-composited for better scroll performance. */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url('../images/background.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-color: var(--color-background);
+}
+
 /* Apply the heading font to all heading levels. */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     color: var(--color-heading);
+    letter-spacing: -0.015em;
 }
 
 
@@ -181,7 +189,7 @@ h1, h2, h3, h4, h5, h6 {
     /* Reduces the padding to make the nav bar smaller. */
     padding: 15px 0;
     /* Adds a subtle shadow to lift it off the page content. */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 12px rgba(161, 93, 246, 0.1);
 }
 
 /* The container that centers the nav content. */
@@ -255,7 +263,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .nav-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(161, 93, 246, 0.2);
 }
 /* This removes the underline hover effect from the buttons. */
 .nav-button::after {
@@ -266,20 +274,22 @@ h1, h2, h3, h4, h5, h6 {
 a.nav-button {
     background-color: var(--color-btn);
     color: var(--color-white) !important;
-    padding: 8px 12px;
+    padding: 10px 20px;
 }
-a.nav-button:hover {
-    background-color: var(--color-btn-hover);
+a.nav-button:not(.nav-button-secondary):hover {
+    background-color: var(--color-white) !important;
+    color: var(--color-btn) !important;
 }
 
 /* Secondary button style (e.g., "Contacte") */
 a.nav-button-secondary {
     background-color: var(--color-btn-sec);
     color: var(--color-text) !important; /* Dark text on light button */
-    padding: 8px 12px;
+    padding: 10px 20px;
 }
 a.nav-button-secondary:hover {
-    background-color: var(--color-btn-hover-sec);
+    background-color: var(--color-text);
+    color: var(--color-btn-sec) !important;
 }
 
 /* --- Subtle Color Pulse Animation for "Tallers" Button --- */
@@ -404,6 +414,9 @@ a.nav-button:not(.nav-button-secondary) {
     margin: 5px 0;
     transition: all 0.3s ease;
 }
+.site-nav.scrolled .hamburger-line {
+    background-color: var(--color-heading);
+}
 
 /* This media query applies to screens 900px wide or smaller. */
 @media (max-width: 900px) {
@@ -475,12 +488,13 @@ a.nav-button:not(.nav-button-secondary) {
 
 /* The main title (H1). */
 .hero-title {
-    font-size: clamp(32px, 4.5vw, 50px);
-    font-weight: 800;
-    line-height: 1.1;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 900;
+    line-height: 1.05;
     margin-bottom: 40px;
     max-width: 800px; /* Prevents the line from getting too long on wide screens. */
     text-shadow: 1px 1px 2px rgba(226, 232, 238, 0.6);
+    letter-spacing: -0.02em;
 }
 
 /* This styles the "AulaSPUTNIK" text inside the title. */
@@ -495,7 +509,7 @@ a.nav-button:not(.nav-button-secondary) {
     /* Reusing your button styles for consistency. */
     background-color: var(--color-btn);
     color: var(--color-white);
-    padding: 10px 15px;
+    padding: 12px 28px;
     border-radius: 20px;
     text-decoration: none;
     font-weight: 300;
@@ -503,9 +517,10 @@ a.nav-button:not(.nav-button-secondary) {
     transition: all 0.2s ease;
 }
 .hero-button:hover {
-    background-color: var(--color-btn-hover);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: var(--color-white);
+    color: var(--color-btn);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(161, 93, 246, 0.25);
 }
 
 /* Contenidor per als botons del hero. */
@@ -517,14 +532,13 @@ a.nav-button:not(.nav-button-secondary) {
 
 /* Estil per al nou botó secundari. */
 .hero-button--secondary {
-    /* Utilitzem el teu color de botó secundari. */
     background-color: var(--color-btn-sec);
-    /* Utilitzem el teu color de text fosc per a un bon contrast. */
     color: var(--color-text);
+    border: 2px solid var(--color-btn-sec);
 }
 .hero-button--secondary:hover {
-    /* Utilitzem el teu color de hover per al botó secundari. */
-    background-color: var(--color-btn-hover-sec);
+    background-color: var(--color-text);
+    color: var(--color-btn-sec);
 }
 
 /* The "Saber Més" link at the bottom. */
@@ -537,38 +551,24 @@ a.nav-button:not(.nav-button-secondary) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px; /* Space between the text and the arrow. */
+    gap: 8px;
     color: var(--color-white);
     text-decoration: none;
     font-weight: 600;
     opacity: 0.8;
-    
-    /* This is where we apply our limited animation! */
-    /* 'bounce' is the animation name.
-       '2.5s' is the duration.
-       '2' means it will only run twice.
-       '1s' is a delay before it starts.
-    */
-    animation: bounce 2s infinite ease-in-out;
+    transition: opacity 0.2s ease;
 }
 .scroll-down-link:hover {
     opacity: 1;
 }
+/* Only the chevron drifts — text stays still. */
+.scroll-down-link i {
+    animation: scroll-hint 2s ease-in-out infinite;
+}
 
-/* We define the keyframes for our limited bounce animation. */
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-        color: var(--color-text-alt);
-    }
-    40% {
-        transform: translateY(-2px);
-        color: var(--color-text-accent);
-    }
-    60% {
-        transform: translateY(-1px);
-        color: var(--color-text-accent);
-    }
+@keyframes scroll-hint {
+    0%, 100% { opacity: 0.8; transform: translateY(0); }
+    50%       { opacity: 0.1; transform: translateY(8px); }
 }
 
 /* Responsive styles for smaller screens */
@@ -706,7 +706,7 @@ a.nav-button:not(.nav-button-secondary) {
 /* --- 11. SECCIÓ DE CONTEXT I ACORDIÓ --- */
 
 .context-section {
-    padding: 60px 40px;
+    padding: 80px 40px;
     background-color: var(--color-white); /* Un fons blanc per a aquesta secció. */
     scroll-margin-top: 70px;
 }
@@ -823,7 +823,7 @@ a.nav-button:not(.nav-button-secondary) {
 /* Contenidor principal de la secció. */
 .valors-section {
     /* Un espaiat generós per sobre i per sota. */
-    padding: 60px 40px;
+    padding: 80px 40px;
     /* Utilitzem el color de fons principal de la pàgina. */
     background-color: var(--color-background);
 }
@@ -836,12 +836,14 @@ a.nav-button:not(.nav-button-secondary) {
 
 /* Estil per al títol principal de la secció. */
 .section-title {
-    font-size: 42px;
+    font-size: 46px;
     font-weight: 900;
+    line-height: 1.1;
     text-align: center;
     /* Un marge inferior per separar-lo del contingut. */
-    margin-bottom: 40px;
+    margin-bottom: 56px;
     color: var(--color-heading);
+    letter-spacing: -0.02em;
 }
 
 /* La graella que contindrà les targetes. */
@@ -854,31 +856,34 @@ a.nav-button:not(.nav-button-secondary) {
        - Això fa que passi de 3 a 2 i a 1 columna automàticament. */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     /* L'espai entre les targetes. */
-    gap: 30px;
+    gap: 40px;
 }
 
 /* L'estil per a cada targeta individual. */
 .valor-card {
     /* Fons blanc per a cada targeta. */
     background-color: var(--color-white);
-    /* Cantonades arrodonides. */
-    border-radius: 8px;
+    /* Cantonades arrodonides, consistent amb les taller cards. */
+    border-radius: 12px;
     /* Espaiat interior. */
-    padding: 30px 20px;
+    padding: 36px 28px;
     /* Tot el contingut estarà centrat. */
     text-align: center;
+    /* Vora prima d'accent. */
+    border: 1px solid rgba(161, 93, 246, 0.08);
     /* Una ombra suau per donar-li profunditat. */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.005);
+    box-shadow: 0 2px 16px rgba(161, 93, 246, 0.07);
     /* Una transició suau per a l'efecte de sobreposició (hover). */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 /* Efecte en passar el ratolí per sobre d'una targeta. */
 .valor-card:hover {
     /* La targeta s'aixeca una mica. */
-    transform: translateY(-0px);
+    transform: translateY(-4px);
     /* L'ombra es fa una mica més pronunciada. */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.01);
+    box-shadow: 0 8px 32px rgba(161, 93, 246, 0.14);
+    border-color: rgba(161, 93, 246, 0.2);
 }
 
 /* L'estil per a la icona. */
@@ -980,18 +985,14 @@ a.nav-button:not(.nav-button-secondary) {
 
 /* Individual social icon link styling */
 .footer-social-icons a {
-    /* Sets the color of the icons to white. */
     color: var(--color-btn-sec);
-    /* Sets the size of the icons. */
     font-size: 26px;
-    /* Smooth transition for the hover effect. */
-    transition: transform 0.2s ease, color 0.2s ease;
+    transition: transform 0.25s ease, color 0.25s ease;
 }
 
-/* Hover effect for social icons: slightly lighter color and moves up a bit. */
 .footer-social-icons a:hover {
-    color: var(--color-btn-hover-sec); /* Use your secondary button color on hover. */
-    /* transform: translateY(-3px); */
+    color: var(--color-white);
+    transform: translateY(-4px) scale(1.15);
 }
 
 /* --- Contact Form Styles --- */
@@ -1055,8 +1056,8 @@ a.nav-button:not(.nav-button-secondary) {
     background-color: var(--color-btn-sec);
     /* Sets the text color. */
     color: var(--color-text);
-    /* Removes the border. */
-    border: none;
+    /* Border matches bg by default; becomes visible on hover inversion. */
+    border: 2px solid var(--color-btn-sec);
     /* Adds rounded corners. */
     border-radius: 8px;
     /* Sets the font size. */
@@ -1066,15 +1067,15 @@ a.nav-button:not(.nav-button-secondary) {
     /* Changes the cursor to a pointer on hover. */
     cursor: pointer;
     /* Smooth transition for the hover effect. */
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
     display: block;
     margin: 0 auto; /* Center the button */
 }
 
 /* Hover effect for the submit button */
 .submit-btn:hover {
-    /* Use your button hover color variable. */
-    background-color: var(--color-btn-hover-sec);
+    background-color: var(--color-text);
+    color: var(--color-btn-sec);
 }
 
 /* --- Checkbox Styles --- */
@@ -1484,11 +1485,12 @@ html {
 
 /* El títol principal de la pàgina. */
 .page-title {
-    font-size: 52px;
+    font-size: 56px;
     font-weight: 900;
-    line-height: 1.2;
+    line-height: 1.05;
     color: var(--color-heading);
     margin-bottom: 10px; /* Espai sota el títol principal. */
+    letter-spacing: -0.02em;
 }
 
 /* Els paràgrafs introductoris, amb un estil una mica diferent. */
@@ -1504,6 +1506,8 @@ html {
 .section-subtitle {
     font-size: 36px;
     font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
     color: var(--color-heading);
     /* Un espai més gran per sobre per separar-lo visualment. */
     margin-top: 10px;
@@ -1558,13 +1562,15 @@ html {
 .taller-card {
     background-color: var(--color-white);
     border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease;
+    border: 1px solid rgba(161, 93, 246, 0.08);
+    box-shadow: 0 2px 16px rgba(161, 93, 246, 0.07);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
     display: flex;
     flex-direction: column;
 }
 .taller-card:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(161, 93, 246, 0.14);
+    border-color: rgba(161, 93, 246, 0.2);
 }
 
 /* La capçalera de la targeta, que és l'element clicable. */
@@ -1574,6 +1580,11 @@ html {
     gap: 25px;
     padding: 25px 30px;
     cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.2s ease;
+}
+.taller-card-header:hover {
+    background-color: rgba(161, 93, 246, 0.04);
 }
 
 .taller-icon {
@@ -1616,7 +1627,8 @@ html {
     gap: 6px;
 }
 .taller-tags span {
-    background-color: var(--color-background);
+    background-color: rgba(161, 93, 246, 0.06);
+    border: 1px solid rgba(161, 93, 246, 0.12);
     color: var(--color-text);
     padding: 5px 12px;
     border-radius: 20px;
@@ -1751,9 +1763,10 @@ html {
 }
 
 .taller-cta-button:hover {
-    background-color: var(--color-btn-hover);
+    background-color: var(--color-white);
+    color: var(--color-btn);
     transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(161, 93, 246, 0.2);
 }
 
 /* --- 14. WORKSHOP FILTER BAR --- */
@@ -2030,6 +2043,7 @@ html {
     background-color: var(--color-btn-sec);
     color: var(--color-text);
     padding: 8px 20px;
+    border: 2px solid var(--color-btn-sec);
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
@@ -2038,9 +2052,9 @@ html {
     display: inline-block;
 }
 .repte-banner-button:hover {
-    background-color: var(--color-btn-hover-sec);
+    background-color: var(--color-text);
+    color: var(--color-btn-sec);
     transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Ajust responsiu per a mòbils. */
@@ -2406,9 +2420,10 @@ html {
     text-align: center;
 }
 .collaboradors-title {
-    letter-spacing: 1px;
+    letter-spacing: -0.02em;
     font-size: 42px;
     font-weight: 900;
+    line-height: 1.1;
     text-align: center;
     /* Un marge inferior per separar-lo del contingut. */
     margin-bottom: 40px;
@@ -2492,10 +2507,49 @@ html {
 
 .dossier-download-btn:hover,
 .dossier-download-btn:focus {
-    background: var(--color-btn-hover);
-    color: #fff;
+    background: var(--color-white);
+    color: var(--color-btn);
     text-decoration: none;
-    box-shadow: 0 4px 16px 0 rgba(161, 93, 246, 0.15);
+    box-shadow: 0 6px 20px rgba(161, 93, 246, 0.25);
+}
+
+/* =================== CTA SECTION =================== */
+.cta-section {
+    background-color: var(--color-text);
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: clamp(26px, 3.5vw, 46px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-text-accent);
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+}
+
+.cta-subtitle {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-text-alt);
+    opacity: 0.8;
+    max-width: 580px;
+    margin: 0 auto 40px auto;
+}
+
+.cta-btn {
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .cta-section {
+        padding: 60px 24px;
+    }
+    .cta-subtitle {
+        font-size: 16px;
+    }
 }
 
 /* =================== FORM FEEDBACK MESSAGES =================== */
