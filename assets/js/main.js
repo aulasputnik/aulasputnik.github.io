@@ -175,23 +175,23 @@ function updateLanguageButtonStyles(lang) {
  * Update language-aware dossier download buttons
  */
 function updateDossierButtons(lang) {
-    const dossierLang = lang === 'en' ? 'ca' : lang;
+    // We now use the 'lang' variable directly, no fallback needed.
     document.querySelectorAll('[data-dossier]').forEach(btn => {
         const dossierType = btn.getAttribute('data-dossier');
         let filename = '';
 
+        // Only handle 'workshops' since 'challenge' dossiers do not exist.
         if (dossierType === 'workshops') {
-            filename = `dossier-${dossierLang}.pdf`;
-        } else if (dossierType === 'challenge') {
-            filename = `dossier-repte-${dossierLang}.pdf`;
+            filename = `dossier-${lang}.pdf`;
         }
 
+        // If a valid filename was set, update the button links
         if (filename) {
             btn.href = `assets/fitxers/${filename}`;
             btn.setAttribute('download', filename);
         }
 
-        // Update button text
+        // Update button text (i18n)
         const textKey = btn.getAttribute('data-i18n');
         if (textKey) {
             const text = getTranslation(lang, textKey);
