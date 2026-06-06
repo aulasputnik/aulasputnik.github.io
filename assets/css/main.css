@@ -1,5 +1,5 @@
 /*
- * Main stylesheet for AulaSputnik
+ * Main stylesheet for AulaSPUTNIK
  */
 
 
@@ -2151,6 +2151,9 @@ html {
     font-size: 16px;
     line-height: 1.4;
     color: var(--color-text);
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
 }
 
 .team-member-quote {
@@ -2160,6 +2163,9 @@ html {
     font-family: 'Domine', serif;
     font-style: italic;
     padding: 6px 20px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
 }
 
 /* --- Ajustos responsius per a la secció de l'equip --- */
