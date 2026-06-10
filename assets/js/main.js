@@ -43,8 +43,9 @@ function getTranslation(lang, keyPath) {
 
     // For Catalan (default language), treat the key itself as a fallback
     // for legacy elements where the data-i18n value IS the Catalan text.
-    // Skip if the key contains HTML — textContent would render literal tags.
-    if (lang === 'ca' && !keyPath.includes('<')) {
+    // Skip if the key contains HTML or a dot — dotted keys are proper translation
+    // keys, not inline CA text, so returning them as text would be wrong.
+    if (lang === 'ca' && !keyPath.includes('<') && !keyPath.includes('.')) {
         return keyPath;
     }
 
